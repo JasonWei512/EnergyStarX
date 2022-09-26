@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="EnergyStarX.Views.HelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
+            <Grid MaxWidth="800" HorizontalAlignment="Center">
+                <controls:MarkdownTextBlock
+                    x:Uid="Help_Markdown"
+                    Margin="{StaticResource NavigationViewPageContentMargin}"
+                    Background="Transparent"
+                    FontSize="16"
+                    Header1FontSize="25"
+                    Header2FontSize="18"
+                    UriPrefix="ms-appx://">
+
+                    <i:Interaction.Behaviors>
+                        <ic:EventTriggerBehavior EventName="LinkClicked">
+                            <ic:InvokeCommandAction Command="{x:Bind ViewModel.OpenLinkInBrowserCommand}" />
+                        </ic:EventTriggerBehavior>
+                    </i:Interaction.Behaviors>
+
+                </controls:MarkdownTextBlock>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

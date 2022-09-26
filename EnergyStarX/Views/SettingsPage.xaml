@@ -1,0 +1,127 @@
+﻿<Page
+    x:Class="EnergyStarX.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:EnergyStarX.Helpers"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:settings="using:SettingsUI.Controls"
+    xmlns:xaml="using:Microsoft.UI.Xaml"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+        <helpers:OppositeBoolConverter x:Key="OppositeBoolConverter" />
+        <Thickness x:Key="SubTitleMargin">0,24,0,0</Thickness>
+    </Page.Resources>
+
+    <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
+        <Grid Canvas.ZIndex="1" Visibility="{x:Bind ViewModel.Initializing, Mode=OneWay}">
+            <Grid.Background>
+                <SolidColorBrush Opacity="0.5" Color="{ThemeResource SystemAltHighColor}" />
+            </Grid.Background>
+            <ProgressRing
+                Width="48"
+                Height="48"
+                IsActive="{x:Bind ViewModel.Initializing, Mode=OneWay}" />
+        </Grid>
+
+        <ContentDialog
+            x:Name="BypassProcessListEditorDialog"
+            x:Uid="Settings_BypassProcessListEditorDialog"
+            Title="{x:Bind ViewModel.BypassProcessListEditorDialogTitle, Mode=OneWay}"
+            DefaultButton="Close"
+            PrimaryButtonCommand="{x:Bind ViewModel.ApplyBypassProcessListCommand}">
+
+            <ScrollViewer>
+                <TextBox
+                    Width="800"
+                    MinHeight="300"
+                    Padding="10"
+                    AcceptsReturn="True"
+                    FontFamily="Consolas"
+                    FontSize="18"
+                    IsSpellCheckEnabled="False"
+                    Text="{x:Bind ViewModel.BypassProcessListString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="NoWrap" />
+            </ScrollViewer>
+        </ContentDialog>
+
+        <ScrollViewer>
+            <Grid
+                x:Name="MainContentArea"
+                MaxWidth="800"
+                HorizontalAlignment="Center">
+                <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}" HorizontalAlignment="Stretch">
+                    <StackPanel.Resources>
+                        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
+                    </StackPanel.Resources>
+
+                    <TextBlock
+                        x:Uid="Settings_Title"
+                        Margin="0,0,0,12"
+                        Style="{StaticResource TitleTextBlockStyle}" />
+
+                    <settings:Setting x:Uid="Settings_LaunchOnStartupSetting" Icon="&#xE977;">
+                        <settings:Setting.ActionContent>
+                            <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleLaunchOnStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.LaunchOnStartup, Mode=TwoWay}" />
+                        </settings:Setting.ActionContent>
+                    </settings:Setting>
+
+                    <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
+                        <settings:Setting.ActionContent>
+                            <ToggleSwitch IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
+                        </settings:Setting.ActionContent>
+                    </settings:Setting>
+
+                    <settings:Setting x:Uid="Settings_BypassProcessList" Icon="&#xF0E3;">
+                        <settings:Setting.ActionContent>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Uid="Settings_BypassProcessList_EditButton" Command="{x:Bind ViewModel.ShowBypassProcessListEditorDialogCommand}" />
+                                <Grid Width="10" />
+                                <Button x:Uid="Settings_BypassProcessList_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultBypassProcessListCommand}" />
+                            </StackPanel>
+                        </settings:Setting.ActionContent>
+                    </settings:Setting>
+
+                    <TextBlock
+                        x:Uid="Settings_About"
+                        Margin="{StaticResource SubTitleMargin}"
+                        Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+
+                        <TextBlock
+                            x:Uid="Settings_AboutDescription"
+                            Margin="{StaticResource XSmallTopMargin}"
+                            Style="{ThemeResource BodyTextBlockStyle}" />
+                    </StackPanel>
+
+                    <TextBlock
+                        x:Uid="Settings_Feedback"
+                        Margin="{StaticResource SubTitleMargin}"
+                        Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                        <HyperlinkButton
+                            x:Uid="Settings_RateLink"
+                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                            Command="{x:Bind ViewModel.RateThisAppCommand}" />
+                        <HyperlinkButton
+                            x:Uid="Settings_ContactLink"
+                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                            Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
+                        <HyperlinkButton
+                            x:Uid="Settings_SourceCodeLink"
+                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
+                            NavigateUri="https://github.com/JasonWei512/EnergyStarX/" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

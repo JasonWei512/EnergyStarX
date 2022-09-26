@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>能源之星X</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>能源之星X</value>
+  </data>
+  <data name="Shell_Help.Content" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>关于此应用</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>垃圾英特尔</value>
+  </data>
+  <data name="AlreadyRunningMessage" xml:space="preserve">
+    <value>能源之星X 已在运行！</value>
+  </data>
+  <data name="Settings_LaunchOnStartupSetting.Header" xml:space="preserve">
+    <value>开机启动</value>
+  </data>
+  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="TaskbarIconExitItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="TaskbarIconOpenItem.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Help_Markdown.Text" xml:space="preserve">
+    <value># 简介
+
+能源之星X 是开源程序 [Energy Star](https://github.com/imbushuo/EnergyStar/) 的图形界面版应用，使用 Windows App SDK (WinUI 3) 开发。
+
+它利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) 来限制后台应用的资源占用，从而提高散热表现和电池续航。
+
+
+# 要求
+
+## 硬件 
+
+- 英特尔 10 代及以上移动处理器
+- AMD Ryzen 5000 及以上移动处理器
+- 高通移动处理器
+
+## 软件
+
+- 在 Windows 11 22H2 (Build 22621) 以上可完全发挥作用。
+- 可在 Windows 11 21H2 (Build 22000) 上工作，但是不会有最佳表现。
+
+
+# 使用方法
+
+让它在任务栏右下角后台运行即可。你可以在设置页中选择开机启动。
+
+你可以在任务管理器的 “状态” 列中看到被限制资源的后台应用旁会显示一个绿叶图标。
+
+![任务管理器绿叶](/Assets/InApp/Task_Manager_Leaf.jpg)
+
+
+# 已知问题
+
+- 当父进程获得输入焦点时，子进程不会被解除资源限制。
+- 系统进程 (Session 0) 将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
+
+
+# 致谢
+
+- imbushuo：https://github.com/imbushuo/
+- 应用图标：
+  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/accept_4303945
+  - https://www.flaticon.com/free-icon/pause-button_561920</value>
+  </data>
+  <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
+    <value>警告：您的系统版本为 {0}，低于 22621，将不会获得最佳节能效果</value>
+  </data>
+  <data name="Shell_Log.Content" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
+    <value>设置开机启动！</value>
+  </data>
+  <data name="Settings_ContactLink.Content" xml:space="preserve">
+    <value>联系开发者</value>
+  </data>
+  <data name="Settings_RateLink.Content" xml:space="preserve">
+    <value>评价此应用</value>
+  </data>
+  <data name="Settings_Feedback.Text" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="Log_CopyButton.Label" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
+    <value>插电时限制后台进程</value>
+  </data>
+  <data name="DefaultBypassProcessList" xml:space="preserve">
+    <value>// 每行一个进程名
+// 每行中双斜杠后的内容会被忽略
+
+// 排除我们自己
+EnergyStar.exe
+EnergyStarX.exe
+// Edge 会自己管理好资源
+msedge.exe
+WebViewHost.exe
+// UWP Frame 有特别处理, 不应该被限制
+ApplicationFrameHost.exe
+// 任务管理器，灭火器不可以着火
+taskmgr.exe
+procmon.exe
+procmon64.exe
+// 小组件
+Widgets.exe
+// 系统 shell
+dwm.exe
+explorer.exe
+ShellExperienceHost.exe
+StartMenuExperienceHost.exe
+SearchHost.exe
+sihost.exe
+fontdrvhost.exe
+// 输入法
+ChsIME.exe
+ctfmon.exe
+// 系统服务 - 它们会自己管理好资源
+csrss.exe
+smss.exe
+svchost.exe
+// WUDF
+WUDFRd.exe</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Restore_to_default_bypass_process_list" xml:space="preserve">
+    <value>还原为默认排除进程列表？</value>
+  </data>
+  <data name="Settings_BypassProcessList_RestoreToDefaultButton.Content" xml:space="preserve">
+    <value>还原为默认</value>
+  </data>
+  <data name="Log_ClearButton.Label" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
+    <value>滚至底部</value>
+  </data>
+  <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
+    <value>明白了！</value>
+  </data>
+  <data name="Settings_BypassProcessList.Header" xml:space="preserve">
+    <value>编辑排除进程列表</value>
+  </data>
+  <data name="Settings_BypassProcessList_EditButton.Content" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="BypassProcessListEditorDialogTitle" xml:space="preserve">
+    <value>编辑排除进程列表</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>已编辑</value>
+  </data>
+  <data name="Settings_BypassProcessListEditorDialog.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Settings_BypassProcessListEditorDialog.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Shell_Home.Content" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
+    <value>已暂停限制后台程序，因为你的设备已接入电源。
+你可以在设置中改变这个行为。</value>
+  </data>
+  <data name="Home_Throttling_Description" xml:space="preserve">
+    <value>正在限制后台程序…
+</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
+  <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
+    <value>源代码 (GitHub)</value>
+  </data>
+</root>

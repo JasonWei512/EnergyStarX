@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="EnergyStarX.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image
+                Width="120"
+                Height="120"
+                Source="{x:Bind ViewModel.StatusIconSource, Mode=OneWay}" />
+            <Grid Height="30" />
+            <TextBlock
+                FontSize="18"
+                Text="{x:Bind ViewModel.Description, Mode=OneWay}"
+                TextAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Page>

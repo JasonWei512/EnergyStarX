@@ -1,0 +1,16 @@
+name: "💡 Suggestion / 建议"
+description: "Create a new ticket for a suggestion / 提交一条建议"
+title: "💡 [SUGGESTION] - <title / 标题>"
+labels: [
+  "enhancement"
+]
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: "Content / 内容"
+      description: |
+        Provide a detailed explanation of the suggestion
+        详尽地解释这条建议
+    validations:
+      required: true

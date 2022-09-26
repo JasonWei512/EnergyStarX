@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Energy Star X</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Energy Star X</value>
+  </data>
+  <data name="Shell_Help.Content" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>About this application</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>Intel sucks</value>
+  </data>
+  <data name="AlreadyRunningMessage" xml:space="preserve">
+    <value>Energy Star X is aleady running!</value>
+  </data>
+  <data name="Settings_LaunchOnStartupSetting.Header" xml:space="preserve">
+    <value>Launch on startup</value>
+  </data>
+  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TaskbarIconExitItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="TaskbarIconOpenItem.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Help_Markdown.Text" xml:space="preserve">
+    <value># Introduction
+
+Energy Star X is a GUI version of the open source software [Energy Star](https://github.com/imbushuo/EnergyStar/), developed using Windows App SDK (WinUI 3).
+
+It leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) to throttle background applications to improve system thermal and battery life.
+
+
+# Requirements
+
+## Hardware
+
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
+
+## Software
+
+- Works best on Windows 11 22H2 (Build 22621) and above.
+- Works on Windows 11 21H2 (Build 22000), but not as well.
+
+
+# Usage
+
+Let it run in the background in the system tray. You can choose to run it automatically on startup in the settings page.
+
+You can see a green leaf icon in the "Status" column of the Task Manager next to background processes that are throttled.
+
+![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
+
+
+# Known Limitations
+
+- Child processes do not get boosted when the parent process receives input focus.
+- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+
+
+# Acknowledgements
+
+- imbushuo: https://github.com/imbushuo/
+- App Icon: 
+  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/accept_4303945
+  - https://www.flaticon.com/free-icon/pause-button_561920</value>
+  </data>
+  <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
+    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+  </data>
+  <data name="Shell_Log.Content" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
+    <value>Enable launching on startup!</value>
+  </data>
+  <data name="Settings_ContactLink.Content" xml:space="preserve">
+    <value>Contact the developer</value>
+  </data>
+  <data name="Settings_RateLink.Content" xml:space="preserve">
+    <value>Rate this app</value>
+  </data>
+  <data name="Settings_Feedback.Text" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Log_CopyButton.Label" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
+    <value>Throttle background processes when plugged in</value>
+  </data>
+  <data name="DefaultBypassProcessList" xml:space="preserve">
+    <value>// One process name per line
+// Content after the double slash in each line will be ignored
+    
+// Not ourselves
+EnergyStar.exe
+EnergyStarX.exe
+// Edge has energy awareness
+msedge.exe
+WebViewHost.exe
+// UWP Frame has special handling, should not be throttled
+ApplicationFrameHost.exe
+// Fire extinguisher should not catch fire
+taskmgr.exe
+procmon.exe
+procmon64.exe
+// Widgets
+Widgets.exe
+// System shell
+dwm.exe
+explorer.exe
+ShellExperienceHost.exe
+StartMenuExperienceHost.exe
+SearchHost.exe
+sihost.exe
+fontdrvhost.exe
+// IME
+ChsIME.exe
+ctfmon.exe
+// System Service - they have their awareness
+csrss.exe
+smss.exe
+svchost.exe
+// WUDF
+WUDFRd.exe</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Restore_to_default_bypass_process_list" xml:space="preserve">
+    <value>Restore to default bypass process list?</value>
+  </data>
+  <data name="Settings_BypassProcessList_RestoreToDefaultButton.Content" xml:space="preserve">
+    <value>Restore to default</value>
+  </data>
+  <data name="Log_ClearButton.Label" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
+    <value>Scroll to Bottom</value>
+  </data>
+  <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
+    <value>Got it!</value>
+  </data>
+  <data name="Settings_BypassProcessList.Header" xml:space="preserve">
+    <value>Edit bypass process list</value>
+  </data>
+  <data name="Settings_BypassProcessList_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="BypassProcessListEditorDialogTitle" xml:space="preserve">
+    <value>Edit bypass process list</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="Settings_BypassProcessListEditorDialog.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Settings_BypassProcessListEditorDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Shell_Home.Content" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
+    <value>Throttling paused because your device is plugged in.
+You can change this behavior in settings.</value>
+  </data>
+  <data name="Home_Throttling_Description" xml:space="preserve">
+    <value>Throttling background programs...
+</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
+    <value>Source code (GitHub)</value>
+  </data>
+</root>

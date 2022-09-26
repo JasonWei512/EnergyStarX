@@ -1,0 +1,126 @@
+﻿<Page
+    x:Class="EnergyStarX.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="using:EnergyStarX.Behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:EnergyStarX.Helpers"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:notifyicon="using:H.NotifyIcon"
+    Loaded="OnLoaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            x:Name="AppTitleBar"
+            Grid.Row="0"
+            Margin="0,0,0,0"
+            Padding="16,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="True">
+            <Image
+                Width="16"
+                Height="16"
+                HorizontalAlignment="Left"
+                Source="/Assets/WindowIcon.ico" />
+            <TextBlock
+                x:Name="AppTitleBarText"
+                Margin="30,0,0,0"
+                VerticalAlignment="Center"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                TextWrapping="NoWrap" />
+        </Grid>
+        <NavigationView
+            x:Name="NavigationViewControl"
+            Grid.Row="1"
+            Canvas.ZIndex="0"
+            ExpandedModeThresholdWidth="1280"
+            IsBackButtonVisible="Visible"
+            IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+            IsSettingsVisible="True"
+            PaneDisplayMode="Top"
+            SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}">
+            <NavigationView.MenuItems>
+                <!--
+                TODO: Update item titles by updating <x:Uid>.Content entries in Strings/en-us/Resources.resw.
+                https://docs.microsoft.com/windows/uwp/app-resources/localize-strings-ui-manifest#refer-to-a-string-resource-identifier-from-xaml
+
+                TODO: Update item icons by updating FontIcon.Glyph properties.
+                https://docs.microsoft.com/windows/apps/design/style/segoe-fluent-icons-font#icon-list
+                -->
+                <NavigationViewItem x:Uid="Shell_Home" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.HomeViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE10F;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_Log" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.LogViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE7C3;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_Help" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.HelpViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE11B;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Grid>
+                <Frame x:Name="NavigationFrame" />
+            </Grid>
+        </NavigationView>
+
+        <Grid
+            x:Name="SettingsButtonPosition"
+            Grid.Row="1"
+            Width="48"
+            Height="48"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top" />
+
+        <TeachingTip
+            x:Uid="Shell_FirstRunTeachingTip"
+            CloseButtonCommand="{x:Bind ViewModel.CloseTeachingTipCommand}"
+            IsOpen="{x:Bind ViewModel.ShowTeachingTip, Mode=OneWay}"
+            Target="{x:Bind SettingsButtonPosition}">
+            <TeachingTip.IconSource>
+                <SymbolIconSource Symbol="Setting" />
+            </TeachingTip.IconSource>
+        </TeachingTip>
+
+        <notifyicon:TaskbarIcon
+            x:Name="TaskbarIcon"
+            x:Uid="TaskbarIcon"
+            DoubleClickCommand="{x:Bind ViewModel.ShowAppWindowCommand}"
+            IconSource="{x:Bind ViewModel.TaskbarIconSource, Mode=OneWay}"
+            MenuActivation="RightClick"
+            ToolTipText="{x:Bind ViewModel.TaskbarIconToolTip, Mode=OneWay}">
+            <notifyicon:TaskbarIcon.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem
+                        x:Uid="TaskbarIconOpenItem"
+                        Command="{x:Bind ViewModel.ShowAppWindowCommand}"
+                        Text="Open" />
+                    <MenuFlyoutItem
+                        x:Uid="TaskbarIconExitItem"
+                        Command="{x:Bind ViewModel.ExitAppCommand}"
+                        Text="Exit" />
+                </MenuFlyout>
+            </notifyicon:TaskbarIcon.ContextFlyout>
+        </notifyicon:TaskbarIcon>
+
+        <StackPanel Grid.Row="2">
+            <InfoBar
+                IsOpen="{x:Bind ViewModel.IsOsVersionNotRecommended}"
+                Message="{x:Bind ViewModel.OsVersionNotRecommendedWarningMessage}"
+                Severity="Warning" />
+        </StackPanel>
+    </Grid>
+</Page>

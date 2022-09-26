@@ -1,0 +1,59 @@
+name: "🐛 Bug Report / 报告问题"
+description: "Create a new ticket for a bug / 反馈一个 Bug"
+title: "🐛 [BUG] - <title / 标题>"
+labels: [
+  "bug"
+]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description / 描述"
+      description: |
+        Please enter an explicit description of your issue
+        请输入对你的问题的明确描述
+      placeholder: |
+        Short and explicit description of your incident
+        简短明确的对问题的描述
+    validations:
+      required: true
+  - type: textarea
+    id: reprod
+    attributes:
+      label: "Reproduction steps / 复现步骤"
+      description: |
+        Please describe how to reproduce this bug
+        请描述如何触发这个 Bug
+      value: |
+        1. 
+        2. 
+        3. 
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Screenshots / 截图"
+      description: | 
+        If applicable, add screenshots to help explain your problem
+        如果可以，添加截图来帮助解释你的问题
+      placeholder: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
+  - type: input
+    id: windowsversion
+    attributes:
+      label: "Windows version / Windows 版本"
+      placeholder: |
+        Windows 11 22H2 Build 22622.601
+  - type: textarea
+    id: hardwarespecs
+    attributes:
+      label: "Hardware specs / 硬件配置"
+      placeholder: |
+        Surface Pro 8
+        Intel i5 1135G7
+        16GB / 512GB

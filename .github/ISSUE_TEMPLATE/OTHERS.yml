@@ -1,0 +1,16 @@
+name: "✨ Others / 其他"
+description: "Other problems / 其他问题"
+title: "✨ [OTHERS] - <title / 标题>"
+labels: [
+  "question"
+]
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: "Content / 内容"
+      placeholder: |
+        Blah blah blah
+        布拉布拉布拉
+    validations:
+      required: true
