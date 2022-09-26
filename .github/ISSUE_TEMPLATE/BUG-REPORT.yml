@@ -49,6 +49,8 @@ body:
       label: "Windows version / Windows 版本"
       placeholder: |
         Windows 11 22H2 Build 22622.601
+    validations:
+      required: true
   - type: textarea
     id: hardwarespecs
     attributes:
@@ -57,3 +59,5 @@ body:
         Surface Pro 8
         Intel i5 1135G7
         16GB / 512GB
+    validations:
+      required: true
