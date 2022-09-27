@@ -5,8 +5,8 @@
   Energy Star X　能源之星X
 </h1>
 <p align="center">
-  Improve your device's battery life <br/>
-  提升您设备的电池续航
+  Improve your Windows device's battery life <br/>
+  提升您 Windows 设备的电池续航
 </p>
 <p align="center">
   <a href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank" rel="noopener noreferrer">
