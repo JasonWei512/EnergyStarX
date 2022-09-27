@@ -14,6 +14,8 @@
   </a>
 </p>
 
+![Screenshot](.github/images/Screenshot.png)
+
 # Introduction
 
 Energy Star X is a GUI version of the open source software [Energy Star](https://github.com/imbushuo/EnergyStar/), developed using Windows App SDK (WinUI 3).
