@@ -6,11 +6,27 @@ labels: [
 ]
 body:
   - type: textarea
-    id: content
+    id: problem
     attributes:
-      label: "Content / 内容"
+      label: "The problem you want to solve / 你想要解决的问题"
       description: |
-        Provide a detailed explanation of the suggestion
-        详尽地解释这条建议
+        A clear and concise description of what the problem is
+        明晰地描述你遇到的问题
     validations:
       required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Possible solution / 可能的解决方法"
+      description: |
+        A clear and concise description of what you want to happen
+        明晰地描述你想要的行为
+    validations:
+      required: true
+  - type: textarea
+    id: addition
+    attributes:
+      label: "Additional context / 其他信息"
+      description: |
+        Add any other context or screenshots about the suggestion here
+        其他关于这条建议的信息或截图
