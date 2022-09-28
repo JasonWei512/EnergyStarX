@@ -311,4 +311,7 @@ You can change this behavior in settings.</value>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
     <value>Source code (GitHub)</value>
   </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
 </root>

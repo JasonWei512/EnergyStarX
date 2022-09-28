@@ -41,6 +41,7 @@
     <PackageReference Include="SettingsUI" Version="2.1.7" />
     <PackageReference Include="WinUIEx" Version="1.8.0" />
     <PackageReference Include="DependencyPropertyGenerator" Version="1.0.0" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="Flurl" Version="3.0.6" />
   </ItemGroup>
 
   <ItemGroup>

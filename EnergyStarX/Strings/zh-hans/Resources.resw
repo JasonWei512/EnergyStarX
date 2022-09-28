@@ -311,4 +311,7 @@ WUDFRd.exe</value>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
     <value>源代码 (GitHub)</value>
   </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
 </root>
