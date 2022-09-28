@@ -1,5 +1,5 @@
 using Flurl;
-using Windows.System; 
+using Windows.System;
 
 namespace EnergyStarX.Helpers;
 
@@ -9,9 +9,9 @@ public static class EmailHelper
 {
     private const string MailProtocolPrefix = "mailto:";
 
-    public static async Task SendEmail(string address, string subject, string body)
+    public static async Task ShowEmail(string address, string subject, string body)
     {
-        Uri mailUri = new Url(MailProtocolPrefix + address).SetQueryParams(new { subject = subject, body = body}).ToUri();
+        Uri mailUri = new Url(MailProtocolPrefix + address).SetQueryParams(new { subject, body }).ToUri();
         await Launcher.LaunchUriAsync(mailUri);
     }
 }

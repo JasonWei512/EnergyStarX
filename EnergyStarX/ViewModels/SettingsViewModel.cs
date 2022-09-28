@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
+using Hardware.Info;
 using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.System;
@@ -110,7 +111,34 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private async Task ContactTheDeveloper()
     {
-        await Launcher.LaunchUriAsync(new Uri("mailto:asknickjohn@outlook.com"));
+        string address = "asknickjohn@outlook.com";
+        string subject = $"{VersionDescription} {"Feedback".GetLocalized()}";
+        string body = await Task.Run(() =>
+        {
+            HardwareInfo hardware = new();
+            hardware.RefreshCPUList(false);
+            hardware.RefreshMemoryList();
+            hardware.RefreshBatteryList();
+            hardware.RefreshVideoControllerList();
+
+            string Join<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
+
+            return string.Join(Environment.NewLine, new[]
+            {
+                "----------",
+                $"Windows: {Environment.OSVersion.Version}",
+                $"CPU: {Join(hardware.CpuList, c => c.Name)}",
+                $"RAM: {Join(hardware.MemoryList, m => $"{m.Capacity/1024/1024} MB")}",
+                $"Battery: {Join(hardware.BatteryList, b => $"{b.FullChargeCapacity} / {b.DesignCapacity} mAh")}",
+                $"GPU: {Join(hardware.VideoControllerList, v => v.Name)}",
+                "----------",
+                "",
+                "",
+                ""
+            });
+        });
+
+        await EmailHelper.ShowEmail(address, subject, body);
     }
 
     private static string GetVersionDescription()
