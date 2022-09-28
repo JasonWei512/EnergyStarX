@@ -113,33 +113,35 @@ public partial class SettingsViewModel : ObservableRecipient
     {
         string address = "asknickjohn@outlook.com";
         string subject = $"{VersionDescription} {"Feedback".GetLocalized()}";
-        string body = await Task.Run(() =>
-        {
-            HardwareInfo hardware = new();
-            hardware.RefreshCPUList(false);
-            hardware.RefreshMemoryList();
-            hardware.RefreshBatteryList();
-            hardware.RefreshVideoControllerList();
-
-            string Join<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
-
-            return string.Join(Environment.NewLine, new[]
-            {
-                "----------",
-                $"Windows: {Environment.OSVersion.Version}",
-                $"CPU: {Join(hardware.CpuList, c => c.Name)}",
-                $"RAM: {Join(hardware.MemoryList, m => $"{m.Capacity/1024/1024} MB")}",
-                $"Battery: {Join(hardware.BatteryList, b => $"{b.FullChargeCapacity} / {b.DesignCapacity} mAh")}",
-                $"GPU: {Join(hardware.VideoControllerList, v => v.Name)}",
-                "----------",
-                "",
-                "",
-                ""
-            });
-        });
+        string body = await Task.Run(() => feedbackMailBody.Value);
 
         await EmailHelper.ShowEmail(address, subject, body);
     }
+
+    private Lazy<string> feedbackMailBody = new(() =>
+    {
+        HardwareInfo hardware = new();
+        hardware.RefreshCPUList(false);
+        hardware.RefreshMemoryList();
+        hardware.RefreshBatteryList();
+        hardware.RefreshVideoControllerList();
+
+        string Join<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
+
+        return string.Join(Environment.NewLine, new[]
+        {
+            "----------",
+            $"Windows: {Environment.OSVersion.Version}",
+            $"CPU: {Join(hardware.CpuList, c => c.Name)}",
+            $"RAM: {Join(hardware.MemoryList, m => $"{m.Capacity/1024/1024} MB")}",
+            $"Battery: {Join(hardware.BatteryList, b => $"{b.FullChargeCapacity} / {b.DesignCapacity} mAh")}",
+            $"GPU: {Join(hardware.VideoControllerList, v => v.Name)}",
+            "----------",
+            "",
+            "",
+            ""
+        });
+    });
 
     private static string GetVersionDescription()
     {
