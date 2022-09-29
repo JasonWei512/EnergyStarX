@@ -2,8 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
+using Hardware.Info;
 using System.Reflection;
 using Windows.ApplicationModel;
+using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
 
 namespace EnergyStarX.ViewModels;
@@ -110,8 +112,38 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private async Task ContactTheDeveloper()
     {
-        await Launcher.LaunchUriAsync(new Uri("mailto:asknickjohn@outlook.com"));
+        string address = "asknickjohn@outlook.com";
+        string subject = $"{VersionDescription} {"Feedback".GetLocalized()}";
+        string body = await Task.Run(() => feedbackMailBody.Value);
+
+        await EmailHelper.ShowEmail(address, subject, body);
     }
+
+    private Lazy<string> feedbackMailBody = new(() =>
+    {
+        HardwareInfo hardware = new();
+        hardware.RefreshCPUList(false);
+        hardware.RefreshMemoryList();
+        hardware.RefreshVideoControllerList();
+        hardware.RefreshBatteryList();
+
+        string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
+
+        return string.Join(Environment.NewLine, new[]
+        {
+            "----------",
+            $"Windows: {Environment.OSVersion.Version} ({Package.Current.Id.Architecture})",
+            $"Device: {new EasClientDeviceInformation().SystemProductName}",
+            $"CPU: {JoinItems(hardware.CpuList, c => c.Name)}",
+            $"RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b)/1024/1024} MB",
+            $"GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}",
+            $"Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}",
+            "----------",
+            "",
+            "",
+            ""
+        });
+    });
 
     private static string GetVersionDescription()
     {
