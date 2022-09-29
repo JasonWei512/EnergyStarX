@@ -5,6 +5,7 @@ using EnergyStarX.Services;
 using Hardware.Info;
 using System.Reflection;
 using Windows.ApplicationModel;
+using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
 
 namespace EnergyStarX.ViewModels;
@@ -123,19 +124,20 @@ public partial class SettingsViewModel : ObservableRecipient
         HardwareInfo hardware = new();
         hardware.RefreshCPUList(false);
         hardware.RefreshMemoryList();
-        hardware.RefreshBatteryList();
         hardware.RefreshVideoControllerList();
+        hardware.RefreshBatteryList();
 
-        string Join<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
+        string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
 
         return string.Join(Environment.NewLine, new[]
         {
             "----------",
-            $"Windows: {Environment.OSVersion.Version}",
-            $"CPU: {Join(hardware.CpuList, c => c.Name)}",
-            $"RAM: {Join(hardware.MemoryList, m => $"{m.Capacity/1024/1024} MB")}",
-            $"Battery: {Join(hardware.BatteryList, b => $"{b.FullChargeCapacity} / {b.DesignCapacity} mAh")}",
-            $"GPU: {Join(hardware.VideoControllerList, v => v.Name)}",
+            $"Windows: {Environment.OSVersion.Version} ({Package.Current.Id.Architecture})",
+            $"Device: {new EasClientDeviceInformation().SystemProductName}",
+            $"CPU: {JoinItems(hardware.CpuList, c => c.Name)}",
+            $"RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b)/1024/1024} MB",
+            $"GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}",
+            $"Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}",
             "----------",
             "",
             "",
