@@ -6,12 +6,19 @@ using EnergyStarX.Services;
 using EnergyStarX.Views;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 
 namespace EnergyStarX.ViewModels;
 
 public partial class ShellViewModel : ObservableRecipient
 {
+    private readonly (ImageSource IconSource, string Tooltip) TaskbarIconThrottlingProperties
+        = (new BitmapImage(new Uri("ms-appx:///Assets/WindowIcon.ico")), "AppDisplayName".GetLocalized());
+    private readonly (ImageSource IconSource, string Tooltip) TaskbarIconNotThrottlingProperties
+        = (new BitmapImage(new Uri("ms-appx:///Assets/WindowIcon-Gray.ico")), $"{"AppDisplayName".GetLocalized()}\n({"Paused".GetLocalized()})");
+
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly WindowService windowService;
@@ -27,10 +34,10 @@ public partial class ShellViewModel : ObservableRecipient
     private object? selected;
 
     [ObservableProperty]
-    private string taskbarIconSource = "";
+    private ImageSource taskbarIconSource;
 
     [ObservableProperty]
-    private string taskbarIconToolTip = "";
+    private string taskbarIconToolTip;
 
     public bool ShowTeachingTip
     {
@@ -50,7 +57,7 @@ public partial class ShellViewModel : ObservableRecipient
         this.windowService = windowService;
         this.energyService = energyService;
 
-        UpdateTaskbarIcon(this.energyService.Status);
+        (taskbarIconSource, taskbarIconToolTip) = GetTaskbarIconProperties(this.energyService.Status);
         this.energyService.StatusChanged += EnergyService_StatusChanged;
     }
 
@@ -90,18 +97,14 @@ public partial class ShellViewModel : ObservableRecipient
         }
     }
 
-    private void UpdateTaskbarIcon(EnergyService.EnergyStatus energyStatus)
-    {
-        (TaskbarIconSource, TaskbarIconToolTip) = energyStatus.IsThrottling ?
-            ("ms-appx:///Assets/WindowIcon.ico", "AppDisplayName".GetLocalized()) :
-            ("ms-appx:///Assets/WindowIcon-Gray.ico", $"{"AppDisplayName".GetLocalized()}\n({"Paused".GetLocalized()})");
-    }
-
     private async void EnergyService_StatusChanged(object? sender, EnergyService.EnergyStatus e)
     {
         await CommunityToolkit.WinUI.DispatcherQueueExtensions.EnqueueAsync(dispatcherQueue, () =>
         {
-            UpdateTaskbarIcon(e);
+            (TaskbarIconSource, TaskbarIconToolTip) = GetTaskbarIconProperties(e);
         });
     }
+
+    private (ImageSource IconSource, string Tooltip) GetTaskbarIconProperties(EnergyService.EnergyStatus energyStatus) =>
+        energyStatus.IsThrottling ? TaskbarIconThrottlingProperties : TaskbarIconNotThrottlingProperties;
 }
