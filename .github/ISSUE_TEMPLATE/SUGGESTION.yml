@@ -1,6 +1,6 @@
 name: "💡 Suggestion / 建议"
 description: "Create a new ticket for a suggestion / 提交一条建议"
-title: "💡 "
+title: "​"
 labels: [
   "enhancement"
 ]

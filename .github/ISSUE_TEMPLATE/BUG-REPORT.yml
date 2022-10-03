@@ -1,6 +1,6 @@
 name: "🐛 Bug Report / 报告问题"
 description: "Create a new ticket for a bug / 反馈一个 Bug"
-title: "🐛 "
+title: "​"
 labels: [
   "bug"
 ]
