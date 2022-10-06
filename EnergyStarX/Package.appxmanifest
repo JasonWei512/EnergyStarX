@@ -68,6 +68,14 @@
 					  TaskId="72B0BCDA-39F4-4E0E-BF10-279FB803B73C"
 					  DisplayName="ms-resource:AppDisplayName" />
         </uap5:Extension>
+
+        <uap5:Extension
+          Category="windows.appExecutionAlias"
+          EntryPoint="Windows.FullTrustApplication">
+          <uap5:AppExecutionAlias>
+            <uap5:ExecutionAlias Alias="EnergyStarX.exe" />
+          </uap5:AppExecutionAlias>
+        </uap5:Extension>
       </Extensions>
     </Application>
   </Applications>
