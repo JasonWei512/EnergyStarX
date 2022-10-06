@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
+using System.Security.Principal;
 
 namespace EnergyStarX.ViewModels;
 
@@ -45,8 +46,8 @@ public partial class ShellViewModel : ObservableRecipient
         set => SetProperty(ShowTeachingTip, value, x => LocalSettings.FirstRun = x);
     }
 
+    public string TitlebarText { get; }
     public bool IsOsVersionNotRecommended { get; } = Environment.OSVersion.Version.Build < 22621;
-
     public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".GetLocalized(), Environment.OSVersion.Version.Build);
 
     public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService, WindowService windowService, EnergyService energyService)
@@ -56,6 +57,10 @@ public partial class ShellViewModel : ObservableRecipient
         NavigationViewService = navigationViewService;
         this.windowService = windowService;
         this.energyService = energyService;
+
+        TitlebarText = HasAdminPrivilege() ?
+            $"{"AppDisplayName".GetLocalized()}  ({"Admin Privilege".GetLocalized()})" :
+            "AppDisplayName".GetLocalized();
 
         (taskbarIconSource, taskbarIconToolTip) = GetTaskbarIconProperties(this.energyService.Status);
         this.energyService.StatusChanged += EnergyService_StatusChanged;
@@ -107,4 +112,11 @@ public partial class ShellViewModel : ObservableRecipient
 
     private (ImageSource IconSource, string Tooltip) GetTaskbarIconProperties(EnergyService.EnergyStatus energyStatus) =>
         energyStatus.IsThrottling ? TaskbarIconThrottlingProperties : TaskbarIconNotThrottlingProperties;
+
+    private bool HasAdminPrivilege()
+    {
+        using WindowsIdentity identity = WindowsIdentity.GetCurrent();
+        WindowsPrincipal principal = new(identity);
+        return principal.IsInRole(WindowsBuiltInRole.Administrator);
+    }
 }

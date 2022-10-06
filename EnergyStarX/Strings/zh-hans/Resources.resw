@@ -314,4 +314,7 @@ WUDFRd.exe</value>
   <data name="Feedback" xml:space="preserve">
     <value>反馈</value>
   </data>
+  <data name="Admin Privilege" xml:space="preserve">
+    <value>管理员权限</value>
+  </data>
 </root>

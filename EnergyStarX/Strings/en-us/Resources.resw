@@ -314,4 +314,7 @@ You can change this behavior in settings.</value>
   <data name="Feedback" xml:space="preserve">
     <value>Feedback</value>
   </data>
+  <data name="Admin Privilege" xml:space="preserve">
+    <value>Admin Privilege</value>
+  </data>
 </root>
