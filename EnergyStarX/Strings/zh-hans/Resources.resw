@@ -141,10 +141,10 @@
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>设置</value>
   </data>
-  <data name="TaskbarIconExitItem.Text" xml:space="preserve">
+  <data name="Shell_TaskbarIconExitItem.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="TaskbarIconOpenItem.Text" xml:space="preserve">
+  <data name="Shell_TaskbarIconOpenItem.Text" xml:space="preserve">
     <value>打开</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
@@ -180,6 +180,7 @@
 
 # 已知问题
 
+- 如果你使用了 [StartAllBack](https://www.startallback.com/) 等任务栏增强软件，那么当你把鼠标悬停在任务栏右下角图标上时，应用可能会崩溃。
 - 当父进程获得输入焦点时，子进程不会被解除资源限制。
 - 系统进程 (Session 0) 将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
 

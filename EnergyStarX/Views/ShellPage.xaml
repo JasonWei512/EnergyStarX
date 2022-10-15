@@ -105,14 +105,8 @@
             ToolTipText="{x:Bind ViewModel.TaskbarIconToolTip, Mode=OneWay}">
             <notifyicon:TaskbarIcon.ContextFlyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem
-                        x:Uid="TaskbarIconOpenItem"
-                        Command="{x:Bind ViewModel.ShowAppWindowCommand}"
-                        Text="Open" />
-                    <MenuFlyoutItem
-                        x:Uid="TaskbarIconExitItem"
-                        Command="{x:Bind ViewModel.ExitAppCommand}"
-                        Text="Exit" />
+                    <MenuFlyoutItem x:Uid="Shell_TaskbarIconOpenItem" Command="{x:Bind ViewModel.ShowAppWindowCommand}" />
+                    <MenuFlyoutItem x:Uid="Shell_TaskbarIconExitItem" Command="{x:Bind ViewModel.ExitAppCommand}" />
                 </MenuFlyout>
             </notifyicon:TaskbarIcon.ContextFlyout>
         </notifyicon:TaskbarIcon>

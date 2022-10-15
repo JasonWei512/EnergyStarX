@@ -141,10 +141,10 @@
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="TaskbarIconExitItem.Text" xml:space="preserve">
+  <data name="Shell_TaskbarIconExitItem.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="TaskbarIconOpenItem.Text" xml:space="preserve">
+  <data name="Shell_TaskbarIconOpenItem.Text" xml:space="preserve">
     <value>Open</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
@@ -180,6 +180,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
 
 # Known Limitations
 
+- If you use some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
 - Child processes do not get boosted when the parent process receives input focus.
 - System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 

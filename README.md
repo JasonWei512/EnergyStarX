@@ -48,6 +48,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
 
 # Known Limitations
 
+- If you use some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
 - Child processes do not get boosted when the parent process receives input focus.
 - System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 
@@ -94,6 +95,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
 
 # 已知问题
 
+- 如果你使用了 [StartAllBack](https://www.startallback.com/) 等任务栏增强软件，那么当你把鼠标悬停在任务栏右下角图标上时，应用可能会崩溃。
 - 当父进程获得输入焦点时，子进程不会被解除资源限制。
 - 系统进程 (Session 0) 将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
 
