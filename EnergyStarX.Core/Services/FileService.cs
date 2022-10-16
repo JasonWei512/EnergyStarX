@@ -1,6 +1,6 @@
 ﻿using EnergyStarX.Core.Contracts.Services;
-using Newtonsoft.Json;
 using System.Text;
+using System.Text.Json;
 
 namespace EnergyStarX.Core.Services;
 
@@ -12,7 +12,7 @@ public class FileService : IFileService
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<T>(json);
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         return default;
@@ -25,7 +25,7 @@ public class FileService : IFileService
             Directory.CreateDirectory(folderPath);
         }
 
-        string fileContent = JsonConvert.SerializeObject(content);
+        string fileContent = JsonSerializer.Serialize(content);
         File.WriteAllText(Path.Combine(folderPath, fileName), fileContent, Encoding.UTF8);
     }
 
