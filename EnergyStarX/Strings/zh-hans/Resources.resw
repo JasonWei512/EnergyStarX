@@ -219,7 +219,7 @@
   </data>
   <data name="DefaultBypassProcessList" xml:space="preserve">
     <value>// 每行一个进程名
-// 每行中双斜杠后的内容会被忽略
+// 每行中双斜杠以及之后的内容会被忽略
 
 // 排除我们自己
 EnergyStar.exe

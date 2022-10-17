@@ -219,7 +219,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
   </data>
   <data name="DefaultBypassProcessList" xml:space="preserve">
     <value>// One process name per line
-// Content after the double slash in each line will be ignored
+// Double slash and content after it in each line will be ignored
     
 // Not ourselves
 EnergyStar.exe

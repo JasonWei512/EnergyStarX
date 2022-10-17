@@ -2,6 +2,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
 using Microsoft.UI.Dispatching;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.Windows.System.Power;
 
 namespace EnergyStarX.ViewModels;
@@ -13,10 +15,10 @@ public partial class HomeViewModel : ObservableRecipient
     private readonly EnergyService energyService;
 
     [ObservableProperty]
-    private string description = "";
+    private string? description;
 
     [ObservableProperty]
-    private string statusIconSource = "";
+    private ImageSource? statusIconSource;
 
     public HomeViewModel(EnergyService energyService)
     {
@@ -30,11 +32,13 @@ public partial class HomeViewModel : ObservableRecipient
     {
         if (energyStatus.IsThrottling)
         {
-            (StatusIconSource, Description) = ("ms-appx:///Assets/InApp/CheckButton.png", "Home_Throttling_Description".GetLocalized());
+            StatusIconSource = new BitmapImage(new Uri("ms-appx:///Assets/InApp/CheckButton.png"));
+            Description = "Home_Throttling_Description".GetLocalized();
         }
         else if (energyStatus.PowerSourceKind == PowerSourceKind.AC)
         {
-            (StatusIconSource, Description) = ("ms-appx:///Assets/InApp/PauseButton.png", "Home_NotThrottlingAC_Description".GetLocalized());
+            StatusIconSource = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
+            Description = "Home_NotThrottlingAC_Description".GetLocalized();
         }
     }
 
