@@ -120,13 +120,13 @@ internal unsafe class EnergyManager
         bool bypass = BypassProcessList.Contains(appName.ToLowerInvariant());
         if (!bypass)
         {
-            Logger.Log($"Boosting {appName}");
+            Logger.Info($"Boosting {appName}");
             ToggleEfficiencyMode(procHandle, false);
         }
 
         if (pendingProcPid != 0)
         {
-            Logger.Log($"Throttle {pendingProcName}");
+            Logger.Info($"Throttle {pendingProcName}");
 
             IntPtr prevProcHandle = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, pendingProcPid);
             if (prevProcHandle != IntPtr.Zero)

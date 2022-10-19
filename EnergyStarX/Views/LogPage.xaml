@@ -46,6 +46,12 @@
                 x:Uid="Log_ClearButton"
                 Command="{x:Bind ViewModel.ClearLogsCommand}"
                 Icon="Clear" />
+
+            <AppBarButton x:Uid="Log_OpenLogFolderButton" Command="{x:Bind ViewModel.OpenLogFolderCommand}">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xED25;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
         </CommandBar>
     </Grid>
 </Page>

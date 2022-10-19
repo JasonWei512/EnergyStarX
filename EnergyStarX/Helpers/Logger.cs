@@ -1,26 +1,112 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using System.Diagnostics;
+using Windows.Storage;
+using Windows.System;
 
 namespace EnergyStarX.Helpers;
 
 public static class Logger
 {
-    public static void Log(object message)
+    private static readonly StorageFolder BaseFolder = ApplicationData.Current.LocalCacheFolder;
+    private const string LogFolderName = "Log";
+    private const string LogFileName = "Log.txt";
+
+    private static readonly SemaphoreSlim semaphore = new(1);
+
+    public static event EventHandler<Message>? NewLogLine;
+    public record Message(DateTime Time, string Value, string LogString);
+
+    public static void Debug(string message) 
     {
-        if (message.ToString() is string value)
+#if DEBUG
+        Log("DEBUG", message);
+#endif
+    }
+
+    public static void Info(string message) => Log("INFO ", message);
+
+    public static void Error(string message, Exception? exception = null)
+    {
+        if (exception is not null)
         {
-            DateTime time = DateTime.Now;
+            message +=
+                $"""
 
-            string prefix = $"{time} | ";
-            string logString = $"{time} | {value.Replace("\n", $"\n{new string(' ', prefix.Length)}")}";
+                Exception:
+                {exception}
+                """;
+        }
 
-            Debug.WriteLine(logString);
-            Console.WriteLine(logString);
+        // Send error info to App Center
+        Dictionary<string, string> appCenterProperties = new()
+        {
+            { "Time",  DateTime.Now.ToString() },
+            { "Message", message }, 
+        };
 
-            NewLogLine?.Invoke(null, new Message(time, value, logString));
+        if (exception is not null)
+        {
+            Crashes.TrackError(exception, appCenterProperties);
+        } 
+        else 
+        {
+            Analytics.TrackEvent("Error", appCenterProperties);
+        }
+
+        Log("ERROR", message, true);
+    }
+
+    public static async Task OpenLogFolder()
+    {
+        FolderLauncherOptions folderLauncherOptions = new();
+        StorageFolder logFolder = await GetLogFolder();
+        if (await logFolder.TryGetItemAsync(LogFileName) is IStorageItem logFile)
+        {
+            folderLauncherOptions.ItemsToSelect.Add(logFile);
+        }
+        await Launcher.LaunchFolderAsync(logFolder, folderLauncherOptions);
+    }
+
+    private static void Log(string logLevel, string message, bool logToFile = false)
+    {
+        DateTime time = DateTime.Now;
+        string logString = GetLogString(time, logLevel, message);
+
+        Debug.WriteLine(logString);
+        Console.WriteLine(logString);
+
+        NewLogLine?.Invoke(null, new Message(time, message, logString));
+
+        if (logToFile)
+        {
+            _ = AppendLogToFile(logString);
         }
     }
 
-    public static event EventHandler<Message>? NewLogLine;
+    private static string GetLogString(DateTime time, string logLevel, string message)
+    {
+        string prefix = $"{time} - {logLevel} | ";
+        string logString = $"{prefix}{message.Replace("\n", $"\n{new string(' ', prefix.Length)}")}";
 
-    public record Message(DateTime Time, string Value, string LogString);
+        return logString;
+    }
+
+    private static async Task AppendLogToFile(string message)
+    {
+        await semaphore.WaitAsync();
+        try
+        {
+            StorageFolder logFolder = await GetLogFolder();
+            StorageFile logFile = await logFolder.CreateFileAsync(LogFileName, CreationCollisionOption.OpenIfExists);
+            await FileIO.AppendLinesAsync(logFile, new[] { message });
+        }
+        catch { }
+        finally
+        {
+            semaphore.Release();
+        }
+    }
+
+    private static async Task<StorageFolder> GetLogFolder() => await BaseFolder.CreateFolderAsync(LogFolderName, CreationCollisionOption.OpenIfExists);
 }

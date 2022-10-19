@@ -318,4 +318,7 @@ WUDFRd.exe</value>
   <data name="Admin Privilege" xml:space="preserve">
     <value>管理员权限</value>
   </data>
+  <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
+    <value>打开日志文件夹</value>
+  </data>
 </root>

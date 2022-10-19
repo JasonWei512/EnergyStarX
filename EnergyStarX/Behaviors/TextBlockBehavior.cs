@@ -60,7 +60,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
         }
     }
 
-    // Currently it only supports ObservableCollection's "Add" and "Reset (Clear)" action.
+    // Currently it only supports ObservableCollection's "Add", "Remove" and "Reset (Clear)" action.
     private void ObservableCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         if (e.Action == NotifyCollectionChangedAction.Add)
@@ -77,9 +77,13 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
         {
             textBlock?.Inlines.Clear();
         }
+        else if (e.Action == NotifyCollectionChangedAction.Remove)
+        {
+            textBlock?.Inlines.RemoveAt(e.OldStartingIndex);            
+        }
         else
         {
-            throw new NotImplementedException($@"Currently {nameof(TextBlockBehavior)} only supports ObservableCollection's ""Add"" and ""Reset (Clear)"" action.");
+            throw new NotImplementedException($@"Currently {nameof(TextBlockBehavior)} only supports ObservableCollection's ""Add"", ""Remove"" and ""Reset (Clear)"" action.");
         }
     }
 }
