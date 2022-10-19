@@ -113,8 +113,10 @@ public class EnergyService
 
                 EnergyManager.ThrottleAllUserBackgroundProcesses();
 
-                Thread houseKeepingThread = new(new ThreadStart(HouseKeepingThreadProc));
-                houseKeepingThread.Start();
+                // Thread houseKeepingThread = new(new ThreadStart(HouseKeepingThreadProc));
+                // houseKeepingThread.Start();
+
+                _ = HouseKeeping(cts.Token);
 
                 EnergyManager.IsRunning = true;
 
@@ -199,22 +201,46 @@ public class EnergyService
         return result;
     }
 
-    private async void HouseKeepingThreadProc()
+    // private async void HouseKeepingThreadProc()
+    // {
+    //     Logger.Log("House keeping thread started.");
+    //     while (!cts.IsCancellationRequested)
+    //     {
+    //         try
+    //         {
+    //             PeriodicTimer houseKeepingTimer = new(TimeSpan.FromMinutes(5));
+    //             await houseKeepingTimer.WaitForNextTickAsync(cts.Token);
+    //             EnergyManager.ThrottleAllUserBackgroundProcesses();
+    //         }
+    //         catch (OperationCanceledException)
+    //         {
+    //             break;
+    //         }
+    //     }
+    //     Logger.Log("House keeping thread stopped.");
+    // }
+
+    private async Task HouseKeeping(CancellationToken cancellationToken)
     {
-        Logger.Log("House keeping thread started.");
-        while (!cts.IsCancellationRequested)
+        Logger.Log("House keeping task started.");
+
+        while (!cancellationToken.IsCancellationRequested)
         {
             try
             {
-                PeriodicTimer houseKeepingTimer = new(TimeSpan.FromMinutes(5));
-                await houseKeepingTimer.WaitForNextTickAsync(cts.Token);
+                await Task.Delay(TimeSpan.FromMinutes(5), cancellationToken);
                 EnergyManager.ThrottleAllUserBackgroundProcesses();
             }
             catch (OperationCanceledException)
             {
                 break;
             }
+            catch (Exception e)
+            {
+                Logger.Log($"House keeping task error: {e}");
+            }
         }
-        Logger.Log("House keeping thread stopped.");
+
+        Logger.Log("House keeping task stopped.");
     }
 }
