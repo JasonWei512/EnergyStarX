@@ -1,6 +1,6 @@
 ﻿using EnergyStarX.Activation;
-using EnergyStarX.Contracts.Services;
 using EnergyStarX.Constants;
+using EnergyStarX.Contracts.Services;
 using EnergyStarX.Core.Contracts.Services;
 using EnergyStarX.Core.Services;
 using EnergyStarX.Helpers;
@@ -8,7 +8,6 @@ using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
-
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;

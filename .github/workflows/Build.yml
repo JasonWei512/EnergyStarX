@@ -55,6 +55,23 @@ jobs:
         $certificatePath = $env:Cert_File_Name
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
+    # Replace secrets in code
+    - name: Replace secrets in code
+      run: |
+        function Replace-StringInFile {
+            param ($filePath, $oldString, $newString)
+
+            $file = Get-ChildItem $filePath
+            $fileContent = Get-Content $file
+            $matchCount = ($fileContent | Select-String -Pattern $oldString -AllMatches).Matches.Count
+            $fileContent = $fileContent.Replace($oldString, $newString)
+            $fileContent > $file
+
+            Write-Host "Replaced `"$oldString`" in `"$filePath`" for $matchCount times"
+        }
+
+        Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{AppCenterSecret}}" "${{ secrets.APP_CENTER_SECRET }}"
+
     # Create the app package by building and packaging the project
     - name: Create the app package
       run: |

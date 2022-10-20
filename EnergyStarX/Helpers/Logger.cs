@@ -1,6 +1,5 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using System.Diagnostics;
 using Windows.Storage;
 using Windows.System;
 
@@ -17,7 +16,7 @@ public static class Logger
     public static event EventHandler<Message>? NewLogLine;
     public record Message(DateTime Time, string Value, string LogString);
 
-    public static void Debug(string message) 
+    public static void Debug(string message)
     {
 #if DEBUG
         Log("DEBUG", message);
@@ -42,14 +41,14 @@ public static class Logger
         Dictionary<string, string> appCenterProperties = new()
         {
             { "Time",  DateTime.Now.ToString() },
-            { "Message", message }, 
+            { "Message", message },
         };
 
         if (exception is not null)
         {
             Crashes.TrackError(exception, appCenterProperties);
-        } 
-        else 
+        }
+        else
         {
             Analytics.TrackEvent("Error", appCenterProperties);
         }
@@ -73,7 +72,7 @@ public static class Logger
         DateTime time = DateTime.Now;
         string logString = GetLogString(time, logLevel, message);
 
-        Debug.WriteLine(logString);
+        System.Diagnostics.Debug.WriteLine(logString);
         Console.WriteLine(logString);
 
         NewLogLine?.Invoke(null, new Message(time, message, logString));

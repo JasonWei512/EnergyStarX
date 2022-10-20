@@ -79,7 +79,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
         }
         else if (e.Action == NotifyCollectionChangedAction.Remove)
         {
-            textBlock?.Inlines.RemoveAt(e.OldStartingIndex);            
+            textBlock?.Inlines.RemoveAt(e.OldStartingIndex);
         }
         else
         {

@@ -30,7 +30,7 @@ public partial class LogViewModel : ObservableRecipient
     public LogViewModel(WindowService windowService)
     {
         this.windowService = windowService;
-        
+
         StartDisplayingLog();
 
         // this.windowService.MainWindowShowing += (s, e) => StartDisplayingLog();
