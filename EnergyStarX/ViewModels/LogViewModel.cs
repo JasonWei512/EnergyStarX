@@ -11,7 +11,7 @@ namespace EnergyStarX.ViewModels;
 
 public partial class LogViewModel : ObservableRecipient
 {
-    private const int MaxLogCount = 500;
+    private const int MaxLogCount = 100;
 
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
@@ -30,11 +30,9 @@ public partial class LogViewModel : ObservableRecipient
     public LogViewModel(WindowService windowService)
     {
         this.windowService = windowService;
+        this.windowService.WindowShowing += (s, e) => ScrollToBottomRequested?.Invoke(this, new EventArgs());
 
         StartDisplayingLog();
-
-        // this.windowService.MainWindowShowing += (s, e) => StartDisplayingLog();
-        // this.windowService.MainWindowHiding += (s, e) => StopDisplayingLog();
     }
 
     public void StartDisplayingLog()
