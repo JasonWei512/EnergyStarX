@@ -76,7 +76,19 @@ jobs:
     - name: Create the app package
       run: |
         $certificateAbsolutePath = (Get-Item $env:Cert_File_Name).FullName
-        msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=$env:Platform /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:AppxPackageSigningEnabled=True /p:PackageCertificateKeyFile="$certificateAbsolutePath" /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 /p:AppxPackageDir="$env:Appx_Package_Dir" /p:GenerateAppxPackageOnBuild=true /p:WindowsAppSDKSelfContained=true /p:SelfContained=true /p:RuntimeIdentifier=win10-${{ matrix.platform }}
+        msbuild $env:Solution_Name `
+          /p:Configuration=$env:Configuration `
+          /p:Platform=$env:Platform `
+          /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode `
+          /p:AppxBundle=$env:Appx_Bundle `
+          /p:AppxPackageSigningEnabled=True `
+          /p:PackageCertificateKeyFile="$certificateAbsolutePath" `
+          /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 `
+          /p:AppxPackageDir="$env:Appx_Package_Dir" `
+          /p:GenerateAppxPackageOnBuild=true `
+          /p:WindowsAppSDKSelfContained=true `
+          /p:SelfContained=true `
+          /p:RuntimeIdentifier=win10-${{ matrix.platform }}
       env:
         Appx_Bundle: Never
         Appx_Package_Build_Mode: SideloadOnly
