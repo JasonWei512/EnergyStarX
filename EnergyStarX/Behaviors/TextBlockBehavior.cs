@@ -1,4 +1,5 @@
 ﻿using DependencyPropertyGenerator;
+using EnergyStarX.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;
@@ -14,9 +15,18 @@ namespace EnergyStarX.Behaviors;
 [DependencyProperty<ObservableCollection<string>>("BindableInlines")]
 public partial class TextBlockBehavior : DependencyObject, IBehavior
 {
-    public DependencyObject? AssociatedObject { get; private set; }
+    private readonly WindowService windowService;
 
     private TextBlock? textBlock => AssociatedObject as TextBlock;
+
+    public DependencyObject? AssociatedObject { get; private set; }
+
+    public TextBlockBehavior()
+    {
+        this.windowService = App.GetService<WindowService>();
+        this.windowService.WindowShowing += WindowService_MainWindowShowing;
+        this.windowService.WindowHiding += WindowService_MainWindowHiding;
+    }
 
     // Called when AssociatedObject is added to xaml tree
     public void Attach(DependencyObject associatedObject)
@@ -51,16 +61,49 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
 
         if (newValue is not null)
         {
-            foreach (string line in newValue)
+            if (windowService.WindowVisible)
             {
-                textBlock?.Inlines.Add(new Run() { Text = line + Environment.NewLine });
+                StartUpdatingTextBlock(newValue);
             }
-
-            newValue.CollectionChanged += ObservableCollectionChanged;
         }
     }
 
-    // Currently it only supports ObservableCollection's "Add" and "Reset (Clear)" action.
+    private void WindowService_MainWindowShowing(object? sender, EventArgs e)
+    {
+        StartUpdatingTextBlock(BindableInlines);
+    }
+
+    private void WindowService_MainWindowHiding(object? sender, EventArgs e)
+    {
+        StopUpdatingTextBlock(BindableInlines);
+    }
+
+    private void StartUpdatingTextBlock(ObservableCollection<string>? bindableInlines)
+    {
+        if (bindableInlines is not null)
+        {
+            textBlock?.Inlines.Clear();
+            foreach (string line in bindableInlines)
+            {
+                AddLineToTextBlock(textBlock, line);
+            }
+
+            bindableInlines.CollectionChanged -= ObservableCollectionChanged;
+            bindableInlines.CollectionChanged += ObservableCollectionChanged;
+        }
+    }
+
+    private void StopUpdatingTextBlock(ObservableCollection<string>? bindableInlines)
+    {
+        if (bindableInlines is not null)
+        {
+            textBlock?.Inlines.Clear();
+            bindableInlines.CollectionChanged -= ObservableCollectionChanged;
+        }
+    }
+
+    // Update TextBlock on UI when BindableInlines.CollectionChanged is triggered.
+    // Currently it only supports ObservableCollection's "Add", "Remove" and "Reset (Clear)" action.
     private void ObservableCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         if (e.Action == NotifyCollectionChangedAction.Add)
@@ -69,7 +112,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
             {
                 foreach (string newLine in e.NewItems.OfType<string>())
                 {
-                    textBlock?.Inlines.Add(new Run() { Text = newLine + Environment.NewLine });
+                    AddLineToTextBlock(textBlock, newLine);
                 }
             }
         }
@@ -77,9 +120,18 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
         {
             textBlock?.Inlines.Clear();
         }
+        else if (e.Action == NotifyCollectionChangedAction.Remove)
+        {
+            textBlock?.Inlines.RemoveAt(e.OldStartingIndex);
+        }
         else
         {
-            throw new NotImplementedException($@"Currently {nameof(TextBlockBehavior)} only supports ObservableCollection's ""Add"" and ""Reset (Clear)"" action.");
+            throw new NotImplementedException($@"Currently {nameof(TextBlockBehavior)} only supports ObservableCollection's ""Add"", ""Remove"" and ""Reset (Clear)"" action.");
         }
+    }
+
+    private void AddLineToTextBlock(TextBlock? textBlock, string line)
+    {
+        textBlock?.Inlines.Add(new Run() { Text = line + Environment.NewLine });
     }
 }

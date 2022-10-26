@@ -68,7 +68,7 @@ public class EnergyService
         {
             ApplyBypassProcessList(bypassProcessListString);
             LocalSettings.BypassProcessListString = bypassProcessListString;
-            Logger.Log("BypassProcessList saved");
+            Logger.Info("BypassProcessList saved");
         }
     }
 
@@ -89,7 +89,7 @@ public class EnergyService
 #endif
             EnergyManager.BypassProcessList = bypassProcessList.ToImmutableHashSet();
 
-            Logger.Log($"Update BypassProcessList:\n{string.Join(Environment.NewLine, bypassProcessList)}");
+            Logger.Info($"Update BypassProcessList:\n{string.Join(Environment.NewLine, bypassProcessList)}");
 
             if (wasRunning)
             {
@@ -107,7 +107,7 @@ public class EnergyService
         {
             if (!EnergyManager.IsRunning)
             {
-                Logger.Log("EnergyService starts throttling.");
+                Logger.Info("EnergyService starts throttling.");
 
                 cts = new CancellationTokenSource();
 
@@ -138,7 +138,7 @@ public class EnergyService
         {
             if (EnergyManager.IsRunning)
             {
-                Logger.Log("EnergyService stops throttling.");
+                Logger.Info("EnergyService stops throttling.");
 
                 cts.Cancel();
                 EnergyManager.RecoverAllUserProcesses();
@@ -160,13 +160,13 @@ public class EnergyService
         {
             if (PowerManager.PowerSourceKind == PowerSourceKind.DC) // Battery
             {
-                Logger.Log("Power source changed to battery.");
+                Logger.Info("Power source changed to battery.");
 
                 StartThrottling();
             }
             else if (PowerManager.PowerSourceKind == PowerSourceKind.AC)
             {
-                Logger.Log("Power source changed to AC.");
+                Logger.Info("Power source changed to AC.");
 
                 if (ThrottleWhenPluggedIn)
                 {
@@ -203,7 +203,7 @@ public class EnergyService
 
     // private async void HouseKeepingThreadProc()
     // {
-    //     Logger.Log("House keeping thread started.");
+    //     Logger.Info("House keeping thread started.");
     //     while (!cts.IsCancellationRequested)
     //     {
     //         try
@@ -217,12 +217,12 @@ public class EnergyService
     //             break;
     //         }
     //     }
-    //     Logger.Log("House keeping thread stopped.");
+    //     Logger.Info("House keeping thread stopped.");
     // }
 
     private async Task HouseKeeping(CancellationToken cancellationToken)
     {
-        Logger.Log("House keeping task started.");
+        Logger.Info("House keeping task started.");
 
         while (!cancellationToken.IsCancellationRequested)
         {
@@ -230,6 +230,7 @@ public class EnergyService
             {
                 await Task.Delay(TimeSpan.FromMinutes(5), cancellationToken);
                 EnergyManager.ThrottleAllUserBackgroundProcesses();
+                Logger.Info("House keeping task throttling background processes");
             }
             catch (OperationCanceledException)
             {
@@ -237,10 +238,10 @@ public class EnergyService
             }
             catch (Exception e)
             {
-                Logger.Log($"House keeping task error: {e}");
+                Logger.Error("House keeping task error", e);
             }
         }
 
-        Logger.Log("House keeping task stopped.");
+        Logger.Info("House keeping task stopped.");
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EnergyStarX.Activation;
+using EnergyStarX.Constants;
 using EnergyStarX.Contracts.Services;
 using EnergyStarX.Core.Contracts.Services;
 using EnergyStarX.Core.Services;
@@ -7,7 +8,9 @@ using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -83,6 +86,16 @@ public partial class App : Application
         Build();
 
         UnhandledException += App_UnhandledException;
+        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+        AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
+    }
+
+    protected async override void OnLaunched(LaunchActivatedEventArgs args)
+    {
+        base.OnLaunched(args);
+
+        await App.GetService<IActivationService>().Activate(args);
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
@@ -91,13 +104,11 @@ public partial class App : Application
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
 
         e.Handled = true;
-        Logger.Log(e.Message);
+        Logger.Error($"Unhandled exception: {e.Message}", e.Exception);
     }
 
-    protected async override void OnLaunched(LaunchActivatedEventArgs args)
+    private void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
     {
-        base.OnLaunched(args);
-
-        await App.GetService<IActivationService>().Activate(args);
+        Logger.Error($"Unhandled exception", e.ExceptionObject as Exception);
     }
 }

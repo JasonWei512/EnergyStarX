@@ -55,11 +55,40 @@ jobs:
         $certificatePath = $env:Cert_File_Name
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
+    # Replace secrets in code
+    - name: Replace secrets in code
+      run: |
+        function Replace-StringInFile {
+            param ($filePath, $oldString, $newString)
+
+            $file = Get-ChildItem $filePath
+            $fileContent = Get-Content $file
+            $matchCount = ($fileContent | Select-String -Pattern $oldString -AllMatches).Matches.Count
+            $fileContent = $fileContent.Replace($oldString, $newString)
+            $fileContent > $file
+
+            Write-Host "Replaced `"$oldString`" in `"$filePath`" for $matchCount times"
+        }
+
+        Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{AppCenterSecret}}" "${{ secrets.APP_CENTER_SECRET }}"
+
     # Create the app package by building and packaging the project
     - name: Create the app package
       run: |
         $certificateAbsolutePath = (Get-Item $env:Cert_File_Name).FullName
-        msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=$env:Platform /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:AppxPackageSigningEnabled=True /p:PackageCertificateKeyFile="$certificateAbsolutePath" /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 /p:AppxPackageDir="$env:Appx_Package_Dir" /p:GenerateAppxPackageOnBuild=true /p:WindowsAppSDKSelfContained=true /p:SelfContained=true /p:RuntimeIdentifier=win10-${{ matrix.platform }}
+        msbuild $env:Solution_Name `
+          /p:Configuration=$env:Configuration `
+          /p:Platform=$env:Platform `
+          /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode `
+          /p:AppxBundle=$env:Appx_Bundle `
+          /p:AppxPackageSigningEnabled=True `
+          /p:PackageCertificateKeyFile="$certificateAbsolutePath" `
+          /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 `
+          /p:AppxPackageDir="$env:Appx_Package_Dir" `
+          /p:GenerateAppxPackageOnBuild=true `
+          /p:WindowsAppSDKSelfContained=true `
+          /p:SelfContained=true `
+          /p:RuntimeIdentifier=win10-${{ matrix.platform }}
       env:
         Appx_Bundle: Never
         Appx_Package_Build_Mode: SideloadOnly

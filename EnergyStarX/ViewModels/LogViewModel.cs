@@ -11,6 +11,8 @@ namespace EnergyStarX.ViewModels;
 
 public partial class LogViewModel : ObservableRecipient
 {
+    private const int MaxLogCount = 100;
+
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly WindowService windowService;
@@ -28,25 +30,21 @@ public partial class LogViewModel : ObservableRecipient
     public LogViewModel(WindowService windowService)
     {
         this.windowService = windowService;
+        this.windowService.WindowShowing += (s, e) => ScrollToBottomRequested?.Invoke(this, new EventArgs());
 
-        this.windowService.MainWindowShowing += (s, e) => StartLogging();
-        this.windowService.MainWindowHiding += (s, e) => StopLogging();
+        StartDisplayingLog();
     }
 
-    public void StartLogging()
+    public void StartDisplayingLog()
     {
         Logger.NewLogLine -= Logger_NewLogLine;
         Logger.NewLogLine += Logger_NewLogLine;
-
-        Logger.Log("Start logging");
     }
 
-    public void StopLogging()
+    public void StopDisplayingLog()
     {
         Logger.NewLogLine -= Logger_NewLogLine;
         Logs.Clear();
-
-        Logger.Log("Stop logging");
     }
 
     public void ScrollToBottomIfNeeded()
@@ -72,10 +70,20 @@ public partial class LogViewModel : ObservableRecipient
         Logs.Clear();
     }
 
+    [RelayCommand]
+    private async Task OpenLogFolder()
+    {
+        await Logger.OpenLogFolder();
+    }
+
     private async void Logger_NewLogLine(object? sender, Logger.Message e)
     {
         await dispatcherQueue.EnqueueAsync(() =>
         {
+            if (logs.Count >= MaxLogCount)
+            {
+                Logs.RemoveAt(0);
+            }
             Logs.Add(e.LogString);
             ScrollToBottomIfNeeded();
         });

@@ -318,4 +318,10 @@ You can change this behavior in settings.</value>
   <data name="Admin Privilege" xml:space="preserve">
     <value>Admin Privilege</value>
   </data>
+  <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
+    <value>Open Log Folder</value>
+  </data>
+  <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Only errors will be logged to file</value>
+  </data>
 </root>
