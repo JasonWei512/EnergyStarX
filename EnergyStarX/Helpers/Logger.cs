@@ -60,10 +60,8 @@ public static class Logger
     {
         FolderLauncherOptions folderLauncherOptions = new();
         StorageFolder logFolder = await GetLogFolder();
-        if (await logFolder.TryGetItemAsync(LogFileName) is IStorageItem logFile)
-        {
-            folderLauncherOptions.ItemsToSelect.Add(logFile);
-        }
+        StorageFile logFile = await GetLogFile();
+        folderLauncherOptions.ItemsToSelect.Add(logFile);
         await Launcher.LaunchFolderAsync(logFolder, folderLauncherOptions);
     }
 
@@ -96,8 +94,7 @@ public static class Logger
         await semaphore.WaitAsync();
         try
         {
-            StorageFolder logFolder = await GetLogFolder();
-            StorageFile logFile = await logFolder.CreateFileAsync(LogFileName, CreationCollisionOption.OpenIfExists);
+            StorageFile logFile = await GetLogFile();
             await FileIO.AppendLinesAsync(logFile, new[] { message });
         }
         catch { }
@@ -107,5 +104,14 @@ public static class Logger
         }
     }
 
-    private static async Task<StorageFolder> GetLogFolder() => await BaseFolder.CreateFolderAsync(LogFolderName, CreationCollisionOption.OpenIfExists);
+    private static async Task<StorageFolder> GetLogFolder()
+    {
+        return await BaseFolder.CreateFolderAsync(LogFolderName, CreationCollisionOption.OpenIfExists);
+    }
+
+    private static async Task<StorageFile> GetLogFile()
+    {
+        StorageFolder logFolder = await GetLogFolder();
+        return await logFolder.CreateFileAsync(LogFileName, CreationCollisionOption.OpenIfExists);
+    }
 }
