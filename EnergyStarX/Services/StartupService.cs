@@ -6,18 +6,77 @@ using Windows.Storage;
 
 namespace EnergyStarX.Services;
 
+/* Note:
+MSIX's StartupTask does not let you run an app at startup *as admin*.
+So I have to use a Windows schedule task for this. Snipaste (the Microsoft Store version) also takes this approach.
+The downside is, currently MSIX's uninstalling process is not customizable, so I cannot delete this schedule task when uninstalling.
+This means after uninstalling this app, the schedule task will still be in Windows Task Scheduler. Snipaste also has this problem.
+Relative discussion: https://github.com/microsoft/WindowsAppSDK/discussions/3061
+
+Maybe I should use a MSIX packaged service: https://learn.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-service
+It will be uninstalled automatically when the app is uninstalled. It can also throttle system services in session 0.
+But that requires a double-process and communication app model, which is more complex to implement. 
+*/
 public class StartupService
 {
-    private const string AdminScheduleTaskName = "EnergyStarXStartupTask";
+    public enum StartupType
+    {
+        None = 0,
+        User = 1,
+        Admin = 2
+    }
 
     public async Task Initialize()
+    {
+        // When app is initializing, if both MSIX StartupTask and admin schedule task are enabled, disable the MSIX StartupTask.
+        await GetStartupType();
+    }
+
+    public async Task<StartupType> GetStartupType()
     {
         bool msixStartupTaskEnabled = await GetMsixStartupTaskEnabled();
         bool adminScheduleTaskExists = GetAdminScheduleTaskExists();
 
-        // TODO: Initialize the service
-        throw new NotImplementedException();
+        StartupType startupType = (msixStartupTaskEnabled, adminScheduleTaskExists) switch
+        {
+            (false, false) => StartupType.None,
+            (true, false) => StartupType.User,
+            (false, true) => StartupType.Admin,
+            (true, true) => StartupType.Admin
+        };
+
+        if (msixStartupTaskEnabled && adminScheduleTaskExists)
+        {
+            await DisableMsixStartupTask();
+        }
+
+        return startupType;
     }
+
+    /// <summary>
+    /// Returns whether StartupType set successfully.
+    /// </summary>
+    public async Task<bool> SetStartupType(StartupType newStartupType)
+    {
+        StartupType currentStartupType = await GetStartupType();
+
+        return (currentStartupType, newStartupType) switch
+        {
+            (StartupType.None, StartupType.User) => await EnableMsixStartupTask(),
+            (StartupType.None, StartupType.Admin) => await CreateAdminScheduleTask(),
+
+            (StartupType.User, StartupType.None) => await DisableMsixStartupTask(),
+            (StartupType.User, StartupType.Admin) => await DisableMsixStartupTask() && await CreateAdminScheduleTask(),
+
+            (StartupType.Admin, StartupType.None) => await DeleteAdminScheduleTask(),
+            (StartupType.Admin, StartupType.User) => await DeleteAdminScheduleTask() && await EnableMsixStartupTask(),
+
+            _ when currentStartupType == newStartupType => true,
+            _ => throw new ArgumentException($"Unknown StartupType transition: {currentStartupType} -> {newStartupType}")
+        };
+    }
+
+    #region MSIX StartupTask
 
     private async Task<bool> GetMsixStartupTaskEnabled()
     {
@@ -25,17 +84,30 @@ public class StartupService
         return startupTask.State == StartupTaskState.Enabled;
     }
 
-    private async Task EnableMsixStartupTask()
+    /// <summary>
+    /// Returns whether MSIX StartupTask enabled successfully.
+    /// </summary>
+    private async Task<bool> EnableMsixStartupTask()
     {
         StartupTask startupTask = await StartupTask.GetAsync(App.Guid);
-        await startupTask.RequestEnableAsync();
+        return await startupTask.RequestEnableAsync() == StartupTaskState.Enabled;
     }
 
-    private async Task DisableMsixStartupTask()
+    /// <summary>
+    /// Returns whether MSIX StartupTask disabled successfully.
+    /// </summary>
+    private async Task<bool> DisableMsixStartupTask()
     {
         StartupTask startupTask = await StartupTask.GetAsync(App.Guid);
         startupTask.Disable();
+        return true;
     }
+
+    #endregion
+
+    #region Unmanaged Admin Schetule Task
+
+    private const string AdminScheduleTaskName = "EnergyStarXStartupTask";
 
     private bool GetAdminScheduleTaskExists()
     {
@@ -44,6 +116,7 @@ public class StartupService
 
     /// <summary>
     /// Returns whether schedule task created successfully. 
+    /// Requires UAC.
     /// </summary>
     private async Task<bool> CreateAdminScheduleTask()
     {
@@ -125,6 +198,7 @@ public class StartupService
 
     /// <summary>
     /// Returns whether schedule task created successfully. 
+    /// Requires UAC.
     /// </summary>
     private async Task<bool> DeleteAdminScheduleTask()
     {
@@ -162,4 +236,7 @@ public class StartupService
             "EnergyStarX.exe"
         );
     }
+
+    #endregion
+
 }
