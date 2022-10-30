@@ -2,6 +2,7 @@
 using EnergyStarX.Contracts.ViewModels;
 using EnergyStarX.Helpers;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System.Diagnostics.CodeAnalysis;
 
@@ -79,7 +80,7 @@ public class NavigationService : INavigationService
         return false;
     }
 
-    public bool NavigateTo(string pageKey, object? parameter = null, bool clearNavigation = false)
+    public bool NavigateTo(string pageKey, object? parameter = null, bool clearNavigation = false, NavigationTransitionInfo? transitionInfo = null)
     {
         Type? pageType = pageService.GetPageType(pageKey);
 
@@ -87,7 +88,9 @@ public class NavigationService : INavigationService
         {
             frame.Tag = clearNavigation;
             object? vmBeforeNavigation = frame.GetPageViewModel();
-            bool navigated = frame.Navigate(pageType, parameter);
+            bool navigated = transitionInfo is null ?
+                frame.Navigate(pageType, parameter) :
+                frame.Navigate(pageType, parameter, transitionInfo);
             if (navigated)
             {
                 lastParameterUsed = parameter;

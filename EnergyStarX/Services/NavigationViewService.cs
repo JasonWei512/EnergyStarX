@@ -57,7 +57,7 @@ public class NavigationViewService : INavigationViewService
     {
         if (args.IsSettingsInvoked)
         {
-            navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+            navigationService.NavigateTo(typeof(SettingsViewModel).FullName!, transitionInfo: args.RecommendedNavigationTransitionInfo);
         }
         else
         {
@@ -65,7 +65,7 @@ public class NavigationViewService : INavigationViewService
 
             if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
             {
-                navigationService.NavigateTo(pageKey);
+                navigationService.NavigateTo(pageKey, transitionInfo: args.RecommendedNavigationTransitionInfo);
             }
         }
     }
