@@ -44,7 +44,7 @@
             Grid.Row="1"
             Canvas.ZIndex="0"
             ExpandedModeThresholdWidth="1280"
-            IsBackButtonVisible="Visible"
+            IsBackButtonVisible="Collapsed"
             IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
             IsSettingsVisible="True"
             PaneDisplayMode="Top"
@@ -74,7 +74,7 @@
                 </NavigationViewItem>
             </NavigationView.MenuItems>
             <Grid>
-                <Frame x:Name="NavigationFrame" />
+                <Frame x:Name="NavigationFrame" IsNavigationStackEnabled="False" />
             </Grid>
         </NavigationView>
 
