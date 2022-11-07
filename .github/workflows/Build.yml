@@ -3,16 +3,26 @@
 
 name: Build MSIX sideload package
 
-on:
-  push:
-    branches: [ main, develop, github-action ]
-  pull_request:
-    branches: [ main, develop ]
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  create-draft-release:
+    runs-on: ubuntu-latest
+
+    outputs:
+      release_upload_url: ${{ steps.create-draft-release.outputs.upload_url }}
+
+    steps:
+    - name: Create draft release
+      id: create-draft-release
+      uses: ncipollo/release-action@v1
+      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+      with:
+        draft: true
+        generateReleaseNotes: true
 
   build:
+    needs: create-draft-release
 
     strategy:
       matrix:
@@ -23,7 +33,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: EnergyStarX                         # Replace with your solution name, i.e. App1.sln.
+      Solution_Name: EnergyStarX  # Replace with your solution name, i.e. App1.sln.
       Cert_File_Name: GitHubActionsWorkflow.pfx
 
     steps:
@@ -105,12 +115,25 @@ jobs:
       run: |
         $folderName = (Get-ChildItem "${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}")[0].Name
         $shortHash = $env:GITHUB_SHA.Substring(0, 7)
-        $artifactName = "$folderName ($shortHash)"
+        $artifactName = "$folderName-$shortHash"
         "Artifact_Name=$artifactName" >> $env:GITHUB_ENV
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload MSIX package
+    - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name:  ${{ env.Artifact_Name }}
         path: ${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}
+
+    - name: Zip artifact for release
+      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+      run: |
+        mkdir ~\release
+        Compress-Archive -Path "${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}\*" -DestinationPath "~\release\${{ env.Artifact_Name }}.zip"
+
+    - name: Upload artifact to release
+      uses: shogo82148/actions-upload-release-asset@v1
+      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+      with:
+        upload_url: ${{ needs.create-draft-release.outputs.release_upload_url }}
+        asset_path: ~\release\${{ env.Artifact_Name }}.zip
