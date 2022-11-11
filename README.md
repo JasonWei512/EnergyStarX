@@ -10,7 +10,7 @@
 </p>
 <p align="center">
   <a href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank" rel="noopener noreferrer">
-   <img width=128 src="https://getbadgecdn.azureedge.net/images/en-us%20dark.svg" alt="Download" />
+   <img width=128 src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Download" />
   </a>
 </p>
 
