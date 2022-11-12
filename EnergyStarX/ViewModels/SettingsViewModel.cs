@@ -132,7 +132,7 @@ public partial class SettingsViewModel : ObservableRecipient
         return string.Join(Environment.NewLine, new[]
         {
             "----------",
-            $"Windows: {Environment.OSVersion.Version} ({Package.Current.Id.Architecture})",
+            $"Windows: {Environment.OSVersion.Version}",
             $"Device: {new EasClientDeviceInformation().SystemProductName}",
             $"CPU: {JoinItems(hardware.CpuList, c => c.Name)}",
             $"RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b)/1024/1024} MB",
@@ -160,6 +160,6 @@ public partial class SettingsViewModel : ObservableRecipient
             version = Assembly.GetExecutingAssembly().GetName().Version!;
         }
 
-        return $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        return $"{"AppDisplayName".GetLocalized()} ({Package.Current.Id.Architecture}) - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
 }
