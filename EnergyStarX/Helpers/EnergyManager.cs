@@ -5,6 +5,7 @@
 // If you are Microsoft (and/or its affiliates) employee, vendor or contractor who is working on Windows-specific integration projects, you may use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so without the restriction above.
 
 using EnergyStarX.Core.Interop;
+using NLog;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -14,6 +15,8 @@ namespace EnergyStarX.Helpers;
 
 internal unsafe class EnergyManager
 {
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+
     public static ImmutableHashSet<string> BypassProcessList { get; set; } = new HashSet<string>().ToImmutableHashSet();
     // Speical handling needs for UWP to get the child window process
     public const string UWPFrameHostApp = "ApplicationFrameHost.exe";
@@ -120,13 +123,13 @@ internal unsafe class EnergyManager
         bool bypass = BypassProcessList.Contains(appName.ToLowerInvariant());
         if (!bypass)
         {
-            Logger.Info($"Boosting {appName}");
+            logger.Info("Boosting {0}", appName);
             ToggleEfficiencyMode(procHandle, false);
         }
 
         if (pendingProcPid != 0)
         {
-            Logger.Info($"Throttle {pendingProcName}");
+            logger.Info("Throttle {0}", pendingProcName);
 
             IntPtr prevProcHandle = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, pendingProcPid);
             if (prevProcHandle != IntPtr.Zero)

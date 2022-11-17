@@ -14,6 +14,7 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+using NLog;
 
 namespace EnergyStarX;
 
@@ -21,6 +22,8 @@ namespace EnergyStarX;
 public partial class App : Application
 {
     public const string Guid = "72B0BCDA-39F4-4E0E-BF10-279FB803B73C";
+
+    private static Logger logger = LogManager.GetCurrentClassLogger();
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
     // https://docs.microsoft.com/dotnet/core/extensions/generic-host
@@ -44,6 +47,9 @@ public partial class App : Application
 
     public App()
     {
+        AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
+        LoggerHelper.ConfigureNLog();
+
         InitializeComponent();
 
         Host = Microsoft.Extensions.Hosting.Host.
@@ -87,8 +93,6 @@ public partial class App : Application
 
         UnhandledException += App_UnhandledException;
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
-        AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
     }
 
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
@@ -104,11 +108,12 @@ public partial class App : Application
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
 
         e.Handled = true;
-        Logger.Error($"Unhandled exception: {e.Message}", e.Exception);
+        logger.Error(e.Exception, "Unhandled exception");
     }
 
     private void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
     {
-        Logger.Error($"Unhandled exception", e.ExceptionObject as Exception);
+        logger.Error(e.ExceptionObject as Exception, "Unhandled and unrecoverable exception");
+        NLog.LogManager.Shutdown();
     }
 }

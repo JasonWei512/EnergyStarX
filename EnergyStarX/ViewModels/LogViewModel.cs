@@ -37,13 +37,13 @@ public partial class LogViewModel : ObservableRecipient
 
     public void StartDisplayingLog()
     {
-        Logger.NewLogLine -= Logger_NewLogLine;
-        Logger.NewLogLine += Logger_NewLogLine;
+        LoggerHelper.NewLogLine -= Logger_NewLogLine;
+        LoggerHelper.NewLogLine += Logger_NewLogLine;
     }
 
     public void StopDisplayingLog()
     {
-        Logger.NewLogLine -= Logger_NewLogLine;
+        LoggerHelper.NewLogLine -= Logger_NewLogLine;
         Logs.Clear();
     }
 
@@ -73,10 +73,10 @@ public partial class LogViewModel : ObservableRecipient
     [RelayCommand]
     private async Task OpenLogFolder()
     {
-        await Logger.OpenLogFolder();
+        await LoggerHelper.OpenLogFolder();
     }
 
-    private async void Logger_NewLogLine(object? sender, Logger.Message e)
+    private async void Logger_NewLogLine(object? sender, LoggerHelper.Log e)
     {
         await dispatcherQueue.EnqueueAsync(() =>
         {

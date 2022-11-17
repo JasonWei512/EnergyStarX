@@ -40,6 +40,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221109.1" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+    <PackageReference Include="NLog" Version="5.0.5" />
     <PackageReference Include="SettingsUI" Version="2.1.8" />
     <PackageReference Include="WinUIEx" Version="1.8.0" />
     <PackageReference Include="DependencyPropertyGenerator" Version="1.0.3" PrivateAssets="all" ExcludeAssets="runtime" />
@@ -65,14 +66,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\InApp\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Helpers\LocalSettingsHelper.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LocalSettingsHelper.tt</DependentUpon>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
