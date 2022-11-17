@@ -71,7 +71,6 @@ public static class Logger
         string logString = GetLogString(time, logLevel, message);
 
         System.Diagnostics.Debug.WriteLine(logString);
-        Console.WriteLine(logString);
 
         NewLogLine?.Invoke(null, new Message(time, message, logString));
 

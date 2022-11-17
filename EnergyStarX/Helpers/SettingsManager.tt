@@ -24,15 +24,15 @@ using Windows.Storage;
 
 namespace EnergyStarX.Helpers;
 
-public static class LocalSettingsHelper
+public static class SettingsManager
 {
 	private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
 
 <# foreach (string type in primitiveSettingTypes) 
 { #>
-    public static <#= type #> ReadPrimitive(string key, <#= type #> defaultValue)
+    public static <#= type #> GetSetting(string settingKey, <#= type #> defaultValue)
     {
-        if (LocalSettings.TryGetValue(key, out object? obj))
+        if (LocalSettings.TryGetValue(settingKey, out object? obj))
         {
             if (obj is <#= type #> value)
             {
@@ -42,9 +42,9 @@ public static class LocalSettingsHelper
         return defaultValue;
     }
 
-    public static void SetPrimitive(string key, <#= type #> value)
+    public static void SetSetting(string settingKey, <#= type #> value)
     {
-        LocalSettings[key] = value;
+        LocalSettings[settingKey] = value;
     }
 	
 <# } #>

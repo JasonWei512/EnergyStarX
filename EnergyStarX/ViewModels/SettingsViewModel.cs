@@ -129,20 +129,19 @@ public partial class SettingsViewModel : ObservableRecipient
 
         string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
 
-        return string.Join(Environment.NewLine, new[]
-        {
-            "----------",
-            $"Windows: {Environment.OSVersion.Version}",
-            $"Device: {new EasClientDeviceInformation().SystemProductName}",
-            $"CPU: {JoinItems(hardware.CpuList, c => c.Name)}",
-            $"RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b)/1024/1024} MB",
-            $"GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}",
-            $"Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}",
-            "----------",
-            "",
-            "",
-            ""
-        });
+        return $"""
+            ----------
+            Windows: {Environment.OSVersion.Version}
+            Device: {new EasClientDeviceInformation().SystemProductName}
+            CPU: {JoinItems(hardware.CpuList, c => c.Name)}
+            RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b) / 1024 / 1024} MB
+            GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}
+            Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}
+            ----------
+
+
+
+            """;
     });
 
     private static string GetVersionDescription()
