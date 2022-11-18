@@ -12,7 +12,7 @@ namespace EnergyStarX.Helpers;
 
 public static class SettingsManager
 {
-    private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
+	private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
 
     public static int GetSetting(string settingKey, int defaultValue)
     {
@@ -30,7 +30,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static long GetSetting(string settingKey, long defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -47,7 +47,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static float GetSetting(string settingKey, float defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -64,7 +64,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static double GetSetting(string settingKey, double defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -81,7 +81,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static bool GetSetting(string settingKey, bool defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -98,7 +98,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static char GetSetting(string settingKey, char defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -115,7 +115,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static string GetSetting(string settingKey, string defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -132,7 +132,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static DateTime GetSetting(string settingKey, DateTime defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -149,7 +149,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static TimeSpan GetSetting(string settingKey, TimeSpan defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -166,7 +166,7 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
     public static Guid GetSetting(string settingKey, Guid defaultValue)
     {
         if (LocalSettings.TryGetValue(settingKey, out object? obj))
@@ -183,5 +183,5 @@ public static class SettingsManager
     {
         LocalSettings[settingKey] = value;
     }
-
+	
 }
