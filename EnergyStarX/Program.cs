@@ -1,9 +1,8 @@
 ﻿using EnergyStarX.Helpers;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
-using Microsoft.Windows.AppNotifications;
-using Microsoft.Windows.AppNotifications.Builder;
 
 namespace EnergyStarX;
 
@@ -17,7 +16,7 @@ public static class Program
         AppInstance mainInstance = AppInstance.FindOrRegisterForKey(App.Guid);
         if (!mainInstance.IsCurrent)
         {
-            AppNotificationManager.Default.Show(new AppNotificationBuilder().AddText("AlreadyRunningMessage".GetLocalized()).BuildNotification());
+            new ToastContentBuilder().AddText("AlreadyRunningMessage".GetLocalized()).Show();
             return;
         }
 
