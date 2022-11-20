@@ -14,15 +14,18 @@ public class ActivationService : IActivationService
     private readonly ActivationHandler<LaunchActivatedEventArgs> defaultHandler;
     private readonly IEnumerable<IActivationHandler> activationHandlers;
     private UIElement? shell = null;
+
+    private readonly SystemTrayIconService systemTrayIconService;
     private readonly WindowService windowService;
     private readonly EnergyService energyService;
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, WindowService windowService, EnergyService energyService, LogViewModel logViewModel)
+    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, WindowService windowService, EnergyService energyService, LogViewModel logViewModel, SystemTrayIconService systemTrayIconService)
     {
         this.defaultHandler = defaultHandler;
         this.activationHandlers = activationHandlers;
         this.windowService = windowService;
         this.energyService = energyService;
+        this.systemTrayIconService = systemTrayIconService;
     }
 
     public async Task Activate(object activationArgs)
@@ -72,9 +75,9 @@ public class ActivationService : IActivationService
 
     private async Task Startup()
     {
-        energyService.Initialize();
         windowService.Initialize();
-        await Task.CompletedTask;
+        energyService.Initialize();
+        await systemTrayIconService.Initialize();
     }
 
     private bool IsLaunchedOnStartup() => AppInstance.GetCurrent().GetActivatedEventArgs().Kind == ExtendedActivationKind.StartupTask;

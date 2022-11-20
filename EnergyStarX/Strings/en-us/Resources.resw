@@ -141,10 +141,10 @@
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Shell_TaskbarIconExitItem.Text" xml:space="preserve">
+  <data name="Exit" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="Shell_TaskbarIconOpenItem.Text" xml:space="preserve">
+  <data name="Open" xml:space="preserve">
     <value>Open</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">

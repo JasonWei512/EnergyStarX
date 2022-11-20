@@ -1,6 +1,5 @@
 ﻿using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 
 using Microsoft.UI.Xaml;
@@ -17,12 +16,9 @@ public sealed partial class ShellPage : Page
 {
     public ShellViewModel ViewModel { get; }
 
-    private readonly WindowService windowService;
-
-    public ShellPage(ShellViewModel viewModel, WindowService windowService)
+    public ShellPage(ShellViewModel viewModel)
     {
         ViewModel = viewModel;
-        this.windowService = windowService;
 
         InitializeComponent();
 
@@ -35,13 +31,6 @@ public sealed partial class ShellPage : Page
         App.MainWindow.ExtendsContentIntoTitleBar = true;
         App.MainWindow.SetTitleBar(AppTitleBar);
         App.MainWindow.Activated += MainWindow_Activated;
-
-        this.windowService.AppExiting += WindowService_AppExiting;
-    }
-
-    private void WindowService_AppExiting(object? sender, EventArgs e)
-    {
-        TaskbarIcon.Visibility = Visibility.Collapsed;
     }
 
     private void OnLoaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

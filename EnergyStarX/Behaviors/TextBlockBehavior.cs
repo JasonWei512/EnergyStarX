@@ -17,7 +17,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
 {
     private readonly WindowService windowService;
 
-    private TextBlock? textBlock => AssociatedObject as TextBlock;
+    private TextBlock? AssociatedTextBlock => AssociatedObject as TextBlock;
 
     public DependencyObject? AssociatedObject { get; private set; }
 
@@ -57,7 +57,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
             oldValue.CollectionChanged -= ObservableCollectionChanged;
         }
 
-        textBlock?.Inlines.Clear();
+        AssociatedTextBlock?.Inlines.Clear();
 
         if (newValue is not null)
         {
@@ -82,10 +82,10 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
     {
         if (bindableInlines is not null)
         {
-            textBlock?.Inlines.Clear();
+            AssociatedTextBlock?.Inlines.Clear();
             foreach (string line in bindableInlines)
             {
-                AddLineToTextBlock(textBlock, line);
+                AddLineToTextBlock(AssociatedTextBlock, line);
             }
 
             bindableInlines.CollectionChanged -= ObservableCollectionChanged;
@@ -97,7 +97,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
     {
         if (bindableInlines is not null)
         {
-            textBlock?.Inlines.Clear();
+            AssociatedTextBlock?.Inlines.Clear();
             bindableInlines.CollectionChanged -= ObservableCollectionChanged;
         }
     }
@@ -112,17 +112,17 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
             {
                 foreach (string newLine in e.NewItems.OfType<string>())
                 {
-                    AddLineToTextBlock(textBlock, newLine);
+                    AddLineToTextBlock(AssociatedTextBlock, newLine);
                 }
             }
         }
         else if (e.Action == NotifyCollectionChangedAction.Reset)
         {
-            textBlock?.Inlines.Clear();
+            AssociatedTextBlock?.Inlines.Clear();
         }
         else if (e.Action == NotifyCollectionChangedAction.Remove)
         {
-            textBlock?.Inlines.RemoveAt(e.OldStartingIndex);
+            AssociatedTextBlock?.Inlines.RemoveAt(e.OldStartingIndex);
         }
         else
         {

@@ -102,19 +102,5 @@
                 Message="{x:Bind ViewModel.OsVersionNotRecommendedWarningMessage}"
                 Severity="Warning" />
         </StackPanel>
-
-        <notifyicon:TaskbarIcon
-            x:Name="TaskbarIcon"
-            DoubleClickCommand="{x:Bind ViewModel.ShowAppWindowCommand}"
-            IconSource="{x:Bind ViewModel.TaskbarIconSource, Mode=OneWay}"
-            MenuActivation="RightClick"
-            ToolTipText="{x:Bind ViewModel.TaskbarIconToolTip, Mode=OneWay}">
-            <notifyicon:TaskbarIcon.ContextFlyout>
-                <MenuFlyout>
-                    <MenuFlyoutItem x:Uid="Shell_TaskbarIconOpenItem" Command="{x:Bind ViewModel.ShowAppWindowCommand}" />
-                    <MenuFlyoutItem x:Uid="Shell_TaskbarIconExitItem" Command="{x:Bind ViewModel.ExitAppCommand}" />
-                </MenuFlyout>
-            </notifyicon:TaskbarIcon.ContextFlyout>
-        </notifyicon:TaskbarIcon>
     </Grid>
 </Page>
