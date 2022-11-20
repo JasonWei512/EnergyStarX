@@ -17,7 +17,7 @@ public static class LoggerHelper
     private const string ErrorLogFileName = "Error.txt";
     private static readonly string ErrorLogFilePath = Path.Combine(LogFolderPath, ErrorLogFileName);
 
-    private static readonly SimpleLayout simpleLogLayout = new("${longdate}|${level:uppercase=true}|${logger}|${message:withexception=true}");
+    private static readonly Layout InfoLogLayout = new SimpleLayout("${date} | ${level:uppercase=true} | ${message:withexception=true}");
 
     public static event EventHandler<Log>? NewLogLine;
     public record Log(string LogString, LogEventInfo LogEventInfo);
@@ -42,7 +42,7 @@ public static class LoggerHelper
             builder.ForLogger().FilterMinLevel(LogLevel.Info)
                 .WriteToMethodCall((logEventInfo, layouts) =>
                 {
-                    string logString = simpleLogLayout.Render(logEventInfo);
+                    string logString = InfoLogLayout.Render(logEventInfo);
                     NewLogLine?.Invoke(null, new Log(logString, logEventInfo));
                 });
 
