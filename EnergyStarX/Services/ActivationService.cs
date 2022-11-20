@@ -44,7 +44,7 @@ public class ActivationService : IActivationService
         await HandleActivation(activationArgs);
 
         // Activate the MainWindow.
-        if (!IsLaunchedOnStartup())
+        if (ShouldShowAppWindow())
         {
             windowService.ShowAppWindow();
         }
@@ -80,5 +80,24 @@ public class ActivationService : IActivationService
         await systemTrayIconService.Initialize();
     }
 
-    private bool IsLaunchedOnStartup() => AppInstance.GetCurrent().GetActivatedEventArgs().Kind == ExtendedActivationKind.StartupTask;
+    private bool ShouldShowAppWindow()
+    {
+        // If app is run at startup, don't show app window during activation
+        if (AppInstance.GetCurrent().GetActivatedEventArgs().Kind == ExtendedActivationKind.StartupTask)
+        {
+            return false;
+        }
+
+        // If CLI Args contains one of these, don't show app window during activation
+        string[] silentStartArgs = { "-s", "--silent" };
+        if (Environment.GetCommandLineArgs().Any(arg => InStringsIgnoreCase(arg, silentStartArgs)))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool InStringsIgnoreCase(string target, IEnumerable<string> stringCollection)
+        => stringCollection.Any(s => string.Equals(s, target, StringComparison.InvariantCultureIgnoreCase));
 }
