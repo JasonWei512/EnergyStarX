@@ -14,7 +14,27 @@
     <Page.Resources>
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         <helpers:OppositeBoolConverter x:Key="OppositeBoolConverter" />
-        <Thickness x:Key="SubTitleMargin">0,24,0,0</Thickness>
+        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
+        <Style
+            x:Key="TitleStyle"
+            BasedOn="{StaticResource TitleTextBlockStyle}"
+            TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style
+            x:Key="SubTitleStyle"
+            BasedOn="{StaticResource SubtitleTextBlockStyle}"
+            TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,24,0,0" />
+        </Style>
+        <Thickness x:Key="SubContentBlockMargin">0,8,0,0</Thickness>
+        <Style
+            x:Key="BodyTextStyle"
+            BasedOn="{StaticResource BodyTextBlockStyle}"
+            TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,8,0,0" />
+        </Style>
+        <Style TargetType="HyperlinkButton" />
     </Page.Resources>
 
     <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
@@ -55,71 +75,47 @@
                 MaxWidth="800"
                 HorizontalAlignment="Center">
                 <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}" HorizontalAlignment="Stretch">
-                    <StackPanel.Resources>
-                        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
-                    </StackPanel.Resources>
+                    <TextBlock x:Uid="Settings_Title" Style="{StaticResource TitleStyle}" />
 
-                    <TextBlock
-                        x:Uid="Settings_Title"
-                        Margin="0,0,0,12"
-                        Style="{StaticResource TitleTextBlockStyle}" />
+                    <StackPanel Margin="{StaticResource SubContentBlockMargin}">
+                        <settings:Setting x:Uid="Settings_LaunchOnStartupSetting" Icon="&#xE977;">
+                            <settings:Setting.ActionContent>
+                                <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleLaunchOnStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.LaunchOnStartup, Mode=TwoWay}" />
+                            </settings:Setting.ActionContent>
+                        </settings:Setting>
 
-                    <settings:Setting x:Uid="Settings_LaunchOnStartupSetting" Icon="&#xE977;">
-                        <settings:Setting.ActionContent>
-                            <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleLaunchOnStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.LaunchOnStartup, Mode=TwoWay}" />
-                        </settings:Setting.ActionContent>
-                    </settings:Setting>
+                        <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
+                            <settings:Setting.ActionContent>
+                                <ToggleSwitch IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
+                            </settings:Setting.ActionContent>
+                        </settings:Setting>
 
-                    <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
-                        <settings:Setting.ActionContent>
-                            <ToggleSwitch IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
-                        </settings:Setting.ActionContent>
-                    </settings:Setting>
-
-                    <settings:Setting x:Uid="Settings_BypassProcessList" Icon="&#xF0E3;">
-                        <settings:Setting.ActionContent>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Uid="Settings_BypassProcessList_EditButton" Command="{x:Bind ViewModel.ShowBypassProcessListEditorDialogCommand}" />
-                                <Grid Width="10" />
-                                <Button x:Uid="Settings_BypassProcessList_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultBypassProcessListCommand}" />
-                            </StackPanel>
-                        </settings:Setting.ActionContent>
-                    </settings:Setting>
-
-                    <TextBlock
-                        x:Uid="Settings_About"
-                        Margin="{StaticResource SubTitleMargin}"
-                        Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
-
-                        <TextBlock
-                            x:Uid="Settings_AboutDescription"
-                            Margin="{StaticResource XSmallTopMargin}"
-                            Style="{ThemeResource BodyTextBlockStyle}" />
+                        <settings:Setting x:Uid="Settings_BypassProcessList" Icon="&#xF0E3;">
+                            <settings:Setting.ActionContent>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Uid="Settings_BypassProcessList_EditButton" Command="{x:Bind ViewModel.ShowBypassProcessListEditorDialogCommand}" />
+                                    <Grid Width="10" />
+                                    <Button x:Uid="Settings_BypassProcessList_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultBypassProcessListCommand}" />
+                                </StackPanel>
+                            </settings:Setting.ActionContent>
+                        </settings:Setting>
                     </StackPanel>
 
-                    <TextBlock
-                        x:Uid="Settings_Feedback"
-                        Margin="{StaticResource SubTitleMargin}"
-                        Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubTitleStyle}" />
 
-                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                        <HyperlinkButton
-                            x:Uid="Settings_RateLink"
-                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
-                            Command="{x:Bind ViewModel.RateThisAppCommand}" />
-                        <HyperlinkButton
-                            x:Uid="Settings_ContactLink"
-                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
-                            Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
-                        <HyperlinkButton
-                            x:Uid="Settings_SourceCodeLink"
-                            Margin="{StaticResource SettingsPageHyperlinkButtonMargin}"
-                            NavigateUri="https://github.com/JasonWei512/EnergyStarX/" />
+                    <StackPanel Margin="{StaticResource SubContentBlockMargin}">
+                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+                        <TextBlock x:Uid="Settings_AboutDescription" Style="{ThemeResource BodyTextStyle}" />
                     </StackPanel>
 
+                    <TextBlock x:Uid="Settings_Feedback" Style="{ThemeResource SubTitleStyle}" />
+
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                        <HyperlinkButton x:Uid="Settings_RateLink" Command="{x:Bind ViewModel.RateThisAppCommand}" />
+                        <HyperlinkButton x:Uid="Settings_ContactLink" Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
+                        <HyperlinkButton x:Uid="Settings_SourceCodeLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/" />
+                        <HyperlinkButton x:Uid="Settings_ChangelogLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/releases" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </ScrollViewer>
