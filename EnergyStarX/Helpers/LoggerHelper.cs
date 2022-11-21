@@ -52,24 +52,29 @@ public static class LoggerHelper
                 .WriteToMethodCall((logEventInfo, layouts) =>
                 {
                     // Send error info to App Center
-                    Dictionary<string, string> appCenterProperties = new()
+                    string time = logEventInfo.TimeStamp.ToString();
+                    string message = logEventInfo.FormattedMessage;
+
+                    Dictionary<string, string> eventProperties = new()
                     {
-                        { "Time",  logEventInfo.TimeStamp.ToString() },
-                        { "Message", logEventInfo.FormattedMessage },
+                        { "Time", time }
                     };
 
-                    if (logEventInfo.Exception is Exception exception)
+                    if (logEventInfo.Exception is Exception e)
                     {
-                        if (exception.StackTrace is string stackTrace)
+                        Crashes.TrackError(e, new Dictionary<string, string>()
                         {
-                            appCenterProperties.Add("StackTrace", stackTrace);
+                            { "Message", message }
+                        });
+
+                        eventProperties.Add("Exception Message", e.Message);
+                        if (e.StackTrace is string stackTrace)
+                        {
+                            eventProperties.Add("Exception StackTrace", stackTrace);
                         }
-                        Crashes.TrackError(exception, appCenterProperties);
                     }
-                    else
-                    {
-                        Analytics.TrackEvent("Error", appCenterProperties);
-                    }
+
+                    Analytics.TrackEvent($"Error: {message}", eventProperties);
                 });
         });
     }

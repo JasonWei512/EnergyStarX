@@ -217,7 +217,7 @@ public class EnergyService
             }
             catch (Exception e)
             {
-                logger.Error("House keeping task error", e);
+                logger.Error(e, "House keeping task error");
             }
         }
 
