@@ -22,7 +22,7 @@ public class DefaultActivationHandler : ActivationHandler<LaunchActivatedEventAr
 
     protected async override Task HandleInternal(LaunchActivatedEventArgs args)
     {
-        navigationService.NavigateTo((LocalSettings.FirstRun ? typeof(HelpViewModel) : typeof(HomeViewModel)).FullName!, args.Arguments);
+        navigationService.NavigateTo((Settings.FirstRun ? typeof(HelpViewModel) : typeof(HomeViewModel)).FullName!, args.Arguments);
 
         await Task.CompletedTask;
     }

@@ -23,12 +23,12 @@ public partial class HomeViewModel : ObservableRecipient
     public HomeViewModel(EnergyService energyService)
     {
         this.energyService = energyService;
-        UpdateStatusOnUi(this.energyService.Status);
+        UpdateStatusOnUI(this.energyService.Status);
 
         this.energyService.StatusChanged += EnergyService_StatusChanged;
     }
 
-    private void UpdateStatusOnUi(EnergyService.EnergyStatus energyStatus)
+    private void UpdateStatusOnUI(EnergyService.EnergyStatus energyStatus)
     {
         if (energyStatus.IsThrottling)
         {
@@ -46,7 +46,7 @@ public partial class HomeViewModel : ObservableRecipient
     {
         await CommunityToolkit.WinUI.DispatcherQueueExtensions.EnqueueAsync(dispatcherQueue, () =>
         {
-            UpdateStatusOnUi(e);
+            UpdateStatusOnUI(e);
         });
     }
 }

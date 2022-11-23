@@ -17,8 +17,7 @@ public partial class LogViewModel : ObservableRecipient
 
     private readonly WindowService windowService;
 
-    [ObservableProperty]
-    private ObservableCollection<string> logs = new();
+    public ObservableCollection<string> Logs { get; } = new();
 
     [ObservableProperty]
     private bool scrollToBottom = true;
@@ -80,7 +79,7 @@ public partial class LogViewModel : ObservableRecipient
     {
         await dispatcherQueue.EnqueueAsync(() =>
         {
-            if (logs.Count >= MaxLogCount)
+            if (Logs.Count >= MaxLogCount)
             {
                 Logs.RemoveAt(0);
             }

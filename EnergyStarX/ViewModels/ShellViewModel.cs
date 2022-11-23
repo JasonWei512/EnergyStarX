@@ -22,8 +22,8 @@ public partial class ShellViewModel : ObservableRecipient
 
     public bool ShowTeachingTip
     {
-        get => LocalSettings.FirstRun;
-        set => SetProperty(ShowTeachingTip, value, x => LocalSettings.FirstRun = x);
+        get => Settings.FirstRun;
+        set => SetProperty(ShowTeachingTip, value, x => Settings.FirstRun = x);
     }
 
     public string TitlebarText { get; }

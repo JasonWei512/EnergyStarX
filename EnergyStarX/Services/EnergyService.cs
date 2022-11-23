@@ -17,7 +17,7 @@ public class EnergyService
 
     public bool ThrottleWhenPluggedIn
     {
-        get => LocalSettings.ThrottleWhenPluggedIn;
+        get => Settings.ThrottleWhenPluggedIn;
         set
         {
             lock (lockObject)
@@ -31,7 +31,7 @@ public class EnergyService
                     }
                 }
 
-                LocalSettings.ThrottleWhenPluggedIn = value;
+                Settings.ThrottleWhenPluggedIn = value;
             }
         }
     }
@@ -47,7 +47,7 @@ public class EnergyService
         lock (lockObject)
         {
             HookManager.SubscribeToWindowEvents();
-            ApplyBypassProcessList(LocalSettings.BypassProcessListString);
+            ApplyBypassProcessList(Settings.BypassProcessListString);
 
             PowerManager_PowerSourceKindChanged(null, new object());
             PowerManager.PowerSourceKindChanged += PowerManager_PowerSourceKindChanged;
@@ -70,7 +70,7 @@ public class EnergyService
         lock (lockObject)
         {
             ApplyBypassProcessList(bypassProcessListString);
-            LocalSettings.BypassProcessListString = bypassProcessListString;
+            Settings.BypassProcessListString = bypassProcessListString;
             logger.Info("BypassProcessList saved");
         }
     }

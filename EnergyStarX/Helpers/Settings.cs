@@ -2,7 +2,7 @@
 
 namespace EnergyStarX.Helpers;
 
-public static class LocalSettings
+public static class Settings
 {
     public static bool FirstRun
     {

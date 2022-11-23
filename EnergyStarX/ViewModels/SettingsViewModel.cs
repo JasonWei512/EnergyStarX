@@ -39,10 +39,10 @@ public partial class SettingsViewModel : ObservableRecipient
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(BypassProcessListModified))]
     [NotifyPropertyChangedFor(nameof(BypassProcessListEditorDialogTitle))]
-    private string bypassProcessListString = LocalSettings.BypassProcessListString;
+    private string bypassProcessListString = Settings.BypassProcessListString;
 
-    // The line ending of user inputed text (from TextBox) is CRLF, while "LocalSettings.BypassProcessListString"'s is LF
-    public bool BypassProcessListModified => BypassProcessListString.ReplaceLineEndings() != LocalSettings.BypassProcessListString.ReplaceLineEndings();
+    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.BypassProcessListString"'s is LF
+    public bool BypassProcessListModified => BypassProcessListString.ReplaceLineEndings() != Settings.BypassProcessListString.ReplaceLineEndings();
 
     public string BypassProcessListEditorDialogTitle =>
         "BypassProcessListEditorDialogTitle".GetLocalized()
@@ -84,7 +84,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private void ShowBypassProcessListEditorDialog()
     {
-        BypassProcessListString = LocalSettings.BypassProcessListString;
+        BypassProcessListString = Settings.BypassProcessListString;
         BypassProcessListEditorDialogShowRequested?.Invoke(this, new EventArgs());
     }
 

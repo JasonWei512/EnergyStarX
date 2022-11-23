@@ -52,8 +52,8 @@ public class SystemTrayIconService
         windowsService.AppExiting += WindowsService_AppExiting;
         energyService.StatusChanged += EnergyService_StatusChanged;
 
-        // If user is using StartAllBack, at this line the tray icon image may be wrong.
-        // So I have to wait 0.1 second and update icon image again
+        // If user is using the taskbar enhancement tool StartAllBack, at this line the tray icon image may be wrong.
+        // So I have to wait 0.1 second and update tray icon image and tooltip again.
         await Task.Delay(TimeSpan.FromMilliseconds(100));
         UpdateTrayIconImageAndToolTip();
     }
