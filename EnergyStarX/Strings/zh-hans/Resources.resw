@@ -121,7 +121,17 @@
     <value>能源之星X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>能源之星X</value>
+    <value>🔋 提升您设备的电池续航！
+能源之星X 利用 Windows 11 的 EcoQos API 来限制后台应用的资源占用，从而提高散热表现和电池续航。
+
+为了获得最好的效果，你需要：
+- Windows 11 22H2 Build 22621 及以上
+- 英特尔 10 代及以上移动处理器
+- AMD Ryzen 5000 及以上移动处理器
+- 高通移动处理器
+
+❤ 源代码：https://github.com/JasonWei512/EnergyStarX
+能源之星X 是开源程序 Energy Star 的图形界面版应用。</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
     <value>帮助</value>

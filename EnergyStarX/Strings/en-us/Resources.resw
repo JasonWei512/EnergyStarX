@@ -121,7 +121,17 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Energy Star X</value>
+    <value>🔋 Improve your device's battery life!
+Energy Star X leverages Windows 11's EcoQoS API to throttle background applications to improve system thermal and battery life.
+
+For the best result, you need:
+- Windows 11 22H2 Build 22621 or above
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
+
+❤ Source code: https://github.com/JasonWei512/EnergyStarX
+Energy Star X is a GUI version of the open source software Energy Star.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
     <value>Help</value>
@@ -150,7 +160,7 @@
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
 
-Energy Star X is a GUI version of the open source software [Energy Star](https://github.com/imbushuo/EnergyStar/), developed using Windows App SDK (WinUI 3).
+Energy Star X is a GUI version of the open source software [Energy Star](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
 
 It leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) to throttle background applications to improve system thermal and battery life.
 
