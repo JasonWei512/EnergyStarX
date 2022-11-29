@@ -49,11 +49,11 @@
         </Grid>
 
         <ContentDialog
-            x:Name="BypassProcessListEditorDialog"
-            x:Uid="Settings_BypassProcessListEditorDialog"
-            Title="{x:Bind ViewModel.BypassProcessListEditorDialogTitle, Mode=OneWay}"
+            x:Name="ProcessWhitelistEditorDialog"
+            x:Uid="Settings_ProcessWhitelistEditorDialog"
+            Title="{x:Bind ViewModel.ProcessWhitelistEditorDialogTitle, Mode=OneWay}"
             DefaultButton="Close"
-            PrimaryButtonCommand="{x:Bind ViewModel.ApplyBypassProcessListCommand}">
+            PrimaryButtonCommand="{x:Bind ViewModel.ApplyProcessWhitelistCommand}">
 
             <ScrollViewer>
                 <TextBox
@@ -64,7 +64,7 @@
                     FontFamily="Consolas"
                     FontSize="18"
                     IsSpellCheckEnabled="False"
-                    Text="{x:Bind ViewModel.BypassProcessListString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{x:Bind ViewModel.ProcessWhitelistString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TextWrapping="NoWrap" />
             </ScrollViewer>
         </ContentDialog>
@@ -78,9 +78,9 @@
                     <TextBlock x:Uid="Settings_Title" Style="{StaticResource TitleStyle}" />
 
                     <StackPanel Margin="{StaticResource SubContentBlockMargin}">
-                        <settings:Setting x:Uid="Settings_LaunchOnStartupSetting" Icon="&#xE977;">
+                        <settings:Setting x:Uid="Settings_RunAtStartupSetting" Icon="&#xE977;">
                             <settings:Setting.ActionContent>
-                                <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleLaunchOnStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.LaunchOnStartup, Mode=TwoWay}" />
+                                <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
                             </settings:Setting.ActionContent>
                         </settings:Setting>
 
@@ -90,12 +90,12 @@
                             </settings:Setting.ActionContent>
                         </settings:Setting>
 
-                        <settings:Setting x:Uid="Settings_BypassProcessList" Icon="&#xF0E3;">
+                        <settings:Setting x:Uid="Settings_ProcessWhitelist" Icon="&#xF0E3;">
                             <settings:Setting.ActionContent>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Uid="Settings_BypassProcessList_EditButton" Command="{x:Bind ViewModel.ShowBypassProcessListEditorDialogCommand}" />
+                                    <Button x:Uid="Settings_ProcessWhitelist_EditButton" Command="{x:Bind ViewModel.ShowProcessWhitelistEditorDialogCommand}" />
                                     <Grid Width="10" />
-                                    <Button x:Uid="Settings_BypassProcessList_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultBypassProcessListCommand}" />
+                                    <Button x:Uid="Settings_ProcessWhitelist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessWhitelistCommand}" />
                                 </StackPanel>
                             </settings:Setting.ActionContent>
                         </settings:Setting>

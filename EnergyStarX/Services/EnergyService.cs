@@ -47,7 +47,7 @@ public class EnergyService
         lock (lockObject)
         {
             HookManager.SubscribeToWindowEvents();
-            ApplyBypassProcessList(Settings.BypassProcessListString);
+            ApplyProcessWhitelist(Settings.ProcessWhitelistString);
 
             PowerManager_PowerSourceKindChanged(null, new object());
             PowerManager.PowerSourceKindChanged += PowerManager_PowerSourceKindChanged;
@@ -65,17 +65,17 @@ public class EnergyService
         };
     }
 
-    public void ApplyAndSaveBypassProcessList(string bypassProcessListString)
+    public void ApplyAndSaveProcessWhitelist(string processWhitelistString)
     {
         lock (lockObject)
         {
-            ApplyBypassProcessList(bypassProcessListString);
-            Settings.BypassProcessListString = bypassProcessListString;
-            logger.Info("BypassProcessList saved");
+            ApplyProcessWhitelist(processWhitelistString);
+            Settings.ProcessWhitelistString = processWhitelistString;
+            logger.Info("ProcessWhitelist saved");
         }
     }
 
-    public void ApplyBypassProcessList(string bypassProcessListString)
+    public void ApplyProcessWhitelist(string processWhitelistString)
     {
         lock (lockObject)
         {
@@ -86,13 +86,13 @@ public class EnergyService
                 StopThrottling();
             }
 
-            HashSet<string> bypassProcessList = ParseBypassProcessList(bypassProcessListString);
+            HashSet<string> processWhitelist = ParseProcessWhitelist(processWhitelistString);
 #if DEBUG
-            bypassProcessList.Add("devenv.exe");    // Visual Studio
+            processWhitelist.Add("devenv.exe");    // Visual Studio
 #endif
-            EnergyManager.BypassProcessList = bypassProcessList.ToImmutableHashSet();
+            EnergyManager.ProcessWhitelist = processWhitelist.ToImmutableHashSet();
 
-            logger.Info("Update BypassProcessList:\n{0}", string.Join(Environment.NewLine, bypassProcessList));
+            logger.Info("Update ProcessWhitelist:\n{0}", string.Join(Environment.NewLine, processWhitelist));
 
             if (wasRunning)
             {
@@ -177,12 +177,12 @@ public class EnergyService
         }
     }
 
-    private HashSet<string> ParseBypassProcessList(string bypassProcessListString)
+    private HashSet<string> ParseProcessWhitelist(string processWhitelistString)
     {
         HashSet<string> result = new();
         Regex doubleSlashRegex = new("//");
 
-        using StringReader stringReader = new(bypassProcessListString);
+        using StringReader stringReader = new(processWhitelistString);
         while (stringReader.ReadLine() is string line)
         {
             Match doubleSlashMatch = doubleSlashRegex.Match(line);

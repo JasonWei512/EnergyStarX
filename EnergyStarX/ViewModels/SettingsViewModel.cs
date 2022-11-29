@@ -22,12 +22,12 @@ public partial class SettingsViewModel : ObservableRecipient
     private string versionDescription;
 
     [ObservableProperty]
-    private bool launchOnStartup = false;
+    private bool runAtStartup = false;
 
-    partial void OnLaunchOnStartupChanged(bool value)
+    partial void OnRunAtStartupChanged(bool value)
     {
         if (Initializing) { return; }
-        ToggleLaunchOnStartupCommand.Execute(value);
+        ToggleRunAtStartupCommand.Execute(value);
     }
 
     public bool ThrottleWhenPluggedIn
@@ -37,18 +37,18 @@ public partial class SettingsViewModel : ObservableRecipient
     }
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(BypassProcessListModified))]
-    [NotifyPropertyChangedFor(nameof(BypassProcessListEditorDialogTitle))]
-    private string bypassProcessListString = Settings.BypassProcessListString;
+    [NotifyPropertyChangedFor(nameof(ProcessWhitelistModified))]
+    [NotifyPropertyChangedFor(nameof(ProcessWhitelistEditorDialogTitle))]
+    private string processWhitelistString = Settings.ProcessWhitelistString;
 
-    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.BypassProcessListString"'s is LF
-    public bool BypassProcessListModified => BypassProcessListString.ReplaceLineEndings() != Settings.BypassProcessListString.ReplaceLineEndings();
+    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessWhitelistString"'s is LF
+    public bool ProcessWhitelistModified => ProcessWhitelistString.ReplaceLineEndings() != Settings.ProcessWhitelistString.ReplaceLineEndings();
 
-    public string BypassProcessListEditorDialogTitle =>
-        "BypassProcessListEditorDialogTitle".GetLocalized()
-        + (BypassProcessListModified ? $" ({"Modified".GetLocalized()})" : string.Empty);
+    public string ProcessWhitelistEditorDialogTitle =>
+        "ProcessWhitelistEditorDialogTitle".GetLocalized()
+        + (ProcessWhitelistModified ? $" ({"Modified".GetLocalized()})" : string.Empty);
 
-    public event EventHandler? BypassProcessListEditorDialogShowRequested;
+    public event EventHandler? ProcessWhitelistEditorDialogShowRequested;
 
     public SettingsViewModel(EnergyService energyService, DialogService dialogService)
     {
@@ -62,13 +62,13 @@ public partial class SettingsViewModel : ObservableRecipient
     private async Task Initialize()
     {
         StartupTask? startupTask = await StartupTask.GetAsync(App.Guid);
-        LaunchOnStartup = startupTask.State == StartupTaskState.Enabled;
+        RunAtStartup = startupTask.State == StartupTaskState.Enabled;
 
         Initializing = false;
     }
 
     [RelayCommand]
-    private async Task ToggleLaunchOnStartup(bool enable)
+    private async Task ToggleRunAtStartup(bool enable)
     {
         StartupTask? startupTask = await StartupTask.GetAsync(App.Guid);
         if (enable)
@@ -82,24 +82,24 @@ public partial class SettingsViewModel : ObservableRecipient
     }
 
     [RelayCommand]
-    private void ShowBypassProcessListEditorDialog()
+    private void ShowProcessWhitelistEditorDialog()
     {
-        BypassProcessListString = Settings.BypassProcessListString;
-        BypassProcessListEditorDialogShowRequested?.Invoke(this, new EventArgs());
+        ProcessWhitelistString = Settings.ProcessWhitelistString;
+        ProcessWhitelistEditorDialogShowRequested?.Invoke(this, new EventArgs());
     }
 
     [RelayCommand]
-    private void ApplyBypassProcessList()
+    private void ApplyProcessWhitelist()
     {
-        energyService.ApplyAndSaveBypassProcessList(BypassProcessListString);
+        energyService.ApplyAndSaveProcessWhitelist(ProcessWhitelistString);
     }
 
     [RelayCommand]
-    private async Task RestoreToDefaultBypassProcessList()
+    private async Task RestoreToDefaultProcessWhitelist()
     {
-        if (await dialogService.ShowConfirmationDialog("Restore_to_default_bypass_process_list".GetLocalized()))
+        if (await dialogService.ShowConfirmationDialog("Restore_to_default_process_whitelist".GetLocalized()))
         {
-            energyService.ApplyAndSaveBypassProcessList("DefaultBypassProcessList".GetLocalized());
+            energyService.ApplyAndSaveProcessWhitelist("DefaultProcessWhitelist".GetLocalized());
         }
     }
 

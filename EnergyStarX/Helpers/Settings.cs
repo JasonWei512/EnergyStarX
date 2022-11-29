@@ -6,19 +6,19 @@ public static class Settings
 {
     public static bool FirstRun
     {
-        get => GetSetting(nameof(FirstRun), true);
-        set => SetSetting(nameof(FirstRun), value);
+        get => GetSetting("FirstRun", true);
+        set => SetSetting("FirstRun", value);
     }
 
     public static bool ThrottleWhenPluggedIn
     {
-        get => GetSetting(nameof(ThrottleWhenPluggedIn), false);
-        set => SetSetting(nameof(ThrottleWhenPluggedIn), value);
+        get => GetSetting("ThrottleWhenPluggedIn", false);
+        set => SetSetting("ThrottleWhenPluggedIn", value);
     }
 
-    public static string BypassProcessListString
+    public static string ProcessWhitelistString
     {
-        get => GetSetting(nameof(BypassProcessListString), "DefaultBypassProcessList".GetLocalized());
-        set => SetSetting(nameof(BypassProcessListString), value);
+        get => GetSetting("BypassProcessListString", "DefaultProcessWhitelist".GetLocalized());
+        set => SetSetting("BypassProcessListString", value);
     }
 }

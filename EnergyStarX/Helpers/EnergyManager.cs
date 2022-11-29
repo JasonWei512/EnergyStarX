@@ -17,7 +17,7 @@ internal unsafe class EnergyManager
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
 
-    public static ImmutableHashSet<string> BypassProcessList { get; set; } = new HashSet<string>().ToImmutableHashSet();
+    public static ImmutableHashSet<string> ProcessWhitelist { get; set; } = new HashSet<string>().ToImmutableHashSet();
     // Speical handling needs for UWP to get the child window process
     public const string UWPFrameHostApp = "ApplicationFrameHost.exe";
 
@@ -120,7 +120,7 @@ internal unsafe class EnergyManager
         }
 
         // Boost the current foreground app, and then impose EcoQoS for previous foreground app
-        bool bypass = BypassProcessList.Contains(appName.ToLowerInvariant());
+        bool bypass = ProcessWhitelist.Contains(appName.ToLowerInvariant());
         if (!bypass)
         {
             logger.Info("Boosting {0}", appName);
@@ -159,7 +159,7 @@ internal unsafe class EnergyManager
         foreach (Process proc in sameAsThisSession)
         {
             if (proc.Id == pendingProcPid) continue;
-            if (BypassProcessList.Contains($"{proc.ProcessName}.exe".ToLowerInvariant())) continue;
+            if (ProcessWhitelist.Contains($"{proc.ProcessName}.exe".ToLowerInvariant())) continue;
             IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
             ToggleEfficiencyMode(hProcess, true);
             Win32Api.CloseHandle(hProcess);
@@ -174,7 +174,7 @@ internal unsafe class EnergyManager
         IEnumerable<Process> sameAsThisSession = runningProcesses.Where(p => p.SessionId == currentSessionID);
         foreach (Process proc in sameAsThisSession)
         {
-            if (BypassProcessList.Contains($"{proc.ProcessName}.exe".ToLowerInvariant())) continue;
+            if (ProcessWhitelist.Contains($"{proc.ProcessName}.exe".ToLowerInvariant())) continue;
             IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
             ToggleEfficiencyMode(hProcess, false);
             Win32Api.CloseHandle(hProcess);

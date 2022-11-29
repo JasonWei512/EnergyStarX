@@ -135,8 +135,8 @@
   <data name="AlreadyRunningMessage" xml:space="preserve">
     <value>Energy Star X is aleady running!</value>
   </data>
-  <data name="Settings_LaunchOnStartupSetting.Header" xml:space="preserve">
-    <value>Launch on startup</value>
+  <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
+    <value>Run at startup</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
@@ -200,7 +200,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
     <value>Log</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable launching on startup!</value>
+    <value>Enable running at startup!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
     <value>Contact the developer</value>
@@ -217,7 +217,7 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
     <value>Throttle background processes when plugged in</value>
   </data>
-  <data name="DefaultBypassProcessList" xml:space="preserve">
+  <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
 // Double slash and content after it in each line will be ignored
     
@@ -262,10 +262,10 @@ WUDFRd.exe</value>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
-  <data name="Restore_to_default_bypass_process_list" xml:space="preserve">
-    <value>Restore to default bypass process list?</value>
+  <data name="Restore_to_default_process_whitelist" xml:space="preserve">
+    <value>Restore to default process whitelist?</value>
   </data>
-  <data name="Settings_BypassProcessList_RestoreToDefaultButton.Content" xml:space="preserve">
+  <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>Restore to default</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
@@ -277,22 +277,22 @@ WUDFRd.exe</value>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
     <value>Got it!</value>
   </data>
-  <data name="Settings_BypassProcessList.Header" xml:space="preserve">
-    <value>Edit bypass process list</value>
+  <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
+    <value>Edit process whitelist</value>
   </data>
-  <data name="Settings_BypassProcessList_EditButton.Content" xml:space="preserve">
+  <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="BypassProcessListEditorDialogTitle" xml:space="preserve">
-    <value>Edit bypass process list</value>
+  <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
+    <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>Modified</value>
   </data>
-  <data name="Settings_BypassProcessListEditorDialog.CloseButtonText" xml:space="preserve">
+  <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Settings_BypassProcessListEditorDialog.PrimaryButtonText" xml:space="preserve">
+  <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">

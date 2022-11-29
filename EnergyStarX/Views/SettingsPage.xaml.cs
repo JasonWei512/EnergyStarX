@@ -17,19 +17,19 @@ public sealed partial class SettingsPage : Page
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
-        ViewModel.BypassProcessListEditorDialogShowRequested += ViewModel_BypassProcessListEditorDialogShowRequested;
+        ViewModel.ProcessWhitelistEditorDialogShowRequested += ViewModel_ProcessWhitelistEditorDialogShowRequested;
         base.OnNavigatedTo(e);
     }
 
     protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
     {
-        ViewModel.BypassProcessListEditorDialogShowRequested -= ViewModel_BypassProcessListEditorDialogShowRequested;
+        ViewModel.ProcessWhitelistEditorDialogShowRequested -= ViewModel_ProcessWhitelistEditorDialogShowRequested;
         base.OnNavigatingFrom(e);
     }
 
-    private async void ViewModel_BypassProcessListEditorDialogShowRequested(object? sender, EventArgs e)
+    private async void ViewModel_ProcessWhitelistEditorDialogShowRequested(object? sender, EventArgs e)
     {
-        await BypassProcessListEditorDialog.ShowAsync();
+        await ProcessWhitelistEditorDialog.ShowAsync();
     }
 
     private void ContentArea_SizeChanged(object sender, SizeChangedEventArgs e)

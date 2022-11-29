@@ -135,7 +135,7 @@
   <data name="AlreadyRunningMessage" xml:space="preserve">
     <value>能源之星X 已在运行！</value>
   </data>
-  <data name="Settings_LaunchOnStartupSetting.Header" xml:space="preserve">
+  <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
     <value>开机启动</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
@@ -217,7 +217,7 @@
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
     <value>插电时限制后台进程</value>
   </data>
-  <data name="DefaultBypassProcessList" xml:space="preserve">
+  <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// 每行一个进程名
 // 每行中双斜杠以及之后的内容会被忽略
 
@@ -262,10 +262,10 @@ WUDFRd.exe</value>
   <data name="Yes" xml:space="preserve">
     <value>是</value>
   </data>
-  <data name="Restore_to_default_bypass_process_list" xml:space="preserve">
-    <value>还原为默认排除进程列表？</value>
+  <data name="Restore_to_default_process_whitelist" xml:space="preserve">
+    <value>还原为默认进程白名单？</value>
   </data>
-  <data name="Settings_BypassProcessList_RestoreToDefaultButton.Content" xml:space="preserve">
+  <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>还原为默认</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
@@ -277,22 +277,22 @@ WUDFRd.exe</value>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
     <value>明白了！</value>
   </data>
-  <data name="Settings_BypassProcessList.Header" xml:space="preserve">
-    <value>编辑排除进程列表</value>
+  <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
+    <value>编辑进程白名单</value>
   </data>
-  <data name="Settings_BypassProcessList_EditButton.Content" xml:space="preserve">
+  <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>编辑</value>
   </data>
-  <data name="BypassProcessListEditorDialogTitle" xml:space="preserve">
-    <value>编辑排除进程列表</value>
+  <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
+    <value>编辑进程白名单</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>已编辑</value>
   </data>
-  <data name="Settings_BypassProcessListEditorDialog.CloseButtonText" xml:space="preserve">
+  <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="Settings_BypassProcessListEditorDialog.PrimaryButtonText" xml:space="preserve">
+  <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
     <value>保存</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
