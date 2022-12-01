@@ -316,6 +316,10 @@ WUDFRd.exe</value>
     <value>正在限制后台程序…
 </value>
   </data>
+  <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
+    <value>你暂停了限制后台程序。
+再次点击暂停按钮以恢复。</value>
+  </data>
   <data name="Paused" xml:space="preserve">
     <value>已暂停</value>
   </data>
@@ -336,5 +340,8 @@ WUDFRd.exe</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
     <value>更新日志</value>
+  </data>
+  <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
+    <value>暂停</value>
   </data>
 </root>

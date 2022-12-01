@@ -10,15 +10,30 @@ namespace EnergyStarX.ViewModels;
 
 public partial class HomeViewModel : ObservableRecipient
 {
+    private readonly ImageSource ThrottlingIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/CheckButton.png"));
+    private readonly string ThrottlingDescription = "Home_Throttling_Description".GetLocalized();
+
+    private readonly ImageSource NotThrottlingACIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
+    private readonly string NotThrottlingACDescription = "Home_NotThrottlingAC_Description".GetLocalized();
+
+    private readonly ImageSource ThrottlingPausedIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
+    private readonly string ThrottlingPausedDescription = "Home_ThrottlingPaused_Description".GetLocalized();
+
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly EnergyService energyService;
 
     [ObservableProperty]
-    private string? description;
+    private ImageSource? statusIcon;
 
     [ObservableProperty]
-    private ImageSource? statusIconSource;
+    private string? statusDescription;
+
+    public bool PauseThrottling
+    {
+        get => energyService.PauseThrottling;
+        set => SetProperty(PauseThrottling, value, x => energyService.PauseThrottling = x);
+    }
 
     public HomeViewModel(EnergyService energyService)
     {
@@ -30,15 +45,20 @@ public partial class HomeViewModel : ObservableRecipient
 
     private void UpdateStatusOnUI(EnergyService.EnergyStatus energyStatus)
     {
-        if (energyStatus.IsThrottling)
+        if (energyStatus.ForcePause)
         {
-            StatusIconSource = new BitmapImage(new Uri("ms-appx:///Assets/InApp/CheckButton.png"));
-            Description = "Home_Throttling_Description".GetLocalized();
+            StatusIcon = ThrottlingPausedIcon;
+            StatusDescription = ThrottlingPausedDescription;
+        }
+        else if (energyStatus.IsThrottling)
+        {
+            StatusIcon = ThrottlingIcon;
+            StatusDescription = ThrottlingDescription;
         }
         else if (energyStatus.PowerSourceKind == PowerSourceKind.AC)
         {
-            StatusIconSource = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
-            Description = "Home_NotThrottlingAC_Description".GetLocalized();
+            StatusIcon = NotThrottlingACIcon;
+            StatusDescription = NotThrottlingACDescription;
         }
     }
 

@@ -40,7 +40,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
     // Called when AssociatedObject is no long on xaml tree
     public void Detach()
     {
-        // TODO: Realase resource and unregister event handlers
+        // TODO: Release resource and unregister event handlers
         // Currently commented out, because LogPage's log TextBlock needs to log new lines even when current page is not LogPage.
 
         //if (BindableInlines is not null)

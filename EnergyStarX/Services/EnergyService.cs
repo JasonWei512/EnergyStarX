@@ -1,4 +1,4 @@
-﻿using EnergyStarX.Core.Interop;
+using EnergyStarX.Core.Interop;
 using EnergyStarX.Helpers;
 using Microsoft.Windows.System.Power;
 using NLog;
@@ -22,25 +22,38 @@ public class EnergyService
         {
             lock (lockObject)
             {
-                if (PowerManager.PowerSourceKind == PowerSourceKind.AC)
+                if (Settings.ThrottleWhenPluggedIn != value)
                 {
-                    bool throttleStatusChanged = value ? StartThrottling() : StopThrottling();
-                    if (throttleStatusChanged)
-                    {
-                        StatusChanged?.Invoke(this, Status);
-                    }
+                    Settings.ThrottleWhenPluggedIn = value;
+                    UpdateThrottleStatusAndNotify();
                 }
-
-                Settings.ThrottleWhenPluggedIn = value;
             }
         }
     }
 
-    public EnergyStatus Status => new(EnergyManager.IsRunning, PowerManager.PowerSourceKind);
+    private bool pauseThrottling = false;
+
+    public bool PauseThrottling
+    {
+        get => pauseThrottling;
+        set
+        {
+            lock (lockObject)
+            {
+                if (pauseThrottling != value)
+                {
+                    pauseThrottling = value;
+                    UpdateThrottleStatusAndNotify();
+                }
+            }
+        }
+    }
+
+    public EnergyStatus Status => new(EnergyManager.IsRunning, PowerManager.PowerSourceKind, PauseThrottling);
 
     public event EventHandler<EnergyStatus>? StatusChanged;
 
-    public record EnergyStatus(bool IsThrottling, PowerSourceKind PowerSourceKind);
+    public record EnergyStatus(bool IsThrottling, PowerSourceKind PowerSourceKind, bool ForcePause);
 
     public void Initialize()
     {
@@ -48,8 +61,7 @@ public class EnergyService
         {
             HookManager.SubscribeToWindowEvents();
             ApplyProcessWhitelist(Settings.ProcessWhitelistString);
-
-            PowerManager_PowerSourceKindChanged(null, new object());
+            UpdateThrottleStatusAndNotify();
             PowerManager.PowerSourceKindChanged += PowerManager_PowerSourceKindChanged;
         }
     }
@@ -60,7 +72,6 @@ public class EnergyService
         {
             PowerManager.PowerSourceKindChanged -= PowerManager_PowerSourceKindChanged;
             StopThrottling();
-
             HookManager.UnsubscribeWindowEvents();
         };
     }
@@ -156,24 +167,13 @@ public class EnergyService
             if (PowerManager.PowerSourceKind == PowerSourceKind.DC) // Battery
             {
                 logger.Info("Power source changed to battery");
-
-                StartThrottling();
             }
             else if (PowerManager.PowerSourceKind == PowerSourceKind.AC)
             {
                 logger.Info("Power source changed to AC");
-
-                if (ThrottleWhenPluggedIn)
-                {
-                    StartThrottling();
-                }
-                else
-                {
-                    StopThrottling();
-                }
             }
 
-            StatusChanged?.Invoke(this, Status);
+            UpdateThrottleStatusAndNotify();
         }
     }
 
@@ -222,5 +222,38 @@ public class EnergyService
         }
 
         logger.Info("House keeping task stopped.");
+    }
+
+    // Returns true if "EnergyManager.IsRunning" changes after this method executes. Otherwise false.
+    private bool UpdateThrottleStatusAndNotify()
+    {
+        bool result = false;    // Whether throttle status changed
+
+        if (PauseThrottling)
+        {
+            result = StopThrottling();
+        }
+        else
+        {
+            if (PowerManager.PowerSourceKind == PowerSourceKind.DC)  // Battery
+            {
+                result = StartThrottling();
+            }
+            else if (PowerManager.PowerSourceKind == PowerSourceKind.AC)
+            {
+                if (ThrottleWhenPluggedIn)
+                {
+                    result = StartThrottling();
+                }
+                else
+                {
+                    result = StopThrottling();
+                }
+            }
+        }
+
+        StatusChanged?.Invoke(this, Status);
+
+        return result;
     }
 }

@@ -12,14 +12,22 @@
     <Grid x:Name="ContentArea">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image
-                Width="120"
-                Height="120"
-                Source="{x:Bind ViewModel.StatusIconSource, Mode=OneWay}" />
+                Width="115"
+                Height="115"
+                Source="{x:Bind ViewModel.StatusIcon, Mode=OneWay}" />
             <Grid Height="30" />
             <TextBlock
                 FontSize="18"
-                Text="{x:Bind ViewModel.Description, Mode=OneWay}"
+                Text="{x:Bind ViewModel.StatusDescription, Mode=OneWay}"
                 TextAlignment="Center" />
         </StackPanel>
+
+        <CommandBar VerticalAlignment="Bottom" DefaultLabelPosition="Right">
+            <AppBarToggleButton
+                x:Uid="Home_PauseThrottlingButton"
+                HorizontalAlignment="Center"
+                Icon="Pause"
+                IsChecked="{x:Bind ViewModel.PauseThrottling, Mode=TwoWay}" />
+        </CommandBar>
     </Grid>
 </Page>

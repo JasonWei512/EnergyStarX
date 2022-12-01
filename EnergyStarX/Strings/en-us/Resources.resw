@@ -316,6 +316,10 @@ You can change this behavior in settings.</value>
     <value>Throttling background programs...
 </value>
   </data>
+  <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
+    <value>Throttling paused by user.
+Click the pause button again to resume.</value>
+  </data>
   <data name="Paused" xml:space="preserve">
     <value>Paused</value>
   </data>
@@ -336,5 +340,8 @@ You can change this behavior in settings.</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
     <value>Changelog</value>
+  </data>
+  <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
+    <value>Pause</value>
   </data>
 </root>

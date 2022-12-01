@@ -33,10 +33,10 @@ public class SystemTrayIconService
         trayIcon.ContextMenu = new PopupMenu()
         {
             Items =
-                {
-                    new PopupMenuItem("Open".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ShowAppWindow())),
-                    new PopupMenuItem("Exit".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ExitApp()))
-                }
+            {
+                new PopupMenuItem("Open".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ShowAppWindow())),
+                new PopupMenuItem("Exit".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ExitApp()))
+            }
         };
 
         trayIcon.MessageWindow.MouseEventReceived += async (s, e) =>
