@@ -6,5 +6,5 @@ public static class ResourceExtensions
 {
     private static readonly ResourceLoader resourceLoader = new();
 
-    public static string GetLocalized(this string resourceKey) => resourceLoader.GetString(resourceKey);
+    public static string ToLocalized(this string resourceKey) => resourceLoader.GetString(resourceKey);
 }

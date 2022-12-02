@@ -28,7 +28,7 @@ public partial class ShellViewModel : ObservableRecipient
 
     public string TitlebarText { get; }
     public bool IsOsVersionNotRecommended { get; } = Environment.OSVersion.Version.Build < 22621;
-    public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".GetLocalized(), Environment.OSVersion.Version.Build);
+    public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".ToLocalized(), Environment.OSVersion.Version.Build);
 
     public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService)
     {
@@ -37,8 +37,8 @@ public partial class ShellViewModel : ObservableRecipient
         NavigationViewService = navigationViewService;
 
         TitlebarText = HasAdminPrivilege() ?
-            $"{"AppDisplayName".GetLocalized()}  ({"Admin Privilege".GetLocalized()})" :
-            "AppDisplayName".GetLocalized();
+            $"{"AppDisplayName".ToLocalized()}  ({"Admin Privilege".ToLocalized()})" :
+            "AppDisplayName".ToLocalized();
     }
 
     [RelayCommand]

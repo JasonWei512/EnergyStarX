@@ -13,8 +13,8 @@ public class DialogService
             Title = title,
             Content = content,
 
-            PrimaryButtonText = "Yes".GetLocalized(),
-            SecondaryButtonText = "No".GetLocalized(),
+            PrimaryButtonText = "Yes".ToLocalized(),
+            SecondaryButtonText = "No".ToLocalized(),
             DefaultButton = ContentDialogButton.Secondary,
 
             XamlRoot = App.MainWindow.Content.XamlRoot,

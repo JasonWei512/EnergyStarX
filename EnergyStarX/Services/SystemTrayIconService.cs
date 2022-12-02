@@ -1,4 +1,5 @@
-﻿using EnergyStarX.Helpers;
+﻿using CommunityToolkit.WinUI;
+using EnergyStarX.Helpers;
 using H.NotifyIcon.Core;
 using Microsoft.UI.Dispatching;
 using Windows.ApplicationModel;
@@ -8,10 +9,10 @@ namespace EnergyStarX.Services;
 public class SystemTrayIconService
 {
     private readonly System.Drawing.Icon ThrottlingIcon = new(Path.Combine(Package.Current.InstalledPath, "Assets/WindowIcon.ico"));
-    private readonly string ThrottlingToolTip = "AppDisplayName".GetLocalized();
+    private readonly string ThrottlingToolTip = "AppDisplayName".ToLocalized();
 
     private readonly System.Drawing.Icon NotThrottlingIcon = new(Path.Combine(Package.Current.InstalledPath, "Assets/WindowIcon-Gray.ico"));
-    private readonly string NotThrottlingToolTip = $"{"AppDisplayName".GetLocalized()}\n({"Paused".GetLocalized()})";
+    private readonly string NotThrottlingToolTip = $"{"AppDisplayName".ToLocalized()}\n({"Paused".ToLocalized()})";
 
     private readonly TrayIconWithContextMenu trayIcon = new();
 
@@ -34,8 +35,8 @@ public class SystemTrayIconService
         {
             Items =
             {
-                new PopupMenuItem("Open".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ShowAppWindow())),
-                new PopupMenuItem("Exit".GetLocalized(), async (s, e) => await RunOnUIThread(() => windowsService.ExitApp()))
+                new PopupMenuItem("Open".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowsService.ShowAppWindow())),
+                new PopupMenuItem("Exit".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowsService.ExitApp()))
             }
         };
 
@@ -43,7 +44,7 @@ public class SystemTrayIconService
         {
             if (e.MouseEvent == MouseEvent.IconDoubleClick)
             {
-                await RunOnUIThread(() => windowsService.ShowAppWindow());
+                await dispatcherQueue.EnqueueAsync(() => windowsService.ShowAppWindow());
             }
         };
 
@@ -60,7 +61,7 @@ public class SystemTrayIconService
 
     private async void EnergyService_StatusChanged(object? sender, EnergyService.EnergyStatus e)
     {
-        await RunOnUIThread(() => UpdateTrayIconImageAndToolTip());
+        await dispatcherQueue.EnqueueAsync(() => UpdateTrayIconImageAndToolTip());
     }
 
     private void WindowsService_AppExiting(object? sender, EventArgs e)
@@ -83,6 +84,4 @@ public class SystemTrayIconService
         energyStatus.IsThrottling ?
         (ThrottlingIcon, ThrottlingToolTip) :
         (NotThrottlingIcon, NotThrottlingToolTip);
-
-    private async Task RunOnUIThread(Action action) => await CommunityToolkit.WinUI.DispatcherQueueExtensions.EnqueueAsync(dispatcherQueue, action);
 }

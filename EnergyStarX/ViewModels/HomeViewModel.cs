@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.WinUI;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
 using Microsoft.UI.Dispatching;
@@ -11,13 +12,13 @@ namespace EnergyStarX.ViewModels;
 public partial class HomeViewModel : ObservableRecipient
 {
     private readonly ImageSource ThrottlingIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/CheckButton.png"));
-    private readonly string ThrottlingDescription = "Home_Throttling_Description".GetLocalized();
+    private readonly string ThrottlingDescription = "Home_Throttling_Description".ToLocalized();
 
     private readonly ImageSource NotThrottlingACIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
-    private readonly string NotThrottlingACDescription = "Home_NotThrottlingAC_Description".GetLocalized();
+    private readonly string NotThrottlingACDescription = "Home_NotThrottlingAC_Description".ToLocalized();
 
     private readonly ImageSource ThrottlingPausedIcon = new BitmapImage(new Uri("ms-appx:///Assets/InApp/PauseButton.png"));
-    private readonly string ThrottlingPausedDescription = "Home_ThrottlingPaused_Description".GetLocalized();
+    private readonly string ThrottlingPausedDescription = "Home_ThrottlingPaused_Description".ToLocalized();
 
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
@@ -64,9 +65,6 @@ public partial class HomeViewModel : ObservableRecipient
 
     private async void EnergyService_StatusChanged(object? sender, EnergyService.EnergyStatus e)
     {
-        await CommunityToolkit.WinUI.DispatcherQueueExtensions.EnqueueAsync(dispatcherQueue, () =>
-        {
-            UpdateStatusOnUI(e);
-        });
+        await dispatcherQueue.EnqueueAsync(() => UpdateStatusOnUI(e));
     }
 }

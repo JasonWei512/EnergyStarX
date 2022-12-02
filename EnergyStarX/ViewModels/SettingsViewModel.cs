@@ -45,8 +45,8 @@ public partial class SettingsViewModel : ObservableRecipient
     public bool ProcessWhitelistModified => ProcessWhitelistString.ReplaceLineEndings() != Settings.ProcessWhitelistString.ReplaceLineEndings();
 
     public string ProcessWhitelistEditorDialogTitle =>
-        "ProcessWhitelistEditorDialogTitle".GetLocalized()
-        + (ProcessWhitelistModified ? $" ({"Modified".GetLocalized()})" : string.Empty);
+        "ProcessWhitelistEditorDialogTitle".ToLocalized()
+        + (ProcessWhitelistModified ? $" ({"Modified".ToLocalized()})" : string.Empty);
 
     public event EventHandler? ProcessWhitelistEditorDialogShowRequested;
 
@@ -97,9 +97,9 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private async Task RestoreToDefaultProcessWhitelist()
     {
-        if (await dialogService.ShowConfirmationDialog("Restore_to_default_process_whitelist".GetLocalized()))
+        if (await dialogService.ShowConfirmationDialog("Restore_to_default_process_whitelist".ToLocalized()))
         {
-            energyService.ApplyAndSaveProcessWhitelist("DefaultProcessWhitelist".GetLocalized());
+            energyService.ApplyAndSaveProcessWhitelist("DefaultProcessWhitelist".ToLocalized());
         }
     }
 
@@ -113,7 +113,7 @@ public partial class SettingsViewModel : ObservableRecipient
     private async Task ContactTheDeveloper()
     {
         string address = "asknickjohn@outlook.com";
-        string subject = $"{VersionDescription} {"Feedback".GetLocalized()}";
+        string subject = $"{VersionDescription} {"Feedback".ToLocalized()}";
         string body = await Task.Run(() => feedbackMailBody.Value);
 
         await EmailHelper.ShowEmail(address, subject, body);
@@ -159,6 +159,6 @@ public partial class SettingsViewModel : ObservableRecipient
             version = Assembly.GetExecutingAssembly().GetName().Version!;
         }
 
-        return $"{"AppDisplayName".GetLocalized()} ({Package.Current.Id.Architecture}) - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        return $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
 }

@@ -16,7 +16,7 @@ public static class Program
         AppInstance mainInstance = AppInstance.FindOrRegisterForKey(App.Guid);
         if (!mainInstance.IsCurrent)
         {
-            new ToastContentBuilder().AddText("AlreadyRunningMessage".GetLocalized()).Show();
+            new ToastContentBuilder().AddText("AlreadyRunningMessage".ToLocalized()).Show();
             return;
         }
 

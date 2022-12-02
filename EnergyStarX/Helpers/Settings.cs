@@ -18,7 +18,7 @@ public static class Settings
 
     public static string ProcessWhitelistString
     {
-        get => GetSetting("BypassProcessListString", "DefaultProcessWhitelist".GetLocalized());
+        get => GetSetting("BypassProcessListString", "DefaultProcessWhitelist".ToLocalized());
         set => SetSetting("BypassProcessListString", value);
     }
 }
