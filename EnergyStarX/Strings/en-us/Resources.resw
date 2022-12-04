@@ -201,7 +201,12 @@ You can see a green leaf icon in the "Status" column of the Task Manager next to
 - App Icon: 
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_561920</value>
+  - https://www.flaticon.com/free-icon/pause-button_561920
+
+    
+# How to contribute
+
+See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>

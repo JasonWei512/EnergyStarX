@@ -201,7 +201,12 @@
 - 应用图标：
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_561920</value>
+  - https://www.flaticon.com/free-icon/pause-button_561920
+
+    
+# 如何贡献
+
+请看 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.zh-hans.md)。</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>警告：您的系统版本为 {0}，低于 22621，将不会获得最佳节能效果</value>
