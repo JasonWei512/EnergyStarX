@@ -116,6 +116,15 @@ public partial class SettingsViewModel : ObservableRecipient
         string subject = $"{VersionDescription} {"Feedback".ToLocalized()}";
         string body = await Task.Run(() => feedbackMailBody.Value);
 
+        string errorLogContent = await LoggerHelper.GetErrorLogContent();
+        if (!string.IsNullOrEmpty(errorLogContent))
+        {
+            body += $"""
+                Error Log:
+                {errorLogContent}
+                """;
+        }
+
         await EmailHelper.ShowEmail(address, subject, body);
     }
 
@@ -130,6 +139,10 @@ public partial class SettingsViewModel : ObservableRecipient
         string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
 
         return $"""
+
+
+
+
             ----------
             Windows: {Environment.OSVersion.Version}
             Device: {new EasClientDeviceInformation().SystemProductName}
@@ -138,8 +151,6 @@ public partial class SettingsViewModel : ObservableRecipient
             GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}
             Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}
             ----------
-
-
 
             """;
     });

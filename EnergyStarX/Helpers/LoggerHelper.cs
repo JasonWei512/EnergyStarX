@@ -22,15 +22,6 @@ public static class LoggerHelper
     public static event EventHandler<Log>? NewLogLine;
     public record Log(string LogString, LogEventInfo LogEventInfo);
 
-    public static async Task OpenLogFolder()
-    {
-        FolderLauncherOptions folderLauncherOptions = new();
-        StorageFolder logFolder = await BaseFolder.CreateFolderAsync(LogFolderName, CreationCollisionOption.OpenIfExists);
-        StorageFile errorLogFile = await logFolder.CreateFileAsync(ErrorLogFileName, CreationCollisionOption.OpenIfExists);
-        folderLauncherOptions.ItemsToSelect.Add(errorLogFile);
-        await Launcher.LaunchFolderAsync(logFolder, folderLauncherOptions);
-    }
-
     public static void ConfigureNLog()
     {
         NLog.LogManager.Setup().LoadConfiguration(builder =>
@@ -77,5 +68,26 @@ public static class LoggerHelper
                     Analytics.TrackEvent($"Error: {message}", eventProperties);
                 });
         });
+    }
+
+    public static async Task OpenLogFolder()
+    {
+        FolderLauncherOptions folderLauncherOptions = new();
+        StorageFolder logFolder = await BaseFolder.CreateFolderAsync(LogFolderName, CreationCollisionOption.OpenIfExists);
+        StorageFile errorLogFile = await logFolder.CreateFileAsync(ErrorLogFileName, CreationCollisionOption.OpenIfExists);
+        folderLauncherOptions.ItemsToSelect.Add(errorLogFile);
+        await Launcher.LaunchFolderAsync(logFolder, folderLauncherOptions);
+    }
+
+    public async static Task<string> GetErrorLogContent()
+    {
+        try
+        {
+            return await File.ReadAllTextAsync(ErrorLogFilePath);
+        }
+        catch
+        {
+            return string.Empty;
+        }
     }
 }
