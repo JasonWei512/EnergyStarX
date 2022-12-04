@@ -2,6 +2,7 @@
 using EnergyStarX.Helpers;
 using H.NotifyIcon.Core;
 using Microsoft.UI.Dispatching;
+using NLog;
 using Windows.ApplicationModel;
 
 namespace EnergyStarX.Services;
@@ -16,6 +17,7 @@ public class SystemTrayIconService
 
     private readonly TrayIconWithContextMenu trayIcon = new();
 
+    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly WindowService windowsService;
@@ -76,8 +78,29 @@ public class SystemTrayIconService
     private void UpdateTrayIconImageAndToolTip()
     {
         (System.Drawing.Icon icon, string toolTip) = GetTrayIconImageAndToolTip(energyService.Status);
-        trayIcon.UpdateIcon(icon.Handle);
-        trayIcon.UpdateToolTip(toolTip);
+
+        // Warning:
+        // "TrayIcon.UpdateIcon()" might throw a InvalidOperationException when computer wakes up from sleep
+        // https://github.com/HavenDV/H.NotifyIcon/issues/50
+        // https://github.com/JasonWei512/EnergyStarX/issues/11
+
+        try
+        {
+            trayIcon.UpdateIcon(icon.Handle);
+        }
+        catch (Exception e)
+        {
+            logger.Error(e, "TrayIcon.UpdateIcon() failed");
+        }
+
+        try
+        {
+            trayIcon.UpdateToolTip(toolTip);
+        }
+        catch (Exception e)
+        {
+            logger.Error(e, "TrayIcon.UpdateToolTip() failed");
+        }
     }
 
     private (System.Drawing.Icon Icon, string toolTip) GetTrayIconImageAndToolTip(EnergyService.EnergyStatus energyStatus) =>
