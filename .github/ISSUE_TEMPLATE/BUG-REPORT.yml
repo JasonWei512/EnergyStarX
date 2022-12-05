@@ -17,6 +17,7 @@ body:
         简短明确的对问题的描述
     validations:
       required: true
+
   - type: textarea
     id: reprod
     attributes:
@@ -31,6 +32,7 @@ body:
       render: bash
     validations:
       required: true
+
   - type: textarea
     id: screenshot
     attributes:
@@ -43,6 +45,7 @@ body:
       render: bash
     validations:
       required: false
+
   - type: input
     id: windowsversion
     attributes:
@@ -51,6 +54,7 @@ body:
         Windows 11 22H2 Build 22622.601
     validations:
       required: true
+
   - type: textarea
     id: hardwarespecs
     attributes:
@@ -61,3 +65,14 @@ body:
         16GB / 512GB
     validations:
       required: true
+
+  - type: textarea
+    id: errorlog
+    attributes:
+      label: "Error log / 错误日志"
+      description: |
+        Please go to the "Log" page of the app, click the "Open Log Folder" button at the bottom right corner, and paste the contents of "Error.txt" here
+        请前往应用的 "日志" 页面，点击右下角的 "打开日志文件夹" 按钮，将 "Error.txt" 的内容粘贴到这里
+      placeholder: "1919/08/10 11:45:14.893 | ERROR | RedTeaNotFoundException"
+    validations:
+      required: false
