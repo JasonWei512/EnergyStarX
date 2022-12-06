@@ -85,7 +85,7 @@ public partial class SettingsViewModel : ObservableRecipient
     private void ShowProcessWhitelistEditorDialog()
     {
         ProcessWhitelistString = Settings.ProcessWhitelistString;
-        ProcessWhitelistEditorDialogShowRequested?.Invoke(this, new EventArgs());
+        ProcessWhitelistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
     }
 
     [RelayCommand]
@@ -116,7 +116,7 @@ public partial class SettingsViewModel : ObservableRecipient
         string subject = $"{VersionDescription} {"Feedback".ToLocalized()}";
         string body = await Task.Run(() => feedbackMailBody.Value);
 
-        string errorLogContent = await LoggerHelper.GetErrorLogContent();
+        string errorLogContent = await LogHelper.GetErrorLogContent();
         if (!string.IsNullOrEmpty(errorLogContent))
         {
             body += $"""

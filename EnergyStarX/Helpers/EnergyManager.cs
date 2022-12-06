@@ -28,7 +28,7 @@ internal unsafe class EnergyManager
     private static IntPtr pThrottleOff = IntPtr.Zero;
     private static int szControlBlock = 0;
 
-    public static bool IsRunning { get; set; }
+    public static bool IsThrottling { get; set; }
 
     static EnergyManager()
     {
@@ -76,7 +76,7 @@ internal unsafe class EnergyManager
 
     public static unsafe void HandleForegroundEvent(IntPtr hwnd)
     {
-        if (!IsRunning)
+        if (!IsThrottling)
         {
             return;
         }

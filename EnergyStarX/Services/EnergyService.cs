@@ -31,6 +31,8 @@ public class EnergyService
         }
     }
 
+    public bool IsThrottling => EnergyManager.IsThrottling;
+
     private bool pauseThrottling = false;
 
     public bool PauseThrottling
@@ -49,11 +51,13 @@ public class EnergyService
         }
     }
 
-    public EnergyStatus Status => new(EnergyManager.IsRunning, PowerManager.PowerSourceKind, PauseThrottling);
+    public PowerSourceKind PowerSourceKind => PowerManager.PowerSourceKind;
+
+    public EnergyStatus Status => new(EnergyManager.IsThrottling, PauseThrottling, PowerManager.PowerSourceKind);
 
     public event EventHandler<EnergyStatus>? StatusChanged;
 
-    public record EnergyStatus(bool IsThrottling, PowerSourceKind PowerSourceKind, bool ForcePause);
+    public record EnergyStatus(bool IsThrottling, bool PauseThrottling, PowerSourceKind PowerSourceKind);
 
     public void Initialize()
     {
@@ -90,7 +94,7 @@ public class EnergyService
     {
         lock (lockObject)
         {
-            bool wasRunning = EnergyManager.IsRunning;
+            bool wasRunning = EnergyManager.IsThrottling;
 
             if (wasRunning)
             {
@@ -113,19 +117,19 @@ public class EnergyService
     }
 
     /// <summary>
-    /// Returns true if "EnergyManager.IsRunning" changes after this method executes. Otherwise false.
+    /// Returns true if "EnergyManager.IsThrottling" changes after this method executes. Otherwise false.
     /// </summary>
     private bool StartThrottling()
     {
         lock (lockObject)
         {
-            if (!EnergyManager.IsRunning)
+            if (!EnergyManager.IsThrottling)
             {
                 logger.Info("EnergyService starts throttling");
                 cts = new CancellationTokenSource();
                 EnergyManager.ThrottleAllUserBackgroundProcesses();
                 _ = HouseKeeping(cts.Token);
-                EnergyManager.IsRunning = true;
+                EnergyManager.IsThrottling = true;
                 return true;
             }
             else
@@ -136,20 +140,20 @@ public class EnergyService
     }
 
     /// <summary>
-    /// Returns true if "EnergyManager.IsRunning" changes after this method executes. Otherwise false.
+    /// Returns true if "EnergyManager.IsThrottling" changes after this method executes. Otherwise false.
     /// </summary>
     private bool StopThrottling()
     {
         lock (lockObject)
         {
-            if (EnergyManager.IsRunning)
+            if (EnergyManager.IsThrottling)
             {
                 logger.Info("EnergyService stops throttling");
 
                 cts.Cancel();
                 EnergyManager.RecoverAllUserProcesses();
 
-                EnergyManager.IsRunning = false;
+                EnergyManager.IsThrottling = false;
 
                 return true;
             }
@@ -224,7 +228,7 @@ public class EnergyService
         logger.Info("House keeping task stopped.");
     }
 
-    // Returns true if "EnergyManager.IsRunning" changes after this method executes. Otherwise false.
+    // Returns true if "EnergyManager.IsThrottling" changes after this method executes. Otherwise false.
     private bool UpdateThrottleStatusAndNotify()
     {
         bool result = false;    // Whether throttle status changed

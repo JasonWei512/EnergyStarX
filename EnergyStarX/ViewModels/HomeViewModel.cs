@@ -46,7 +46,7 @@ public partial class HomeViewModel : ObservableRecipient
 
     private void UpdateStatusOnUI(EnergyService.EnergyStatus energyStatus)
     {
-        if (energyStatus.ForcePause)
+        if (energyStatus.PauseThrottling)
         {
             StatusIcon = ThrottlingPausedIcon;
             StatusDescription = ThrottlingPausedDescription;

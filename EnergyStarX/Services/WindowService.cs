@@ -28,7 +28,7 @@ public class WindowService
     {
         if (!WindowVisible)
         {
-            WindowShowing?.Invoke(this, new EventArgs());
+            WindowShowing?.Invoke(this, EventArgs.Empty);
         }
         App.MainWindow.Activate();
         App.MainWindow.BringToFront();
@@ -39,7 +39,7 @@ public class WindowService
     {
         if (WindowVisible)
         {
-            WindowHiding?.Invoke(this, new EventArgs());
+            WindowHiding?.Invoke(this, EventArgs.Empty);
         }
         App.MainWindow.Hide();
     }
@@ -49,7 +49,7 @@ public class WindowService
         energyService.Terminate();
 
         App.MainWindow.Closed -= MainWindow_Closed;
-        AppExiting?.Invoke(this, new EventArgs());
+        AppExiting?.Invoke(this, EventArgs.Empty);
         App.MainWindow.Close();
         Application.Current.Exit();
     }

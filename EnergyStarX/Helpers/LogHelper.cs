@@ -7,7 +7,7 @@ using Windows.System;
 
 namespace EnergyStarX.Helpers;
 
-public static class LoggerHelper
+public static class LogHelper
 {
     private static readonly StorageFolder BaseFolder = ApplicationData.Current.LocalCacheFolder;
 
@@ -22,23 +22,29 @@ public static class LoggerHelper
     public static event EventHandler<Log>? NewLogLine;
     public record Log(string LogString, LogEventInfo LogEventInfo);
 
+    /// <summary>
+    /// For "Debug" log, log to debugger in debug build. <br/>
+    /// For "Info" log, raise <see cref="NewLogLine" /> event and display it in LogPage. <br/>
+    /// For "Error" log, log to file and Visual Studio App Center.
+    /// </summary>
     public static void ConfigureNLog()
     {
         NLog.LogManager.Setup().LoadConfiguration(builder =>
         {
-            // For "Debug" log, log to debugger
-            builder.ForLogger().FilterMinLevel(LogLevel.Debug).WriteToDebugConditional();
+            builder.ForLogger()
+                .FilterMinLevel(LogLevel.Debug)
+                .WriteToDebugConditional();
 
-            // For "Info" log, raise "NowLogLine" event and display it in LogPage
-            builder.ForLogger().FilterMinLevel(LogLevel.Info)
+            builder.ForLogger()
+                .FilterMinLevel(LogLevel.Info)
                 .WriteToMethodCall((logEventInfo, layouts) =>
                 {
                     string logString = InfoLogLayout.Render(logEventInfo);
                     NewLogLine?.Invoke(null, new Log(logString, logEventInfo));
                 });
 
-            // For "Error" log, log to file and Visual Studio App Center
-            builder.ForLogger().FilterMinLevel(LogLevel.Error)
+            builder.ForLogger()
+                .FilterMinLevel(LogLevel.Error)
                 .WriteToFile(ErrorLogFilePath)
                 .WriteToMethodCall((logEventInfo, layouts) =>
                 {

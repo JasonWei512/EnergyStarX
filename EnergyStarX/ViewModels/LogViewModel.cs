@@ -29,20 +29,20 @@ public partial class LogViewModel : ObservableRecipient
     public LogViewModel(WindowService windowService)
     {
         this.windowService = windowService;
-        this.windowService.WindowShowing += (s, e) => ScrollToBottomRequested?.Invoke(this, new EventArgs());
+        this.windowService.WindowShowing += (s, e) => ScrollToBottomRequested?.Invoke(this, EventArgs.Empty);
 
         StartDisplayingLog();
     }
 
     public void StartDisplayingLog()
     {
-        LoggerHelper.NewLogLine -= Logger_NewLogLine;
-        LoggerHelper.NewLogLine += Logger_NewLogLine;
+        LogHelper.NewLogLine -= Logger_NewLogLine;
+        LogHelper.NewLogLine += Logger_NewLogLine;
     }
 
     public void StopDisplayingLog()
     {
-        LoggerHelper.NewLogLine -= Logger_NewLogLine;
+        LogHelper.NewLogLine -= Logger_NewLogLine;
         Logs.Clear();
     }
 
@@ -50,7 +50,7 @@ public partial class LogViewModel : ObservableRecipient
     {
         if (ScrollToBottom)
         {
-            ScrollToBottomRequested?.Invoke(this, new EventArgs());
+            ScrollToBottomRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -72,10 +72,10 @@ public partial class LogViewModel : ObservableRecipient
     [RelayCommand]
     private async Task OpenLogFolder()
     {
-        await LoggerHelper.OpenLogFolder();
+        await LogHelper.OpenLogFolder();
     }
 
-    private async void Logger_NewLogLine(object? sender, LoggerHelper.Log e)
+    private async void Logger_NewLogLine(object? sender, LogHelper.Log e)
     {
         await dispatcherQueue.EnqueueAsync(() =>
         {

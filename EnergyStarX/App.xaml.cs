@@ -48,7 +48,7 @@ public partial class App : Application
     public App()
     {
         AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
-        LoggerHelper.ConfigureNLog();
+        LogHelper.ConfigureNLog();
 
         InitializeComponent();
 
