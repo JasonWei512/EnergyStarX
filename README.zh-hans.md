@@ -24,12 +24,18 @@
 
 # 简介
 
-能源之星X 是开源程序 [Energy Star](https://github.com/imbushuo/EnergyStar/) 的图形界面版应用，使用 Windows App SDK (WinUI 3) 开发。
+能源之星X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/)（即“效率模式”）来限制后台应用的资源占用，从而提高电池续航和散热表现。它不会限制前台应用，以确保用户体验。
 
-它利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) 来限制后台应用的资源占用，从而提高散热表现和电池续航。
+此应用是开源程序 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的图形界面版本，使用 Windows App SDK (WinUI 3) 开发。
 
 
 # 要求
+
+为了获得最好的效果，你需要：
+
+## 软件
+
+- Windows 11 22H2 (Build 22621) 及以上
 
 ## 硬件
 
@@ -37,17 +43,14 @@
 - AMD Ryzen 5000 及以上移动处理器
 - 高通移动处理器
 
-## 软件
-
-- 在 Windows 11 22H2 (Build 22621) 以上可完全发挥作用。
-- 可在 Windows 11 21H2 (Build 22000) 上工作，但是不会有最佳表现。
+此应用可以在 Windows 11 21H2 (Build 22000) 和旧硬件上工作，但是可能不会有最佳效果。
 
 
 # 使用方法
 
 让它在任务栏右下角后台运行即可。你可以在设置页中选择开机启动。
 
-你可以在任务管理器的 “状态” 列中看到被限制资源的后台应用旁会显示一个绿叶图标。
+你可以在任务管理器的“状态”列中看到被限制资源的后台应用旁会显示一个绿叶图标。
 
 ![任务管理器绿叶](/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
 
@@ -56,7 +59,7 @@
 
 - 如果你使用了 [StartAllBack](https://www.startallback.com/) 等任务栏增强软件，那么当你把鼠标悬停在任务栏右下角图标上时，应用可能会崩溃。
 - 当父进程获得输入焦点时，子进程不会被解除资源限制。
-- 系统进程 (Session 0) 将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
+- 系统进程（Session 0）将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
 
 
 # 致谢

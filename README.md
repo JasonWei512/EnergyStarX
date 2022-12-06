@@ -29,12 +29,18 @@
 
 # Introduction
 
-Energy Star X is a GUI version of the open source software [Energy Star](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-It leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) to throttle background applications to improve system thermal and battery life.
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
 
 
 # Requirements
+
+For the best result, you need:
+
+## Software
+
+- Windows 11 22H2 (Build 22621) or above
 
 ## Hardware
 
@@ -42,24 +48,21 @@ It leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performanc
 - AMD Ryzen 5000 or newer mobile processors
 - Qualcomm mobile processors
 
-## Software
-
-- Works best on Windows 11 22H2 (Build 22621) and above.
-- Works on Windows 11 21H2 (Build 22000), but not as well.
+This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
 
 
 # Usage
 
-Let it run in the background in the system tray. You can choose to run it automatically on startup in the settings page.
+Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
 
-You can see a green leaf icon in the "Status" column of the Task Manager next to background processes that are throttled.
+You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
 
 ![Task Manager Leaf](/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
 # Known Limitations
 
-- If you use some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
 - Child processes do not get boosted when the parent process receives input focus.
 - System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 
