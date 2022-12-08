@@ -134,10 +134,10 @@ For the best result, you need:
 Energy Star X is a GUI version of the open source software Energy Star.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>ヘルプ</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>このアプリについて</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Intel sucks</value>
@@ -149,7 +149,7 @@ Energy Star X is a GUI version of the open source software Energy Star.</value>
     <value>Run at startup</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>設定</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
@@ -230,7 +230,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Feedback</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>コピー</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
     <value>Throttle background processes when plugged in</value>
@@ -272,7 +272,7 @@ svchost.exe
 WUDFRd.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
