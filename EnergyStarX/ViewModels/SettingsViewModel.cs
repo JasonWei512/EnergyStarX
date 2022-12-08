@@ -120,7 +120,8 @@ public partial class SettingsViewModel : ObservableRecipient
         if (!string.IsNullOrEmpty(errorLogContent))
         {
             body += $"""
-                Error Log:
+                ----------
+                Error log:
                 {errorLogContent}
                 """;
         }
@@ -142,7 +143,6 @@ public partial class SettingsViewModel : ObservableRecipient
 
 
 
-
             ----------
             Windows: {Environment.OSVersion.Version}
             Device: {new EasClientDeviceInformation().SystemProductName}
@@ -150,7 +150,6 @@ public partial class SettingsViewModel : ObservableRecipient
             RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b) / 1024 / 1024} MB
             GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}
             Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}
-            ----------
 
             """;
     });

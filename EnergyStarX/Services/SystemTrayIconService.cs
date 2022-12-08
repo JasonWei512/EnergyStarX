@@ -90,7 +90,7 @@ public class SystemTrayIconService
         }
         catch (Exception e)
         {
-            logger.Error(e, "TrayIcon.UpdateIcon() failed");
+            logger.Error(e, "Caught exception thrown by trayIcon.UpdateIcon()");
         }
 
         try
@@ -99,7 +99,7 @@ public class SystemTrayIconService
         }
         catch (Exception e)
         {
-            logger.Error(e, "TrayIcon.UpdateToolTip() failed");
+            logger.Error(e, "Caught exception thrown by trayIcon.UpdateToolTip()");
         }
     }
 
