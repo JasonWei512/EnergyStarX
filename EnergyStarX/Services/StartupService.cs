@@ -58,21 +58,21 @@ public class StartupService
     /// </summary>
     public async Task<bool> SetStartupType(StartupType newStartupType)
     {
-        StartupType currentStartupType = await GetStartupType();
+        StartupType previousStartupType = await GetStartupType();
 
-        return (currentStartupType, newStartupType) switch
+        return (previousStartupType, newStartupType) switch
         {
             (StartupType.None, StartupType.User) => await EnableMsixStartupTask(),
             (StartupType.None, StartupType.Admin) => await CreateAdminScheduleTask(),
 
             (StartupType.User, StartupType.None) => await DisableMsixStartupTask(),
-            (StartupType.User, StartupType.Admin) => await DisableMsixStartupTask() && await CreateAdminScheduleTask(),
+            (StartupType.User, StartupType.Admin) => await CreateAdminScheduleTask() && await DisableMsixStartupTask(),
 
             (StartupType.Admin, StartupType.None) => await DeleteAdminScheduleTask(),
             (StartupType.Admin, StartupType.User) => await DeleteAdminScheduleTask() && await EnableMsixStartupTask(),
 
-            _ when currentStartupType == newStartupType => true,
-            _ => throw new ArgumentException($"Unknown StartupType transition: {currentStartupType} -> {newStartupType}")
+            _ when previousStartupType == newStartupType => true,
+            _ => throw new ArgumentException($"Unknown StartupType transition: {previousStartupType} -> {newStartupType}")
         };
     }
 
@@ -105,7 +105,7 @@ public class StartupService
 
     #endregion
 
-    #region Unmanaged Admin Schetule Task
+    #region Unmanaged Admin Schedule Task
 
     private const string AdminScheduleTaskName = "EnergyStarXStartupTask";
 
