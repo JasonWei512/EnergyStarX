@@ -80,7 +80,7 @@ public class SystemTrayIconService
         (System.Drawing.Icon icon, string toolTip) = GetTrayIconImageAndToolTip(isThrottling);
 
         // Warning:
-        // "TrayIcon.UpdateIcon()" might throw a InvalidOperationException when computer wakes up from sleep
+        // "trayIcon.UpdateIcon()" and "trayIcon.UpdateToolTip()" might throw "InvalidOperationException" when PC wakes up from sleep
         // https://github.com/HavenDV/H.NotifyIcon/issues/50
         // https://github.com/JasonWei512/EnergyStarX/issues/11
 

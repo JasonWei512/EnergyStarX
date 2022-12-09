@@ -17,6 +17,9 @@
   <a href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
     <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" alt="GitHub Release" />
   </a>
+  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/energystarx">
+    <img src="https://badges.crowdin.net/energystarx/localized.svg">
+  </a>
 </p>
 
 ![Screenshot](.github/images/Screenshot.png)
