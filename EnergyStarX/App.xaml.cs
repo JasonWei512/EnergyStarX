@@ -71,6 +71,7 @@ public partial class App : Application
             services.AddSingleton<EnergyService>();
             services.AddSingleton<DialogService>();
             services.AddSingleton<SystemTrayIconService>();
+            services.AddSingleton<StartupService>();
 
             // Core Services
             services.AddSingleton<IFileService, FileService>();

@@ -14,6 +14,7 @@ public partial class SettingsViewModel : ObservableRecipient
 {
     private readonly EnergyService energyService;
     private readonly DialogService dialogService;
+    private readonly StartupService startupService;
 
     [ObservableProperty]
     private bool initializing = true;
@@ -21,13 +22,44 @@ public partial class SettingsViewModel : ObservableRecipient
     [ObservableProperty]
     private string versionDescription;
 
-    [ObservableProperty]
-    private bool runAtStartup = false;
+    private bool runAtStartup;
 
-    partial void OnRunAtStartupChanged(bool value)
+    public bool RunAtStartup
     {
-        if (Initializing) { return; }
-        ToggleRunAtStartupCommand.Execute(value);
+        get => runAtStartup;
+        set
+        {
+            bool oldRunAtStartup = runAtStartup;
+            bool oldRunAtStartupAsAdmin = runAtStartupAsAdmin;
+            bool newRunAtStartup = value;
+            bool newRunAtStartupAsAdmin = runAtStartupAsAdmin;
+
+            if (SetProperty(ref runAtStartup, value))
+            {
+                if (Initializing || ToggleRunAtStartupCommand.IsRunning) { return; }
+                ToggleRunAtStartupCommand.Execute((oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin));
+            }
+        }
+    }
+
+    private bool runAtStartupAsAdmin;
+
+    public bool RunAtStartupAsAdmin
+    {
+        get => runAtStartupAsAdmin;
+        set
+        {
+            bool oldRunAtStartup = runAtStartup;
+            bool oldRunAtStartupAsAdmin = runAtStartupAsAdmin;
+            bool newRunAtStartup = runAtStartup;
+            bool newRunAtStartupAsAdmin = value;
+
+            if (SetProperty(ref runAtStartupAsAdmin, value))
+            {
+                if (Initializing || ToggleRunAtStartupCommand.IsRunning) { return; }
+                ToggleRunAtStartupCommand.Execute((oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin));
+            }
+        }
     }
 
     public bool ThrottleWhenPluggedIn
@@ -50,34 +82,49 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public event EventHandler? ProcessWhitelistEditorDialogShowRequested;
 
-    public SettingsViewModel(EnergyService energyService, DialogService dialogService)
+    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService)
     {
         versionDescription = GetVersionDescription();
         this.energyService = energyService;
         this.dialogService = dialogService;
+        this.startupService = startupService;
 
         _ = Initialize();
     }
 
     private async Task Initialize()
     {
-        StartupTask? startupTask = await StartupTask.GetAsync(App.Guid);
-        RunAtStartup = startupTask.State == StartupTaskState.Enabled;
+        StartupService.StartupType startupType = await startupService.GetStartupType();
+        (RunAtStartup, RunAtStartupAsAdmin) = startupType switch
+        {
+            StartupService.StartupType.None => (false, false),
+            StartupService.StartupType.User => (true, false),
+            StartupService.StartupType.Admin => (true, true),
+            _ => throw new ArgumentException("Unknown StartupService.StartupType")
+        };
 
         Initializing = false;
     }
 
     [RelayCommand]
-    private async Task ToggleRunAtStartup(bool enable)
+    private async Task ToggleRunAtStartup((
+        bool oldRunAtStartup, bool oldRunAtStartupAsAdmin,
+        bool newRunAtStartup, bool newRunAtStartupAsAdmin
+        ) flags)
     {
-        StartupTask? startupTask = await StartupTask.GetAsync(App.Guid);
-        if (enable)
+        StartupService.StartupType startupType = (flags.newRunAtStartup, flags.newRunAtStartupAsAdmin) switch
         {
-            await startupTask.RequestEnableAsync();
-        }
-        else
+            (false, _) => StartupService.StartupType.None,
+            (true, false) => StartupService.StartupType.User,
+            (true, true) => StartupService.StartupType.Admin
+        };
+
+        bool startupTypeSetSuccessfully = await startupService.SetStartupType(startupType);
+
+        if (!startupTypeSetSuccessfully)    // Rollback if setting startup type failed
         {
-            startupTask.Disable();
+            RunAtStartup = flags.oldRunAtStartup;
+            RunAtStartupAsAdmin = flags.oldRunAtStartupAsAdmin;
         }
     }
 

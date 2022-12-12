@@ -18,14 +18,24 @@ public class ActivationService : IActivationService
     private readonly SystemTrayIconService systemTrayIconService;
     private readonly WindowService windowService;
     private readonly EnergyService energyService;
+    private readonly StartupService startupService;
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, WindowService windowService, EnergyService energyService, LogViewModel logViewModel, SystemTrayIconService systemTrayIconService)
+    public ActivationService(
+        ActivationHandler<LaunchActivatedEventArgs> defaultHandler,
+        IEnumerable<IActivationHandler> activationHandlers,
+        WindowService windowService,
+        EnergyService energyService,
+        LogViewModel logViewModel,
+        SystemTrayIconService systemTrayIconService,
+        StartupService startupService
+        )
     {
         this.defaultHandler = defaultHandler;
         this.activationHandlers = activationHandlers;
         this.windowService = windowService;
         this.energyService = energyService;
         this.systemTrayIconService = systemTrayIconService;
+        this.startupService = startupService;
     }
 
     public async Task Activate(object activationArgs)
@@ -70,7 +80,7 @@ public class ActivationService : IActivationService
 
     private async Task Initialize()
     {
-        await Task.CompletedTask;
+        await startupService.Initialize();
     }
 
     private async Task Startup()
