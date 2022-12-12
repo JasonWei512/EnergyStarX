@@ -35,7 +35,7 @@
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
         <Style TargetType="HyperlinkButton" />
-        <Thickness x:Key="SettingsExpanderToggleSwtichMargin">0,0,24,0</Thickness>
+        <Thickness x:Key="SettingsExpanderHeaderMargin">0,0,24,0</Thickness>
         <Thickness x:Key="SettingsExpanderContentMargin">18</Thickness>
     </Page.Resources>
 
@@ -101,13 +101,13 @@
 
                         <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
                             <settings:Setting.ActionContent>
-                                <ToggleSwitch Margin="{StaticResource SettingsExpanderToggleSwtichMargin}" IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
+                                <ToggleSwitch Margin="{StaticResource SettingsExpanderHeaderMargin}" IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
                             </settings:Setting.ActionContent>
                         </settings:Setting>
 
                         <settings:Setting x:Uid="Settings_ProcessWhitelist" Icon="&#xF0E3;">
                             <settings:Setting.ActionContent>
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="{StaticResource SettingsExpanderHeaderMargin}" Orientation="Horizontal">
                                     <Button x:Uid="Settings_ProcessWhitelist_EditButton" Command="{x:Bind ViewModel.ShowProcessWhitelistEditorDialogCommand}" />
                                     <Grid Width="10" />
                                     <Button x:Uid="Settings_ProcessWhitelist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessWhitelistCommand}" />
