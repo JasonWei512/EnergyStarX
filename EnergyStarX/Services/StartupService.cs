@@ -160,7 +160,8 @@ public class StartupService
             </Settings>
             <Actions Context="Author">
                 <Exec>
-                <Command>{GetExecutableName()}</Command>
+                    <Command>{GetExecutablePath()}</Command>
+                    <Arguments>--silent</Arguments>
                 </Exec>
             </Actions>
             </Task>
@@ -227,7 +228,7 @@ public class StartupService
         return true;
     }
 
-    private string GetExecutableName()
+    private string GetExecutablePath()
     {
         return Path.Join(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
