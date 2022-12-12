@@ -35,6 +35,8 @@
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
         <Style TargetType="HyperlinkButton" />
+        <Thickness x:Key="SettingsExpanderToggleSwtichMargin">0,0,24,0</Thickness>
+        <Thickness x:Key="SettingsExpanderContentMargin">18</Thickness>
     </Page.Resources>
 
     <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
@@ -78,15 +80,28 @@
                     <TextBlock x:Uid="Settings_Title" Style="{StaticResource TitleStyle}" />
 
                     <StackPanel Margin="{StaticResource SubContentBlockMargin}">
-                        <settings:Setting x:Uid="Settings_RunAtStartupSetting" Icon="&#xE977;">
-                            <settings:Setting.ActionContent>
-                                <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
-                            </settings:Setting.ActionContent>
-                        </settings:Setting>
+                        <settings:SettingExpander>
+                            <settings:SettingExpander.Header>
+                                <settings:Setting x:Uid="Settings_RunAtStartupSetting" Icon="&#xE977;">
+                                    <settings:Setting.ActionContent>
+                                        <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
+                                    </settings:Setting.ActionContent>
+                                </settings:Setting>
+                            </settings:SettingExpander.Header>
+
+                            <settings:SettingExpander.Content>
+                                <CheckBox
+                                    x:Uid="Settings_RunAtStartupAsAdminCheckBox"
+                                    Margin="{StaticResource SettingsExpanderContentMargin}"
+                                    IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
+                                    IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" />
+                            </settings:SettingExpander.Content>
+
+                        </settings:SettingExpander>
 
                         <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
                             <settings:Setting.ActionContent>
-                                <ToggleSwitch IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
+                                <ToggleSwitch Margin="{StaticResource SettingsExpanderToggleSwtichMargin}" IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
                             </settings:Setting.ActionContent>
                         </settings:Setting>
 
