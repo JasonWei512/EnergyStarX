@@ -210,7 +210,6 @@ public class StartupService
         ProcessStartInfo processStartInfo = new()
         {
             FileName = "schtasks",
-            Arguments = $"/delete /tn {AdminScheduleTaskName} /f",
             UseShellExecute = true,
             Verb = "runas",
             WindowStyle = ProcessWindowStyle.Hidden,
