@@ -353,6 +353,6 @@ WUDFRd.exe</value>
     <value>暂停</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>（实验性）以管理员身份开机自启</value>
+    <value>（实验性）以管理员身份开机启动</value>
   </data>
 </root>
