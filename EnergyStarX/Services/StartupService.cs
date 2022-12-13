@@ -170,18 +170,18 @@ public class StartupService
         StorageFile scheduleTaskXmlFile = await ApplicationData.Current.LocalCacheFolder.CreateFileAsync($"{Guid.NewGuid()}.xml", CreationCollisionOption.OpenIfExists);
         await FileIO.WriteTextAsync(scheduleTaskXmlFile, scheduleTaskXml);
 
-        ProcessStartInfo processStartInfo = new()
+        Process process = new()
         {
-            FileName = "schtasks",
-            UseShellExecute = true,
-            Verb = "runas",
-            WindowStyle = ProcessWindowStyle.Hidden,
+            StartInfo = new ProcessStartInfo()
+            {
+                FileName = "schtasks",
+                ArgumentList = { "/create", "/tn", AdminScheduleTaskName, "/XML", scheduleTaskXmlFile.Path, "/f" },
+
+                UseShellExecute = true,
+                Verb = "runas", // Run as admin
+                WindowStyle = ProcessWindowStyle.Hidden
+            }
         };
-        foreach (string arg in new[] { "/create", "/tn", AdminScheduleTaskName, "/XML", scheduleTaskXmlFile.Path, "/f" })
-        {
-            processStartInfo.ArgumentList.Add(arg);
-        }
-        Process process = new() { StartInfo = processStartInfo };
 
         try
         {
@@ -207,18 +207,18 @@ public class StartupService
     /// </summary>
     private async Task<bool> DeleteAdminScheduleTask()
     {
-        ProcessStartInfo processStartInfo = new()
+        Process process = new()
         {
-            FileName = "schtasks",
-            UseShellExecute = true,
-            Verb = "runas",
-            WindowStyle = ProcessWindowStyle.Hidden,
+            StartInfo = new ProcessStartInfo()
+            {
+                FileName = "schtasks",
+                ArgumentList = { "/delete", "/tn", AdminScheduleTaskName, "/f" },
+
+                UseShellExecute = true,
+                Verb = "runas", // Run as admin
+                WindowStyle = ProcessWindowStyle.Hidden
+            }
         };
-        foreach (string arg in new[] { "/delete", "/tn", AdminScheduleTaskName, "/f" })
-        {
-            processStartInfo.ArgumentList.Add(arg);
-        }
-        Process process = new() { StartInfo = processStartInfo };
 
         try
         {
