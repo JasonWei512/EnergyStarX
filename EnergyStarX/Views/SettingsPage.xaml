@@ -84,7 +84,7 @@
                             <settings:SettingExpander.Header>
                                 <settings:Setting x:Uid="Settings_RunAtStartupSetting" Icon="&#xE977;">
                                     <settings:Setting.ActionContent>
-                                        <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
+                                        <ToggleSwitch IsEnabled="{x:Bind ViewModel.IsRunAtStartupToggleable, Mode=OneWay}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
                                     </settings:Setting.ActionContent>
                                 </settings:Setting>
                             </settings:SettingExpander.Header>
@@ -94,7 +94,7 @@
                                     x:Uid="Settings_RunAtStartupAsAdminCheckBox"
                                     Margin="{StaticResource SettingsExpanderContentMargin}"
                                     IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
-                                    IsEnabled="{x:Bind ViewModel.ToggleRunAtStartupCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" />
+                                    IsEnabled="{x:Bind ViewModel.IsRunAtStartupAsAdminToggleable, Mode=OneWay}" />
                             </settings:SettingExpander.Content>
 
                         </settings:SettingExpander>

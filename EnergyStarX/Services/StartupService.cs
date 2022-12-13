@@ -11,7 +11,7 @@ MSIX's StartupTask does not let you run an app at startup *as admin*.
 So I have to use a Windows schedule task for this. Snipaste (the Microsoft Store version) also takes this approach.
 The downside is, currently MSIX's uninstalling process is not customizable, so I cannot delete this schedule task when uninstalling.
 This means after uninstalling this app, the schedule task will still be in Windows Task Scheduler. Snipaste also has this problem.
-Relative discussion: https://github.com/microsoft/WindowsAppSDK/discussions/3061
+Related discussion: https://github.com/microsoft/WindowsAppSDK/discussions/3061
 
 Maybe I should use a MSIX packaged service: https://learn.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-service
 It will be uninstalled automatically when the app is uninstalled. It can also throttle system services in session 0.
@@ -107,7 +107,7 @@ public class StartupService
 
     #region Unmanaged Admin Schedule Task
 
-    private const string AdminScheduleTaskName = "EnergyStarXStartupTask";
+    private const string AdminScheduleTaskName = "EnergyStarXAdminStartupTask";
 
     private bool GetAdminScheduleTaskExists()
     {
@@ -129,14 +129,14 @@ public class StartupService
             </RegistrationInfo>
             <Triggers>
                 <LogonTrigger>
-                <Enabled>true</Enabled>
-                <UserId>{WindowsIdentity.GetCurrent().Name}</UserId>
+                    <Enabled>true</Enabled>
+                    <UserId>{WindowsIdentity.GetCurrent().Name}</UserId>
                 </LogonTrigger>
             </Triggers>
             <Principals>
                 <Principal id="Author">
-                <LogonType>InteractiveToken</LogonType>
-                <RunLevel>HighestAvailable</RunLevel>
+                    <LogonType>InteractiveToken</LogonType>
+                    <RunLevel>HighestAvailable</RunLevel>
                 </Principal>
             </Principals>
             <Settings>
@@ -147,8 +147,8 @@ public class StartupService
                 <StartWhenAvailable>false</StartWhenAvailable>
                 <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
                 <IdleSettings>
-                <StopOnIdleEnd>false</StopOnIdleEnd>
-                <RestartOnIdle>false</RestartOnIdle>
+                    <StopOnIdleEnd>false</StopOnIdleEnd>
+                    <RestartOnIdle>false</RestartOnIdle>
                 </IdleSettings>
                 <AllowStartOnDemand>true</AllowStartOnDemand>
                 <Enabled>true</Enabled>
@@ -170,19 +170,18 @@ public class StartupService
         StorageFile scheduleTaskXmlFile = await ApplicationData.Current.LocalCacheFolder.CreateFileAsync($"{Guid.NewGuid()}.xml", CreationCollisionOption.OpenIfExists);
         await FileIO.WriteTextAsync(scheduleTaskXmlFile, scheduleTaskXml);
 
-        Process process = new()
+        ProcessStartInfo processStartInfo = new()
         {
-            StartInfo =
-            {
-                FileName = "schtasks",
-                Arguments = $"/create /tn {AdminScheduleTaskName} /XML {scheduleTaskXmlFile.Path} /f",
-                UseShellExecute = true,
-                Verb = "runas",
-                WindowStyle = ProcessWindowStyle.Hidden,
-            }
+            FileName = "schtasks",
+            UseShellExecute = true,
+            Verb = "runas",
+            WindowStyle = ProcessWindowStyle.Hidden,
         };
-
-        await scheduleTaskXmlFile.DeleteAsync();
+        foreach (string arg in new[] { "/create", "/tn", AdminScheduleTaskName, "/XML", scheduleTaskXmlFile.Path, "/f" })
+        {
+            processStartInfo.ArgumentList.Add(arg);
+        }
+        Process process = new() { StartInfo = processStartInfo };
 
         try
         {
@@ -194,7 +193,12 @@ public class StartupService
             // UAC cancelled by user
             return false;
         }
-        return true;
+        finally
+        {
+            await scheduleTaskXmlFile.DeleteAsync();
+        }
+
+        return GetAdminScheduleTaskExists();
     }
 
     /// <summary>
@@ -203,17 +207,19 @@ public class StartupService
     /// </summary>
     private async Task<bool> DeleteAdminScheduleTask()
     {
-        Process process = new()
+        ProcessStartInfo processStartInfo = new()
         {
-            StartInfo =
-            {
-                FileName = "schtasks",
-                Arguments = $"/delete /tn {AdminScheduleTaskName} /f",
-                UseShellExecute = true,
-                Verb = "runas",
-                WindowStyle = ProcessWindowStyle.Hidden,
-            }
+            FileName = "schtasks",
+            Arguments = $"/delete /tn {AdminScheduleTaskName} /f",
+            UseShellExecute = true,
+            Verb = "runas",
+            WindowStyle = ProcessWindowStyle.Hidden,
         };
+        foreach (string arg in new[] { "/delete", "/tn", AdminScheduleTaskName, "/f" })
+        {
+            processStartInfo.ArgumentList.Add(arg);
+        }
+        Process process = new() { StartInfo = processStartInfo };
 
         try
         {
@@ -225,7 +231,8 @@ public class StartupService
             // UAC cancelled by user
             return false;
         }
-        return true;
+
+        return !GetAdminScheduleTaskExists();
     }
 
     private string GetExecutablePath()

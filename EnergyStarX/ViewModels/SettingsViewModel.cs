@@ -36,8 +36,8 @@ public partial class SettingsViewModel : ObservableRecipient
 
             if (SetProperty(ref runAtStartup, value))
             {
-                if (Initializing || ToggleRunAtStartupCommand.IsRunning) { return; }
-                ToggleRunAtStartupCommand.Execute((oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin));
+                if (Initializing || IsTogglingRunAtStartup) { return; }
+                _ = ToggleRunAtStartup(oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin);
             }
         }
     }
@@ -56,11 +56,20 @@ public partial class SettingsViewModel : ObservableRecipient
 
             if (SetProperty(ref runAtStartupAsAdmin, value))
             {
-                if (Initializing || ToggleRunAtStartupCommand.IsRunning) { return; }
-                ToggleRunAtStartupCommand.Execute((oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin));
+                if (Initializing || IsTogglingRunAtStartup) { return; }
+                _ = ToggleRunAtStartup(oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin);
             }
         }
     }
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsRunAtStartupToggleable))]
+    [NotifyPropertyChangedFor(nameof(IsRunAtStartupAsAdminToggleable))]
+    private bool isTogglingRunAtStartup;
+
+    public bool IsRunAtStartupToggleable => !IsTogglingRunAtStartup;
+
+    public bool IsRunAtStartupAsAdminToggleable => RunAtStartup && !IsTogglingRunAtStartup;
 
     public bool ThrottleWhenPluggedIn
     {
@@ -104,28 +113,6 @@ public partial class SettingsViewModel : ObservableRecipient
         };
 
         Initializing = false;
-    }
-
-    [RelayCommand]
-    private async Task ToggleRunAtStartup((
-        bool oldRunAtStartup, bool oldRunAtStartupAsAdmin,
-        bool newRunAtStartup, bool newRunAtStartupAsAdmin
-        ) flags)
-    {
-        StartupService.StartupType startupType = (flags.newRunAtStartup, flags.newRunAtStartupAsAdmin) switch
-        {
-            (false, _) => StartupService.StartupType.None,
-            (true, false) => StartupService.StartupType.User,
-            (true, true) => StartupService.StartupType.Admin
-        };
-
-        bool startupTypeSetSuccessfully = await startupService.SetStartupType(startupType);
-
-        if (!startupTypeSetSuccessfully)    // Rollback if setting startup type failed
-        {
-            RunAtStartup = flags.oldRunAtStartup;
-            RunAtStartupAsAdmin = flags.oldRunAtStartupAsAdmin;
-        }
     }
 
     [RelayCommand]
@@ -200,6 +187,37 @@ public partial class SettingsViewModel : ObservableRecipient
 
             """;
     });
+
+    private async Task ToggleRunAtStartup(
+        bool oldRunAtStartup, bool oldRunAtStartupAsAdmin,
+        bool newRunAtStartup, bool newRunAtStartupAsAdmin
+        )
+    {
+        if (IsTogglingRunAtStartup) { return; }
+
+        try
+        {
+            IsTogglingRunAtStartup = true;
+            StartupService.StartupType startupType = (newRunAtStartup, newRunAtStartupAsAdmin) switch
+            {
+                (false, _) => StartupService.StartupType.None,
+                (true, false) => StartupService.StartupType.User,
+                (true, true) => StartupService.StartupType.Admin
+            };
+
+            bool startupTypeSetSuccessfully = await startupService.SetStartupType(startupType);
+
+            if (!startupTypeSetSuccessfully)    // Rollback if setting startup type failed
+            {
+                RunAtStartup = oldRunAtStartup;
+                RunAtStartupAsAdmin = oldRunAtStartupAsAdmin;
+            }
+        }
+        finally
+        {
+            IsTogglingRunAtStartup = false;
+        }
+    }
 
     private static string GetVersionDescription()
     {

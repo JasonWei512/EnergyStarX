@@ -100,14 +100,11 @@ public class ActivationService : IActivationService
 
         // If CLI Args contains one of these, don't show app window during activation
         string[] silentStartArgs = { "-s", "--silent" };
-        if (Environment.GetCommandLineArgs().Any(arg => InStringsIgnoreCase(arg, silentStartArgs)))
+        if (Environment.GetCommandLineArgs().Any(arg => silentStartArgs.Contains(arg)))
         {
             return false;
         }
 
         return true;
     }
-
-    private bool InStringsIgnoreCase(string target, IEnumerable<string> stringCollection)
-        => stringCollection.Any(s => string.Equals(s, target, StringComparison.InvariantCultureIgnoreCase));
 }
