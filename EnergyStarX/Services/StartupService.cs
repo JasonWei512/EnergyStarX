@@ -1,3 +1,4 @@
+using NLog;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Security.Principal;
@@ -19,6 +20,8 @@ But that requires a double-process and communication app model, which is more co
 */
 public class StartupService
 {
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+
     public enum StartupType
     {
         None = 0,
@@ -60,7 +63,7 @@ public class StartupService
     {
         StartupType previousStartupType = await GetStartupType();
 
-        return (previousStartupType, newStartupType) switch
+        bool success = (previousStartupType, newStartupType) switch
         {
             (StartupType.None, StartupType.User) => await EnableMsixStartupTask(),
             (StartupType.None, StartupType.Admin) => await CreateAdminScheduleTask(),
@@ -74,6 +77,17 @@ public class StartupService
             _ when previousStartupType == newStartupType => true,
             _ => throw new ArgumentException($"Unknown StartupType transition: {previousStartupType} -> {newStartupType}")
         };
+
+        if (success)
+        {
+            logger.Info(@"StartupType set to ""{0}""", newStartupType);
+        }
+        else
+        {
+            logger.Info(@"Failed to set StartupType to ""{0}""", newStartupType);
+        }
+
+        return success;
     }
 
     #region MSIX StartupTask
