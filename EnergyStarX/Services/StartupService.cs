@@ -44,8 +44,7 @@ public class StartupService
         {
             (false, false) => StartupType.None,
             (true, false) => StartupType.User,
-            (false, true) => StartupType.Admin,
-            (true, true) => StartupType.Admin
+            (_, true) => StartupType.Admin
         };
 
         if (msixStartupTaskEnabled && adminScheduleTaskExists)
@@ -61,9 +60,9 @@ public class StartupService
     /// </summary>
     public async Task<bool> SetStartupType(StartupType newStartupType)
     {
-        StartupType previousStartupType = await GetStartupType();
+        StartupType oldStartupType = await GetStartupType();
 
-        bool success = (previousStartupType, newStartupType) switch
+        bool success = (oldStartupType, newStartupType) switch
         {
             (StartupType.None, StartupType.User) => await EnableMsixStartupTask(),
             (StartupType.None, StartupType.Admin) => await CreateAdminScheduleTask(),
@@ -74,8 +73,8 @@ public class StartupService
             (StartupType.Admin, StartupType.None) => await DeleteAdminScheduleTask(),
             (StartupType.Admin, StartupType.User) => await DeleteAdminScheduleTask() && await EnableMsixStartupTask(),
 
-            _ when previousStartupType == newStartupType => true,
-            _ => throw new ArgumentException($"Unknown StartupType transition: {previousStartupType} -> {newStartupType}")
+            _ when oldStartupType == newStartupType => true,
+            _ => throw new ArgumentException($"Unknown StartupType transition: {oldStartupType} -> {newStartupType}")
         };
 
         if (success)
@@ -184,7 +183,7 @@ public class StartupService
         StorageFile scheduleTaskXmlFile = await ApplicationData.Current.LocalCacheFolder.CreateFileAsync($"{Guid.NewGuid()}.xml", CreationCollisionOption.OpenIfExists);
         await FileIO.WriteTextAsync(scheduleTaskXmlFile, scheduleTaskXml);
 
-        Process process = new()
+        using Process process = new()
         {
             StartInfo = new ProcessStartInfo()
             {
@@ -221,7 +220,7 @@ public class StartupService
     /// </summary>
     private async Task<bool> DeleteAdminScheduleTask()
     {
-        Process process = new()
+        using Process process = new()
         {
             StartInfo = new ProcessStartInfo()
             {
