@@ -14,7 +14,7 @@ The downside is, currently MSIX's uninstalling process is not customizable, so I
 This means after uninstalling this app, the schedule task will still be in Windows Task Scheduler. Snipaste also has this problem.
 Related discussion: https://github.com/microsoft/WindowsAppSDK/discussions/3061
 
-Maybe I should use a MSIX packaged service: https://learn.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-service
+Maybe I should use an MSIX packaged service: https://learn.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-desktop6-service
 It will be uninstalled automatically when the app is uninstalled. It can also throttle system services in session 0.
 But that requires a double-process and communication app model, which is more complex to implement. 
 */
