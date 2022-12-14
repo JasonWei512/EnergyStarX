@@ -36,6 +36,7 @@ public partial class SettingsViewModel : ObservableRecipient
 
             if (SetProperty(ref runAtStartup, value))
             {
+                OnPropertyChanged(nameof(IsRunAtStartupAsAdminToggleable));
                 if (Initializing || IsTogglingRunAtStartup) { return; }
                 _ = ToggleRunAtStartup(oldRunAtStartup, oldRunAtStartupAsAdmin, newRunAtStartup, newRunAtStartupAsAdmin);
             }
