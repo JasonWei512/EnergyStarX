@@ -6,13 +6,13 @@ namespace EnergyStarX.Helpers;
 
 public static class ThemeHelper
 {
-    private static readonly UISettings uISettings = new();
+    private static readonly UISettings uiSettings = new();
 
     public static ElementTheme SystemTheme
     {
         get
         {
-            Color color = uISettings.GetColorValue(UIColorType.Background); // System background color
+            Color color = uiSettings.GetColorValue(UIColorType.Background); // System background color
 
             return (color.R, color.G, color.B) switch
             {

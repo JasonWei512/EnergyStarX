@@ -149,12 +149,9 @@ public class EnergyService
             if (EnergyManager.IsThrottling)
             {
                 logger.Info("EnergyService stops throttling");
-
                 cts.Cancel();
                 EnergyManager.RecoverAllUserProcesses();
-
                 EnergyManager.IsThrottling = false;
-
                 return true;
             }
             else
@@ -183,6 +180,8 @@ public class EnergyService
 
     private HashSet<string> ParseProcessWhitelist(string processWhitelistString)
     {
+        // Double slash and content after it in each line will be ignored
+
         HashSet<string> result = new();
         Regex doubleSlashRegex = new("//");
 

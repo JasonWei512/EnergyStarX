@@ -172,7 +172,7 @@ public partial class SettingsViewModel : ObservableRecipient
         hardware.RefreshVideoControllerList();
         hardware.RefreshBatteryList();
 
-        string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Count() != 0 ? string.Join(" + ", items.Select(selector)) : "N/A";
+        string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Any() ? string.Join(" + ", items.Select(selector)) : "N/A";
 
         return $"""
 
