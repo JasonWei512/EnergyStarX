@@ -155,7 +155,7 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
     <value>終了</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>開く</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
@@ -290,7 +290,7 @@ WUDFRd.exe</value>
     <value>クリア</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>最下部へスクロール</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
     <value>了解！</value>
@@ -305,7 +305,7 @@ WUDFRd.exe</value>
     <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>編集済み</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>キャンセル</value>
@@ -332,7 +332,7 @@ Click the pause button again to resume.</value>
     <value>一時停止中</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>ソースコード（GitHub）</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>フィードバック</value>
