@@ -131,6 +131,8 @@
 - 高通移动处理器
 
 ❤ 源代码：https://github.com/JasonWei512/EnergyStarX
+🌏 翻译此应用：https://crowdin.com/project/EnergyStarX
+
 能源之星X 是开源程序 EnergyStar 的图形界面版应用。</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
@@ -354,5 +356,8 @@ WUDFRd.exe</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
     <value>（实验性）以管理员身份开机启动</value>
+  </data>
+  <data name="Settings_TranslateLink.Content" xml:space="preserve">
+    <value>帮助翻译此应用 🌏</value>
   </data>
 </root>

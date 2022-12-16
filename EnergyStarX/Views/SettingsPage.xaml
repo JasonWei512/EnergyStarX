@@ -36,7 +36,7 @@
         </Style>
         <Style TargetType="HyperlinkButton" />
         <Thickness x:Key="SettingsExpanderHeaderMargin">0,0,24,0</Thickness>
-        <Thickness x:Key="SettingsExpanderContentMargin">18</Thickness>
+        <Thickness x:Key="SettingsExpanderContentMargin">56,10,24,10</Thickness>
     </Page.Resources>
 
     <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
@@ -128,7 +128,8 @@
                     <StackPanel Margin="{StaticResource XSmallTopMargin}">
                         <HyperlinkButton x:Uid="Settings_RateLink" Command="{x:Bind ViewModel.RateThisAppCommand}" />
                         <HyperlinkButton x:Uid="Settings_ContactLink" Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
-                        <HyperlinkButton x:Uid="Settings_SourceCodeLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/" />
+                        <HyperlinkButton x:Uid="Settings_SourceCodeLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX" />
+                        <HyperlinkButton x:Uid="Settings_TranslateLink" NavigateUri="https://crowdin.com/project/EnergyStarX" />
                         <HyperlinkButton x:Uid="Settings_ChangelogLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/releases" />
                     </StackPanel>
                 </StackPanel>
