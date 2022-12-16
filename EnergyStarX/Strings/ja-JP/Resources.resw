@@ -145,7 +145,7 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
     <value>Intel sucks</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X はすでに実行中です！</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
     <value>起動時に実行</value>
@@ -283,7 +283,7 @@ WUDFRd.exe</value>
     <value>はい</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>デフォルトのプロセスホワイトリストに戻しますか？</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>デフォルトに戻す</value>
@@ -298,13 +298,13 @@ WUDFRd.exe</value>
     <value>了解！</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>プロセスホワイトリストを編集する</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>編集</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>プロセスホワイトリストを編集する</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>編集済み</value>
@@ -340,13 +340,13 @@ Click the pause button again to resume.</value>
     <value>フィードバック</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>管理者権限</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
     <value>ログフォルダを開く</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>エラーのみファイルに記録されます</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
     <value>変更ログ</value>
@@ -358,6 +358,6 @@ Click the pause button again to resume.</value>
     <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>このアプリの翻訳を支援する 🌏</value>
   </data>
 </root>
