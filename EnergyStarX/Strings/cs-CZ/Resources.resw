@@ -323,8 +323,7 @@ WUDFRd.exe</value>
 You can change this behavior in settings.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...
-</value>
+    <value>Throttling background programs...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>Throttling paused by user.
