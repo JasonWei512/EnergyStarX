@@ -94,9 +94,9 @@ public class EnergyService
     {
         lock (lockObject)
         {
-            bool wasRunning = EnergyManager.IsThrottling;
+            bool wasThrottling = EnergyManager.IsThrottling;
 
-            if (wasRunning)
+            if (wasThrottling)
             {
                 StopThrottling();
             }
@@ -109,7 +109,7 @@ public class EnergyService
 
             logger.Info("Update ProcessWhitelist:\n{0}", string.Join(Environment.NewLine, processWhitelist));
 
-            if (wasRunning)
+            if (wasThrottling)
             {
                 StartThrottling();
             }

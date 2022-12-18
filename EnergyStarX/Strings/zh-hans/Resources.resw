@@ -323,8 +323,7 @@ WUDFRd.exe</value>
 你可以在设置中改变这个行为。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>正在限制后台程序…
-</value>
+    <value>正在限制后台程序…</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>你暂停了限制后台程序。

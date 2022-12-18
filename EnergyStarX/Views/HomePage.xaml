@@ -10,19 +10,32 @@
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel Grid.Row="0">
             <Image
-                Width="115"
-                Height="115"
+                x:Name="StatusIcon"
+                Width="114"
+                Height="114"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
                 Source="{x:Bind ViewModel.StatusIcon, Mode=OneWay}" />
-            <Grid Height="30" />
             <TextBlock
+                Margin="0,24,0,0"
                 FontSize="18"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.Below="{x:Bind StatusIcon}"
                 Text="{x:Bind ViewModel.StatusDescription, Mode=OneWay}"
                 TextAlignment="Center" />
-        </StackPanel>
+        </RelativePanel>
 
-        <CommandBar VerticalAlignment="Bottom" DefaultLabelPosition="Right">
+        <CommandBar
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            DefaultLabelPosition="Right">
             <AppBarToggleButton
                 x:Uid="Home_PauseThrottlingButton"
                 HorizontalAlignment="Center"
