@@ -10,13 +10,7 @@
     xmlns:notifyicon="using:H.NotifyIcon"
     Loaded="OnLoaded">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-
+    <Grid RowDefinitions="30, *, auto">
         <Grid
             x:Name="AppTitleBar"
             Grid.Row="0"
@@ -31,6 +25,7 @@
                 Height="16"
                 HorizontalAlignment="Left"
                 Source="/Assets/WindowIcon.ico" />
+
             <TextBlock
                 x:Name="AppTitleBarText"
                 Margin="30,0,0,0"
@@ -39,6 +34,7 @@
                 Text="{x:Bind ViewModel.TitlebarText}"
                 TextWrapping="NoWrap" />
         </Grid>
+
         <NavigationView
             x:Name="NavigationViewControl"
             Grid.Row="1"
@@ -62,17 +58,20 @@
                         <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE10F;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+
                 <NavigationViewItem x:Uid="Shell_Log" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.LogViewModel">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE7C3;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+
                 <NavigationViewItem x:Uid="Shell_Help" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.HelpViewModel">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE11B;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
+
             <Grid>
                 <Frame x:Name="NavigationFrame" IsNavigationStackEnabled="False" />
             </Grid>
@@ -103,4 +102,5 @@
                 Severity="Warning" />
         </StackPanel>
     </Grid>
+
 </Page>

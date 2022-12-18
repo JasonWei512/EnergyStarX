@@ -21,15 +21,14 @@
                     Header1FontSize="25"
                     Header2FontSize="18"
                     UriPrefix="ms-appx://">
-
                     <i:Interaction.Behaviors>
                         <ic:EventTriggerBehavior EventName="LinkClicked">
                             <ic:InvokeCommandAction Command="{x:Bind ViewModel.OpenLinkInBrowserCommand}" />
                         </ic:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
-
                 </controls:MarkdownTextBlock>
             </Grid>
         </ScrollViewer>
     </Grid>
+
 </Page>

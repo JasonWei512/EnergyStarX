@@ -9,12 +9,7 @@
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-
+    <Grid x:Name="ContentArea" RowDefinitions="*, auto">
         <RelativePanel Grid.Row="0">
             <Image
                 x:Name="StatusIcon"
@@ -23,6 +18,7 @@
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 Source="{x:Bind ViewModel.StatusIcon, Mode=OneWay}" />
+
             <TextBlock
                 Margin="0,24,0,0"
                 FontSize="18"
@@ -43,4 +39,5 @@
                 IsChecked="{x:Bind ViewModel.PauseThrottling, Mode=TwoWay}" />
         </CommandBar>
     </Grid>
+
 </Page>

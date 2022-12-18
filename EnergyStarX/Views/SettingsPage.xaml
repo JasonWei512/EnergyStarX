@@ -11,10 +11,10 @@
     xmlns:xaml="using:Microsoft.UI.Xaml"
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
+
     <Page.Resources>
-        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         <helpers:OppositeBoolConverter x:Key="OppositeBoolConverter" />
-        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
+
         <Style
             x:Key="TitleStyle"
             BasedOn="{StaticResource TitleTextBlockStyle}"
@@ -34,9 +34,12 @@
             TargetType="TextBlock">
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
-        <Style TargetType="HyperlinkButton" />
+
         <Thickness x:Key="SettingsExpanderHeaderMargin">0,0,24,0</Thickness>
         <Thickness x:Key="SettingsExpanderContentMargin">56,10,24,10</Thickness>
+
+        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
+        <Style TargetType="HyperlinkButton" />
     </Page.Resources>
 
     <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
@@ -44,6 +47,7 @@
             <Grid.Background>
                 <SolidColorBrush Opacity="0.5" Color="{ThemeResource SystemAltHighColor}" />
             </Grid.Background>
+
             <ProgressRing
                 Width="48"
                 Height="48"
@@ -56,7 +60,6 @@
             Title="{x:Bind ViewModel.ProcessWhitelistEditorDialogTitle, Mode=OneWay}"
             DefaultButton="Close"
             PrimaryButtonCommand="{x:Bind ViewModel.ApplyProcessWhitelistCommand}">
-
             <ScrollViewer>
                 <TextBox
                     Width="800"
@@ -96,7 +99,6 @@
                                     IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
                                     IsEnabled="{x:Bind ViewModel.IsRunAtStartupAsAdminToggleable, Mode=OneWay}" />
                             </settings:SettingExpander.Content>
-
                         </settings:SettingExpander>
 
                         <settings:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
@@ -136,4 +138,5 @@
             </Grid>
         </ScrollViewer>
     </Grid>
+
 </Page>

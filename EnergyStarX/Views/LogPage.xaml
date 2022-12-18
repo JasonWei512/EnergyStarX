@@ -9,18 +9,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
-    <Grid x:Name="ContentArea">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
 
+    <Grid x:Name="ContentArea" RowDefinitions="*, auto">
         <ScrollViewer
             x:Name="LogScrollViewer"
             Grid.Row="0"
             HorizontalScrollBarVisibility="Auto"
             VerticalScrollBarVisibility="Auto">
-
             <TextBlock
                 FontFamily="Consolas"
                 FontSize="18"
@@ -54,4 +49,5 @@
             </AppBarButton>
         </CommandBar>
     </Grid>
+
 </Page>
