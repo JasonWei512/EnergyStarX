@@ -354,7 +354,7 @@ Click the pause button again to resume.</value>
     <value>一時停止</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>（実験的）起動時に管理者として実行</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>このアプリの翻訳に協力する 🌏</value>
