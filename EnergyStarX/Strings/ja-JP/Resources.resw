@@ -292,7 +292,7 @@ WUDFRd.exe</value>
     <value>クリア</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>最下部へスクロール</value>
+    <value>最下部にスクロール</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
     <value>了解！</value>
