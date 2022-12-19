@@ -357,6 +357,6 @@ Click the pause button again to resume.</value>
     <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>このアプリの翻訳を支援する 🌏</value>
+    <value>このアプリの翻訳に協力する 🌏</value>
   </data>
 </root>
