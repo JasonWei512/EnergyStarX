@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Data;
 
-namespace EnergyStarX.Helpers;
+namespace EnergyStarX.Converters;
 
 public class OppositeBoolConverter : IValueConverter
 {

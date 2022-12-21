@@ -11,7 +11,7 @@ public class EnergyService
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
 
-    private CancellationTokenSource cts = new();
+    private CancellationTokenSource cancellationTokenSource = new();
 
     private readonly object lockObject = new();
 
@@ -126,9 +126,9 @@ public class EnergyService
             if (!EnergyManager.IsThrottling)
             {
                 logger.Info("EnergyService starts throttling");
-                cts = new CancellationTokenSource();
+                cancellationTokenSource = new CancellationTokenSource();
                 EnergyManager.ThrottleAllUserBackgroundProcesses();
-                _ = HouseKeeping(cts.Token);
+                _ = HouseKeeping(cancellationTokenSource.Token);
                 EnergyManager.IsThrottling = true;
                 return true;
             }
@@ -149,7 +149,7 @@ public class EnergyService
             if (EnergyManager.IsThrottling)
             {
                 logger.Info("EnergyService stops throttling");
-                cts.Cancel();
+                cancellationTokenSource.Cancel();
                 EnergyManager.RecoverAllUserProcesses();
                 EnergyManager.IsThrottling = false;
                 return true;

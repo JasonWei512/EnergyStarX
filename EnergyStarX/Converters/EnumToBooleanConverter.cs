@@ -1,7 +1,7 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 
-namespace EnergyStarX.Helpers;
+namespace EnergyStarX.Converters;
 
 public class EnumToBooleanConverter : IValueConverter
 {
