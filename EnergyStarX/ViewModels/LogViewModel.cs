@@ -34,18 +34,6 @@ public partial class LogViewModel : ObservableRecipient
         StartDisplayingLog();
     }
 
-    public void StartDisplayingLog()
-    {
-        LogHelper.NewLogLine -= Logger_NewLogLine;
-        LogHelper.NewLogLine += Logger_NewLogLine;
-    }
-
-    public void StopDisplayingLog()
-    {
-        LogHelper.NewLogLine -= Logger_NewLogLine;
-        Logs.Clear();
-    }
-
     public void ScrollToBottomIfNeeded()
     {
         if (ScrollToBottom)
@@ -73,6 +61,18 @@ public partial class LogViewModel : ObservableRecipient
     private async Task OpenLogFolder()
     {
         await LogHelper.OpenLogFolder();
+    }
+
+    private void StartDisplayingLog()
+    {
+        LogHelper.NewLogLine -= Logger_NewLogLine;
+        LogHelper.NewLogLine += Logger_NewLogLine;
+    }
+
+    private void StopDisplayingLog()
+    {
+        LogHelper.NewLogLine -= Logger_NewLogLine;
+        Logs.Clear();
     }
 
     private async void Logger_NewLogLine(object? sender, LogHelper.Log e)
