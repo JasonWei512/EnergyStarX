@@ -23,7 +23,7 @@ public partial class App : Application
 {
     public const string Guid = "72B0BCDA-39F4-4E0E-BF10-279FB803B73C";
 
-    private static Logger logger = LogManager.GetCurrentClassLogger();
+    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
     // https://docs.microsoft.com/dotnet/core/extensions/generic-host

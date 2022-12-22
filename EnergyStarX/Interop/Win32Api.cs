@@ -10,7 +10,7 @@ using System.Text;
 
 namespace EnergyStarX.Core.Interop;
 
-internal class Win32Api
+public static class Win32Api
 {
     [DllImport("user32.dll", SetLastError = true)]
     public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
