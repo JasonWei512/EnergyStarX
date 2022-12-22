@@ -101,7 +101,7 @@ public class EnergyService
                 StopThrottling();
             }
 
-            HashSet<string> processWhitelist = ParseProcessWhitelist(processWhitelistString);
+            HashSet<string> processWhitelist = ParseProcessList(processWhitelistString);
 #if DEBUG
             processWhitelist.Add("devenv.exe");    // Visual Studio
 #endif
@@ -178,14 +178,15 @@ public class EnergyService
         }
     }
 
-    private HashSet<string> ParseProcessWhitelist(string processWhitelistString)
+    private HashSet<string> ParseProcessList(string processListString)
     {
+        // Get process name in processListString's each line
         // Double slash and content after it in each line will be ignored
 
         HashSet<string> result = new();
         Regex doubleSlashRegex = new("//");
 
-        using StringReader stringReader = new(processWhitelistString);
+        using StringReader stringReader = new(processListString);
         while (stringReader.ReadLine() is string line)
         {
             Match doubleSlashMatch = doubleSlashRegex.Match(line);

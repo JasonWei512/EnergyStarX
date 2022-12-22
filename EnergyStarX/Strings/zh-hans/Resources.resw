@@ -359,4 +359,12 @@ WUDFRd.exe</value>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>帮助翻译此应用 🌏</value>
   </data>
+  <data name="DefaultProcessBlacklist" xml:space="preserve">
+    <value>// 每行一个进程名
+// 每行中双斜杠以及之后的内容会被忽略
+</value>
+  </data>
+  <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
+    <value>白名单中的进程将不会被限制</value>
+  </data>
 </root>

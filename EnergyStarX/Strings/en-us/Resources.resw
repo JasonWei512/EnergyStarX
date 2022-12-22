@@ -359,4 +359,12 @@ Click the pause button again to resume.</value>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>Help us translate this app 🌏</value>
   </data>
+  <data name="DefaultProcessBlacklist" xml:space="preserve">
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+</value>
+  </data>
+  <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
+    <value>Processes in whitelist will not be throttled</value>
+  </data>
 </root>
