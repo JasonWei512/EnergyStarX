@@ -18,6 +18,8 @@ internal unsafe class EnergyManager
     private static Logger logger = LogManager.GetCurrentClassLogger();
 
     public static ImmutableHashSet<string> ProcessWhitelist { get; set; } = new HashSet<string>().ToImmutableHashSet();
+    public static ImmutableHashSet<string> ProcessBlacklist { get; set; } = new HashSet<string>().ToImmutableHashSet();
+
     // Speical handling needs for UWP to get the child window process
     public const string UWPFrameHostApp = "ApplicationFrameHost.exe";
 
