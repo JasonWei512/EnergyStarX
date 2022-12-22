@@ -5,7 +5,6 @@ using EnergyStarX.Services;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
-using Microsoft.Windows.System.Power;
 
 namespace EnergyStarX.ViewModels;
 
@@ -46,20 +45,22 @@ public partial class HomeViewModel : ObservableRecipient
 
     private void UpdateStatusOnUI(EnergyService.EnergyStatus energyStatus)
     {
-        if (energyStatus.PauseThrottling)
+        ThrottleStatus throttleStatus = energyService.ThrottleStatus;
+
+        if (throttleStatus == ThrottleStatus.Stopped)
         {
             StatusIcon = ThrottlingPausedIcon;
             StatusDescription = ThrottlingPausedDescription;
         }
-        else if (energyStatus.IsThrottling)
-        {
-            StatusIcon = ThrottlingIcon;
-            StatusDescription = ThrottlingDescription;
-        }
-        else if (energyStatus.PowerSourceKind == PowerSourceKind.AC)
+        else if (throttleStatus == ThrottleStatus.OnlyBlacklist)
         {
             StatusIcon = NotThrottlingACIcon;
             StatusDescription = NotThrottlingACDescription;
+        }
+        else if (throttleStatus == ThrottleStatus.BlacklistAndAllButWhitelist)
+        {
+            StatusIcon = ThrottlingIcon;
+            StatusDescription = ThrottlingDescription;
         }
     }
 

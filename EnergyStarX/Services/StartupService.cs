@@ -20,7 +20,7 @@ But that requires a double-process and communication app model, which is more co
 */
 public class StartupService
 {
-    private static Logger logger = LogManager.GetCurrentClassLogger();
+    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
     public enum StartupType
     {
