@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea" RowDefinitions="*, auto">
-        <RelativePanel Grid.Row="0">
+        <RelativePanel Grid.Row="0" Margin="{StaticResource NavigationViewPageContentMargin}">
             <Image
                 x:Name="StatusIcon"
                 Width="114"
@@ -25,7 +25,8 @@
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.Below="{x:Bind StatusIcon}"
                 Text="{x:Bind ViewModel.StatusDescription, Mode=OneWay}"
-                TextAlignment="Center" />
+                TextAlignment="Center"
+                TextWrapping="WrapWholeWords" />
         </RelativePanel>
 
         <CommandBar

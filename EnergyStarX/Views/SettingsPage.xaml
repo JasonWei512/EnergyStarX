@@ -74,6 +74,26 @@
             </ScrollViewer>
         </ContentDialog>
 
+        <ContentDialog
+            x:Name="ProcessBlacklistEditorDialog"
+            x:Uid="Settings_ProcessBlacklistEditorDialog"
+            Title="{x:Bind ViewModel.ProcessBlacklistEditorDialogTitle, Mode=OneWay}"
+            DefaultButton="Close"
+            PrimaryButtonCommand="{x:Bind ViewModel.ApplyProcessBlacklistCommand}">
+            <ScrollViewer>
+                <TextBox
+                    Width="800"
+                    MinHeight="300"
+                    Padding="10"
+                    AcceptsReturn="True"
+                    FontFamily="Consolas"
+                    FontSize="18"
+                    IsSpellCheckEnabled="False"
+                    Text="{x:Bind ViewModel.ProcessBlacklistString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="NoWrap" />
+            </ScrollViewer>
+        </ContentDialog>
+
         <ScrollViewer>
             <Grid
                 x:Name="MainContentArea"
@@ -113,6 +133,16 @@
                                     <Button x:Uid="Settings_ProcessWhitelist_EditButton" Command="{x:Bind ViewModel.ShowProcessWhitelistEditorDialogCommand}" />
                                     <Grid Width="10" />
                                     <Button x:Uid="Settings_ProcessWhitelist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessWhitelistCommand}" />
+                                </StackPanel>
+                            </settings:Setting.ActionContent>
+                        </settings:Setting>
+
+                        <settings:Setting x:Uid="Settings_ProcessBlacklist" Icon="&#xF0E3;">
+                            <settings:Setting.ActionContent>
+                                <StackPanel Margin="{StaticResource SettingsExpanderHeaderMargin}" Orientation="Horizontal">
+                                    <Button x:Uid="Settings_ProcessBlacklist_EditButton" Command="{x:Bind ViewModel.ShowProcessBlacklistEditorDialogCommand}" />
+                                    <Grid Width="10" />
+                                    <Button x:Uid="Settings_ProcessBlacklist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessBlacklistCommand}" />
                                 </StackPanel>
                             </settings:Setting.ActionContent>
                         </settings:Setting>

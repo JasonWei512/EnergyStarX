@@ -87,11 +87,7 @@ public class EnergyService
         }
     }
 
-    public EnergyStatus Status => new(ThrottleStatus, PauseThrottling, IsOnBattery);
-
-    public record EnergyStatus(ThrottleStatus ThrottleStatus, bool PauseThrottling, bool IsOnBattery);
-
-    public event EventHandler<EnergyStatus>? StatusChanged;
+    public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 
     public EnergyService()
     {
@@ -125,6 +121,7 @@ public class EnergyService
             HookManager.SystemForegroundWindowChanged += HookManager_SystemForegroundWindowChanged;
 
             ApplyProcessWhitelist(Settings.ProcessWhitelistString);
+            ApplyProcessBlacklist(Settings.ProcessBlacklistString);
             UpdateThrottleStatusAndNotify();
             PowerManager.PowerSourceKindChanged += PowerManager_PowerSourceKindChanged;
         }
@@ -315,7 +312,7 @@ public class EnergyService
 
         ThrottleStatus = newThrottleStatus;
 
-        StatusChanged?.Invoke(this, Status);
+        ThrottleStatusChanged?.Invoke(this, ThrottleStatus);
 
         return throttleStatusChanged;
     }
@@ -330,7 +327,7 @@ public class EnergyService
             return false;
         }
 
-        logger.Info(@"Start throttling (to status ""{0}"")", newThrottleStatus);
+        logger.Info(@"Start throttling");
         ThrottleUserBackgroundProcesses(newThrottleStatus);
         houseKeepingCancellationTokenSource = new CancellationTokenSource();
         _ = HouseKeeping(houseKeepingCancellationTokenSource.Token);
@@ -348,7 +345,7 @@ public class EnergyService
             return false;
         }
 
-        logger.Info(@"Stop throttling (from status ""{0}"")", oldThrottleStatus);
+        logger.Info(@"Stop throttling");
         houseKeepingCancellationTokenSource.Cancel();
         RecoverUserProcesses(oldThrottleStatus);
 

@@ -53,17 +53,12 @@ public class SystemTrayIconService
         trayIcon.Create();
 
         windowsService.AppExiting += WindowsService_AppExiting;
-        energyService.StatusChanged += EnergyService_StatusChanged;
+        energyService.ThrottleStatusChanged += EnergyService_ThrottleStatusChanged;
 
         // If user is using the taskbar enhancement tool StartAllBack, at this line the tray icon image may be wrong.
         // So I have to wait 0.1 second and update tray icon image and tooltip again.
         await Task.Delay(TimeSpan.FromMilliseconds(100));
         UpdateTrayIconImageAndToolTip(energyService.ThrottleStatus);
-    }
-
-    private async void EnergyService_StatusChanged(object? sender, EnergyService.EnergyStatus e)
-    {
-        await dispatcherQueue.EnqueueAsync(() => UpdateTrayIconImageAndToolTip(e.ThrottleStatus));
     }
 
     private void WindowsService_AppExiting(object? sender, EventArgs e)
@@ -75,9 +70,18 @@ public class SystemTrayIconService
         NotThrottlingIcon.Dispose();
     }
 
+    private async void EnergyService_ThrottleStatusChanged(object? sender, ThrottleStatus e)
+    {
+        await dispatcherQueue.EnqueueAsync(() => UpdateTrayIconImageAndToolTip(e));
+    }
+
     private void UpdateTrayIconImageAndToolTip(ThrottleStatus throttleStatus)
     {
-        (System.Drawing.Icon icon, string toolTip) = GetTrayIconImageAndToolTip(throttleStatus);
+        (System.Drawing.Icon icon, string toolTip) = throttleStatus switch
+        {
+            ThrottleStatus.BlacklistAndAllButWhitelist => (ThrottlingIcon, ThrottlingToolTip),
+            _ => (NotThrottlingIcon, NotThrottlingToolTip)
+        };
 
         // Warning:
         // "trayIcon.UpdateIcon()" and "trayIcon.UpdateToolTip()" might throw "InvalidOperationException" when PC wakes up from sleep
@@ -102,9 +106,4 @@ public class SystemTrayIconService
             logger.Warn(e, "Caught exception thrown by trayIcon.UpdateToolTip()");
         }
     }
-
-    private (System.Drawing.Icon Icon, string toolTip) GetTrayIconImageAndToolTip(ThrottleStatus throttleStatus) =>
-        throttleStatus != ThrottleStatus.Stopped ?
-        (ThrottlingIcon, ThrottlingToolTip) :
-        (NotThrottlingIcon, NotThrottlingToolTip);
 }

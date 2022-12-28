@@ -38,33 +38,23 @@ public partial class HomeViewModel : ObservableRecipient
     public HomeViewModel(EnergyService energyService)
     {
         this.energyService = energyService;
-        UpdateStatusOnUI(this.energyService.Status);
+        UpdateStatusOnUI(this.energyService.ThrottleStatus);
 
-        this.energyService.StatusChanged += EnergyService_StatusChanged;
+        this.energyService.ThrottleStatusChanged += EnergyService_ThrottleStatusChanged;
     }
 
-    private void UpdateStatusOnUI(EnergyService.EnergyStatus energyStatus)
+    private void UpdateStatusOnUI(ThrottleStatus throttleStatus)
     {
-        ThrottleStatus throttleStatus = energyService.ThrottleStatus;
-
-        if (throttleStatus == ThrottleStatus.Stopped)
+        (StatusIcon, StatusDescription) = throttleStatus switch
         {
-            StatusIcon = ThrottlingPausedIcon;
-            StatusDescription = ThrottlingPausedDescription;
-        }
-        else if (throttleStatus == ThrottleStatus.OnlyBlacklist)
-        {
-            StatusIcon = NotThrottlingACIcon;
-            StatusDescription = NotThrottlingACDescription;
-        }
-        else if (throttleStatus == ThrottleStatus.BlacklistAndAllButWhitelist)
-        {
-            StatusIcon = ThrottlingIcon;
-            StatusDescription = ThrottlingDescription;
-        }
+            ThrottleStatus.Stopped => (ThrottlingPausedIcon, ThrottlingPausedDescription),
+            ThrottleStatus.OnlyBlacklist => (NotThrottlingACIcon, NotThrottlingACDescription),
+            ThrottleStatus.BlacklistAndAllButWhitelist => (ThrottlingIcon, ThrottlingDescription),
+            _ => throw new ArgumentException("Unknown ThrottleStatus")
+        };
     }
 
-    private async void EnergyService_StatusChanged(object? sender, EnergyService.EnergyStatus e)
+    private async void EnergyService_ThrottleStatusChanged(object? sender, ThrottleStatus e)
     {
         await dispatcherQueue.EnqueueAsync(() => UpdateStatusOnUI(e));
     }

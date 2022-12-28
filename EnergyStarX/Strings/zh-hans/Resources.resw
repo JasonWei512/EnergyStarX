@@ -235,7 +235,7 @@
     <value>复制</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>插电时限制后台进程</value>
+    <value>插电时限制所有后台进程</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// 每行一个进程名
@@ -319,7 +319,7 @@ WUDFRd.exe</value>
     <value>主页</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>已暂停限制后台程序，因为你的设备已接入电源。
+    <value>已暂停限制后台程序（除了黑名单中的进程），因为你的设备已接入电源。
 你可以在设置中改变这个行为。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
@@ -362,9 +362,34 @@ WUDFRd.exe</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一个进程名
 // 每行中双斜杠以及之后的内容会被忽略
+// 你的权限需要高于或等于你想要限制的进程
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
     <value>白名单中的进程将不会被限制</value>
+  </data>
+  <data name="Restore_to_default_process_blacklist" xml:space="preserve">
+    <value>还原为默认进程黑名单？</value>
+  </data>
+  <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
+    <value>还原为默认</value>
+  </data>
+  <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
+    <value>编辑进程黑名单</value>
+  </data>
+  <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
+    <value>编辑进程黑名单</value>
+  </data>
+  <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
+    <value>黑名单中的进程即使在插电时也会被限制</value>
   </data>
 </root>

@@ -92,6 +92,20 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public event EventHandler? ProcessWhitelistEditorDialogShowRequested;
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProcessBlacklistModified))]
+    [NotifyPropertyChangedFor(nameof(ProcessBlacklistEditorDialogTitle))]
+    private string processBlacklistString = Settings.ProcessBlacklistString;
+
+    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessBlacklistString"'s is LF
+    public bool ProcessBlacklistModified => ProcessBlacklistString.ReplaceLineEndings() != Settings.ProcessBlacklistString.ReplaceLineEndings();
+
+    public string ProcessBlacklistEditorDialogTitle =>
+        "ProcessBlacklistEditorDialogTitle".ToLocalized()
+        + (ProcessBlacklistModified ? $" ({"Modified".ToLocalized()})" : string.Empty);
+
+    public event EventHandler? ProcessBlacklistEditorDialogShowRequested;
+
     public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService)
     {
         versionDescription = GetVersionDescription();
@@ -135,6 +149,28 @@ public partial class SettingsViewModel : ObservableRecipient
         if (await dialogService.ShowConfirmationDialog("Restore_to_default_process_whitelist".ToLocalized()))
         {
             energyService.ApplyAndSaveProcessWhitelist("DefaultProcessWhitelist".ToLocalized());
+        }
+    }
+
+    [RelayCommand]
+    private void ShowProcessBlacklistEditorDialog()
+    {
+        ProcessBlacklistString = Settings.ProcessBlacklistString;
+        ProcessBlacklistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
+    }
+
+    [RelayCommand]
+    private void ApplyProcessBlacklist()
+    {
+        energyService.ApplyAndSaveProcessBlacklist(ProcessBlacklistString);
+    }
+
+    [RelayCommand]
+    private async Task RestoreToDefaultProcessBlacklist()
+    {
+        if (await dialogService.ShowConfirmationDialog("Restore_to_default_process_blacklist".ToLocalized()))
+        {
+            energyService.ApplyAndSaveProcessBlacklist("DefaultProcessBlacklist".ToLocalized());
         }
     }
 

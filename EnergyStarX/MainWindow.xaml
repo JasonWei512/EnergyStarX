@@ -7,7 +7,7 @@
     xmlns:local="using:EnergyStarX"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowex="using:WinUIEx"
-    MinWidth="500"
-    MinHeight="500"
+    MinWidth="720"
+    MinHeight="480"
     PersistenceId="MainWindow"
     mc:Ignorable="d" />
