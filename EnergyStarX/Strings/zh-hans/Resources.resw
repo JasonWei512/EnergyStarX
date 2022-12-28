@@ -271,7 +271,10 @@ csrss.exe
 smss.exe
 svchost.exe
 // WUDF
-WUDFRd.exe</value>
+WUDFRd.exe
+
+// Firefox 108 已支持效率模式
+firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
@@ -362,7 +365,7 @@ WUDFRd.exe</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一个进程名
 // 每行中双斜杠以及之后的内容会被忽略
-// 你的权限需要高于或等于你想要限制的进程
+// 你需要和你想要限制的进程在同一个 Windows Session 中，且拥有相同或更高的权限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
