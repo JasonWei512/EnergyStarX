@@ -39,7 +39,7 @@ public static class HookManager
                 hookProcDelegate,        // lpfnWinEventProc
                 0,                       // idProcess
                 0,                       // idThread
-                WINEVENT_OUTOFCONTEXT | WINEVENT_SKIPOWNPROCESS);
+                WINEVENT_OUTOFCONTEXT);
 
             if (windowEventHook == IntPtr.Zero)
             {
