@@ -287,7 +287,7 @@ public class EnergyService
             (true, _, _) => ThrottleStatus.Stopped,
             (false, true, _) => ThrottleStatus.BlacklistAndAllButWhitelist,
             (false, false, true) => ThrottleStatus.BlacklistAndAllButWhitelist,
-            (false, false, false) => ThrottleStatus.OnlyBlacklist,
+            (false, false, false) => ThrottleStatus.OnlyBlacklist
         };
 
         bool throttleStatusChanged = (oldThrottleStatus, newThrottleStatus) switch
