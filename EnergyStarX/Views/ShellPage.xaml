@@ -55,19 +55,19 @@
                 -->
                 <NavigationViewItem x:Uid="Shell_Home" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.HomeViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE10F;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE10F;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
                 <NavigationViewItem x:Uid="Shell_Log" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.LogViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE7C3;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE7C3;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
                 <NavigationViewItem x:Uid="Shell_Help" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.HelpViewModel">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE11B;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE11B;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
