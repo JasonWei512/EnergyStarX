@@ -47,9 +47,9 @@ public partial class HomeViewModel : ObservableRecipient
     {
         (StatusIcon, StatusDescription) = throttleStatus switch
         {
-            ThrottleStatus.Stopped => (ThrottlingPausedIcon, ThrottlingPausedDescription),
-            ThrottleStatus.OnlyBlacklist => (NotThrottlingACIcon, NotThrottlingACDescription),
             ThrottleStatus.BlacklistAndAllButWhitelist => (ThrottlingIcon, ThrottlingDescription),
+            ThrottleStatus.OnlyBlacklist => (NotThrottlingACIcon, NotThrottlingACDescription),
+            ThrottleStatus.Stopped => (ThrottlingPausedIcon, ThrottlingPausedDescription),
             _ => throw new ArgumentException("Unknown ThrottleStatus")
         };
     }
