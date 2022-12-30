@@ -60,17 +60,16 @@
             Title="{x:Bind ViewModel.ProcessWhitelistEditorDialogTitle, Mode=OneWay}"
             DefaultButton="Close"
             PrimaryButtonCommand="{x:Bind ViewModel.ApplyProcessWhitelistCommand}">
-            <ScrollViewer>
+            <ScrollViewer Width="600">
                 <TextBox
-                    Width="800"
-                    MinHeight="300"
+                    MinHeight="240"
                     Padding="10"
                     AcceptsReturn="True"
                     FontFamily="Consolas"
                     FontSize="18"
                     IsSpellCheckEnabled="False"
                     Text="{x:Bind ViewModel.ProcessWhitelistString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    TextWrapping="NoWrap" />
+                    TextWrapping="Wrap" />
             </ScrollViewer>
         </ContentDialog>
 
@@ -80,17 +79,16 @@
             Title="{x:Bind ViewModel.ProcessBlacklistEditorDialogTitle, Mode=OneWay}"
             DefaultButton="Close"
             PrimaryButtonCommand="{x:Bind ViewModel.ApplyProcessBlacklistCommand}">
-            <ScrollViewer>
+            <ScrollViewer Width="600">
                 <TextBox
-                    Width="800"
-                    MinHeight="300"
+                    MinHeight="240"
                     Padding="10"
                     AcceptsReturn="True"
                     FontFamily="Consolas"
                     FontSize="18"
                     IsSpellCheckEnabled="False"
                     Text="{x:Bind ViewModel.ProcessBlacklistString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    TextWrapping="NoWrap" />
+                    TextWrapping="Wrap" />
             </ScrollViewer>
         </ContentDialog>
 
@@ -151,7 +149,7 @@
                     <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubTitleStyle}" />
 
                     <StackPanel Margin="{StaticResource SubContentBlockMargin}">
-                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{x:Bind ViewModel.VersionDescription}" />
                         <TextBlock x:Uid="Settings_AboutDescription" Style="{ThemeResource BodyTextStyle}" />
                     </StackPanel>
 

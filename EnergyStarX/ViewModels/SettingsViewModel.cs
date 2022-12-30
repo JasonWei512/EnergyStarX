@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
 using Hardware.Info;
-using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
@@ -16,11 +15,10 @@ public partial class SettingsViewModel : ObservableRecipient
     private readonly DialogService dialogService;
     private readonly StartupService startupService;
 
-    [ObservableProperty]
-    private bool initializing = true;
+    public string VersionDescription { get; } = $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {PackageInfo.VersionString}";
 
     [ObservableProperty]
-    private string versionDescription;
+    private bool initializing = true;
 
     private bool runAtStartup;
 
@@ -108,7 +106,6 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService)
     {
-        versionDescription = GetVersionDescription();
         this.energyService = energyService;
         this.dialogService = dialogService;
         this.startupService = startupService;
@@ -254,23 +251,5 @@ public partial class SettingsViewModel : ObservableRecipient
         {
             IsTogglingRunAtStartup = false;
         }
-    }
-
-    private static string GetVersionDescription()
-    {
-        Version version;
-
-        if (RuntimeHelper.IsMSIX)
-        {
-            PackageVersion packageVersion = Package.Current.Id.Version;
-
-            version = new(packageVersion.Major, packageVersion.Minor, packageVersion.Build, packageVersion.Revision);
-        }
-        else
-        {
-            version = Assembly.GetExecutingAssembly().GetName().Version!;
-        }
-
-        return $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
 }

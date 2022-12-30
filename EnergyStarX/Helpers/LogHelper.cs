@@ -54,7 +54,7 @@ public static class LogHelper
 
                     Dictionary<string, string> eventProperties = new()
                     {
-                        { "Time", time }
+                        { "Version", PackageInfo.VersionString }
                     };
 
                     if (logEventInfo.Exception is Exception e)
