@@ -79,11 +79,11 @@ public class StartupService
 
         if (success)
         {
-            logger.Info(@"StartupType set to ""{0}""", newStartupType);
+            logger.Info(@"StartupType set to: {0}", newStartupType);
         }
         else
         {
-            logger.Info(@"Failed to set StartupType to ""{0}""", newStartupType);
+            logger.Info(@"Failed to set StartupType to: {0}", newStartupType);
         }
 
         return success;

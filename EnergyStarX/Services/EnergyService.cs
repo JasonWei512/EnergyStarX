@@ -8,7 +8,6 @@ using EnergyStarX.Core.Interop;
 using EnergyStarX.Helpers;
 using Microsoft.Windows.System.Power;
 using NLog;
-using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -39,16 +38,6 @@ public class EnergyService
     private uint pendingProcPid = 0;
     private string pendingProcName = "";
 
-    /// <summary>
-    /// Processes in whitelist will not be throttled
-    /// </summary>
-    private ImmutableHashSet<string> processWhitelist = new HashSet<string>().ToImmutableHashSet();
-
-    /// <summary>
-    /// Processes in blacklist will be throttled even when device is plugged in
-    /// </summary>
-    private ImmutableHashSet<string> processBlacklist = new HashSet<string>().ToImmutableHashSet();
-
     public ThrottleStatus ThrottleStatus { get; private set; } = ThrottleStatus.Stopped;
 
     private bool pauseThrottling = false;
@@ -69,8 +58,6 @@ public class EnergyService
         }
     }
 
-    public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
-
     public bool ThrottleWhenPluggedIn
     {
         get => Settings.ThrottleWhenPluggedIn;
@@ -86,6 +73,18 @@ public class EnergyService
             }
         }
     }
+
+    /// <summary>
+    /// Processes in whitelist will not be throttled
+    /// </summary>
+    public IReadOnlySet<string> ProcessWhitelist { get; private set; } = new HashSet<string>();
+
+    /// <summary>
+    /// Processes in blacklist will be throttled even when device is plugged in
+    /// </summary>
+    public IReadOnlySet<string> ProcessBlacklist { get; private set; } = new HashSet<string>();
+
+    public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
 
     public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 
@@ -164,7 +163,7 @@ public class EnergyService
 #if DEBUG
             processWhitelist.Add("devenv.exe");    // Visual Studio
 #endif
-            this.processWhitelist = processWhitelist.ToImmutableHashSet();
+            ProcessWhitelist = processWhitelist;
 
             logger.Info("Apply ProcessWhitelist:\n{0}", string.Join(Environment.NewLine, processWhitelist));
 
@@ -197,7 +196,7 @@ public class EnergyService
             }
 
             HashSet<string> processBlacklist = ParseProcessList(processBlacklistString);
-            this.processBlacklist = processBlacklist.ToImmutableHashSet();
+            ProcessBlacklist = processBlacklist;
 
             logger.Info("Apply ProcessBlacklist:\n{0}", string.Join(Environment.NewLine, processBlacklist));
 
@@ -205,23 +204,6 @@ public class EnergyService
             {
                 StartThrottling(previousThrottleStatus);
             }
-        }
-    }
-
-    private void PowerManager_PowerSourceKindChanged(object? sender, object e)
-    {
-        lock (lockObject)
-        {
-            if (IsOnBattery)
-            {
-                logger.Info("Power source changed to battery");
-            }
-            else
-            {
-                logger.Info("Power source changed to AC");
-            }
-
-            UpdateThrottleStatusAndNotify();
         }
     }
 
@@ -250,6 +232,140 @@ public class EnergyService
         return result;
     }
 
+    /// <summary>
+    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// </summary>
+    private bool UpdateThrottleStatusAndNotify()
+    {
+        lock (lockObject)
+        {
+            ThrottleStatus fromThrottleStatus = ThrottleStatus;
+            ThrottleStatus toThrottleStatus = (PauseThrottling, IsOnBattery, ThrottleWhenPluggedIn) switch
+            {
+                (true, _, _) => ThrottleStatus.Stopped,
+                (false, true, _) => ThrottleStatus.BlacklistAndAllButWhitelist,
+                (false, false, true) => ThrottleStatus.BlacklistAndAllButWhitelist,
+                (false, false, false) => ThrottleStatus.OnlyBlacklist
+            };
+
+            bool throttleStatusChanged = (fromThrottleStatus, toThrottleStatus) switch
+            {
+                (ThrottleStatus.Stopped, ThrottleStatus.OnlyBlacklist) => StartThrottling(toThrottleStatus),
+                (ThrottleStatus.Stopped, ThrottleStatus.BlacklistAndAllButWhitelist) => StartThrottling(toThrottleStatus),
+
+                (ThrottleStatus.OnlyBlacklist, ThrottleStatus.Stopped) => StopThrottling(fromThrottleStatus),
+                (ThrottleStatus.OnlyBlacklist, ThrottleStatus.BlacklistAndAllButWhitelist) => ThrottleUserBackgroundProcesses(toThrottleStatus),
+
+                (ThrottleStatus.BlacklistAndAllButWhitelist, ThrottleStatus.Stopped) => StopThrottling(fromThrottleStatus),
+                (ThrottleStatus.BlacklistAndAllButWhitelist, ThrottleStatus.OnlyBlacklist) => RecoverUserProcesses(fromThrottleStatus) && ThrottleUserBackgroundProcesses(toThrottleStatus),
+
+                _ when fromThrottleStatus == toThrottleStatus => false,
+                _ => throw new ArgumentException($"Unknown ThrottleStatus transition: {fromThrottleStatus} -> {toThrottleStatus}")
+            };
+
+            if (throttleStatusChanged)
+            {
+                ThrottleStatus = toThrottleStatus;
+                ThrottleStatusChanged?.Invoke(this, ThrottleStatus);
+                logger.Info("ThrottleStatus changed to: {0}", toThrottleStatus);
+            }
+
+            return throttleStatusChanged;
+        }
+    }
+
+    /// <summary>
+    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// </summary>
+    private bool StartThrottling(ThrottleStatus toThrottleStatus)
+    {
+        lock (lockObject)
+        {
+            if (toThrottleStatus == ThrottleStatus.Stopped)
+            {
+                return false;
+            }
+
+            logger.Info("Start throttling");
+            ThrottleUserBackgroundProcesses(toThrottleStatus);
+            houseKeepingCancellationTokenSource = new CancellationTokenSource();
+            _ = HouseKeeping(houseKeepingCancellationTokenSource.Token);
+
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// </summary>
+    private bool StopThrottling(ThrottleStatus fromThrottleStatus)
+    {
+        lock (lockObject)
+        {
+            if (fromThrottleStatus == ThrottleStatus.Stopped)
+            {
+                return false;
+            }
+
+            logger.Info("Stop throttling");
+            houseKeepingCancellationTokenSource.Cancel();
+            RecoverUserProcesses(fromThrottleStatus);
+
+            return true;
+        }
+    }
+
+    private bool ThrottleUserBackgroundProcesses(ThrottleStatus toThrottleStatus)
+    {
+        lock (lockObject)
+        {
+            if (toThrottleStatus == ThrottleStatus.Stopped)
+            {
+                return false;
+            }
+
+            Process[] runningProcesses = Process.GetProcesses();
+            int currentSessionID = Process.GetCurrentProcess().SessionId;
+
+            IEnumerable<Process> sameAsThisSession = runningProcesses.Where(p => p.SessionId == currentSessionID);
+            foreach (Process proc in sameAsThisSession)
+            {
+                if (proc.Id == pendingProcPid) { continue; }
+                if (ShouldBypassProcess($"{proc.ProcessName}.exe".ToLowerInvariant(), toThrottleStatus)) { continue; }
+                IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
+                ToggleEfficiencyMode(hProcess, true);
+                Win32Api.CloseHandle(hProcess);
+            }
+
+            return true;
+        }
+    }
+
+    private bool RecoverUserProcesses(ThrottleStatus fromThrottleStatus)
+    {
+        lock (lockObject)
+        {
+            if (fromThrottleStatus == ThrottleStatus.Stopped)
+            {
+                return false;
+            }
+
+            Process[] runningProcesses = Process.GetProcesses();
+            int currentSessionID = Process.GetCurrentProcess().SessionId;
+
+            IEnumerable<Process> sameAsThisSession = runningProcesses.Where(p => p.SessionId == currentSessionID);
+            foreach (Process proc in sameAsThisSession)
+            {
+                if (ShouldBypassProcess($"{proc.ProcessName}.exe".ToLowerInvariant(), fromThrottleStatus)) { continue; }
+                IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
+                ToggleEfficiencyMode(hProcess, false);
+                Win32Api.CloseHandle(hProcess);
+            }
+
+            return true;
+        }
+    }
+
     private async Task HouseKeeping(CancellationToken cancellationToken)
     {
         logger.Info("House keeping task started");
@@ -259,10 +375,7 @@ public class EnergyService
             try
             {
                 await Task.Delay(TimeSpan.FromMinutes(5), cancellationToken);
-                lock (lockObject)
-                {
-                    ThrottleUserBackgroundProcesses(ThrottleStatus);
-                }
+                ThrottleUserBackgroundProcesses(ThrottleStatus);
                 logger.Info("House keeping task throttling background processes");
             }
             catch (OperationCanceledException)
@@ -278,78 +391,91 @@ public class EnergyService
         logger.Info("House keeping task stopped.");
     }
 
-    // Returns true if "IsThrottling" changes after this method executes. Otherwise false.
-    private bool UpdateThrottleStatusAndNotify()
+    private void HookManager_SystemForegroundWindowChanged(object? sender, IntPtr hwnd)
     {
-        ThrottleStatus oldThrottleStatus = ThrottleStatus;
-        ThrottleStatus newThrottleStatus = (PauseThrottling, IsOnBattery, ThrottleWhenPluggedIn) switch
+        lock (lockObject)
         {
-            (true, _, _) => ThrottleStatus.Stopped,
-            (false, true, _) => ThrottleStatus.BlacklistAndAllButWhitelist,
-            (false, false, true) => ThrottleStatus.BlacklistAndAllButWhitelist,
-            (false, false, false) => ThrottleStatus.OnlyBlacklist
-        };
+            if (ThrottleStatus == ThrottleStatus.Stopped) { return; }
 
-        bool throttleStatusChanged = (oldThrottleStatus, newThrottleStatus) switch
-        {
-            (ThrottleStatus.Stopped, ThrottleStatus.OnlyBlacklist) => StartThrottling(newThrottleStatus),
-            (ThrottleStatus.Stopped, ThrottleStatus.BlacklistAndAllButWhitelist) => StartThrottling(newThrottleStatus),
+            uint windowThreadId = Win32Api.GetWindowThreadProcessId(hwnd, out uint procId);
+            // This is invalid, likely a process is dead, or idk
+            if (windowThreadId == 0 || procId == 0) { return; }
 
-            (ThrottleStatus.OnlyBlacklist, ThrottleStatus.Stopped) => StopThrottling(oldThrottleStatus),
-            (ThrottleStatus.OnlyBlacklist, ThrottleStatus.BlacklistAndAllButWhitelist) => ThrottleUserBackgroundProcesses(newThrottleStatus),   // TODO Consider
+            IntPtr procHandle = Win32Api.OpenProcess(
+                (uint)(Win32Api.ProcessAccessFlags.QueryLimitedInformation | Win32Api.ProcessAccessFlags.SetInformation), false, procId);
+            if (procHandle == IntPtr.Zero) { return; }
 
-            (ThrottleStatus.BlacklistAndAllButWhitelist, ThrottleStatus.Stopped) => StopThrottling(oldThrottleStatus),
-            (ThrottleStatus.BlacklistAndAllButWhitelist, ThrottleStatus.OnlyBlacklist) => RecoverUserProcesses(oldThrottleStatus) && ThrottleUserBackgroundProcesses(newThrottleStatus),  // TODO "oldThrottleStatus" or "newThrottleStatus" ?
+            // Get the process
+            string appName = GetProcessNameFromHandle(procHandle);
 
-            _ when oldThrottleStatus == newThrottleStatus => false,
-            _ => throw new ArgumentException($"Unknown ThrottleStatus transition: {oldThrottleStatus} -> {newThrottleStatus}")
-        };
+            // UWP needs to be handled in a special case
+            if (appName == UWPFrameHostApp)
+            {
+                bool found = false;
+                Win32Api.EnumChildWindows(hwnd, (innerHwnd, lparam) =>
+                {
+                    if (found) { return true; }
+                    if (Win32Api.GetWindowThreadProcessId(innerHwnd, out uint innerProcId) > 0)
+                    {
+                        if (procId == innerProcId) { return true; }
 
-        if (throttleStatusChanged)
-        {
-            logger.Info("ThrottleStatus changed to: {0}", newThrottleStatus);
+                        IntPtr innerProcHandle = Win32Api.OpenProcess((uint)(Win32Api.ProcessAccessFlags.QueryLimitedInformation |
+                            Win32Api.ProcessAccessFlags.SetInformation), false, innerProcId);
+                        if (innerProcHandle == IntPtr.Zero) { return true; }
+
+                        // Found. Set flag, reinitialize handles and call it a day
+                        found = true;
+                        Win32Api.CloseHandle(procHandle);
+                        procHandle = innerProcHandle;
+                        procId = innerProcId;
+                        appName = GetProcessNameFromHandle(procHandle);
+                    }
+
+                    return true;
+                }, IntPtr.Zero);
+            }
+
+            // Boost the current foreground app, and then impose EcoQoS for previous foreground app
+            bool bypass = ShouldBypassProcess(appName, ThrottleStatus);
+            if (!bypass)
+            {
+                logger.Info("Boosting {0}", appName);
+                ToggleEfficiencyMode(procHandle, false);
+            }
+
+            if (pendingProcPid != 0)
+            {
+                logger.Info("Throttle {0}", pendingProcName);
+
+                IntPtr prevProcHandle = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, pendingProcPid);
+                if (prevProcHandle != IntPtr.Zero)
+                {
+                    ToggleEfficiencyMode(prevProcHandle, true);
+                    Win32Api.CloseHandle(prevProcHandle);
+                    pendingProcPid = 0;
+                    pendingProcName = "";
+                }
+            }
+
+            if (!bypass)
+            {
+                pendingProcPid = procId;
+                pendingProcName = appName;
+            }
+
+            Win32Api.CloseHandle(procHandle);
         }
-
-        ThrottleStatus = newThrottleStatus;
-
-        ThrottleStatusChanged?.Invoke(this, ThrottleStatus);
-
-        return throttleStatusChanged;
     }
 
-    /// <summary>
-    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
-    /// </summary>
-    private bool StartThrottling(ThrottleStatus newThrottleStatus)
+    private bool ShouldBypassProcess(string processName, ThrottleStatus throttleStatus)
     {
-        if (newThrottleStatus == ThrottleStatus.Stopped)
+        return throttleStatus switch
         {
-            return false;
-        }
-
-        logger.Info(@"Start throttling");
-        ThrottleUserBackgroundProcesses(newThrottleStatus);
-        houseKeepingCancellationTokenSource = new CancellationTokenSource();
-        _ = HouseKeeping(houseKeepingCancellationTokenSource.Token);
-
-        return true;
-    }
-
-    /// <summary>
-    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
-    /// </summary>
-    private bool StopThrottling(ThrottleStatus oldThrottleStatus)
-    {
-        if (oldThrottleStatus == ThrottleStatus.Stopped)
-        {
-            return false;
-        }
-
-        logger.Info(@"Stop throttling");
-        houseKeepingCancellationTokenSource.Cancel();
-        RecoverUserProcesses(oldThrottleStatus);
-
-        return true;
+            ThrottleStatus.Stopped => true,
+            ThrottleStatus.OnlyBlacklist => !ProcessBlacklist.Contains(processName.ToLowerInvariant()),
+            ThrottleStatus.BlacklistAndAllButWhitelist => !ProcessBlacklist.Contains(processName.ToLowerInvariant()) && ProcessWhitelist.Contains(processName.ToLowerInvariant()),
+            _ => throw new ArgumentException("Unknown ThrottleStatus")
+        };
     }
 
     private void ToggleEfficiencyMode(IntPtr hProcess, bool enable)
@@ -359,127 +485,21 @@ public class EnergyService
         Win32Api.SetPriorityClass(hProcess, enable ? Win32Api.PriorityClass.IDLE_PRIORITY_CLASS : Win32Api.PriorityClass.NORMAL_PRIORITY_CLASS);
     }
 
-    private void HookManager_SystemForegroundWindowChanged(object? sender, IntPtr hwnd)
+    private void PowerManager_PowerSourceKindChanged(object? sender, object e)
     {
-        HandleForegroundEvent(hwnd);
-    }
-
-    private unsafe void HandleForegroundEvent(IntPtr hwnd)
-    {
-        if (ThrottleStatus == ThrottleStatus.Stopped) { return; }
-
-        uint windowThreadId = Win32Api.GetWindowThreadProcessId(hwnd, out uint procId);
-        // This is invalid, likely a process is dead, or idk
-        if (windowThreadId == 0 || procId == 0) { return; }
-
-        IntPtr procHandle = Win32Api.OpenProcess(
-            (uint)(Win32Api.ProcessAccessFlags.QueryLimitedInformation | Win32Api.ProcessAccessFlags.SetInformation), false, procId);
-        if (procHandle == IntPtr.Zero) { return; }
-
-        // Get the process
-        string appName = GetProcessNameFromHandle(procHandle);
-
-        // UWP needs to be handled in a special case
-        if (appName == UWPFrameHostApp)
+        lock (lockObject)
         {
-            bool found = false;
-            Win32Api.EnumChildWindows(hwnd, (innerHwnd, lparam) =>
+            if (IsOnBattery)
             {
-                if (found) { return true; }
-                if (Win32Api.GetWindowThreadProcessId(innerHwnd, out uint innerProcId) > 0)
-                {
-                    if (procId == innerProcId) { return true; }
-
-                    IntPtr innerProcHandle = Win32Api.OpenProcess((uint)(Win32Api.ProcessAccessFlags.QueryLimitedInformation |
-                        Win32Api.ProcessAccessFlags.SetInformation), false, innerProcId);
-                    if (innerProcHandle == IntPtr.Zero) { return true; }
-
-                    // Found. Set flag, reinitialize handles and call it a day
-                    found = true;
-                    Win32Api.CloseHandle(procHandle);
-                    procHandle = innerProcHandle;
-                    procId = innerProcId;
-                    appName = GetProcessNameFromHandle(procHandle);
-                }
-
-                return true;
-            }, IntPtr.Zero);
-        }
-
-        // Boost the current foreground app, and then impose EcoQoS for previous foreground app
-        bool bypass = ShouldBypassProcess(appName, ThrottleStatus);
-        if (!bypass)
-        {
-            logger.Info("Boosting {0}", appName);
-            ToggleEfficiencyMode(procHandle, false);
-        }
-
-        if (pendingProcPid != 0)
-        {
-            logger.Info("Throttle {0}", pendingProcName);
-
-            IntPtr prevProcHandle = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, pendingProcPid);
-            if (prevProcHandle != IntPtr.Zero)
-            {
-                ToggleEfficiencyMode(prevProcHandle, true);
-                Win32Api.CloseHandle(prevProcHandle);
-                pendingProcPid = 0;
-                pendingProcName = "";
+                logger.Info("Power source changed to battery");
             }
+            else
+            {
+                logger.Info("Power source changed to AC");
+            }
+
+            UpdateThrottleStatusAndNotify();
         }
-
-        if (!bypass)
-        {
-            pendingProcPid = procId;
-            pendingProcName = appName;
-        }
-
-        Win32Api.CloseHandle(procHandle);
-    }
-
-    private bool ThrottleUserBackgroundProcesses(ThrottleStatus throttleStatus)
-    {
-        if (throttleStatus == ThrottleStatus.Stopped)
-        {
-            return false;
-        }
-
-        Process[] runningProcesses = Process.GetProcesses();
-        int currentSessionID = Process.GetCurrentProcess().SessionId;
-
-        IEnumerable<Process> sameAsThisSession = runningProcesses.Where(p => p.SessionId == currentSessionID);
-        foreach (Process proc in sameAsThisSession)
-        {
-            if (proc.Id == pendingProcPid) { continue; }
-            if (ShouldBypassProcess($"{proc.ProcessName}.exe".ToLowerInvariant(), throttleStatus)) { continue; }
-            IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
-            ToggleEfficiencyMode(hProcess, true);
-            Win32Api.CloseHandle(hProcess);
-        }
-
-        return true;
-    }
-
-    private bool RecoverUserProcesses(ThrottleStatus throttleStatus)
-    {
-        if (throttleStatus == ThrottleStatus.Stopped)
-        {
-            return false;
-        }
-
-        Process[] runningProcesses = Process.GetProcesses();
-        int currentSessionID = Process.GetCurrentProcess().SessionId;
-
-        IEnumerable<Process> sameAsThisSession = runningProcesses.Where(p => p.SessionId == currentSessionID);
-        foreach (Process proc in sameAsThisSession)
-        {
-            if (ShouldBypassProcess($"{proc.ProcessName}.exe".ToLowerInvariant(), throttleStatus)) { continue; }    // TODO Needs consideration
-            IntPtr hProcess = Win32Api.OpenProcess((uint)Win32Api.ProcessAccessFlags.SetInformation, false, (uint)proc.Id);
-            ToggleEfficiencyMode(hProcess, false);
-            Win32Api.CloseHandle(hProcess);
-        }
-
-        return true;
     }
 
     private string GetProcessNameFromHandle(IntPtr hProcess)
@@ -493,16 +513,5 @@ public class EnergyService
         }
 
         return "";
-    }
-
-    private bool ShouldBypassProcess(string processName, ThrottleStatus throttleStatus)
-    {
-        return throttleStatus switch
-        {
-            ThrottleStatus.Stopped => true, // TODO Consider: Should not happen? Maybe I should throw an exception?
-            ThrottleStatus.OnlyBlacklist => !processBlacklist.Contains(processName.ToLowerInvariant()),
-            ThrottleStatus.BlacklistAndAllButWhitelist => !processBlacklist.Contains(processName.ToLowerInvariant()) && processWhitelist.Contains(processName.ToLowerInvariant()),
-            _ => throw new ArgumentException("Unknown ThrottleStatus")
-        };
     }
 }
