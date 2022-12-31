@@ -197,7 +197,7 @@ public partial class SettingsViewModel : ObservableRecipient
         await EmailHelper.ShowEmail(address, subject, body);
     }
 
-    private Lazy<string> feedbackMailBody = new(() =>
+    private readonly Lazy<string> feedbackMailBody = new(() =>
     {
         HardwareInfo hardware = new();
         hardware.RefreshCPUList(false);
