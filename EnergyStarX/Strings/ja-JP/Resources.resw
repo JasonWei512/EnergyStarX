@@ -372,25 +372,25 @@ Click the pause button again to resume.</value>
     <value>Processes in whitelist will not be throttled</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>デフォルトのプロセスブラックリストに戻しますか？</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>デフォルトに戻す</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>プロセスブラックリストを編集する</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>編集</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>プロセスブラックリストを編集する</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>Processes in blacklist will be throttled even when device is plugged in</value>
