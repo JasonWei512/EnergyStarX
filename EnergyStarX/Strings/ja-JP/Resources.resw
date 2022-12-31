@@ -235,7 +235,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>コピー</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle background processes when plugged in</value>
+    <value>Throttle all background processes when plugged in</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
@@ -271,7 +271,10 @@ csrss.exe
 smss.exe
 svchost.exe
 // WUDF
-WUDFRd.exe</value>
+WUDFRd.exe
+
+// Firefox 108 now supports efficiency mode
+firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
@@ -319,7 +322,7 @@ WUDFRd.exe</value>
     <value>ホーム</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused because your device is plugged in.
+    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
 You can change this behavior in settings.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
@@ -358,5 +361,38 @@ Click the pause button again to resume.</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>このアプリの翻訳に協力する 🌏</value>
+  </data>
+  <data name="DefaultProcessBlacklist" xml:space="preserve">
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+</value>
+  </data>
+  <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
+    <value>Processes in whitelist will not be throttled</value>
+  </data>
+  <data name="Restore_to_default_process_blacklist" xml:space="preserve">
+    <value>Restore to default process blacklist?</value>
+  </data>
+  <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
+    <value>Restore to default</value>
+  </data>
+  <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
+    <value>Edit process blacklist</value>
+  </data>
+  <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
+    <value>Edit process blacklist</value>
+  </data>
+  <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
+    <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
 </root>
