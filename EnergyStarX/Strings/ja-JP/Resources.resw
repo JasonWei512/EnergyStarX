@@ -142,7 +142,7 @@ Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI
     <value>このアプリについて</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>インテルは最悪だ</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
     <value>Energy Star X はすでに実行中です！</value>
@@ -214,7 +214,7 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>警告：お使いのOSのバージョン ({0}) は22621以下で、最良の結果を得ることはできません</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>ログ</value>
