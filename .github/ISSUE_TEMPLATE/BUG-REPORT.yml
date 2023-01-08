@@ -4,6 +4,7 @@ title: "​"
 labels: [
   "bug"
 ]
+
 body:
   - type: textarea
     id: description
@@ -42,7 +43,6 @@ body:
         如果可以，添加截图来帮助解释你的问题
       placeholder: |
         ![DESCRIPTION](LINK.png)
-      render: bash
     validations:
       required: false
 

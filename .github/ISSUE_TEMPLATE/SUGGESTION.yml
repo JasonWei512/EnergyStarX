@@ -4,6 +4,7 @@ title: "​"
 labels: [
   "enhancement"
 ]
+
 body:
   - type: textarea
     id: problem
@@ -14,6 +15,7 @@ body:
         明晰地描述你遇到的问题
     validations:
       required: true
+
   - type: textarea
     id: solution
     attributes:
@@ -23,6 +25,7 @@ body:
         明晰地描述你想要的行为
     validations:
       required: true
+
   - type: textarea
     id: addition
     attributes:
