@@ -201,9 +201,10 @@ public class StartupService
             process.Start();
             await process.WaitForExitAsync();
         }
-        catch (Win32Exception)
+        catch (Win32Exception e)
         {
             // UAC cancelled by user
+            logger.Warn(e, "Failed to create admin schedule task");
             return false;
         }
         finally
@@ -238,9 +239,10 @@ public class StartupService
             process.Start();
             await process.WaitForExitAsync();
         }
-        catch (Win32Exception)
+        catch (Win32Exception e)
         {
             // UAC cancelled by user
+            logger.Warn(e, "Failed to delete admin schedule task");
             return false;
         }
 
