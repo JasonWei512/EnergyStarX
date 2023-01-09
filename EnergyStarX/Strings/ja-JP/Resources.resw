@@ -121,19 +121,19 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋デバイスのバッテリー駆動時間を向上させよう！
+Energy Star Xはバッテリー駆動時間とシステム温度を改善するために、バックグラウンドアプリを抑制するWindows 11のEcoQoS API(効率モード)を活用します。
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+最高の結果を得るには、以下が必要です。
+-Windows 11 22H2 (Build 22621) 以上のバージョン
+- Intel 第十世代以上のプロセッサー
+- AMD Ryzen 5000 以上のプロセッサー
+- Qualcomm モバイルプロセッサー
 
 ❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+🌏 このアプリを翻訳する: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI版です。</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
     <value>ヘルプ</value>
@@ -142,7 +142,7 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
     <value>このアプリについて</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>インテルは最悪だ</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
     <value>Energy Star X はすでに実行中です！</value>
@@ -214,7 +214,7 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>警告：お使いのOSのバージョン ({0}) は22621以下で、最良の結果を得ることはできません</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>ログ</value>
@@ -326,11 +326,11 @@ firefox.exe</value>
 You can change this behavior in settings.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>バックグラウンドプログラムを制限しています…</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>ユーザーが一時停止しました。
+再開するには、もう一度一時停止ボタンをクリックしてください。</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>一時停止中</value>
