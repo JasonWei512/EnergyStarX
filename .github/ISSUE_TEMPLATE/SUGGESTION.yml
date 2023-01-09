@@ -31,5 +31,5 @@ body:
     attributes:
       label: "Additional context / 其他信息"
       description: |
-        Add any other context or screenshots about the suggestion here
-        其他关于这条建议的信息或截图
+        Add any other context about the suggestion here
+        其他关于这条建议的信息

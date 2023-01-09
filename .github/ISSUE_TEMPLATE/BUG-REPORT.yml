@@ -24,27 +24,14 @@ body:
     attributes:
       label: "Reproduction steps / 复现步骤"
       description: |
-        Please describe how to reproduce this bug
-        请描述如何触发这个 Bug
+        Please describe how to reproduce this bug. You can add screenshots to help explain your problem
+        请描述如何触发这个 Bug。你可以添加截图来帮助解释你的问题
       value: |
         1. 
         2. 
         3. 
-      render: bash
     validations:
       required: true
-
-  - type: textarea
-    id: screenshot
-    attributes:
-      label: "Screenshots / 截图"
-      description: | 
-        If applicable, add screenshots to help explain your problem
-        如果可以，添加截图来帮助解释你的问题
-      placeholder: |
-        ![DESCRIPTION](LINK.png)
-    validations:
-      required: false
 
   - type: input
     id: windowsversion
