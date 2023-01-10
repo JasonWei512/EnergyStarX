@@ -99,13 +99,13 @@ public class ActivationService : IActivationService
         energyService.Initialize();
         await systemTrayIconService.Initialize();
 
-        currentAppInstance.Activated += OnActivated;
+        currentAppInstance.Activated += CurrentAppInstance_Activated;
     }
 
-    private async void OnActivated(object? sender, AppActivationArguments e)
+    private async void CurrentAppInstance_Activated(object? sender, AppActivationArguments e)
     {
         // Mimic UWP's single instance app mode
-        // When launching a second app instance, redirect activation to the main app instance (in Program.cs), and show main instance's app window
+        // When launching a second app instance, redirect activation to the main app instance (see Program.cs), and show main instance's app window
         await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow());
     }
 
