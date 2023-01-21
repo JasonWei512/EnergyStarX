@@ -14,7 +14,7 @@
   <Identity
     Name="14463NickJohn.214685D9CE7ED"
     Publisher="CN=2A18AEF8-4016-420C-BAB0-8B721712E8D1"
-    Version="1.0.4.0" />
+    Version="1.0.5.0" />
 
   <Properties>
     <DisplayName>Energy Star X</DisplayName>
