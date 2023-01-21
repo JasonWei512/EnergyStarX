@@ -17,9 +17,24 @@ namespace EnergyStarX.Services;
 
 public enum ThrottleStatus
 {
-    Stopped = 0,                    // Not initialized, or paused by user
-    OnlyBlacklist = 1,              // Plugged in
-    BlacklistAndAllButWhitelist = 2 // On battery
+    /// <summary>
+    /// Possible situations: <br/>
+    /// - Throttling paused by user <br/>
+    /// - <see cref="EnergyService"/> is not initialized
+    /// </summary>
+    Stopped = 0,
+
+    /// <summary>
+    /// Device is plugged in, and <see cref="Settings.ThrottleWhenPluggedIn"/> is disabled
+    /// </summary>
+    OnlyBlacklist = 1,
+
+    /// <summary>
+    /// Possible situations: <br/>
+    /// - Device is on battery <br/>
+    /// - Device is plugged in, and <see cref="Settings.ThrottleWhenPluggedIn"/> is enabled
+    /// </summary>
+    BlacklistAndAllButWhitelist = 2
 };
 
 public class EnergyService
