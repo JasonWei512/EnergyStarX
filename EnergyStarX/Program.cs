@@ -13,8 +13,8 @@ public static class Program
     [STAThread]
     private static void Main(string[] args)
     {
-        AppInstance mainInstance = AppInstance.FindOrRegisterForKey(App.Guid);
-        if (!mainInstance.IsCurrent)
+        AppInstance mainAppInstance = AppInstance.FindOrRegisterForKey(App.Guid);
+        if (!mainAppInstance.IsCurrent)
         {
             new ToastContentBuilder().AddText("AlreadyRunningMessage".ToLocalized()).Show();
             return;
