@@ -1,4 +1,6 @@
-﻿using Microsoft.UI.Dispatching;
+﻿using EnergyStarX.Helpers;
+using Microsoft.Toolkit.Uwp.Notifications;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
 
@@ -9,12 +11,12 @@ namespace EnergyStarX;
 public static class Program
 {
     [STAThread]
-    private static async Task Main(string[] args)
+    private static void Main(string[] args)
     {
-        AppInstance mainAppInstance = AppInstance.FindOrRegisterForKey(App.Guid);
-        if (!mainAppInstance.IsCurrent)
+        AppInstance mainInstance = AppInstance.FindOrRegisterForKey(App.Guid);
+        if (!mainInstance.IsCurrent)
         {
-            await mainAppInstance.RedirectActivationToAsync(AppInstance.GetCurrent().GetActivatedEventArgs());
+            new ToastContentBuilder().AddText("AlreadyRunningMessage".ToLocalized()).Show();
             return;
         }
 
