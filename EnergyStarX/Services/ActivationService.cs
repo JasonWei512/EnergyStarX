@@ -14,6 +14,7 @@ public class ActivationService : IActivationService
     private readonly ActivationHandler<LaunchActivatedEventArgs> defaultHandler;
     private readonly IEnumerable<IActivationHandler> activationHandlers;
     private UIElement? shell = null;
+    private readonly AppInstance currentAppInstance = AppInstance.GetCurrent();
 
     private readonly SystemTrayIconService systemTrayIconService;
     private readonly WindowService windowService;
@@ -78,11 +79,17 @@ public class ActivationService : IActivationService
         }
     }
 
+    /// <summary>
+    /// Execute tasks before activation.
+    /// </summary>
     private async Task Initialize()
     {
         await startupService.Initialize();
     }
 
+    /// <summary>
+    /// Execute tasks after activation.
+    /// </summary>
     private async Task Startup()
     {
         windowService.Initialize();
@@ -93,7 +100,7 @@ public class ActivationService : IActivationService
     private bool ShouldShowAppWindow()
     {
         // If app is run at startup, don't show app window during activation
-        if (AppInstance.GetCurrent().GetActivatedEventArgs().Kind == ExtendedActivationKind.StartupTask)
+        if (currentAppInstance.GetActivatedEventArgs().Kind == ExtendedActivationKind.StartupTask)
         {
             return false;
         }
