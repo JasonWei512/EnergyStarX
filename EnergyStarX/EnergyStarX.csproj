@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows10.0.22000.0</TargetFramework>
@@ -29,22 +29,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="CommunityToolkit.WinUI" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
-    <PackageReference Include="H.NotifyIcon" Version="2.0.74" />
-    <PackageReference Include="Hardware.Info" Version="10.1.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.3" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.3" />
+    <PackageReference Include="H.NotifyIcon" Version="2.0.77" />
+    <PackageReference Include="Hardware.Info" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
-    <PackageReference Include="NLog" Version="5.0.5" />
-    <PackageReference Include="SettingsUI" Version="2.1.8" />
+    <PackageReference Include="NLog" Version="5.1.1" />
     <PackageReference Include="TaskScheduler" Version="2.10.1" />
-    <PackageReference Include="WinUIEx" Version="1.8.0" />
-    <PackageReference Include="DependencyPropertyGenerator" Version="1.0.3" PrivateAssets="all" ExcludeAssets="runtime" />
-    <PackageReference Include="Flurl" Version="3.0.6" />
+    <PackageReference Include="WinUICommunity.SettingsUI" Version="3.0.2" />
+    <PackageReference Include="WinUIEx" Version="2.1.0" />
+    <PackageReference Include="DependencyPropertyGenerator" Version="1.1.2" PrivateAssets="all" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Flurl" Version="3.0.7" />
   </ItemGroup>
 
   <ItemGroup>
