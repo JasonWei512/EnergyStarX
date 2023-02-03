@@ -235,7 +235,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>コピー</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>電源接続時でも、すべてのバックグラウンドプロセスを制限する</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
@@ -393,6 +393,6 @@ You can change this behavior in settings.</value>
     <value>保存</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>ブラックリスト内のプロセスは、電源接続時でも制限されます</value>
   </data>
 </root>
