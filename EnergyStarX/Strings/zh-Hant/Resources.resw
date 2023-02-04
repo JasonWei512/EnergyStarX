@@ -121,43 +121,43 @@
     <value>能源之星X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 提升您设备的电池续航！
-能源之星X 利用 Windows 11 的 EcoQos API（即“效率模式”）来限制后台应用的资源占用，从而提高电池续航和散热表现。
+    <value>🔋 延長裝置電池續航力！
+Energy Star X (能源之星X) 使用 Windows 11 的 EcoQos API（“效率模式”）來限制後台應用程序的資源使用，來提高電池壽命和降溫性能。
 
-为了获得最好的效果，你需要：
-- Windows 11 22H2 (Build 22621) 及以上
-- 英特尔 10 代及以上移动处理器
-- AMD Ryzen 5000 及以上移动处理器
-- 高通移动处理器
+達到以下條件獲得最佳效果：
+- Windows 11 22H2（內部版本 22621）及更高版本
+- Intel第10代及以上移動處理器
+- AMD Ryzen 5000 及以上移動處理器
+- 高通移動處理器
 
-❤ 源代码：https://github.com/JasonWei512/EnergyStarX
-🌏 翻译此应用：https://crowdin.com/project/EnergyStarX
+❤  原始碼：https://github.com/JasonWei512/EnergyStarX
+🌏 協助翻譯這個軟體：https://crowdin.com/project/EnergyStarX
 
-能源之星X 是开源程序 EnergyStar 的图形界面版应用。</value>
+Energy Star X (能源之星X) 是開源程序 EnergyStar 的圖形化應用程序。</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>帮助</value>
+    <value>協助</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>关于此应用</value>
+    <value>關於此軟體</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>垃圾英特尔</value>
+    <value>垃圾Intel</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>能源之星X 已在运行！</value>
+    <value>Energy Star X 正在運作！</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>开机启动</value>
+    <value>開機啟動</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>设置</value>
+    <value>設定</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>退出</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>打开</value>
+    <value>打開</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># 简介
