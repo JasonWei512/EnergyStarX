@@ -145,7 +145,7 @@ Energy Star X (能源之星X) 是開源程序 EnergyStar 的圖形化應用程�
     <value>垃圾Intel</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X 正在運作！</value>
+    <value>能源之星X 正在運作！</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
     <value>開機啟動</value>
