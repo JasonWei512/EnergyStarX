@@ -2,7 +2,7 @@
 
 namespace EnergyStarX.ViewModels;
 
-public partial class HelpViewModel : ObservableRecipient
+public partial class DonateViewModel : ObservableRecipient
 {
 
 }

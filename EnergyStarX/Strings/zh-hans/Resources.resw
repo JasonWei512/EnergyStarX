@@ -395,4 +395,10 @@ firefox.exe</value>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>黑名单中的进程即使在插电时也会被限制</value>
   </data>
+  <data name="Shell_Donate.Content" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="Donate_Markdown.Text" xml:space="preserve">
+    <value>// TODO</value>
+  </data>
 </root>

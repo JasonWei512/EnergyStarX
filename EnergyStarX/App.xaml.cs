@@ -8,12 +8,14 @@ using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
+
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+
 using NLog;
 
 namespace EnergyStarX;
@@ -77,6 +79,8 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
+            services.AddSingleton<DonateViewModel>();
+            services.AddTransient<DonatePage>();
             services.AddSingleton<HomeViewModel>();
             services.AddTransient<HomePage>();
             services.AddSingleton<LogViewModel>();

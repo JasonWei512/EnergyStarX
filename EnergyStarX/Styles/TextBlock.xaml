@@ -1,4 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="using:EnergyStarX.Behaviors"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:i="using:Microsoft.Xaml.Interactivity">
 
     <Style x:Key="PageTitleStyle" TargetType="TextBlock">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -15,4 +20,18 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
+    <Style x:Key="MarkdownTextBlockStyle" TargetType="controls:MarkdownTextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Header1FontSize" Value="25" />
+        <Setter Property="Header2FontSize" Value="18" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="UriPrefix" Value="ms-appx://" />
+        <Setter Property="i:Interaction.Behaviors">
+            <Setter.Value>
+                <i:BehaviorCollection>
+                    <behaviors:MarkdownOpenLinkBehavior />
+                </i:BehaviorCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

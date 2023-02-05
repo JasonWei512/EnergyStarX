@@ -72,6 +72,14 @@
                 </NavigationViewItem>
             </NavigationView.MenuItems>
 
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem x:Uid="Shell_Donate" helpers:NavigationHelper.NavigateTo="EnergyStarX.ViewModels.DonateViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE006;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+
             <Grid>
                 <Frame x:Name="NavigationFrame" IsNavigationStackEnabled="False" />
             </Grid>

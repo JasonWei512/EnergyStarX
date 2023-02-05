@@ -395,4 +395,10 @@ Click the pause button again to resume.</value>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
+  <data name="Shell_Donate.Content" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="Donate_Markdown.Text" xml:space="preserve">
+    <value>// TODO</value>
+  </data>
 </root>
