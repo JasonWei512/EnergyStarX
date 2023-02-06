@@ -399,6 +399,12 @@ Click the pause button again to resume.</value>
     <value>Donate</value>
   </data>
   <data name="Donate_Markdown.Text" xml:space="preserve">
-    <value>// TODO</value>
+    <value>- Donate on Buy Me a Coffee:
+
+  [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+
+- For Chinese users, scan with WeChat:
+
+  ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.jpg)</value>
   </data>
 </root>
