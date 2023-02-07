@@ -31,7 +31,7 @@
 
   ![微信赞赏码](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.jpg)
 
-- 在 Buy Me a Coffee 上捐赠：
+- 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
 
   [![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 

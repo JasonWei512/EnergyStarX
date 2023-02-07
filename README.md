@@ -32,7 +32,7 @@
 
 # Donate
 
-- Donate on Buy Me a Coffee:
+- Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
   [![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 

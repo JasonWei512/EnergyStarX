@@ -399,7 +399,7 @@ Click the pause button again to resume.</value>
     <value>Donate</value>
   </data>
   <data name="Donate_Markdown.Text" xml:space="preserve">
-    <value>- Donate on Buy Me a Coffee:
+    <value>- Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
   [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 

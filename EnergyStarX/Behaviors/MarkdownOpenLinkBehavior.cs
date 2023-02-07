@@ -10,19 +10,31 @@ public class MarkdownOpenLinkBehavior : Behavior<MarkdownTextBlock>
     {
         base.OnAttached();
         AssociatedObject.LinkClicked += AssociatedObject_LinkClicked;
+        AssociatedObject.ImageClicked += AssociatedObject_ImageClicked;
     }
 
     protected override void OnDetaching()
     {
         AssociatedObject.LinkClicked -= AssociatedObject_LinkClicked;
+        AssociatedObject.ImageClicked -= AssociatedObject_ImageClicked;
         base.OnDetaching();
     }
 
     private async void AssociatedObject_LinkClicked(object? sender, LinkClickedEventArgs e)
     {
-        if (Uri.TryCreate(e.Link, UriKind.Absolute, out Uri? link))
+        await TryOpenLink(e.Link);
+    }
+
+    private async void AssociatedObject_ImageClicked(object? sender, LinkClickedEventArgs e)
+    {
+        await TryOpenLink(e.Link);
+    }
+
+    private async Task TryOpenLink(string link)
+    {
+        if (Uri.TryCreate(link, UriKind.Absolute, out Uri? uri))
         {
-            await Launcher.LaunchUriAsync(link);
+            await Launcher.LaunchUriAsync(uri);
         }
     }
 }
