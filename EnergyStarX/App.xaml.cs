@@ -79,8 +79,6 @@ public partial class App : Application
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
-            services.AddSingleton<DonateViewModel>();
-            services.AddTransient<DonatePage>();
             services.AddSingleton<HomeViewModel>();
             services.AddTransient<HomePage>();
             services.AddSingleton<LogViewModel>();

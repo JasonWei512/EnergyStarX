@@ -23,6 +23,9 @@
     <AppxBundlePlatforms>x64|arm64</AppxBundlePlatforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Styles\Layout.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <Manifest Include="$(ApplicationManifest)" />
@@ -60,6 +63,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SettingsManager.cs</LastGenOutput>
     </None>
+    <Page Update="Styles\Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
