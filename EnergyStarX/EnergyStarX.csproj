@@ -94,7 +94,7 @@
     <Content Update="Assets\InApp\Buy_me_a_coffee.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Assets\InApp\WeChat_Donation_QR_Code.jpg">
+    <Content Update="Assets\InApp\WeChat_Donation_QR_Code.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

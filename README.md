@@ -40,7 +40,7 @@
 
 - For Chinese users, scan with WeChat:
 
-  ![WeChat Donation QR Code](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.jpg)
+  ![WeChat Donation QR Code](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
 
 
 # Introduction

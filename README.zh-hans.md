@@ -29,7 +29,7 @@
 
 - 使用微信扫码：
 
-  ![微信赞赏码](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.jpg)
+  ![微信赞赏码](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
 
 - 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
 
