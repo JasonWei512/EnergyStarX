@@ -12,7 +12,7 @@
 
     <Grid x:Name="ContentArea">
         <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
-            <Grid MaxWidth="800" HorizontalAlignment="Stretch">
+            <Grid MaxWidth="800" HorizontalAlignment="Center">
                 <controls:MarkdownTextBlock
                     x:Uid="Help_Markdown"
                     Margin="{StaticResource NavigationViewPageContentMargin}"

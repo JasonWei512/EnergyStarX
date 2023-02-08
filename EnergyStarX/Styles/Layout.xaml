@@ -3,10 +3,9 @@
     <!--
         Bug:
         Xaml's Flyout does not follow system light/dark theme.
-        
         Workaround:
-        Use this theme-aware Grid as Flyout's root Content.
-        
+        Use a Grid with this style as Flyout's root Content.
+
         Source:
         https://stackoverflow.com/questions/32346671/flyout-wont-change-to-dark-theme
         Related:

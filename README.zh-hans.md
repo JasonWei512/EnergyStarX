@@ -33,6 +33,8 @@
 
 - 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
 
+  （在手机上打开以使用 Apple Pay 或 Google Pay 支付）
+
   [![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
 

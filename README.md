@@ -34,6 +34,8 @@
 
 - Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
+  (Open on your phone to pay with Apple Pay or Google Pay)
+
   [![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
 - For Chinese users, scan with WeChat:
