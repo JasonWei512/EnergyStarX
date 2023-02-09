@@ -86,7 +86,7 @@
 
                         <Button.Flyout>
                             <Flyout>
-                                <Grid MaxWidth="400" Style="{StaticResource FlyoutGridStyle}">
+                                <Grid MaxWidth="300" Style="{StaticResource FlyoutGridStyle}">
                                     <controls:MarkdownTextBlock x:Uid="Shell_DonateMarkdown" Style="{StaticResource MarkdownTextBlockStyle}" />
                                 </Grid>
                             </Flyout>
