@@ -30,6 +30,19 @@
 ![Screenshot](.github/images/Screenshot.png)
 
 
+# Donate
+
+## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+
+(Open on your phone to pay with Apple Pay or Google Pay)
+
+[![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+
+## For Chinese users, scan with WeChat:
+
+![WeChat Donation QR Code](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
+
+
 # Introduction
 
 Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.

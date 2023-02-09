@@ -25,6 +25,19 @@
 ![Screenshot](.github/images/Screenshot.png)
 
 
+# 捐赠
+
+## 使用微信扫码：
+
+![微信赞赏码](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
+
+## 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
+
+（在手机上打开以使用 Apple Pay 或 Google Pay 支付）
+
+[![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+
+
 # 简介
 
 能源之星X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/)（即“效率模式”）来限制后台应用的资源占用，从而提高电池续航和散热表现。它不会限制前台应用，以确保用户体验。

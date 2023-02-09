@@ -36,25 +36,26 @@ public partial class ShellViewModel : ObservableRecipient
         TitlebarText =
             "AppDisplayName".ToLocalized()
             + (HasAdminPrivilege() ? $"  ({"Admin Privilege".ToLocalized()})" : string.Empty);
-
-        _ = Initialize();
     }
 
-    private async Task Initialize()
+    public async Task Initialize()
     {
         // A bug of Windows App SDK 1.2's TeachingTip:
         // If TeachingTip.Target is bound to a control, and TeachingTip.IsOpen is true, then the close button won't work.
-        // The workaround is to add a delay before opening the TeachingTip.
+        // The workaround is to add a delay before opening the TeachingTip after ShellPage is loaded.
         // https://github.com/microsoft/microsoft-ui-xaml/issues/7937#issuecomment-1382346727
-        await Task.Delay(TimeSpan.FromMilliseconds(500));
+        await Task.Delay(TimeSpan.FromSeconds(1));
         ShowTeachingTip = Settings.FirstRun;
     }
 
     [RelayCommand]
     private void CloseTeachingTip()
     {
-        ShowTeachingTip = false;
-        Settings.FirstRun = false;
+        if (ShowTeachingTip)
+        {
+            ShowTeachingTip = false;
+            Settings.FirstRun = false;
+        }
     }
 
     private void OnNavigated(object sender, NavigationEventArgs e)

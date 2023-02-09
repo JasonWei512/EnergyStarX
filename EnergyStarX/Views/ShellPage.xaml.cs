@@ -33,12 +33,14 @@ public sealed partial class ShellPage : Page
         App.MainWindow.Activated += MainWindow_Activated;
     }
 
-    private void OnLoaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    private async void OnLoaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
     {
         TitleBarHelper.UpdateTitleBar(RequestedTheme);
 
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu));
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.GoBack));
+
+        await ViewModel.Initialize();
     }
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)

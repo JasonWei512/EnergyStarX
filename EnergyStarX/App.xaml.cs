@@ -8,12 +8,14 @@ using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
+
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+
 using NLog;
 
 namespace EnergyStarX;

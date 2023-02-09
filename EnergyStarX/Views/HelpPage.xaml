@@ -16,17 +16,7 @@
                 <controls:MarkdownTextBlock
                     x:Uid="Help_Markdown"
                     Margin="{StaticResource NavigationViewPageContentMargin}"
-                    Background="Transparent"
-                    FontSize="16"
-                    Header1FontSize="25"
-                    Header2FontSize="18"
-                    UriPrefix="ms-appx://">
-                    <i:Interaction.Behaviors>
-                        <ic:EventTriggerBehavior EventName="LinkClicked">
-                            <ic:InvokeCommandAction Command="{x:Bind ViewModel.OpenLinkInBrowserCommand}" />
-                        </ic:EventTriggerBehavior>
-                    </i:Interaction.Behaviors>
-                </controls:MarkdownTextBlock>
+                    Style="{StaticResource MarkdownTextBlockStyle}" />
             </Grid>
         </ScrollViewer>
     </Grid>

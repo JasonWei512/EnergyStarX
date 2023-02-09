@@ -395,4 +395,18 @@ firefox.exe</value>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>黑名单中的进程即使在插电时也会被限制</value>
   </data>
+  <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
+    <value>捐赠</value>
+  </data>
+  <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
+    <value>## 使用微信扫码：
+
+![微信赞赏码](/Assets/InApp/WeChat_Donation_QR_Code.png)
+
+## 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
+
+（在手机上打开以使用 Apple Pay 或 Google Pay 支付）
+
+[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)</value>
+  </data>
 </root>
