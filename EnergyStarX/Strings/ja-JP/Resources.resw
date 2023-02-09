@@ -395,4 +395,18 @@ You can change this behavior in settings.</value>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>ブラックリスト内のプロセスは、電源接続時でも制限されます</value>
   </data>
+  <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
+    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+
+(Open on your phone to pay with Apple Pay or Google Pay)
+
+[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+
+## For Chinese users, scan with WeChat:
+
+![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
+  </data>
 </root>
