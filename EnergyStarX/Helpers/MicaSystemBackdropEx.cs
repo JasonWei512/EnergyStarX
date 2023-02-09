@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Composition.SystemBackdrops;
+﻿using Microsoft.UI.Composition;
+using Microsoft.UI.Composition.SystemBackdrops;
 
 namespace EnergyStarX.Helpers;
 
@@ -16,12 +17,7 @@ public class MicaSystemBackdropEx : MicaSystemBackdrop
     {
         // Below is a workaround for the wrong Mica theme bug
 
-        theme = ThemeHelper.SystemTheme switch
-        {
-            SystemTheme.Light => SystemBackdropTheme.Light,
-            SystemTheme.Dark => SystemBackdropTheme.Dark,
-            _ => throw new ArgumentException("Unknown system theme")
-        };
+        theme = GetCorrectSystemBackdropTheme();
 
         /* Explanation:
          * 
@@ -40,5 +36,22 @@ public class MicaSystemBackdropEx : MicaSystemBackdrop
          */
 
         base.UpdateController(controller, theme);
+    }
+
+    protected override void ApplyController(ISystemBackdropController controller, ICompositionSupportsSystemBackdrop target, SystemBackdropConfiguration configuration)
+    {
+        // Same workaround as above
+        configuration.Theme = GetCorrectSystemBackdropTheme();
+        base.ApplyController(controller, target, configuration);
+    }
+
+    private SystemBackdropTheme GetCorrectSystemBackdropTheme()
+    {
+        return ThemeHelper.SystemTheme switch
+        {
+            SystemTheme.Light => SystemBackdropTheme.Light,
+            SystemTheme.Dark => SystemBackdropTheme.Dark,
+            _ => throw new ArgumentException("Unknown system theme")
+        };
     }
 }
