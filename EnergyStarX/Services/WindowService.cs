@@ -5,18 +5,11 @@ namespace EnergyStarX.Services;
 
 public class WindowService
 {
-    private readonly EnergyService energyService;
-
     public bool WindowVisible => App.MainWindow.Visible;
 
     public event EventHandler? WindowShowing;
     public event EventHandler? WindowHiding;
     public event EventHandler? AppExiting;
-
-    public WindowService(EnergyService energyService)
-    {
-        this.energyService = energyService;
-    }
 
     public void Initialize()
     {
@@ -46,8 +39,6 @@ public class WindowService
 
     public void ExitApp()
     {
-        energyService.Terminate();
-
         App.MainWindow.Closed -= MainWindow_Closed;
         AppExiting?.Invoke(this, EventArgs.Empty);
         App.MainWindow.Close();

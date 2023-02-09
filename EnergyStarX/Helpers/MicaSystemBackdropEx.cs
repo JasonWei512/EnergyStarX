@@ -1,5 +1,4 @@
 ﻿using Microsoft.UI.Composition.SystemBackdrops;
-using Microsoft.UI.Xaml;
 
 namespace EnergyStarX.Helpers;
 
@@ -19,8 +18,8 @@ public class MicaSystemBackdropEx : MicaSystemBackdrop
 
         theme = ThemeHelper.SystemTheme switch
         {
-            ElementTheme.Light => SystemBackdropTheme.Light,
-            ElementTheme.Dark => SystemBackdropTheme.Dark,
+            SystemTheme.Light => SystemBackdropTheme.Light,
+            SystemTheme.Dark => SystemBackdropTheme.Dark,
             _ => throw new ArgumentException("Unknown system theme")
         };
 

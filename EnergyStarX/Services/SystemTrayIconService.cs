@@ -20,12 +20,12 @@ public class SystemTrayIconService
     private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
-    private readonly WindowService windowsService;
+    private readonly WindowService windowService;
     private readonly EnergyService energyService;
 
-    public SystemTrayIconService(WindowService windowsService, EnergyService energyService)
+    public SystemTrayIconService(WindowService windowService, EnergyService energyService)
     {
-        this.windowsService = windowsService;
+        this.windowService = windowService;
         this.energyService = energyService;
     }
 
@@ -37,8 +37,8 @@ public class SystemTrayIconService
         {
             Items =
             {
-                new PopupMenuItem("Open".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowsService.ShowAppWindow())),
-                new PopupMenuItem("Exit".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowsService.ExitApp()))
+                new PopupMenuItem("Open".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow())),
+                new PopupMenuItem("Exit".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ExitApp()))
             }
         };
 
@@ -46,13 +46,13 @@ public class SystemTrayIconService
         {
             if (e.MouseEvent == MouseEvent.IconDoubleClick)
             {
-                await dispatcherQueue.EnqueueAsync(() => windowsService.ShowAppWindow());
+                await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow());
             }
         };
 
         trayIcon.Create();
 
-        windowsService.AppExiting += WindowsService_AppExiting;
+        windowService.AppExiting += WindowService_AppExiting;
         energyService.ThrottleStatusChanged += EnergyService_ThrottleStatusChanged;
 
         // If user is using the taskbar enhancement tool StartAllBack, at this line the tray icon image may be wrong.
@@ -61,7 +61,7 @@ public class SystemTrayIconService
         UpdateTrayIconImageAndToolTip(energyService.ThrottleStatus);
     }
 
-    private void WindowsService_AppExiting(object? sender, EventArgs e)
+    private void WindowService_AppExiting(object? sender, EventArgs e)
     {
         trayIcon.Remove();
         trayIcon.Dispose();

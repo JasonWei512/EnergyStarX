@@ -35,7 +35,7 @@ public partial class ShellViewModel : ObservableRecipient
 
         TitlebarText =
             "AppDisplayName".ToLocalized()
-            + (HasAdminPrivilege() ? $"  ({"Admin Privilege".ToLocalized()})" : string.Empty);
+            + (HaveAdminPrivilege() ? $"  ({"Admin Privilege".ToLocalized()})" : string.Empty);
     }
 
     public async Task Initialize()
@@ -76,7 +76,7 @@ public partial class ShellViewModel : ObservableRecipient
         }
     }
 
-    private bool HasAdminPrivilege()
+    private bool HaveAdminPrivilege()
     {
         using WindowsIdentity identity = WindowsIdentity.GetCurrent();
         WindowsPrincipal principal = new(identity);

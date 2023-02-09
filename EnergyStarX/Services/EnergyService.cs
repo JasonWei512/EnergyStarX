@@ -43,6 +43,8 @@ public class EnergyService
     private readonly object lockObject = new();
     private CancellationTokenSource houseKeepingCancellationTokenSource = new();
 
+    private readonly WindowService windowService;
+
     // Speical handling needs for UWP to get the child window process
     private const string UWPFrameHostApp = "ApplicationFrameHost.exe";
 
@@ -103,7 +105,7 @@ public class EnergyService
 
     public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 
-    public EnergyService()
+    public EnergyService(WindowService windowService)
     {
         szControlBlock = Marshal.SizeOf<Win32Api.PROCESS_POWER_THROTTLING_STATE>();
         pThrottleOn = Marshal.AllocHGlobal(szControlBlock);
@@ -125,6 +127,9 @@ public class EnergyService
 
         Marshal.StructureToPtr(throttleState, pThrottleOn, false);
         Marshal.StructureToPtr(unthrottleState, pThrottleOff, false);
+
+        this.windowService = windowService;
+        this.windowService.AppExiting += WindowService_AppExiting;
     }
 
     public void Initialize()
@@ -141,7 +146,7 @@ public class EnergyService
         }
     }
 
-    public void Terminate()
+    private void WindowService_AppExiting(object? sender, EventArgs e)
     {
         lock (lockObject)
         {
