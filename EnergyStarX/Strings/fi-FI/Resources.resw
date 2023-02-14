@@ -121,141 +121,136 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Paranna akunkestoasi!
+Energy Star X toimii Windows 11:n EcoQos API:n eli tehokkuustilan kanssa, jotta taustasovellukset ja järjestelmä veisivät vähemmän akkua.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Vaatimukset (paras käyttökokemus):
+- Windows 11 22H2 (koontiversio 22621) tai uudempi
+- Intel 10. sukupolvi tai uudempi
+- AMD Ryzen 5000 tai uudempi
+- Qualcomm
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Lähdekoodi: https://github.com/JasonWei512/EnergyStarX
+🌏 Auta suomentamisessa: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X on graafinen versio EnergyStarista, avoimen lähdekoodin sovelluksesta.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Tuki</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Sovelluksesta</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Intel sucks</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X on jo käynnissä!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Suorita käynnistyksessä</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Asetukset</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Poistu</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Avaa</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># Johdanto
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X toimii Windows 11:n [EcoQoS API:n](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) eli tehokkuustilan kanssa, jotta taustasovellukset ja järjestelmä veisivät vähemmän akkua. Hyvän käyttäjäkokemuksen varmistamiseksi akunkäyttöä ei tehosteta käytössä olevista sovelluksista.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
+Sovellus on [EnergyStar](https://github.com/imbushuo/EnergyStar/):n graafinen versio, joka on ohjelmoitu Windows App SDK:lla (WinUI 3).
 
+# Vaatimukset
 
-# Requirements
+Parhaaseen käyttäjäkokemukseen vaaditaan:
 
-For the best result, you need:
+## Ohjelmisto
 
-## Software
+-Windows 11 22H2 (koontiversio 22621) tai uudempi
 
-- Windows 11 22H2 (Build 22621) or above
+## Laitteisto
 
-## Hardware
+-Intel 10. sukupolvi tai uudempi
+-AMD Ryzen 5000 tai uudempi
+-Qualcomm
 
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Sovellus toimii myös Windows 11 21H2 (koontiversio 22000) ja vanhemmalla laitteistolla, mutta sovellus ei toimi yhtä hyvin.
 
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+# Käyttö
 
+Anna sovelluksen olla auki taustalla. Voit asettaa sovelluksen käynnistymään automaattisesti koneen käynnistyksen yhteydessä.
 
-# Usage
-
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
-
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+Tehtäväpalkissa pitäisi näkyä vihreä lehti.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
+# Rajoitukset
 
-# Known Limitations
+-Jos käytät tehtäväpalkin kohennusohjelmaa, kuten [StartAllBack]:ia, sovellus saattaa kaatua, kun vedät hiiren sovelluksen kuvan päälle.
+-Jälkeläisprosessit eivät tehostu pääprosessien tehostuessa.
+-Järjestelmäprosessit (istunto 0) eivät tehostu. Oletetaan, että muut kuin käyttäjäprosessit tietävät, mitä tekevät.
 
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
-
-
-# Acknowledgements
+# Tunnustuksia
 
 - imbushuo: https://github.com/imbushuo/
-- App Icon: 
+- Kuvake: 
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
+# Miten auttaa
 
-# How to contribute
-
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+- Ks. [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Huomio: Käyttöjärjestelmäsi ({0}) on vanhempi kuin 22621, parhaita tuloksia ei saavuteta</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>Loki</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Ota käyttöön käynnistyminen tietokoneen käynnistyksen yhteydessä!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Ota yhteyttä luojaan</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Arvioi sovellus</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Palaute</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopioi</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Tehosta kaikki taustasovellukset ladatessa</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-    
-// Not ourselves
+    <value>// Yksi prosessin nimi riviä kohden
+// Kaksoiskauttaviivarivit jätetään huomiotta
+
+// Ei me
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge säästää tehokkaasti akkua
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Framella on erityiskäsittelyä, ei tehostusta
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// Ei tulipaloa palosammuttimeen
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// Pienoisohjelmat
 Widgets.exe
-// System shell
+// Komentorivi
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -266,146 +261,146 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// Järjestelmä käyttää tehokkaasti akkua
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 tukee energiatehokkuustilaa
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Peru</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Ei</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Kyllä</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Palautetaanko oletuslista?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Palauta oletus</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Tyhjennä</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>Alas</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Selvä!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Muuta prosessilistaa</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Muokkaa</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Muuta prosessilistaa</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Muokattu</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Peru</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Tallenna</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Etusivu</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Tehostaminen pysäytetty (lukuun ottamatta aina tehostettuja), koska laite latautuu.
+Voit muuttaa tätä asetuksissa.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Tehostetaan taustasovelluksia...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Tehostus pysäytetty manuaalisesti.
+Jatka painamalla taukonappulaa.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Pysäytetty</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Lähdekoodi (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Palaute</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Ylläpitäjän oikeudet</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Avaa lokit</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Vain virheet kirjataan</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>Muutosloki</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Pysäytä</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Kokeellinen) Suorita käynnistyksessä ylläpitäjänä</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>Auta kääntämisessä 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// Yksi prosessi riviä kohden
+// Kaksoiskauttaviivarivit jätetään huomiotta
+// Sinun tulee olla samassa istunnossa kuin ohjelmassa, jota haluat tehostaa ja sinulla tulee olla väh. samat oikeudet
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Poisluettuja prosesseja ei tehosteta</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Palauta oletuslista?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Palauta oletus</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Muokkaa aina tehostettujen prosessien listaa</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Muokkaa</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Muokkaa aina tehostettujen prosessien listaa</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Peru</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Tallenna</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Aina tehostettuja prosesseja tehostetaan myös laitteen ollessa latauksessa</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Lahjoita</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Lahjoita [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):ssa:
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Maksa puhelimesi Apple tai Google Play -sovelluksella)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Kiinalaisille WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
