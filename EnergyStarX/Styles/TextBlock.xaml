@@ -27,13 +27,6 @@
         <Setter Property="Header2FontWeight" Value="Bold" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="UriPrefix" Value="ms-appx://" />
-        <Setter Property="i:Interaction.Behaviors">
-            <Setter.Value>
-                <i:BehaviorCollection>
-                    <behaviors:MarkdownOpenLinkBehavior />
-                </i:BehaviorCollection>
-            </Setter.Value>
-        </Setter>
     </Style>
 
 </ResourceDictionary>
