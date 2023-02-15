@@ -166,21 +166,23 @@ Energy Star X toimii Windows 11:n [EcoQoS API:n](https://devblogs.microsoft.com/
 
 Sovellus on [EnergyStar](https://github.com/imbushuo/EnergyStar/):n graafinen versio, joka on ohjelmoitu Windows App SDK:lla (WinUI 3).
 
+
 # Vaatimukset
 
 Parhaaseen käyttäjäkokemukseen vaaditaan:
 
 ## Ohjelmisto
 
--Windows 11 22H2 (koontiversio 22621) tai uudempi
+- Windows 11 22H2 (koontiversio 22621) tai uudempi
 
 ## Laitteisto
 
--Intel 10. sukupolvi tai uudempi
--AMD Ryzen 5000 tai uudempi
--Qualcomm
+- Intel 10. sukupolvi tai uudempi
+- AMD Ryzen 5000 tai uudempi
+- Qualcomm
 
 Sovellus toimii myös Windows 11 21H2 (koontiversio 22000) ja vanhemmalla laitteistolla, mutta sovellus ei toimi yhtä hyvin.
+
 
 # Käyttö
 
@@ -190,11 +192,13 @@ Tehtäväpalkissa pitäisi näkyä vihreä lehti.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
+
 # Rajoitukset
 
--Jos käytät tehtäväpalkin kohennusohjelmaa, kuten [StartAllBack]:ia, sovellus saattaa kaatua, kun vedät hiiren sovelluksen kuvan päälle.
--Jälkeläisprosessit eivät tehostu pääprosessien tehostuessa.
--Järjestelmäprosessit (istunto 0) eivät tehostu. Oletetaan, että muut kuin käyttäjäprosessit tietävät, mitä tekevät.
+- Jos käytät tehtäväpalkin kohennusohjelmaa, kuten [StartAllBack]:ia, sovellus saattaa kaatua, kun vedät hiiren sovelluksen kuvan päälle.
+- Jälkeläisprosessit eivät tehostu pääprosessien tehostuessa.
+- Järjestelmäprosessit (istunto 0) eivät tehostu. Oletetaan, että muut kuin käyttäjäprosessit tietävät, mitä tekevät.
+
 
 # Tunnustuksia
 
@@ -203,6 +207,7 @@ Tehtäväpalkissa pitäisi näkyä vihreä lehti.
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
+
 
 # Miten auttaa
 
