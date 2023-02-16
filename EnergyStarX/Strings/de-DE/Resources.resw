@@ -235,7 +235,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Kopieren</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Alle Hintergrundprozesse beim Einstecken drosseln</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
