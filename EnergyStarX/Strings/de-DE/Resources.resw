@@ -214,7 +214,7 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Warnung: Deine OS Version ({0}) ist kleiner als 22621, es werden nicht die besten Ergebnisse erzielt</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>Log</value>
@@ -223,16 +223,16 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Enable running at startup!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Entwickler kontaktieren</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Bewerte diese App</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Rückmeldung</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopieren</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
     <value>Throttle all background processes when plugged in</value>
@@ -277,49 +277,49 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Nein</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Ja</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
     <value>Restore to default process whitelist?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Standard wiederherstellen</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Löschen</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>Nach unten scrollen</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Verstanden!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
     <value>Edit process whitelist</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Bearbeiten</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
     <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Bearbeitet</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Speichern</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Startseite</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>Throttling paused (except processes in blacklist) because your device is plugged in.
@@ -333,13 +333,13 @@ You can change this behavior in settings.</value>
 Click the pause button again to resume.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Pausiert</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Quellcode (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Rückmeldung</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
     <value>Admin Privilege</value>
@@ -351,16 +351,16 @@ Click the pause button again to resume.</value>
     <value>Only errors will be logged to file</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>Änderungsverlauf</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
     <value>Pause</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Experimentell) Beim Systemstart als Administrator ausführen</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>Hilf uns die App zu übersetzen 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// One process name per line
@@ -381,22 +381,22 @@ Click the pause button again to resume.</value>
     <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Bearbeiten</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
     <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Speichern</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Spenden</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
     <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
