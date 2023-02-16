@@ -121,43 +121,43 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Verbessere die Akkulaufzeit deines Gerätes!
+Energy Star X nutzt die EcoQoS API von Windows 11 ("Effizienzmodus"), um Hintergrundanwendungen zu drosseln, um die Batterielebensdauer und Wärmeentwicklung zu verbessern.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Für das beste Ergebnis braucht man:
+- Windows 11 22H2 (Build 22621) oder höher
+- Intel 10th gen oder neuer mobile Prozessoren
+- AMD Ryzen 5000 oder neuer mobile Prozessoren
+- Qualcomm mobile Prozessoren
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Quellcode: https://github. om/JasonWei512/EnergyStarX
+🌏 Übersetze diese App: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X ist eine graphische Version des quelloffenen Programms EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Hilfe</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Über diese Anwendung</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Intel nervt</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X läuft bereits!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Beim Systemstart ausführen</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Beenden</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Öffnen</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
