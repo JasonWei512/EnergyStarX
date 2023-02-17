@@ -399,13 +399,13 @@ firefox.exe</value>
     <value>支援する</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) で支援する
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(スマートフォンで開いて、Apple Pay または Google Pay で支払います)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## 中国のユーザーの場合は、WeChat でスキャンします。
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
