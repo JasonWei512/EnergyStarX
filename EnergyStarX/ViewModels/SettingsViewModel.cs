@@ -14,6 +14,7 @@ public partial class SettingsViewModel : ObservableRecipient
     private readonly EnergyService energyService;
     private readonly DialogService dialogService;
     private readonly StartupService startupService;
+    private readonly SettingsService settingsService;
 
     public string VersionDescription { get; } = $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {PackageInfo.VersionString}";
 
@@ -79,10 +80,10 @@ public partial class SettingsViewModel : ObservableRecipient
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ProcessWhitelistModified))]
     [NotifyPropertyChangedFor(nameof(ProcessWhitelistEditorDialogTitle))]
-    private string processWhitelistString = Settings.ProcessWhitelistString;
+    private string processWhitelistString = string.Empty;
 
     // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessWhitelistString"'s is LF
-    public bool ProcessWhitelistModified => ProcessWhitelistString.ReplaceLineEndings() != Settings.ProcessWhitelistString.ReplaceLineEndings();
+    public bool ProcessWhitelistModified => ProcessWhitelistString.ReplaceLineEndings() != settingsService.ProcessWhitelistString.ReplaceLineEndings();
 
     public string ProcessWhitelistEditorDialogTitle =>
         "ProcessWhitelistEditorDialogTitle".ToLocalized()
@@ -93,10 +94,10 @@ public partial class SettingsViewModel : ObservableRecipient
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ProcessBlacklistModified))]
     [NotifyPropertyChangedFor(nameof(ProcessBlacklistEditorDialogTitle))]
-    private string processBlacklistString = Settings.ProcessBlacklistString;
+    private string processBlacklistString = string.Empty;
 
     // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessBlacklistString"'s is LF
-    public bool ProcessBlacklistModified => ProcessBlacklistString.ReplaceLineEndings() != Settings.ProcessBlacklistString.ReplaceLineEndings();
+    public bool ProcessBlacklistModified => ProcessBlacklistString.ReplaceLineEndings() != settingsService.ProcessBlacklistString.ReplaceLineEndings();
 
     public string ProcessBlacklistEditorDialogTitle =>
         "ProcessBlacklistEditorDialogTitle".ToLocalized()
@@ -104,11 +105,12 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public event EventHandler? ProcessBlacklistEditorDialogShowRequested;
 
-    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService)
+    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService, SettingsService settingsService)
     {
         this.energyService = energyService;
         this.dialogService = dialogService;
         this.startupService = startupService;
+        this.settingsService = settingsService;
 
         _ = Initialize();
     }
@@ -130,7 +132,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private void ShowProcessWhitelistEditorDialog()
     {
-        ProcessWhitelistString = Settings.ProcessWhitelistString;
+        ProcessWhitelistString = settingsService.ProcessWhitelistString;
         ProcessWhitelistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
     }
 
@@ -152,7 +154,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [RelayCommand]
     private void ShowProcessBlacklistEditorDialog()
     {
-        ProcessBlacklistString = Settings.ProcessBlacklistString;
+        ProcessBlacklistString = settingsService.ProcessBlacklistString;
         ProcessBlacklistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
     }
 
