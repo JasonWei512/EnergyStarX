@@ -1,5 +1,5 @@
 ﻿using EnergyStarX.Helpers;
-using static EnergyStarX.Helpers.SettingsManager;
+using static EnergyStarX.Helpers.SettingsHelper;
 
 namespace EnergyStarX.Services;
 

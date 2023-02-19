@@ -24,7 +24,7 @@ using Windows.Storage;
 
 namespace EnergyStarX.Helpers;
 
-public static class SettingsManager
+public static class SettingsHelper
 {
     private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
 
