@@ -397,16 +397,16 @@ firefox.exe</value>
     <value>黑名單中的進程即使在插電時也會被限制</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>捐贈</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## 捐贈於 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn)
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+（將在您的手機開啟 Apple Pay 或 Google Pay 付款）
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## 對於中國地區使用者，請掃描微信支付：
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
