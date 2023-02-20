@@ -206,8 +206,8 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 - flandretw：https://github.com/flandretw/ （繁體中文翻譯校正）
 - 應用程式圖示：
   - https://www.flaticon.com/free-icon/star_3103390/
-  - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_561920
+  - https://www.flaticon.com/free-icon/accept_4303945/
+  - https://www.flaticon.com/free-icon/pause-button_561920/
 
 
 # 如何貢獻
@@ -218,7 +218,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>警告：您的作業系統版本為 {0}，低於 22621，將不會獲得最佳節能效果</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>日誌</value>
+    <value>記錄檔</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
     <value>設定開機啟動！</value>
@@ -323,7 +323,7 @@ firefox.exe</value>
     <value>首頁</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>已暫停限制背景程序（除了黑名單中的進程），因為您的設備已插上電源。
+    <value>因為您的設備已插上電源，所以已暫停限制背景程序（除了黑名單中的進程）。
 您可以在設定中改變這個行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
@@ -346,13 +346,13 @@ firefox.exe</value>
     <value>管理員權限</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>打開日誌資料夾</value>
+    <value>開啟記錄檔資料夾</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>只有錯誤會被記錄到日誌檔案</value>
+    <value>只有錯誤會被記錄到記錄檔檔案</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>更新日誌</value>
+    <value>更新記錄</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
     <value>暫停</value>
