@@ -203,7 +203,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 # 致謝
 
 - imbushuo：https://github.com/imbushuo/ （作者）
-- flandretw：https://github.com/flandretw （繁體中文翻譯校正）
+- flandretw：https://github.com/flandretw/ （繁體中文翻譯校正）
 - 應用程式圖示：
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
@@ -212,7 +212,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 
 # 如何貢獻
 
-請看 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.zh-hans.md) 。</value>
+請看 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.zh-hans.md)。</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>警告：您的作業系統版本為 {0}，低於 22621，將不會獲得最佳節能效果</value>
@@ -224,7 +224,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>設定開機啟動！</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>聯絡開發者</value>
+    <value>聯絡開發人員</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
     <value>評價此應用程式</value>
@@ -324,7 +324,7 @@ firefox.exe</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>已暫停限制背景程序（除了黑名單中的進程），因為您的設備已插上電源。
-您可以在設定中改變这個行為。</value>
+您可以在設定中改變這個行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
     <value>正在限制背景程序……</value>
