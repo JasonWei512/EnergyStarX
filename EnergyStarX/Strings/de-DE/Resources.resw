@@ -160,58 +160,58 @@ Energy Star X ist eine graphische Version des quelloffenen Programms EnergyStar.
     <value>Öffnen</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># Einführung
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X nutzt Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (auch "Effizienzmodus") zur Drosselung von Hintergrundanwendungen zur Verbesserung der Batterielebensdauer und des Energieverbrauchs. Es drosselt nicht die Vordergrund-Anwendung, um die Benutzererfahrung zu gewährleisten.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
+Diese App ist eine GUI-Version der Open-Source-Software [EnergyStar](https://github.com/imbushuo/EnergyStar/), entwickelt mit Windows App SDK (WinUI 3).
 
 
-# Requirements
+# Anforderungen
 
-For the best result, you need:
+Für das beste Ergebnis brauchen Sie:
 
 ## Software
 
-- Windows 11 22H2 (Build 22621) or above
+- Windows 11 22H2 (Build 22621) oder höher
 
 ## Hardware
 
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+- Intel 10th gen or neuer mobile Prozessoren
+- AMD Ryzen 5000 oder neuer mobile Prozessoren
+- Qualcomm mobile Prozessoren
 
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+Diese App kann auf Windows 11 21H2 (Build 22000) und älterer Hardware funktionnieren, liefert aber vielleicht nicht das beste Ergebnis.
 
 
-# Usage
+# Nutzung
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+Lassen Sie das Programm im Hintergrund im Infobereichlaufen. Sie können ihn beim Start in den Einstellungen automatisch ausführen.
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess in der Spalte "Status" des Task-Managers sehen.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Known Limitations
+# Bekannte Einschränkungen
 
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+- Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com/) verwenden, könnte diese App abstürzen, wenn die Maus über das Symbol im Infobereich bewegen.
+- untergeordnete Prozesse werden nicht geboostet, wenn der übergeordnete Prozess den Eingabefokus erhält.
+- Systemprozesse werden nicht gedrosselt. Derzeit gibt es die Annahme, dass Prozesse ohne Benutzer wissen, was sie tun.
 
 
-# Acknowledgements
+# Danksagungen
 
-- imbushuo: https://github.com/imbushuo/
-- App Icon: 
+- imbushuo: https://github. om/imbushuo/
+- Anwendungs-Icon: 
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# How to contribute
+# Wie man beiträgt
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Warnung: Deine OS Version ({0}) ist kleiner als 22621, es werden nicht die besten Ergebnisse erzielt</value>
@@ -220,7 +220,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Log</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Beim Systemstart aktivieren!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
     <value>Entwickler kontaktieren</value>
@@ -238,24 +238,24 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Alle Hintergrundprozesse beim Einstecken drosseln</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
+    <value>// Ein Prozessname pro Zeile
+// Doppelter Schrägstrich und Inhalt danach in jeder Zeile werden ignoriert
     
-// Not ourselves
-EnergyStar.exe
+// Nicht uns
+EnergyStar. xe
 EnergyStarX.exe
-// Edge has energy awareness
+// Rand hat Energiebewusstsein
 msedge.exe
-WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
-ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+WebViewHost. xe
+// UWP Frame hat spezielle Behandlung, sollte nicht gedrosselt werden
+ApplicationFrameHost. xe
+// Feuerlöscher sollte nicht Feuer auffangen
 taskmgr.exe
 procmon.exe
 procmon64.exe
 // Widgets
-Widgets.exe
-// System shell
+Widgets. xe
+// System Shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -264,16 +264,16 @@ SearchHost.exe
 sihost.exe
 fontdrvhost.exe
 // IME
-ChsIME.exe
+ChsIME. xe
 ctfmon.exe
-// System Service - they have their awareness
+// Systemdienst - sie haben ihr Bewusstsein
 csrss.exe
 smss.exe
-svchost.exe
+svchost. xe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 unterstützt jetzt den Effizienzmodus
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -286,7 +286,7 @@ firefox.exe</value>
     <value>Ja</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Standard-Whitelist wiederherstellen?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>Standard wiederherstellen</value>
@@ -329,8 +329,8 @@ Sie können dieses Verhalten in den Einstellungen ändern.</value>
     <value>Hintergrundprogramme drosseln...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Drosseln durch Benutzer pausiert.
+Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>Pausiert</value>
@@ -342,13 +342,13 @@ Click the pause button again to resume.</value>
     <value>Rückmeldung</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Administrator-Berechtigung</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Log-Ordner öffnen</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Nur Fehler werden in der Datei gespeichert</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
     <value>Änderungsverlauf</value>
@@ -363,28 +363,28 @@ Click the pause button again to resume.</value>
     <value>Hilf uns die App zu übersetzen 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// Prozessname pro Zeile
+// Zeile hinter einem doppelten Schrägstrich wird ignoriert
+// Sie müssen in der gleichen Windows-Sitzung sein wie der Prozess, den Sie drosseln möchten, und Sie müssen dieselben oder höhere Privilegien haben
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Prozesse in der Whitelist werden nicht gedrosselt</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Standard-Sperrliste wiederherstellen?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Standard wiederherstellen</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Prozessblacklist bearbeiten</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Prozessblacklist bearbeiten</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>Abbrechen</value>
@@ -393,20 +393,20 @@ Click the pause button again to resume.</value>
     <value>Speichern</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Prozesse in der Blacklist werden gedrosselt, auch wenn das Gerät geladen wird</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>Spenden</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Spende auf [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Öffne auf deinem Handy, um mit Apple Pay oder Google Pay zu bezahlen)
 
-[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Kaufe mir einen Kaffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Für chinesische Benutzer mit WeChat scannen:
 
-![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
+![WeChat Spenden QR-Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
 </root>
