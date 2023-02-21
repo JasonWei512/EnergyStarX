@@ -301,13 +301,13 @@ firefox.exe</value>
     <value>Verstanden!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Prozesswhitelist bearbeiten</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Prozesswhitelist bearbeiten</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>Bearbeitet</value>
@@ -322,11 +322,11 @@ firefox.exe</value>
     <value>Startseite</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Drosseln pausiert (außer Prozesse in der Blacklist), weil Ihr Gerät geladen wird.
+Sie können dieses Verhalten in den Einstellungen ändern.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Hintergrundprogramme drosseln...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>Throttling paused by user.
