@@ -343,7 +343,7 @@ firefox.exe</value>
     <value>回饋</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>管理員權限</value>
+    <value>系統管理員權限</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
     <value>開啟記錄檔資料夾</value>
