@@ -130,7 +130,7 @@ Für das beste Ergebnis braucht man:
 - AMD Ryzen 5000 oder neuer mobile Prozessoren
 - Qualcomm mobile Prozessoren
 
-❤ Quellcode: https://github. om/JasonWei512/EnergyStarX
+❤ Quellcode: https://github.com/JasonWei512/EnergyStarX
 🌏 Übersetze diese App: https://crowdin.com/project/EnergyStarX
 
 Energy Star X ist eine graphische Version des quelloffenen Programms EnergyStar.</value>
@@ -202,7 +202,7 @@ Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess i
 
 # Danksagungen
 
-- imbushuo: https://github. om/imbushuo/
+- imbushuo: https://github.com/imbushuo/
 - Anwendungs-Icon: 
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
@@ -242,19 +242,19 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
 // Doppelter Schrägstrich und Inhalt danach in jeder Zeile werden ignoriert
     
 // Nicht uns
-EnergyStar. xe
+EnergyStar.exe
 EnergyStarX.exe
 // Rand hat Energiebewusstsein
 msedge.exe
-WebViewHost. xe
+WebViewHost.exe
 // UWP Frame hat spezielle Behandlung, sollte nicht gedrosselt werden
-ApplicationFrameHost. xe
+ApplicationFrameHost.exe
 // Feuerlöscher sollte nicht Feuer auffangen
 taskmgr.exe
 procmon.exe
 procmon64.exe
 // Widgets
-Widgets. xe
+Widgets.exe
 // System Shell
 dwm.exe
 explorer.exe
@@ -264,12 +264,12 @@ SearchHost.exe
 sihost.exe
 fontdrvhost.exe
 // IME
-ChsIME. xe
+ChsIME.exe
 ctfmon.exe
 // Systemdienst - sie haben ihr Bewusstsein
 csrss.exe
 smss.exe
-svchost. xe
+svchost.exe
 // WUDF
 WUDFRd.exe
 
