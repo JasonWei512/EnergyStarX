@@ -12,176 +12,88 @@ namespace EnergyStarX.Helpers;
 
 public static class SettingsHelper
 {
-    private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
+    private static IPropertySet localSettings => ApplicationData.Current.LocalSettings.Values;
 
-    public static int GetSetting(string settingKey, int defaultValue)
+    private static T GetSettingPrivate<T>(string settingKey, T defaultValue)
     {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
+        if (localSettings.TryGetValue(settingKey, out object? settingObject))
         {
-            if (obj is int value)
+            if (settingObject is T settingValue)
             {
-                return value;
+                return settingValue;
             }
         }
         return defaultValue;
     }
 
-    public static void SetSetting(string settingKey, int value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    // int
 
-    public static long GetSetting(string settingKey, long defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is long value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
+    public static int GetSetting(string settingKey, int defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, long value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    public static void SetSetting(string settingKey, int value) => localSettings[settingKey] = value;
 
-    public static float GetSetting(string settingKey, float defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is float value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
 
-    public static void SetSetting(string settingKey, float value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    // long
 
-    public static double GetSetting(string settingKey, double defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is double value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
+    public static long GetSetting(string settingKey, long defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, double value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    public static void SetSetting(string settingKey, long value) => localSettings[settingKey] = value;
 
-    public static bool GetSetting(string settingKey, bool defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is bool value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
 
-    public static void SetSetting(string settingKey, bool value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    // float
 
-    public static char GetSetting(string settingKey, char defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is char value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
+    public static float GetSetting(string settingKey, float defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, char value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    public static void SetSetting(string settingKey, float value) => localSettings[settingKey] = value;
 
-    public static string GetSetting(string settingKey, string defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is string value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
 
-    public static void SetSetting(string settingKey, string value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    // double
 
-    public static DateTime GetSetting(string settingKey, DateTime defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is DateTime value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
+    public static double GetSetting(string settingKey, double defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, DateTime value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    public static void SetSetting(string settingKey, double value) => localSettings[settingKey] = value;
 
-    public static TimeSpan GetSetting(string settingKey, TimeSpan defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is TimeSpan value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
 
-    public static void SetSetting(string settingKey, TimeSpan value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    // bool
 
-    public static Guid GetSetting(string settingKey, Guid defaultValue)
-    {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
-        {
-            if (obj is Guid value)
-            {
-                return value;
-            }
-        }
-        return defaultValue;
-    }
+    public static bool GetSetting(string settingKey, bool defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, Guid value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+    public static void SetSetting(string settingKey, bool value) => localSettings[settingKey] = value;
+
+
+    // char
+
+    public static char GetSetting(string settingKey, char defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+
+    public static void SetSetting(string settingKey, char value) => localSettings[settingKey] = value;
+
+
+    // string
+
+    public static string GetSetting(string settingKey, string defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+
+    public static void SetSetting(string settingKey, string value) => localSettings[settingKey] = value;
+
+
+    // DateTime
+
+    public static DateTime GetSetting(string settingKey, DateTime defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+
+    public static void SetSetting(string settingKey, DateTime value) => localSettings[settingKey] = value;
+
+
+    // TimeSpan
+
+    public static TimeSpan GetSetting(string settingKey, TimeSpan defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+
+    public static void SetSetting(string settingKey, TimeSpan value) => localSettings[settingKey] = value;
+
+
+    // Guid
+
+    public static Guid GetSetting(string settingKey, Guid defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+
+    public static void SetSetting(string settingKey, Guid value) => localSettings[settingKey] = value;
+
 
 }
