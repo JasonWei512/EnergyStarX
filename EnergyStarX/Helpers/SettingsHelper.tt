@@ -26,11 +26,11 @@ namespace EnergyStarX.Helpers;
 
 public static class SettingsHelper
 {
-    private static IPropertySet localSettings => ApplicationData.Current.LocalSettings.Values;
+    private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
 
     private static T GetSettingPrivate<T>(string settingKey, T defaultValue)
     {
-        if (localSettings.TryGetValue(settingKey, out object? settingObject))
+        if (LocalSettings.TryGetValue(settingKey, out object? settingObject))
         {
             if (settingObject is T settingValue)
             {
@@ -46,7 +46,7 @@ public static class SettingsHelper
 
     public static <#= type #> GetSetting(string settingKey, <#= type #> defaultValue) => GetSettingPrivate(settingKey, defaultValue);
 
-    public static void SetSetting(string settingKey, <#= type #> value) => localSettings[settingKey] = value;
+    public static void SetSetting(string settingKey, <#= type #> value) => LocalSettings[settingKey] = value;
 
 
 <# } #>
