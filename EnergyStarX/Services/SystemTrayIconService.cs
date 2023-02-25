@@ -44,7 +44,7 @@ public class SystemTrayIconService
 
         trayIcon.MessageWindow.MouseEventReceived += async (s, e) =>
         {
-            if (e.MouseEvent == MouseEvent.IconDoubleClick)
+            if (e.MouseEvent == MouseEvent.IconLeftMouseDown)
             {
                 await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow());
             }
