@@ -24,28 +24,27 @@ using Windows.Storage;
 
 namespace EnergyStarX.Helpers;
 
-public static class SettingsManager
+public static class SettingsHelper
 {
     private static IPropertySet LocalSettings => ApplicationData.Current.LocalSettings.Values;
 
-<# foreach (string type in primitiveSettingTypes) 
-{ #>
-    public static <#= type #> GetSetting(string settingKey, <#= type #> defaultValue)
+    private static T GetSettingPrivate<T>(string settingKey, T defaultValue)
     {
-        if (LocalSettings.TryGetValue(settingKey, out object? obj))
+        if (LocalSettings.TryGetValue(settingKey, out object? settingObject))
         {
-            if (obj is <#= type #> value)
+            if (settingObject is T settingValue)
             {
-                return value;
+                return settingValue;
             }
         }
         return defaultValue;
     }
 
-    public static void SetSetting(string settingKey, <#= type #> value)
-    {
-        LocalSettings[settingKey] = value;
-    }
+<# foreach (string type in primitiveSettingTypes)
+{ #>
+    // <#= type #>
+    public static <#= type #> GetSetting(string settingKey, <#= type #> defaultValue) => GetSettingPrivate(settingKey, defaultValue);
+    public static void SetSetting(string settingKey, <#= type #> value) => LocalSettings[settingKey] = value;
 
 <# } #>
 }

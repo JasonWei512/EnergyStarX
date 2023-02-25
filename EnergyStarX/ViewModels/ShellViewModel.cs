@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
+using EnergyStarX.Services;
 using EnergyStarX.Views;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
@@ -13,6 +14,8 @@ public partial class ShellViewModel : ObservableRecipient
 {
     public INavigationService NavigationService { get; }
     public INavigationViewService NavigationViewService { get; }
+
+    private readonly SettingsService settingsService;
 
     [ObservableProperty]
     private bool isBackEnabled;
@@ -27,11 +30,13 @@ public partial class ShellViewModel : ObservableRecipient
     public bool IsOsVersionNotRecommended { get; } = Environment.OSVersion.Version.Build < 22621;
     public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".ToLocalized(), Environment.OSVersion.Version.Build);
 
-    public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService)
+    public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService, SettingsService settingsService)
     {
         NavigationService = navigationService;
-        NavigationService.Navigated += OnNavigated;
         NavigationViewService = navigationViewService;
+        this.settingsService = settingsService;
+
+        NavigationService.Navigated += OnNavigated;
 
         TitlebarText =
             "AppDisplayName".ToLocalized()
@@ -45,7 +50,7 @@ public partial class ShellViewModel : ObservableRecipient
         // The workaround is to add a delay before opening the TeachingTip after ShellPage is loaded.
         // https://github.com/microsoft/microsoft-ui-xaml/issues/7937#issuecomment-1382346727
         await Task.Delay(TimeSpan.FromSeconds(1));
-        ShowTeachingTip = Settings.FirstRun;
+        ShowTeachingTip = settingsService.FirstRun;
     }
 
     [RelayCommand]
@@ -54,7 +59,7 @@ public partial class ShellViewModel : ObservableRecipient
         if (ShowTeachingTip)
         {
             ShowTeachingTip = false;
-            Settings.FirstRun = false;
+            settingsService.FirstRun = false;
         }
     }
 

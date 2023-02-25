@@ -56,9 +56,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Helpers\SettingsManager.tt">
+    <None Update="Helpers\SettingsHelper.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SettingsManager.cs</LastGenOutput>
+      <LastGenOutput>SettingsHelper.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -71,10 +71,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Helpers\SettingsManager.cs">
+    <None Include="Helpers\SettingsHelper.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>SettingsManager.tt</DependentUpon>
+      <DependentUpon>SettingsHelper.tt</DependentUpon>
     </None>
   </ItemGroup>
 
@@ -104,10 +104,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Helpers\SettingsManager.cs">
+    <Compile Update="Helpers\SettingsHelper.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>SettingsManager.tt</DependentUpon>
+      <DependentUpon>SettingsHelper.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   

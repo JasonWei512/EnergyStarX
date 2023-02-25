@@ -1,28 +1,29 @@
-﻿using static EnergyStarX.Helpers.SettingsManager;
+﻿using EnergyStarX.Helpers;
+using static EnergyStarX.Helpers.SettingsHelper;
 
-namespace EnergyStarX.Helpers;
+namespace EnergyStarX.Services;
 
-public static class Settings
+public class SettingsService
 {
-    public static bool FirstRun
+    public bool FirstRun
     {
         get => GetSetting("FirstRun", true);
         set => SetSetting("FirstRun", value);
     }
 
-    public static bool ThrottleWhenPluggedIn
+    public bool ThrottleWhenPluggedIn
     {
         get => GetSetting("ThrottleWhenPluggedIn", false);
         set => SetSetting("ThrottleWhenPluggedIn", value);
     }
 
-    public static string ProcessWhitelistString
+    public string ProcessWhitelistString
     {
         get => GetSetting("BypassProcessListString", "DefaultProcessWhitelist".ToLocalized());
         set => SetSetting("BypassProcessListString", value);
     }
 
-    public static string ProcessBlacklistString
+    public string ProcessBlacklistString
     {
         get => GetSetting("ProcessBlacklistString", "DefaultProcessBlacklist".ToLocalized());
         set => SetSetting("ProcessBlacklistString", value);

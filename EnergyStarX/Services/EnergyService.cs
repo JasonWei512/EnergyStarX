@@ -5,7 +5,6 @@
 // If you are Microsoft (and/or its affiliates) employee, vendor or contractor who is working on Windows-specific integration projects, you may use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so without the restriction above.
 
 using EnergyStarX.Core.Interop;
-using EnergyStarX.Helpers;
 using Microsoft.Windows.System.Power;
 using NLog;
 using System.Diagnostics;
@@ -44,6 +43,7 @@ public class EnergyService
     private CancellationTokenSource houseKeepingCancellationTokenSource = new();
 
     private readonly WindowService windowService;
+    private readonly SettingsService settingsService;
 
     // Speical handling needs for UWP to get the child window process
     private const string UWPFrameHostApp = "ApplicationFrameHost.exe";
@@ -77,14 +77,14 @@ public class EnergyService
 
     public bool ThrottleWhenPluggedIn
     {
-        get => Settings.ThrottleWhenPluggedIn;
+        get => settingsService.ThrottleWhenPluggedIn;
         set
         {
             lock (lockObject)
             {
-                if (Settings.ThrottleWhenPluggedIn != value)
+                if (settingsService.ThrottleWhenPluggedIn != value)
                 {
-                    Settings.ThrottleWhenPluggedIn = value;
+                    settingsService.ThrottleWhenPluggedIn = value;
                     UpdateThrottleStatusAndNotify();
                 }
             }
@@ -105,7 +105,7 @@ public class EnergyService
 
     public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 
-    public EnergyService(WindowService windowService)
+    public EnergyService(WindowService windowService, SettingsService settingsService)
     {
         szControlBlock = Marshal.SizeOf<Win32Api.PROCESS_POWER_THROTTLING_STATE>();
         pThrottleOn = Marshal.AllocHGlobal(szControlBlock);
@@ -129,6 +129,8 @@ public class EnergyService
         Marshal.StructureToPtr(unthrottleState, pThrottleOff, false);
 
         this.windowService = windowService;
+        this.settingsService = settingsService;
+
         this.windowService.AppExiting += WindowService_AppExiting;
     }
 
@@ -139,8 +141,8 @@ public class EnergyService
             HookManager.SubscribeToWindowEvents();
             HookManager.SystemForegroundWindowChanged += HookManager_SystemForegroundWindowChanged;
 
-            ApplyProcessWhitelist(Settings.ProcessWhitelistString);
-            ApplyProcessBlacklist(Settings.ProcessBlacklistString);
+            ApplyProcessWhitelist(settingsService.ProcessWhitelistString);
+            ApplyProcessBlacklist(settingsService.ProcessBlacklistString);
             UpdateThrottleStatusAndNotify();
             PowerManager.PowerSourceKindChanged += PowerManager_PowerSourceKindChanged;
         }
@@ -163,7 +165,7 @@ public class EnergyService
         lock (lockObject)
         {
             ApplyProcessWhitelist(processWhitelistString);
-            Settings.ProcessWhitelistString = processWhitelistString;
+            settingsService.ProcessWhitelistString = processWhitelistString;
             logger.Info("ProcessWhitelist saved");
         }
     }
@@ -199,7 +201,7 @@ public class EnergyService
         lock (lockObject)
         {
             ApplyProcessBlacklist(processBlacklistString);
-            Settings.ProcessBlacklistString = processBlacklistString;
+            settingsService.ProcessBlacklistString = processBlacklistString;
             logger.Info("ProcessBlacklist saved");
         }
     }
