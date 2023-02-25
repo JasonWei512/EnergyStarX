@@ -43,11 +43,8 @@ public static class SettingsHelper
 <# foreach (string type in primitiveSettingTypes)
 { #>
     // <#= type #>
-
     public static <#= type #> GetSetting(string settingKey, <#= type #> defaultValue) => GetSettingPrivate(settingKey, defaultValue);
-
     public static void SetSetting(string settingKey, <#= type #> value) => LocalSettings[settingKey] = value;
-
 
 <# } #>
 }
