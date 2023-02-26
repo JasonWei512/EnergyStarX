@@ -227,7 +227,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>聯絡開發人員</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>評價此應用程式</value>
+    <value>評論此應用程式</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
     <value>回饋</value>
@@ -323,8 +323,8 @@ firefox.exe</value>
     <value>首頁</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>因為您的設備已插上電源，所以已暫停限制背景程序（除了黑名單中的進程）。
-您可以在設定中改變這個行為。</value>
+    <value>因為您的裝置已接上電源，所以已暫停限制背景程序（除了黑名單中的進程）。
+您可以在設定中修改此行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
     <value>正在限制背景程序……</value>
