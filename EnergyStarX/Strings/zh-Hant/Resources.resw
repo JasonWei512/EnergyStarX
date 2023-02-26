@@ -162,9 +162,9 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># 簡介
 
-能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保用戶體驗。
+能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
 
-此應用程式是開源程序 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的圖形介面版本，使用 Windows App SDK（WinUI 3）開發。
+此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
 
 
 # 要求
@@ -186,7 +186,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 
 # 使用方法
 
-讓它在工作列右下角背景執行即可。您可以在設定頁中選擇開機啟動。
+讓它在工作列右下角背景執行即可。您可以在設定頁面中選擇開機啟動。
 
 您可以在工作管理員的「狀態」列中看到被限制資源的背景應用程式旁會顯示一個綠葉圖示。
 
