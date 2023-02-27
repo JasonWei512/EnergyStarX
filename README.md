@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  Improve your Windows device's battery life
+  Improve your Windows 11 device's battery life
 </p>
 
 <p align="center">

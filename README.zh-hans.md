@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-  提升您 Windows 设备的电池续航
+  提升您 Windows 11 设备的电池续航
 </p>
 
 <p align="center">
