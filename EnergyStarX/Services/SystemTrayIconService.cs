@@ -50,6 +50,23 @@ public class SystemTrayIconService
             }
         };
 
+        // When taskbar restarts (for example when explorer crashes and restarts), recreate system tray icon.
+        // Or the system tray icon will disappear.
+        trayIcon.MessageWindow.TaskbarCreated += (s, e) =>
+        {
+            logger.Info("Taskbar restarted. Recreating system tray icon...");
+
+            try
+            {
+                trayIcon.TryRemove();
+                trayIcon.Create();
+            }
+            catch (Exception ex)
+            {
+                logger.Warn(ex, "Failed to recreate system tray icon");
+            }
+        };
+
         trayIcon.Create();
 
         windowService.AppExiting += WindowService_AppExiting;
