@@ -24,14 +24,14 @@ public enum ThrottleStatus
     Stopped = 0,
 
     /// <summary>
-    /// Device is plugged in, and <see cref="Settings.ThrottleWhenPluggedIn"/> is disabled
+    /// Device is plugged in, and <see cref="SettingsService.ThrottleWhenPluggedIn"/> is disabled
     /// </summary>
     OnlyBlacklist = 1,
 
     /// <summary>
     /// Possible situations: <br/>
     /// - Device is on battery <br/>
-    /// - Device is plugged in, and <see cref="Settings.ThrottleWhenPluggedIn"/> is enabled
+    /// - Device is plugged in, and <see cref="SettingsService.ThrottleWhenPluggedIn"/> is enabled
     /// </summary>
     BlacklistAndAllButWhitelist = 2
 };
