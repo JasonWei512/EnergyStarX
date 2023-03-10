@@ -1,4 +1,5 @@
 ﻿using EnergyStarX.Helpers;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.UI.Xaml;
 
 namespace EnergyStarX.Services;
@@ -22,6 +23,7 @@ public class WindowService
         if (!WindowVisible)
         {
             WindowShowing?.Invoke(this, EventArgs.Empty);
+            Analytics.TrackEvent("Show app window");
         }
         App.MainWindow.Activate();
         App.MainWindow.BringToFront();
