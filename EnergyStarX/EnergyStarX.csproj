@@ -9,9 +9,9 @@
     <Platforms>x86;x64;arm64</Platforms>
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <PublishProfile>Properties\PublishProfiles\win10-$(Platform).pubxml</PublishProfile>
-	<ImplicitUsings>enable</ImplicitUsings>
-	<Nullable>enable</Nullable>
-	<UseWinUI>true</UseWinUI>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
@@ -22,6 +22,8 @@
     <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
     <AppxBundlePlatforms>x64|arm64</AppxBundlePlatforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>partial</TrimMode>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,7 +42,6 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230217.4" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
     <PackageReference Include="NLog" Version="5.1.2" />
-    <PackageReference Include="TaskScheduler" Version="2.10.1" />
     <PackageReference Include="WinUICommunity.SettingsUI" Version="3.1.1" />
     <PackageReference Include="WinUIEx" Version="2.1.0" />
     <PackageReference Include="DependencyPropertyGenerator" Version="1.2.2" PrivateAssets="all" ExcludeAssets="runtime">
@@ -110,7 +111,7 @@
       <DependentUpon>SettingsHelper.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  
+
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>

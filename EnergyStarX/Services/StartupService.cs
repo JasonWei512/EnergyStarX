@@ -37,8 +37,12 @@ public class StartupService
 
     public async Task<StartupType> GetStartupType()
     {
-        bool msixStartupTaskEnabled = await GetMsixStartupTaskEnabled();
-        bool adminScheduleTaskExists = GetAdminScheduleTaskExists();
+        // Run in parallel to save time
+        Task<bool> GetMsixStartupTaskEnabledTask = GetMsixStartupTaskEnabled();
+        Task<bool> GetAdminScheduleTaskExistsTask = GetAdminScheduleTaskExists();
+
+        bool msixStartupTaskEnabled = await GetMsixStartupTaskEnabledTask;
+        bool adminScheduleTaskExists = await GetAdminScheduleTaskExistsTask;
 
         StartupType startupType = (msixStartupTaskEnabled, adminScheduleTaskExists) switch
         {
@@ -122,9 +126,24 @@ public class StartupService
 
     private const string AdminScheduleTaskName = "EnergyStarXAdminStartupTask";
 
-    private bool GetAdminScheduleTaskExists()
+    private async Task<bool> GetAdminScheduleTaskExists()
     {
-        return Microsoft.Win32.TaskScheduler.TaskService.Instance.RootFolder.Tasks.Exists(AdminScheduleTaskName);
+        using Process process = new()
+        {
+            StartInfo = new ProcessStartInfo()
+            {
+                FileName = "schtasks",
+                ArgumentList = { "/query", "/tn", AdminScheduleTaskName },
+
+                UseShellExecute = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            }
+        };
+
+        process.Start();
+        await process.WaitForExitAsync();
+
+        return process.ExitCode == 0;
     }
 
     /// <summary>
@@ -212,7 +231,7 @@ public class StartupService
             await scheduleTaskXmlFile.DeleteAsync();
         }
 
-        return GetAdminScheduleTaskExists();
+        return await GetAdminScheduleTaskExists();
     }
 
     /// <summary>
@@ -246,7 +265,7 @@ public class StartupService
             return false;
         }
 
-        return !GetAdminScheduleTaskExists();
+        return !await GetAdminScheduleTaskExists();
     }
 
     private string GetExecutablePath()
