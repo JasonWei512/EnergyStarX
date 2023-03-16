@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Services;
-using Hardware.Info;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
+using WmiLight;
 
 namespace EnergyStarX.ViewModels;
 
@@ -201,13 +201,30 @@ public partial class SettingsViewModel : ObservableRecipient
 
     private readonly Lazy<string> feedbackMailBody = new(() =>
     {
-        HardwareInfo hardware = new();
-        hardware.RefreshCPUList(false);
-        hardware.RefreshMemoryList();
-        hardware.RefreshVideoControllerList();
-        hardware.RefreshBatteryList();
+        string hardwareInfo = string.Empty;
 
-        string JoinItems<T>(IEnumerable<T> items, Func<T, string> selector) => items.Any() ? string.Join(" + ", items.Select(selector)) : "N/A";
+        try
+        {
+            using WmiConnection wmiConnection = new();
+
+            string JoinItems<T>(IEnumerable<T> items) => items.Any() ? string.Join(" + ", items) : "N/A";
+
+            string cpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_Processor").Select(cpu => cpu["Name"]));
+            string gpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_VideoController").Select(gpu => gpu["Name"]));
+            bool batteryExists = wmiConnection.CreateQuery("SELECT Name FROM Win32_Battery").Any();
+            long ramCapacity = wmiConnection.CreateQuery("SELECT Capacity FROM Win32_PhysicalMemory")
+                .Select(ram => long.TryParse(ram["Capacity"] as string, out long capacity) ? capacity : 0)
+                .Sum();
+
+            hardwareInfo = $"""
+                CPU: {cpuName}
+                RAM: {ramCapacity / 1024 / 1024} MB
+                GPU: {gpuName}
+                Battery: {(batteryExists ? "Yes" : "No")}
+
+                """;
+        }
+        catch { }
 
         return $"""
 
@@ -216,11 +233,7 @@ public partial class SettingsViewModel : ObservableRecipient
             ----------
             Windows: {Environment.OSVersion.Version}
             Device: {new EasClientDeviceInformation().SystemProductName}
-            CPU: {JoinItems(hardware.CpuList, c => c.Name)}
-            RAM: {hardware.MemoryList.Select(m => m.Capacity).Aggregate((a, b) => a + b) / 1024 / 1024} MB
-            GPU: {JoinItems(hardware.VideoControllerList, v => v.Name)}
-            Battery: {(hardware.BatteryList.Count > 0 ? "Yes" : "No")}
-
+            {hardwareInfo}
             """;
     });
 
