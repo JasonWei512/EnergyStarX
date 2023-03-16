@@ -22,8 +22,14 @@
     <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
     <AppxBundlePlatforms>x64|arm64</AppxBundlePlatforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <!-- Enable .NET IL trimming to reduce app size -->
+  <!-- In order to get hardware info with WmiLight, we need COM support  -->
+  <PropertyGroup>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +41,6 @@
     <PackageReference Include="CommunityToolkit.WinUI" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
     <PackageReference Include="H.NotifyIcon" Version="2.0.94" />
-    <PackageReference Include="Hardware.Info" Version="10.1.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
@@ -48,6 +53,7 @@
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Flurl" Version="3.0.7" />
+    <PackageReference Include="WmiLight" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
