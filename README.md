@@ -27,6 +27,12 @@
   </a>
 </p>
 
+<p align="center">
+    <a href="https://blogs.windows.com/windowsdeveloper/2023/03/15/microsoft-store-app-awards-2023-nominations-are-now-open/" target="_blank">
+        📢 Nominate this app for Microsoft Store App Awards 2023!
+    </a>
+</p>
+
 ![Screenshot](.github/images/Screenshot.png)
 
 

@@ -22,6 +22,12 @@
   </a>
 </p>
 
+<p align="center">
+    <a href="https://blogs.windows.com/windowsdeveloper/2023/03/15/microsoft-store-app-awards-2023-nominations-are-now-open/" target="_blank">
+        📢 提名此应用参加 2023 微软商店应用奖评选！
+    </a>
+</p>
+
 ![Screenshot](.github/images/Screenshot.png)
 
 
