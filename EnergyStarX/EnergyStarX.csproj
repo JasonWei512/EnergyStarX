@@ -24,9 +24,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <!-- Enable .NET IL trimming to reduce app size -->
-  <!-- In order to get hardware info with WmiLight, we need COM support  -->
-  <PropertyGroup>
+  <!-- Enable .NET IL trimming in release mode to reduce app size -->
+  <!-- We need COM support to get hardware info with WmiLight -->
+  <PropertyGroup Condition="'$(Configuration)' != 'Debug'">
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
