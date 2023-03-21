@@ -24,13 +24,13 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <!-- Enable .NET IL trimming in release mode to reduce app size -->
-  <!-- We need COM support to get hardware info with WmiLight -->
-  <PropertyGroup Condition="'$(Configuration)' != 'Debug'">
+  <!-- Disable .NET IL trimming because it breaks Visual Studio App Center telemetry -->
+  <!-- See: https://github.com/JasonWei512/EnergyStarX/issues/14#issuecomment-1477142429 -->
+  <!-- <PropertyGroup Condition="'$(Configuration)' != 'Debug'">
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-  </PropertyGroup>
+  </PropertyGroup> -->
 
   <ItemGroup>
     <Manifest Include="$(ApplicationManifest)" />
