@@ -125,16 +125,3 @@ jobs:
       with:
         name:  ${{ env.Artifact_Name }}
         path: ${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}
-
-    - name: Zip artifact for release
-      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
-      run: |
-        mkdir ~\release
-        Compress-Archive -Path "${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}\*" -DestinationPath "~\release\${{ env.Artifact_Name }}.zip"
-
-    - name: Upload artifact to release
-      uses: shogo82148/actions-upload-release-asset@v1
-      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
-      with:
-        upload_url: ${{ needs.create-draft-release.outputs.release_upload_url }}
-        asset_path: ~\release\${{ env.Artifact_Name }}.zip
