@@ -221,8 +221,3 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-
-#### 代码分析 ####
-
-# CA2000: Dispose objects before losing scope
-dotnet_diagnostic.CA2000.severity = warning
