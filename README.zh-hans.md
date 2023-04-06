@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="128" align="center" src="EnergyStarX/Assets/Icon.png">
+  <img width="128" align="center" src="EnergyStarX/Assets/Icon.png" />
 </p>
 
 <h1 align="center" style="font-weight: bold">
@@ -7,18 +7,24 @@
 </h1>
 
 <p align="center">
+  <a title="从 Microsoft 获取" href="https://apps.microsoft.com/store/detail/9NF7JTB3B17P?launch=true&mode=full">
+    <img src="https://get.microsoft.com/images/zh-CN%20dark.svg" width=144 />
+  </a>
+</p>
+
+<p align="center">
   提升您 Windows 11 设备的电池续航
 </p>
 
 <p align="center">
-  <a href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
-    <img src="https://img.shields.io/badge/微软商店-下载-orange" alt="微软商店下载" />
+  <a title="微软商店评分" href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
+    <img src="https://img.shields.io/endpoint?color=red&label=%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E8%AF%84%E5%88%86&url=https%3A%2F%2Fmicrosoft-store-badge.fly.dev%2Fapi%2Frating%3FstoreId%3D9NF7JTB3B17P" />
   </a>
-  <a href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" alt="GitHub Release" />
+  <a title="GitHub Release" href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
+    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" />
   </a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/energystarx">
-    <img src="https://badges.crowdin.net/energystarx/localized.svg">
+  <a title="Crowdin" href="https://crowdin.com/project/energystarx" target="_blank">
+    <img src="https://badges.crowdin.net/energystarx/localized.svg" />
   </a>
 </p>
 

@@ -1,5 +1,8 @@
+🌏 [简体中文](README.zh-hans.md)
+
+
 <p align="center">
-  <img width="128" align="center" src="EnergyStarX/Assets/Icon.png">
+  <img width="128" align="center" src="EnergyStarX/Assets/Icon.png" />
 </p>
 
 <h1 align="center" style="font-weight: bold">
@@ -7,8 +10,9 @@
 </h1>
 
 <p align="center">
-  🌏
-  <a href="README.zh-hans.md">简体中文</a>
+  <a title="Get it from Microsoft" href="https://apps.microsoft.com/store/detail/9NF7JTB3B17P?launch=true&mode=full">
+    <img src="https://get.microsoft.com/images/en-US%20dark.svg" width=144 />
+  </a>
 </p>
 
 <p align="center">
@@ -16,14 +20,14 @@
 </p>
 
 <p align="center">
-  <a href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
-    <img src="https://img.shields.io/badge/Microsoft%20Store-Download-orange" alt="Microsoft Store Download" />
+  <a title="Microsoft Store Rating" href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
+    <img src="https://img.shields.io/endpoint?color=red&label=Microsoft%20Store%20Rating&url=https%3A%2F%2Fmicrosoft-store-badge.fly.dev%2Fapi%2Frating%3FstoreId%3D9NF7JTB3B17P" />
   </a>
-  <a href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" alt="GitHub Release" />
+  <a title="GitHub Release" href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
+    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" />
   </a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/energystarx">
-    <img src="https://badges.crowdin.net/energystarx/localized.svg">
+  <a title="Crowdin" href="https://crowdin.com/project/energystarx" target="_blank">
+    <img src="https://badges.crowdin.net/energystarx/localized.svg" />
   </a>
 </p>
 
