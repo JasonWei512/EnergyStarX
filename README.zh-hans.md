@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-  <a title="从 Microsoft 获取" href="https://apps.microsoft.com/store/detail/9NF7JTB3B17P?launch=true&mode=full">
+  <a title="从 Microsoft 获取" href="https://apps.microsoft.com/store/detail/9NF7JTB3B17P?launch=true&mode=full" target="_blank">
     <img src="https://get.microsoft.com/images/zh-CN%20dark.svg" width=144 />
   </a>
 </p>
@@ -17,11 +17,11 @@
 </p>
 
 <p align="center">
-  <a title="微软商店评分" href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
-    <img src="https://img.shields.io/endpoint?color=red&label=%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E8%AF%84%E5%88%86&url=https%3A%2F%2Fmicrosoft-store-badge.fly.dev%2Fapi%2Frating%3FstoreId%3D9NF7JTB3B17P" />
+  <a title="GitHub Release" href="https://github.com/JasonWei512/EnergyStarX/releases"">
+    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=%E7%89%88%E6%9C%AC&color=red" />
   </a>
-  <a title="GitHub Release" href="https://github.com/JasonWei512/EnergyStarX/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/JasonWei512/EnergyStarX?label=GitHub%20Release" />
+  <a title="微软商店评分" href="https://www.microsoft.com/store/productId/9NF7JTB3B17P" target="_blank">
+    <img src="https://img.shields.io/endpoint?color=blue&label=%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E8%AF%84%E5%88%86&url=https%3A%2F%2Fmicrosoft-store-badge.fly.dev%2Fapi%2Frating%3FstoreId%3D9NF7JTB3B17P" />
   </a>
   <a title="Crowdin" href="https://crowdin.com/project/energystarx" target="_blank">
     <img src="https://badges.crowdin.net/energystarx/localized.svg" />
