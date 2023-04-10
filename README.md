@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img width="128" align="center" src="EnergyStarX/Assets/Icon.png" />
+  <img width="128" align="center" src="src/EnergyStarX/Assets/Icon.png" />
 </p>
 
 <h1 align="center" style="font-weight: bold">
@@ -40,11 +40,11 @@
 
 (Open on your phone to pay with Apple Pay or Google Pay)
 
-[![Buy me a coffee](./EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Buy me a coffee](./src/EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
 ## For Chinese users, scan with WeChat:
 
-![WeChat Donation QR Code](./EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
+![WeChat Donation QR Code](./src/EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
 
 
 # Introduction
@@ -77,7 +77,7 @@ Let it run in background in the system tray. You can choose to run it automatica
 
 You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
 
-![Task Manager Leaf](/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
+![Task Manager Leaf](/src/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
 # Known Limitations
