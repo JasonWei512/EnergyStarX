@@ -32,6 +32,10 @@ jobs:
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
+    defaults:
+      run:
+        working-directory: ./src
+
     env:
       Solution_Name: EnergyStarX  # Replace with your solution name, i.e. App1.sln.
       Cert_File_Name: GitHubActionsWorkflow.pfx
@@ -124,4 +128,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name:  ${{ env.Artifact_Name }}
-        path: ${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}
+        path: src/${{ env.Solution_Name }}\\Packages\${{ matrix.platform }}
