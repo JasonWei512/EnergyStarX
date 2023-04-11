@@ -118,144 +118,145 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Energy Star X</value>
+    <value>能源之星 X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 延長裝置電池續航力！
+Energy Star X（能源之星 X）使用 Windows 11 的 EcoQos API（「效率模式」）來限制背景應用程式的資源使用，藉以提高電池壽命和降溫表現。
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+達到以下條件獲得最佳效果：
+- Windows 11 22H2 (Build 22621) 及更高版本
+- Intel Core 10 系列及以上移動處理器
+- AMD Ryzen 5000 系列及以上移動處理器
+- Qualcomm 移動處理器
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ 開源代碼：https://github.com/JasonWei512/EnergyStarX
+🌏 協助翻譯這個應用程式：https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式。</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>協助</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>關於此應用程式</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>垃圾 Intel</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>能源之星 X 正在運行！</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>開機啟動</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>設定</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>離開</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>開啟</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># 簡介
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
-
-
-# Requirements
-
-For the best result, you need:
-
-## Software
-
-- Windows 11 22H2 (Build 22621) or above
-
-## Hardware
-
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
-
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
 
 
-# Usage
+# 要求
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+為了獲得最好的效果，您需要：
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+## 應用程式
 
-![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
+- Windows 11 22H2 (Build 22621) 及以上
+
+## 硬體
+
+- Intel Core 10 系列及以上移動處理器
+- AMD Ryzen 5000 系列及以上移動處理器
+- Qualcomm 移動處理器
+
+此應用程式可以在 Windows 11 21H2 (Build 22000) 和舊硬體上工作，但是可能不會有最佳效果。
 
 
-# Known Limitations
+# 使用方法
 
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+讓它在工作列右下角背景執行即可。您可以在設定頁面中選擇開機啟動。
+
+您可以在工作管理員的「狀態」列中看到被限制資源的背景應用程式旁會顯示一個綠葉圖示。
+
+![工作管理員綠葉](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Acknowledgements
+# 已知問題
 
-- imbushuo: https://github.com/imbushuo/
-- App Icon: 
+- 如果您使用了 [StartAllBack](https://www.startallback.com/) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
+- 當父進程獲得輸入焦點時，子進程不會被解除資源限制。
+- 系統進程（Session 0）將不會被限制資源。目前我們假設非使用者進程會自己管理好資源。
+
+
+# 致謝
+
+- imbushuo：https://github.com/imbushuo/ （作者）
+- flandretw：https://github.com/flandretw/ （繁體中文翻譯校正）
+- 應用程式圖示：
   - https://www.flaticon.com/free-icon/star_3103390/
-  - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_561920
+  - https://www.flaticon.com/free-icon/accept_4303945/
+  - https://www.flaticon.com/free-icon/pause-button_561920/
 
 
-# How to contribute
+# 如何貢獻
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+請看 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.zh-hans.md)。</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>警告：您的作業系統版本為 {0}，低於 22621，將不會獲得最佳節能效果</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>記錄檔</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>設定開機啟動！</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>聯絡開發人員</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>評論此應用程式</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>回饋</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>複製</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>插電時限制所有背景進程</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-    
-// Not ourselves
+    <value>// 每行一個進程名
+// 每行中雙斜槓以及之後的内容會被忽略
+
+// 排除我們自己
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge 會自己管理好資源
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Frame 有特别處理, 不應該被限制
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// 工作管理員，滅火器不可以著火
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// 小工具
 Widgets.exe
-// System shell
+// 系統 shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -263,149 +264,149 @@ StartMenuExperienceHost.exe
 SearchHost.exe
 sihost.exe
 fontdrvhost.exe
-// IME
+// 輸入法
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// 系統服務 - 它们會自己管理好資源
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 已支援效率模式
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>否</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>是</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>還原為預設進程白名單？</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>還原為預設</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>清空</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>移至底部</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>瞭解了！</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>編輯進程白名單</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>編輯</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>編輯進程白名單</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>已編輯</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>儲存</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>首頁</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>因為您的裝置已接上電源，所以已暫停限制背景程序（除了黑名單中的進程）。
+您可以在設定中修改此行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>正在限制背景程序……</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>您暫停了限制背景程序。
+再次點擊暫停按鈕以復原。</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>已暫停</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>開源代碼（GitHub）</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>回饋</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>系統管理員權限</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>開啟記錄檔資料夾</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>只有錯誤會被記錄到記錄檔檔案</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>更新記錄</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>暫停</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>（實驗性）以系統管理員身份開機啟動</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>協助翻譯此應用程式 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// 每行一個進程名稱
+// 每行中雙斜槓以及之後的内容會被忽略
+// 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>白名單中的進程將不會被限制</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>還原為預設進程黑名單？</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>還原為預設</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>編輯進程黑名單</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>編輯</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>編輯進程黑名單</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>儲存</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>黑名單中的進程即使在插電時也會被限制</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>捐贈</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## 捐贈於 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn)
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+（將在您的手機開啟 Apple Pay 或 Google Pay 付款）
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## 對於中國地區使用者，請掃描微信支付：
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
