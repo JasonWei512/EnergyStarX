@@ -121,126 +121,126 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋デバイスのバッテリー駆動時間を向上させよう！
-Energy Star Xはバッテリー駆動時間とシステム温度を改善するために、バックグラウンドアプリを抑制するWindows 11のEcoQoS API(効率モード)を活用します。
+    <value>🔋 Improve your device's battery life!
+Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
 
-最高の結果を得るには、以下が必要です。
-- Windows 11 22H2 (Build 22621) 以上のバージョン
-- Intel 第十世代以上のプロセッサー
-- AMD Ryzen 5000 以上のプロセッサー
-- Qualcomm モバイルプロセッサー
+For the best result, you need:
+- Windows 11 22H2 (Build 22621) or above
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
 
 ❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 このアプリを翻訳する: https://crowdin.com/project/EnergyStarX
+🌏 Translate this app: https://crowdin.com/project/EnergyStarX
 
-Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI版です。</value>
+Energy Star X is a GUI version of the open source software EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>ヘルプ</value>
+    <value>Help</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>このアプリについて</value>
+    <value>About this application</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>インテルは最悪だ</value>
+    <value>Intel sucks</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X はすでに実行中です！</value>
+    <value>Energy Star X is aleady running!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>起動時に実行</value>
+    <value>Run at startup</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>設定</value>
+    <value>Settings</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>終了</value>
+    <value>Exit</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>開く</value>
+    <value>Open</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># はじめに
+    <value># Introduction
 
-Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (別名「効率モード」) を利用して、バックグラウンドアプリケーションを制限し、バッテリー寿命とシステム熱を改善します。ユーザーエクスペリエンスを確保するために、フォアグラウンドアプリケーションを制限することはありません。
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-このアプリは、Windows App SDK (WinUI 3) で開発されたオープンソースソフトウェア [EnergyStar](https://github.com/imbushuo/EnergyStar/) のGUIバージョンです。
-
-
-# 必要要件
-
-最良の結果を得るためには、以下のものが必要です。
-
-## ソフトウェア
-
-- Windows 11 22H2 (Build 22621) またはそれ以上
-
-## ハードウェア
-
-- インテル 10 世代以降のモバイル プロセッサー
-- AMD Ryzen 5000またはそれ以降のモバイルプロセッサ
-- クアルコムのモバイルプロセッサー
-
-このアプリは、Windows 11 21H2 (Build 22000) およびそれ以前のハードウェアでも動作しますが、最良の結果を得られない場合があります。
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
 
 
-# 使用方法
+# Requirements
 
-システムトレイでバックグラウンドで実行させます。設定ページで起動時に自動的に実行するかどうかを選択することができます。
+For the best result, you need:
 
-タスクマネージャの「状態」欄で、制限されたバックグラウンドプロセスの横に緑の葉っぱのアイコンが表示されます。
+## Software
+
+- Windows 11 22H2 (Build 22621) or above
+
+## Hardware
+
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
+
+This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+
+
+# Usage
+
+Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+
+You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# 既知の制限事項
+# Known Limitations
 
-- [StartAllBack](https://www.startallback.com/)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
-- 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
-- システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
+- Child processes do not get boosted when the parent process receives input focus.
+- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 
 
-# 謝辞
+# Acknowledgements
 
 - imbushuo: https://github.com/imbushuo/
-- アプリのアイコン。
+- App Icon: 
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# 貢献の仕方
+# How to contribute
 
-[Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md) を参照してください。</value>
+See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>警告：お使いのOSのバージョン ({0}) は22621以下で、最良の結果を得ることはできません</value>
+    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>ログ</value>
+    <value>Log</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>起動時の実行を有効にします！</value>
+    <value>Enable running at startup!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>開発者に連絡する</value>
+    <value>Contact the developer</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>このアプリを評価する</value>
+    <value>Rate this app</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>フィードバック</value>
+    <value>Feedback</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>コピー</value>
+    <value>Copy</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>電源接続時でも、すべてのバックグラウンドプロセスを制限する</value>
+    <value>Throttle all background processes when plugged in</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// プロセス名は1行に1つ
-// 各行のダブルスラッシュとそれ以降の内容は無視されます。
-
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+    
 // Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
@@ -277,135 +277,135 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>キャンセル</value>
+    <value>Cancel</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>いいえ</value>
+    <value>No</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>はい</value>
+    <value>Yes</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>デフォルトのプロセスホワイトリストに戻しますか？</value>
+    <value>Restore to default process whitelist?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>デフォルトに戻す</value>
+    <value>Restore to default</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>クリア</value>
+    <value>Clear</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>最下部にスクロール</value>
+    <value>Scroll to Bottom</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>了解！</value>
+    <value>Got it!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>プロセスホワイトリストを編集する</value>
+    <value>Edit process whitelist</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>編集</value>
+    <value>Edit</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>プロセスホワイトリストを編集する</value>
+    <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>編集済み</value>
+    <value>Modified</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>キャンセル</value>
+    <value>Cancel</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>保存</value>
+    <value>Save</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>ホーム</value>
+    <value>Home</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>デバイスが電源に接続されているため、プロセスの制限は一時停止しました(ブラックリストにあるプロセスを除く)。
-この動作は設定で変更することができます。</value>
+    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
+You can change this behavior in settings.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>バックグラウンドプログラムを制限しています…</value>
+    <value>Throttling background programs...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>ユーザーが一時停止しました。
-再開するには、もう一度一時停止ボタンをクリックしてください。</value>
+    <value>Throttling paused by user.
+Click the pause button again to resume.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>一時停止中</value>
+    <value>Paused</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>ソースコード（GitHub）</value>
+    <value>Source code (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>フィードバック</value>
+    <value>Feedback</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>管理者権限</value>
+    <value>Admin Privilege</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>ログフォルダを開く</value>
+    <value>Open Log Folder</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>エラーのみファイルに記録されます</value>
+    <value>Only errors will be logged to file</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>変更ログ</value>
+    <value>Changelog</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>一時停止</value>
+    <value>Pause</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>（実験的）起動時に管理者として実行</value>
+    <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>このアプリの翻訳に協力する 🌏</value>
+    <value>Help us translate this app 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// プロセス名は1行に1つ
-// 各行のダブルスラッシュとそれ以降の内容は無視されます。
-// 制限したいプロセスと同じ Windows セッションにおり、かつ同じかそれ以上の権限を持っている必要があります。
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>ホワイトリストに登録されたプロセスは制限されません。</value>
+    <value>Processes in whitelist will not be throttled</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>デフォルトのプロセスブラックリストに戻しますか？</value>
+    <value>Restore to default process blacklist?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>デフォルトに戻す</value>
+    <value>Restore to default</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>プロセスブラックリストを編集する</value>
+    <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>編集</value>
+    <value>Edit</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>プロセスブラックリストを編集する</value>
+    <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>キャンセル</value>
+    <value>Cancel</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>保存</value>
+    <value>Save</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>ブラックリスト内のプロセスは、電源接続時でも制限されます</value>
+    <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>支援する</value>
+    <value>Donate</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) で支援する
+    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(スマートフォンで開いて、Apple Pay または Google Pay で支払います)
+(Open on your phone to pay with Apple Pay or Google Pay)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## 中国のユーザーの場合は、WeChat でスキャンします。
+## For Chinese users, scan with WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
