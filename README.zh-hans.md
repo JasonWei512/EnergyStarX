@@ -35,13 +35,13 @@
 
 ## 使用微信扫码：
 
-![微信赞赏码](./src/EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
+![微信赞赏码](src/EnergyStarX/Assets/InApp/WeChat_Donation_QR_Code.png)
 
 ## 在 [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn) 上捐赠：
 
 （在手机上打开以使用 Apple Pay 或 Google Pay 支付）
 
-[![Buy me a coffee](./src/EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Buy me a coffee](src/EnergyStarX/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
 
 # 简介
@@ -74,7 +74,7 @@
 
 你可以在任务管理器的“状态”列中看到被限制资源的后台应用旁会显示一个绿叶图标。
 
-![任务管理器绿叶](/src/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
+![任务管理器绿叶](src/EnergyStarX/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
 # 已知问题
