@@ -1,3 +1,6 @@
+# Download the latest MSIX packages from Microsoft Store and upload them to GitHub release.
+# See: https://github.com/JasonWei512/Upload-Microsoft-Store-MSIX-Package-to-GitHub-Release
+
 name: Upload store MSIX to release
 
 on: 
@@ -14,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-
     - name: Upload store MSIX to release
       uses: JasonWei512/Upload-Microsoft-Store-MSIX-Package-to-GitHub-Release@v1
       with:
