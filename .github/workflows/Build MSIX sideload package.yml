@@ -1,0 +1,118 @@
+# Build MSIX package, sign with self-signed certificate, and upload to GitHub action artifacts.
+# You can download the MSIX package from artifacts and install it via sideloading.
+
+name: Build MSIX sideload package
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  # Create a draft release if there's a tag starting with "v" associated with this commit.
+  create-draft-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Create draft release
+      uses: ncipollo/release-action@v1
+      if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+      with:
+        draft: true
+        generateReleaseNotes: true
+
+  build:
+    needs: create-draft-release
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Release]
+        platform: [x64, arm64]
+
+    env:
+      SOLUTION_NAME: EnergyStarX
+      CERT_FILE_NAME: GitHubActionsWorkflow.pfx
+
+    defaults:
+      run:
+        working-directory: ./src
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    # Replace secrets in code, like Visual Studio App Center secret
+    - name: Replace secrets in code
+      run: |
+        function Replace-StringInFile {
+            param ($filePath, $oldString, $newString)
+
+            $file = Get-ChildItem $filePath
+            $fileContent = Get-Content $file
+            $matchCount = ($fileContent | Select-String -Pattern $oldString -AllMatches).Matches.Count
+            $fileContent = $fileContent.Replace($oldString, $newString)
+            $fileContent > $file
+
+            Write-Host "Replaced `"$oldString`" in `"$filePath`" for $matchCount times"
+        }
+
+        Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{AppCenterSecret}}" "${{ secrets.APP_CENTER_SECRET }}"
+
+    - name: Get MSIX package output directory
+      run: |
+        $msixPackageDir = "${{ github.workspace }}\Packages\${{ matrix.platform }}\"
+        "MSIX_PACKAGE_DIR=$msixPackageDir" >> $env:GITHUB_ENV
+
+    # Decode the Base64 encoded pfx certificate from GitHub secrets and save it to file
+    - name: Decode the certificate and save it to file
+      run: |
+        $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.BASE64_ENCODED_PFX }}")
+        $certificatePath = $env:CERT_FILE_NAME
+        [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+
+    - name: Restore Nuget packages
+      run: msbuild $env:SOLUTION_NAME /t:Restore /p:Configuration=${{ matrix.configuration }}
+
+    - name: Build and sign the MSIX package
+      run: |
+        $certificateAbsolutePath = (Get-Item $env:CERT_FILE_NAME).FullName
+
+        msbuild $env:SOLUTION_NAME `
+          /p:Configuration=${{ matrix.configuration }} `
+          /p:Platform=${{ matrix.platform }} `
+          /p:RuntimeIdentifier=win10-${{ matrix.platform }} `
+          `
+          /p:GenerateAppxPackageOnBuild=true `
+          /p:AppxPackageDir="$env:MSIX_PACKAGE_DIR" `
+          /p:AppxBundle=Never `
+          /p:UapAppxPackageBuildMode=SideloadOnly `
+          `
+          /p:AppxPackageSigningEnabled=True `
+          /p:PackageCertificateKeyFile="$certificateAbsolutePath" `
+          /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 `
+          `
+          /p:SelfContained=true `
+          /p:WindowsAppSDKSelfContained=true `
+          /p:PublishReadyToRun=false
+
+    - name: Delete the certificate file
+      run: Remove-Item -path $env:CERT_FILE_NAME
+
+    - name: Get GitHub action artifact name
+      run: |
+        $folderName = (Get-ChildItem $env:MSIX_PACKAGE_DIR)[0].Name
+        $shortHash = $env:GITHUB_SHA.Substring(0, 7)
+        $artifactName = "$folderName-$shortHash"
+        "ARTIFACT_NAME=$artifactName" >> $env:GITHUB_ENV
+
+    - name: Upload MSIX package to GitHub action artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name:  ${{ env.ARTIFACT_NAME }}
+        path: ${{ env.MSIX_PACKAGE_DIR }}
