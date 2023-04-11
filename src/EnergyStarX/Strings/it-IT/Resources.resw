@@ -121,81 +121,86 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Migliora la durata della batteria del tuo dispositivo!
-Energy Star X sfrutta le API EcoQoS di Windows 11 (anche come "Modalità Efficienza") per rallentare le applicazioni in background per migliorare la durata della batteria e la dissipazione di calore.
+    <value>🔋 Improve your device's battery life!
+Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
 
-Per il miglior risultato, hai bisogno di:
-- Windows 11 22H2 (Build 22621) o superiore
-- Intel 10° gen o nuovi processori mobile
-- AMD Ryzen 5000 o nuovi processori mobile
-- Qualcomm processori mobili
+For the best result, you need:
+- Windows 11 22H2 (Build 22621) or above
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
 
-❤ Codice sorgente: https://github.com/JasonWei512/EnergyStarX
-🌏 Traduci questa app: https://crowdin.com/project/EnergyStarX
+❤ Source code: https://github.com/JasonWei512/EnergyStarX
+🌏 Translate this app: https://crowdin.com/project/EnergyStarX
 
-Energy Star X è una versione GUI del software open source EnergyStar.</value>
+Energy Star X is a GUI version of the open source software EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Help</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>Informazioni sull'applicazione</value>
+    <value>About this application</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Intel sucks</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X è già in esecuzione!</value>
+    <value>Energy Star X is aleady running!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Esegui all'avvio</value>
+    <value>Run at startup</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Settings</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Esci</value>
+    <value>Exit</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Apri</value>
+    <value>Open</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduzione
+    <value># Introduction
 
-Energy Star X sfrutta le [API EcoQoS](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) di Windows 11 (anche come "Modalità Efficienza") per rallentare le applicazioni in background per migliorare la durata della batteria e la dissipazione di calore.
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-Energy Star X è una versione GUI del software open source [EnergyStar](https://github.com/imbushuo/EnergyStar/), sviluppato con Windows App SDK (WinUI 3).
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
 
-# Requisiti
 
-Per il miglior risultato, hai bisogno di:
+# Requirements
 
-## Software 
-- Windows 11 22H2 (Build 22621) o superiore
+For the best result, you need:
+
+## Software
+
+- Windows 11 22H2 (Build 22621) or above
 
 ## Hardware
 
-- Intel 10° gen o nuovi processori mobile
-- AMD Ryzen 5000 o nuovi processori mobile
-- Qualcomm processori mobili
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
 
-Questa app può funzionare su Windows 11 21H2 (Build 22000) e vecchio hardware, ma i risultati non sono garantiti.
+This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
 
-# Utilizzo
 
-Lasciatela attiva in background nella barra delle applicazioni. Puoi scegliere di avviarla all'accensione del PC dalla pagina delle impostazioni.
+# Usage
 
-Potete vedere una foglia verde a fianco dei processi limitati in background nella colonna "Stato" di Gestione Attività.
+Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+
+You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
-# Limitazioni
 
-- Se usate software per migliorare la taskbar come [StartAllBack](https://www.startallback.com/), questa app potrebbe chiudersi quando indicate con il puntatore del mouse l'icona dell'app nella barra delle applicazioni.
-- I processi figli non vengono accellerati quando il processo padre riceve focus.
-- I processi di sistema (PID 0) non vengono limitati. L'ipotesi è che questi processi sappiano cosa stiano facendo.
+# Known Limitations
 
-# Riconoscimenti
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
+- Child processes do not get boosted when the parent process receives input focus.
+- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+
+
+# Acknowledgements
 
 - imbushuo: https://github.com/imbushuo/
 - App Icon: 
@@ -204,53 +209,53 @@ Potete vedere una foglia verde a fianco dei processi limitati in background nell
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# Come contribuire
+# How to contribute
 
-Leggete [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Attenzione: la tua versione del sistema operativo ({0}) è inferiore a 22621, non otterrà i migliori risultati</value>
+    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>Log</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Abilita l'esecuzione all'avvio!</value>
+    <value>Enable running at startup!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contatta lo sviluppatore</value>
+    <value>Contact the developer</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Valuta questa app</value>
+    <value>Rate this app</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Suggerimenti</value>
+    <value>Feedback</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copia</value>
+    <value>Copy</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Limitare tutti i processi in background quando collegato alla rete elettrica</value>
+    <value>Throttle all background processes when plugged in</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// Un nome di processo per riga
-// Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
     
-// Non noi stessi
+// Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge ha consapevolezza energetica
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// Il frame UWP ha una gestione speciale, non dovrebbe essere limitato
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// L'estintore non dovrebbe prendere fuoco
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widget
+// Widgets
 Widgets.exe
-// Shell di sistema
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -261,134 +266,134 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Servizi di sistema - hanno la loro consapevolezza
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 ora supporta la modalità di efficienza
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Cancel</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Sì</value>
+    <value>Yes</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Ripristinare la whitelist dei processi predefinita?</value>
+    <value>Restore to default process whitelist?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Ripristina i valori predefiniti</value>
+    <value>Restore to default</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Cancella</value>
+    <value>Clear</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scorri verso il basso</value>
+    <value>Scroll to Bottom</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Ok, ho capito!</value>
+    <value>Got it!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Modifica whitelist dei processi</value>
+    <value>Edit process whitelist</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Modifica</value>
+    <value>Edit</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Modifica whitelist dei processi</value>
+    <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modificato</value>
+    <value>Modified</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Cancel</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Salva</value>
+    <value>Save</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Limitazione in pausa (tranne i processi nella blacklist) perché il dispositivo è collegato.
-È possibile modificare questo comportamento nelle impostazioni.</value>
+    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
+You can change this behavior in settings.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Limitazione programmi in background...</value>
+    <value>Throttling background programs...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Limitazione messa in pausa dall'utente.
-Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
+    <value>Throttling paused by user.
+Click the pause button again to resume.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>In Pausa</value>
+    <value>Paused</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Codice sorgente (GitHub)</value>
+    <value>Source code (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>Feedback</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Privilegi di Amministratore</value>
+    <value>Admin Privilege</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Apri cartella dei Log</value>
+    <value>Open Log Folder</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Solo gli errori saranno registrati nel file</value>
+    <value>Only errors will be logged to file</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
     <value>Changelog</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pausa</value>
+    <value>Pause</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Sperimentale) Esegui all'avvio come amministratore</value>
+    <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Aiutaci a tradurre questa app 🌏</value>
+    <value>Help us translate this app 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// Un nome di processo per riga
-// Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
-// Devi essere nella stessa sessione di Windows come il processo che vuoi limitare, e hanno lo stesso privilegio o superiore
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>I processi nella whitelist non saranno limitati</value>
+    <value>Processes in whitelist will not be throttled</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Ripristinare la whitelist dei processi predefinita?</value>
+    <value>Restore to default process blacklist?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Ripristina i valori predefiniti</value>
+    <value>Restore to default</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Modifica whitelist dei processi</value>
+    <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Modifica</value>
+    <value>Edit</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Modifica whitelist dei processi</value>
+    <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Cancel</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Salva</value>
+    <value>Save</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>I processi nella blacklist saranno limitati anche quando il dispositivo è collegato alla rete elettrica</value>
+    <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>Donate</value>
