@@ -1,3 +1,3 @@
 files:
-  - source: /EnergyStarX/Strings/en-us/*.resw
-    translation: /EnergyStarX/Strings/%locale%/%original_file_name%
+  - source: /src/EnergyStarX/Strings/en-us/*.resw
+    translation: /src/EnergyStarX/Strings/%locale%/%original_file_name%
