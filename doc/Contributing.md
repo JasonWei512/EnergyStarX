@@ -32,9 +32,9 @@ There are 2 ways to translate this app to your language.
 
 ## Edit the `.resw` language resource file manually
 
-1. Copy and paste `EnergyStarX\Strings\en-us` or `EnergyStarX\Strings\zh-hans` folder and rename it to [the language code of the language you want to translate to](https://learn.microsoft.com/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix).
+1. Copy and paste `src\EnergyStarX\Strings\en-us` or `src\EnergyStarX\Strings\zh-hans` folder and rename it to [the language code of the language you want to translate to](https://learn.microsoft.com/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix).
 
-   For example, if you want to translate this app to German, copy `EnergyStarX\Strings\en-us` folder to `EnergyStarX\Strings\de-DE`.
+   For example, if you want to translate this app to German, copy `src\EnergyStarX\Strings\en-us` folder to `src\EnergyStarX\Strings\de-DE`.
 
 2. Edit `Resource.resw` file in the pasted folder.
    
@@ -42,7 +42,7 @@ There are 2 ways to translate this app to your language.
 
 -  If you are using Visual Studio, open the solution, double click `Resources.resw`, and modify the `value` column.
   
-   For reference, you can compare `EnergyStarX\Strings\en-us\Resource.resw` with `EnergyStarX\Strings\zh-hans\Resource.resw`.
+   For reference, you can compare `src\EnergyStarX\Strings\en-us\Resource.resw` with `src\EnergyStarX\Strings\zh-hans\Resource.resw`.
 
 3. Once you're done, commit your changes, push to GitHub, and make a pull request.
 
@@ -61,7 +61,7 @@ Before contributing, you need to install the toolchain:
 
    - [XAML Styler](https://marketplace.visualstudio.com/items?itemName=TeamXavalon.XAMLStyler)
 
-3. Open `EnergyStarX.sln` in Visual Studio.
+3. Open `src\EnergyStarX.sln` in Visual Studio.
 
 Documents:
 

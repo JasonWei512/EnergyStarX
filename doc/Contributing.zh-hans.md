@@ -28,9 +28,9 @@
 
 ## 手工编辑 `.resw` 语言资源文件
 
-1. 复制粘贴 `EnergyStarX\Strings\zh-hans` 或 `EnergyStarX\Strings\en-us` 文件夹并将其重命名为 [你想要翻译到的语言的语言代码](https://learn.microsoft.com/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix)。
+1. 复制粘贴 `src\EnergyStarX\Strings\zh-hans` 或 `src\EnergyStarX\Strings\en-us` 文件夹并将其重命名为 [你想要翻译到的语言的语言代码](https://learn.microsoft.com/windows/apps/publish/publish-your-app/supported-languages?pivots=store-installer-msix)。
 
-   例如，如果你想要把这个应用翻译为繁体中文，把 `EnergyStarX\Strings\zh-hans` 复制到 `EnergyStarX\Strings\zh-Hant`。
+   例如，如果你想要把这个应用翻译为繁体中文，把 `src\EnergyStarX\Strings\zh-hans` 复制到 `src\EnergyStarX\Strings\zh-Hant`。
 
 2. 编辑粘贴的文件夹中的 `Resource.resw` 文件。
 
@@ -38,7 +38,7 @@
 
 -  如果你使用 Visual Studio，打开解决方案，双击 `Resources.resw`，然后编辑 `值` 行。
 
-   作为参考，你可以对比 `EnergyStarX\Strings\en-us\Resource.resw` 和 `EnergyStarX\Strings\zh-hans\Resource.resw`。
+   作为参考，你可以对比 `src\EnergyStarX\Strings\en-us\Resource.resw` 和 `src\EnergyStarX\Strings\zh-hans\Resource.resw`。
 
 3. 完成后，提交更改，推送至 GitHub，然后创建一个 pull request。
 
@@ -57,7 +57,7 @@
 
    - [XAML Styler](https://marketplace.visualstudio.com/items?itemName=TeamXavalon.XAMLStyler)
 
-3. 在 Visual Studio 中打开 `EnergyStarX.sln`。
+3. 在 Visual Studio 中打开 `src\EnergyStarX.sln`。
 
 文档:
 
