@@ -44,7 +44,7 @@
 
             <AppBarButton x:Uid="Log_OpenLogFolderButton" Command="{x:Bind ViewModel.OpenLogFolderCommand}">
                 <AppBarButton.Icon>
-                    <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xED25;" />
+                    <FontIcon Glyph="&#xED25;" />
                 </AppBarButton.Icon>
             </AppBarButton>
         </CommandBar>
