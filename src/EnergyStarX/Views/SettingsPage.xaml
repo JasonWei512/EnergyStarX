@@ -36,7 +36,6 @@
         </Style>
 
         <Thickness x:Key="SettingsExpanderContentMargin">0,0,28,0</Thickness>
-        <Thickness x:Key="SettingsExpanderItemMargin">56,10,24,10</Thickness>
 
         <Style TargetType="HyperlinkButton" />
     </Page.Resources>
@@ -108,11 +107,12 @@
                             <ToggleSwitch IsEnabled="{x:Bind ViewModel.IsRunAtStartupToggleable, Mode=OneWay}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
 
                             <lab:SettingsExpander.Items>
-                                <CheckBox
-                                    x:Uid="Settings_RunAtStartupAsAdminCheckBox"
-                                    Margin="{StaticResource SettingsExpanderItemMargin}"
-                                    IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
-                                    IsEnabled="{x:Bind ViewModel.IsRunAtStartupAsAdminToggleable, Mode=OneWay}" />
+                                <lab:SettingsCard ContentAlignment="Left">
+                                    <CheckBox
+                                        x:Uid="Settings_RunAtStartupAsAdminCheckBox"
+                                        IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
+                                        IsEnabled="{x:Bind ViewModel.IsRunAtStartupAsAdminToggleable, Mode=OneWay}" />
+                                </lab:SettingsCard>
                             </lab:SettingsExpander.Items>
                         </lab:SettingsExpander>
 
