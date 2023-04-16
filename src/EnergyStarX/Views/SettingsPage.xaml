@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:lab="using:CommunityToolkit.Labs.WinUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:settingsUI="using:WinUICommunity.SettingsUI.Controls"
     xmlns:xaml="using:Microsoft.UI.Xaml"
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
@@ -35,10 +35,9 @@
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
 
-        <Thickness x:Key="SettingsExpanderHeaderMargin">0,0,24,0</Thickness>
-        <Thickness x:Key="SettingsExpanderContentMargin">56,10,24,10</Thickness>
+        <Thickness x:Key="SettingsExpanderContentMargin">0,0,28,0</Thickness>
+        <Thickness x:Key="SettingsExpanderItemMargin">56,10,24,10</Thickness>
 
-        <Style BasedOn="{StaticResource ToggleSwitchSettingStyle}" TargetType="ToggleSwitch" />
         <Style TargetType="HyperlinkButton" />
     </Page.Resources>
 
@@ -101,49 +100,53 @@
                     <TextBlock x:Uid="Settings_Title" Style="{StaticResource TitleStyle}" />
 
                     <StackPanel Margin="{StaticResource SubContentBlockMargin}">
-                        <settingsUI:SettingExpander>
-                            <settingsUI:SettingExpander.Header>
-                                <settingsUI:Setting x:Uid="Settings_RunAtStartupSetting" Icon="&#xE7F8;">
-                                    <settingsUI:Setting.ActionContent>
-                                        <ToggleSwitch IsEnabled="{x:Bind ViewModel.IsRunAtStartupToggleable, Mode=OneWay}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
-                                    </settingsUI:Setting.ActionContent>
-                                </settingsUI:Setting>
-                            </settingsUI:SettingExpander.Header>
+                        <lab:SettingsExpander x:Uid="Settings_RunAtStartupSetting">
+                            <lab:SettingsExpander.HeaderIcon>
+                                <FontIcon Glyph="&#xE7F8;" />
+                            </lab:SettingsExpander.HeaderIcon>
 
-                            <settingsUI:SettingExpander.Content>
+                            <ToggleSwitch IsEnabled="{x:Bind ViewModel.IsRunAtStartupToggleable, Mode=OneWay}" IsOn="{x:Bind ViewModel.RunAtStartup, Mode=TwoWay}" />
+
+                            <lab:SettingsExpander.Items>
                                 <CheckBox
                                     x:Uid="Settings_RunAtStartupAsAdminCheckBox"
-                                    Margin="{StaticResource SettingsExpanderContentMargin}"
+                                    Margin="{StaticResource SettingsExpanderItemMargin}"
                                     IsChecked="{x:Bind ViewModel.RunAtStartupAsAdmin, Mode=TwoWay}"
                                     IsEnabled="{x:Bind ViewModel.IsRunAtStartupAsAdminToggleable, Mode=OneWay}" />
-                            </settingsUI:SettingExpander.Content>
-                        </settingsUI:SettingExpander>
+                            </lab:SettingsExpander.Items>
+                        </lab:SettingsExpander>
 
-                        <settingsUI:Setting x:Uid="Settings_ThrottleWhenPluggedIn" Icon="&#xEBB1;">
-                            <settingsUI:Setting.ActionContent>
-                                <ToggleSwitch Margin="{StaticResource SettingsExpanderHeaderMargin}" IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
-                            </settingsUI:Setting.ActionContent>
-                        </settingsUI:Setting>
+                        <lab:SettingsCard x:Uid="Settings_ThrottleWhenPluggedIn">
+                            <lab:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xEBB1;" />
+                            </lab:SettingsCard.HeaderIcon>
 
-                        <settingsUI:Setting x:Uid="Settings_ProcessWhitelist" Icon="&#xF16C;">
-                            <settingsUI:Setting.ActionContent>
-                                <StackPanel Margin="{StaticResource SettingsExpanderHeaderMargin}" Orientation="Horizontal">
-                                    <Button x:Uid="Settings_ProcessWhitelist_EditButton" Command="{x:Bind ViewModel.ShowProcessWhitelistEditorDialogCommand}" />
-                                    <Grid Width="10" />
-                                    <Button x:Uid="Settings_ProcessWhitelist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessWhitelistCommand}" />
-                                </StackPanel>
-                            </settingsUI:Setting.ActionContent>
-                        </settingsUI:Setting>
+                            <ToggleSwitch Margin="{StaticResource SettingsExpanderContentMargin}" IsOn="{x:Bind ViewModel.ThrottleWhenPluggedIn, Mode=TwoWay}" />
+                        </lab:SettingsCard>
 
-                        <settingsUI:Setting x:Uid="Settings_ProcessBlacklist" Icon="&#xF16D;">
-                            <settingsUI:Setting.ActionContent>
-                                <StackPanel Margin="{StaticResource SettingsExpanderHeaderMargin}" Orientation="Horizontal">
-                                    <Button x:Uid="Settings_ProcessBlacklist_EditButton" Command="{x:Bind ViewModel.ShowProcessBlacklistEditorDialogCommand}" />
-                                    <Grid Width="10" />
-                                    <Button x:Uid="Settings_ProcessBlacklist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessBlacklistCommand}" />
-                                </StackPanel>
-                            </settingsUI:Setting.ActionContent>
-                        </settingsUI:Setting>
+                        <lab:SettingsCard x:Uid="Settings_ProcessWhitelist">
+                            <lab:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF16C;" />
+                            </lab:SettingsCard.HeaderIcon>
+
+                            <StackPanel Margin="{StaticResource SettingsExpanderContentMargin}" Orientation="Horizontal">
+                                <Button x:Uid="Settings_ProcessWhitelist_EditButton" Command="{x:Bind ViewModel.ShowProcessWhitelistEditorDialogCommand}" />
+                                <Grid Width="10" />
+                                <Button x:Uid="Settings_ProcessWhitelist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessWhitelistCommand}" />
+                            </StackPanel>
+                        </lab:SettingsCard>
+
+                        <lab:SettingsCard x:Uid="Settings_ProcessBlacklist">
+                            <lab:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF16D;" />
+                            </lab:SettingsCard.HeaderIcon>
+
+                            <StackPanel Margin="{StaticResource SettingsExpanderContentMargin}" Orientation="Horizontal">
+                                <Button x:Uid="Settings_ProcessBlacklist_EditButton" Command="{x:Bind ViewModel.ShowProcessBlacklistEditorDialogCommand}" />
+                                <Grid Width="10" />
+                                <Button x:Uid="Settings_ProcessBlacklist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessBlacklistCommand}" />
+                            </StackPanel>
+                        </lab:SettingsCard>
                     </StackPanel>
 
                     <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubTitleStyle}" />
