@@ -96,9 +96,17 @@
                 MaxWidth="800"
                 HorizontalAlignment="Center">
                 <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}" HorizontalAlignment="Stretch">
+                    <StackPanel.ChildrenTransitions>
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </StackPanel.ChildrenTransitions>
+
                     <TextBlock x:Uid="Settings_Title" Style="{StaticResource TitleStyle}" />
 
                     <StackPanel Margin="{StaticResource SubContentBlockMargin}">
+                        <StackPanel.ChildrenTransitions>
+                            <RepositionThemeTransition IsStaggeringEnabled="False" />
+                        </StackPanel.ChildrenTransitions>
+
                         <lab:SettingsExpander x:Uid="Settings_RunAtStartupSetting">
                             <lab:SettingsExpander.HeaderIcon>
                                 <FontIcon Glyph="&#xE7F8;" />
