@@ -1,5 +1,4 @@
-﻿using EnergyStarX.Helpers;
-using Microsoft.AppCenter.Analytics;
+﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.UI.Xaml;
 
 namespace EnergyStarX.Services;
@@ -27,7 +26,6 @@ public class WindowService
         }
         App.MainWindow.Activate();
         App.MainWindow.BringToFront();
-        App.MainWindow.Backdrop = new MicaSystemBackdropEx(); // Workaround for https://github.com/dotMorten/WinUIEx/issues/55
     }
 
     public void HideAppWindow()
