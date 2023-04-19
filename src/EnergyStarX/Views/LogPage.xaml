@@ -17,6 +17,7 @@
             HorizontalScrollBarVisibility="Auto"
             VerticalScrollBarVisibility="Auto">
             <TextBlock
+                Margin="8,0,8,0"
                 FontFamily="Consolas"
                 FontSize="18"
                 IsTextSelectionEnabled="True">
