@@ -7,7 +7,7 @@
     "Microsoft.VisualStudio.Component.ManagedDesktop.Core",
     "Microsoft.VisualStudio.Component.ManagedDesktop.Prerequisites",
     "Microsoft.VisualStudio.Component.NuGet",
-    "Microsoft.VisualStudio.Component.Windows10SDK.19041",
+    "Microsoft.VisualStudio.Component.Windows10SDK.22000",
     "Microsoft.VisualStudio.Component.Windows10SDK",
     "Microsoft.VisualStudio.ComponentGroup.MSIX.Packaging",
     "Microsoft.VisualStudio.ComponentGroup.WindowsAppSDK.Cs",
