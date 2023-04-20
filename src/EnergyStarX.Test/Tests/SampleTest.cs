@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace EnergyStarX.Test;
+namespace EnergyStarX.Test.Tests;
 
 // TODO: Write unit tests.
 // https://docs.microsoft.com/visualstudio/test/getting-started-with-unit-testing
@@ -8,7 +8,7 @@ namespace EnergyStarX.Test;
 // https://docs.microsoft.com/visualstudio/test/run-unit-tests-with-test-explorer
 
 [TestClass]
-public class TestClass
+public class SampleTest
 {
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
@@ -41,9 +41,9 @@ public class TestClass
     }
 
     // UITestMethod doesn't work correctly with Windows App SDK 1.3
-    //[UITestMethod]
-    //public void UITestMethod()
-    //{
-    //    Assert.AreEqual(0, new Grid().ActualWidth);
-    //}
+    // [UITestMethod]
+    // public void UITestMethod()
+    // {
+    //     Assert.AreEqual(0, new Grid().ActualWidth);
+    // }
 }

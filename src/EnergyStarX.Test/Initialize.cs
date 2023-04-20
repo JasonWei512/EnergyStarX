@@ -12,7 +12,8 @@ public class Initialize
     {
         // TODO: Initialize the appropriate version of the Windows App SDK.
         // This is required when testing MSIX apps that are framework-dependent on the Windows App SDK.
-        Bootstrap.TryInitialize(0x00010001, out int _);
+        // https://learn.microsoft.com/en-us/windows/apps/api-reference/cs-bootstrapper-apis/microsoft.windows.applicationmodel.dynamicdependency/microsoft.windows.applicationmodel.dynamicdependency.bootstrap#tryinitialize-methods
+        Bootstrap.TryInitialize(0x00010003, out int _);
     }
 
     [AssemblyCleanup]
