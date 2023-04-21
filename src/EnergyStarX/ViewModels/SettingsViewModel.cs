@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.Services;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
@@ -14,7 +15,7 @@ public partial class SettingsViewModel : ObservableRecipient
     private readonly EnergyService energyService;
     private readonly DialogService dialogService;
     private readonly StartupService startupService;
-    private readonly SettingsService settingsService;
+    private readonly ISettingsService settingsService;
 
     public string VersionDescription { get; } = $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {PackageInfo.VersionString}";
 
@@ -105,7 +106,7 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public event EventHandler? ProcessBlacklistEditorDialogShowRequested;
 
-    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService, SettingsService settingsService)
+    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService, ISettingsService settingsService)
     {
         this.energyService = energyService;
         this.dialogService = dialogService;

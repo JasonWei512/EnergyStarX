@@ -1,5 +1,5 @@
 ﻿using EnergyStarX.Activation;
-using EnergyStarX.Contracts.Services;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
 
@@ -18,14 +18,14 @@ public class ActivationService : IActivationService
     private readonly AppInstance currentAppInstance = AppInstance.GetCurrent();
 
     private readonly SystemTrayIconService systemTrayIconService;
-    private readonly WindowService windowService;
+    private readonly IWindowService windowService;
     private readonly EnergyService energyService;
     private readonly StartupService startupService;
 
     public ActivationService(
         ActivationHandler<LaunchActivatedEventArgs> defaultHandler,
         IEnumerable<IActivationHandler> activationHandlers,
-        WindowService windowService,
+        IWindowService windowService,
         EnergyService energyService,
         LogViewModel logViewModel,
         SystemTrayIconService systemTrayIconService,

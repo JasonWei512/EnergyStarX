@@ -1,5 +1,5 @@
 ﻿using DependencyPropertyGenerator;
-using EnergyStarX.Services;
+using EnergyStarX.Interfaces.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;
@@ -15,7 +15,7 @@ namespace EnergyStarX.Behaviors;
 [DependencyProperty<ObservableCollection<string>>("BindableInlines")]
 public partial class TextBlockBehavior : DependencyObject, IBehavior
 {
-    private readonly WindowService windowService;
+    private readonly IWindowService windowService;
 
     private TextBlock? AssociatedTextBlock => AssociatedObject as TextBlock;
 
@@ -23,7 +23,7 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
 
     public TextBlockBehavior()
     {
-        this.windowService = App.GetService<WindowService>();
+        this.windowService = App.GetService<IWindowService>();
         this.windowService.WindowShowing += WindowService_MainWindowShowing;
         this.windowService.WindowHiding += WindowService_MainWindowHiding;
     }

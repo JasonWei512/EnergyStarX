@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.WinUI;
 using EnergyStarX.Helpers;
-using EnergyStarX.Services;
+using EnergyStarX.Interfaces.Services;
 using Microsoft.UI.Dispatching;
 using System.Collections.ObjectModel;
 using Windows.ApplicationModel.DataTransfer;
@@ -15,7 +15,7 @@ public partial class LogViewModel : ObservableRecipient
 
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
-    private readonly WindowService windowService;
+    private readonly IWindowService windowService;
 
     public ObservableCollection<string> Logs { get; } = new();
 
@@ -26,7 +26,7 @@ public partial class LogViewModel : ObservableRecipient
 
     public event EventHandler? ScrollToBottomRequested;
 
-    public LogViewModel(WindowService windowService)
+    public LogViewModel(IWindowService windowService)
     {
         this.windowService = windowService;
         this.windowService.WindowShowing += (s, e) => ScrollToBottomRequested?.Invoke(this, EventArgs.Empty);

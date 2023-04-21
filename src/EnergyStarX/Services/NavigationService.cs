@@ -1,6 +1,6 @@
-﻿using EnergyStarX.Contracts.Services;
-using EnergyStarX.Contracts.ViewModels;
-using EnergyStarX.Helpers;
+﻿using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
+using EnergyStarX.Interfaces.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;

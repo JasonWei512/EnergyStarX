@@ -1,5 +1,4 @@
-﻿using EnergyStarX.Contracts.Services;
-using EnergyStarX.Services;
+﻿using EnergyStarX.Interfaces.Services;
 using EnergyStarX.ViewModels;
 using Microsoft.UI.Xaml;
 
@@ -8,9 +7,9 @@ namespace EnergyStarX.Activation;
 public class DefaultActivationHandler : ActivationHandler<LaunchActivatedEventArgs>
 {
     private readonly INavigationService navigationService;
-    private readonly SettingsService settingsService;
+    private readonly ISettingsService settingsService;
 
-    public DefaultActivationHandler(INavigationService navigationService, SettingsService settingsService)
+    public DefaultActivationHandler(INavigationService navigationService, ISettingsService settingsService)
     {
         this.navigationService = navigationService;
         this.settingsService = settingsService;

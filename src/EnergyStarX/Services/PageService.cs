@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-using EnergyStarX.Contracts.Services;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
 

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.WinUI;
 using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using H.NotifyIcon.Core;
 using Microsoft.UI.Dispatching;
 using NLog;
@@ -20,10 +21,10 @@ public class SystemTrayIconService
     private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
-    private readonly WindowService windowService;
+    private readonly IWindowService windowService;
     private readonly EnergyService energyService;
 
-    public SystemTrayIconService(WindowService windowService, EnergyService energyService)
+    public SystemTrayIconService(IWindowService windowService, EnergyService energyService)
     {
         this.windowService = windowService;
         this.energyService = energyService;
