@@ -1,9 +1,10 @@
 ﻿using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using static EnergyStarX.Helpers.SettingsHelper;
 
 namespace EnergyStarX.Services;
 
-public class SettingsService
+public class SettingsService : ISettingsService
 {
     public bool FirstRun
     {

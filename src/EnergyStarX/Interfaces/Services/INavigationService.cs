@@ -2,7 +2,7 @@
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 
-namespace EnergyStarX.Contracts.Services;
+namespace EnergyStarX.Interfaces.Services;
 
 public interface INavigationService
 {

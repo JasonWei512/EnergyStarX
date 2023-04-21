@@ -5,6 +5,7 @@
 // If you are Microsoft (and/or its affiliates) employee, vendor or contractor who is working on Windows-specific integration projects, you may use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so without the restriction above.
 
 using EnergyStarX.Core.Interop;
+using EnergyStarX.Interfaces.Services;
 using Microsoft.Windows.System.Power;
 using NLog;
 using System.Diagnostics;
@@ -25,14 +26,14 @@ public enum ThrottleStatus
     Stopped = 0,
 
     /// <summary>
-    /// Device is plugged in, and <see cref="SettingsService.ThrottleWhenPluggedIn"/> is disabled
+    /// Device is plugged in, and <see cref="ISettingsService.ThrottleWhenPluggedIn"/> is disabled
     /// </summary>
     OnlyBlacklist = 1,
 
     /// <summary>
     /// Possible situations: <br/>
     /// - Device is on battery <br/>
-    /// - Device is plugged in, and <see cref="SettingsService.ThrottleWhenPluggedIn"/> is enabled
+    /// - Device is plugged in, and <see cref="ISettingsService.ThrottleWhenPluggedIn"/> is enabled
     /// </summary>
     BlacklistAndAllButWhitelist = 2
 };
@@ -43,8 +44,8 @@ public class EnergyService
     private readonly object lockObject = new();
     private CancellationTokenSource houseKeepingCancellationTokenSource = new();
 
-    private readonly WindowService windowService;
-    private readonly SettingsService settingsService;
+    private readonly IWindowService windowService;
+    private readonly ISettingsService settingsService;
 
     // Speical handling needs for UWP to get the child window process
     private const string UWPFrameHostApp = "ApplicationFrameHost.exe";
@@ -116,7 +117,7 @@ public class EnergyService
 
     public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 
-    public EnergyService(WindowService windowService, SettingsService settingsService)
+    public EnergyService(IWindowService windowService, ISettingsService settingsService)
     {
         szControlBlock = Marshal.SizeOf<Win32Api.PROCESS_POWER_THROTTLING_STATE>();
         pThrottleOn = Marshal.AllocHGlobal(szControlBlock);
@@ -526,7 +527,7 @@ public class EnergyService
     }
 
     private bool IsProcessInWhitelist(string processName)
-    {   
+    {
         return IsProcesInList(processName, ProcessWhitelist, WildcardProcessWhitelist);
     }
 

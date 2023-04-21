@@ -1,21 +1,19 @@
 ﻿using EnergyStarX.Activation;
 using EnergyStarX.Constants;
-using EnergyStarX.Contracts.Services;
-using EnergyStarX.Core.Contracts.Services;
+using EnergyStarX.Core.Interfaces.Services;
 using EnergyStarX.Core.Services;
 using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
-
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
-
 using NLog;
 
 namespace EnergyStarX;
@@ -69,12 +67,12 @@ public partial class App : Application
             services.AddSingleton<IActivationService, ActivationService>();
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<WindowService>();
+            services.AddSingleton<IWindowService, WindowService>();
             services.AddSingleton<EnergyService>();
             services.AddSingleton<DialogService>();
             services.AddSingleton<SystemTrayIconService>();
             services.AddSingleton<StartupService>();
-            services.AddSingleton<SettingsService>();
+            services.AddSingleton<ISettingsService, SettingsService>();
 
             // Core Services
             services.AddSingleton<IFileService, FileService>();

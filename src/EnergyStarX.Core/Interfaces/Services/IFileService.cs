@@ -1,4 +1,4 @@
-﻿namespace EnergyStarX.Core.Contracts.Services;
+﻿namespace EnergyStarX.Core.Interfaces.Services;
 
 public interface IFileService
 {

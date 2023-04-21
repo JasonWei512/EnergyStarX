@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Services;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.Views;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
@@ -15,7 +14,7 @@ public partial class ShellViewModel : ObservableRecipient
     public INavigationService NavigationService { get; }
     public INavigationViewService NavigationViewService { get; }
 
-    private readonly SettingsService settingsService;
+    private readonly ISettingsService settingsService;
 
     [ObservableProperty]
     private bool isBackEnabled;
@@ -30,7 +29,7 @@ public partial class ShellViewModel : ObservableRecipient
     public bool IsOsVersionNotRecommended { get; } = Environment.OSVersion.Version.Build < 22621;
     public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".ToLocalized(), Environment.OSVersion.Version.Build);
 
-    public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService, SettingsService settingsService)
+    public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService, ISettingsService settingsService)
     {
         NavigationService = navigationService;
         NavigationViewService = navigationViewService;

@@ -1,4 +1,4 @@
-﻿namespace EnergyStarX.Contracts.Services;
+﻿namespace EnergyStarX.Interfaces.Services;
 
 public interface IPageService
 {

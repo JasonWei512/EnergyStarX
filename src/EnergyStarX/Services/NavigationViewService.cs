@@ -1,5 +1,5 @@
-﻿using EnergyStarX.Contracts.Services;
-using EnergyStarX.Helpers;
+﻿using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using EnergyStarX.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics.CodeAnalysis;

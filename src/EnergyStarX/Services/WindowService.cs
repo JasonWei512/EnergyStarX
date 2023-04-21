@@ -1,9 +1,10 @@
-﻿using Microsoft.AppCenter.Analytics;
+﻿using EnergyStarX.Interfaces.Services;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.UI.Xaml;
 
 namespace EnergyStarX.Services;
 
-public class WindowService
+public class WindowService : IWindowService
 {
     public bool WindowVisible => App.MainWindow.Visible;
 
