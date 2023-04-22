@@ -82,7 +82,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [NotifyPropertyChangedFor(nameof(ProcessWhitelistEditorDialogTitle))]
     private string processWhitelistString = string.Empty;
 
-    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessWhitelistString"'s is LF
+    // The line ending of user inputed text (from TextBox) is CRLF, while "settingsService.ProcessWhitelistString"'s is LF
     public bool ProcessWhitelistModified => ProcessWhitelistString.ReplaceLineEndings() != settingsService.ProcessWhitelistString.ReplaceLineEndings();
 
     public string ProcessWhitelistEditorDialogTitle =>
@@ -96,7 +96,7 @@ public partial class SettingsViewModel : ObservableRecipient
     [NotifyPropertyChangedFor(nameof(ProcessBlacklistEditorDialogTitle))]
     private string processBlacklistString = string.Empty;
 
-    // The line ending of user inputed text (from TextBox) is CRLF, while "Settings.ProcessBlacklistString"'s is LF
+    // The line ending of user inputed text (from TextBox) is CRLF, while "settingsService.ProcessBlacklistString"'s is LF
     public bool ProcessBlacklistModified => ProcessBlacklistString.ReplaceLineEndings() != settingsService.ProcessBlacklistString.ReplaceLineEndings();
 
     public string ProcessBlacklistEditorDialogTitle =>
