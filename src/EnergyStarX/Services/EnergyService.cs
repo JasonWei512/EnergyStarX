@@ -526,28 +526,23 @@ public class EnergyService
     }
 
     private bool IsProcessInWhitelist(string processName)
-    {
-        if (ProcessWhitelist.Contains(processName.ToLowerInvariant()))
-        {
-            return true;
-        }
-
-        if (WildcardProcessWhitelist.Any(wildcardExpression => FileSystemName.MatchesSimpleExpression(wildcardExpression, processName, true)))
-        {
-            return true;
-        }
-
-        return false;
+    {   
+        return IsProcesInList(processName, ProcessWhitelist, WildcardProcessWhitelist);
     }
 
     private bool IsProcessInBlacklist(string processName)
     {
-        if (ProcessBlacklist.Contains(processName.ToLowerInvariant()))
+        return IsProcesInList(processName, ProcessBlacklist, WildcardProcessBlacklist);
+    }
+
+    private bool IsProcesInList(string processName, IReadOnlySet<string> fullProcessList, IReadOnlySet<string> wildcardProcessList)
+    {
+        if (fullProcessList.Contains(processName.ToLowerInvariant()))
         {
             return true;
         }
 
-        if (WildcardProcessBlacklist.Any(wildcardExpression => FileSystemName.MatchesSimpleExpression(wildcardExpression, processName, true)))
+        if (wildcardProcessList.Any(wildcardExpression => FileSystemName.MatchesSimpleExpression(wildcardExpression, processName, true)))
         {
             return true;
         }
