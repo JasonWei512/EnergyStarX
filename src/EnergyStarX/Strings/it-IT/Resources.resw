@@ -235,6 +235,7 @@ Leggete [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develo
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// Un nome di processo per riga
 // Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
+// Supports "?" and "*" wildcards
     
 // Non noi stessi
 EnergyStar.exe
@@ -361,6 +362,7 @@ Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
     <value>// Un nome di processo per riga
 // Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
 // Devi essere nella stessa sessione di Windows come il processo che vuoi limitare, e hanno lo stesso privilegio o superiore
+// Supports "?" and "*" wildcards
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
