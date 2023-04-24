@@ -242,10 +242,10 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
 // Doppelter Schrägstrich und Inhalt danach in jeder Zeile werden ignoriert
 // Supports "?" and "*" wildcards
     
-// Nicht uns
+// Nicht wir selber
 EnergyStar.exe
 EnergyStarX.exe
-// Rand hat Energiebewusstsein
+// Edge hat selbst ein Energiebewusstsein
 msedge.exe
 WebViewHost.exe
 // UWP Frame hat spezielle Behandlung, sollte nicht gedrosselt werden
