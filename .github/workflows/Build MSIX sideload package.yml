@@ -12,8 +12,8 @@ jobs:
 
     steps:
     - name: Create draft release
-      uses: ncipollo/release-action@v1
       if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+      uses: ncipollo/release-action@v1
       with:
         draft: true
         generateReleaseNotes: true
@@ -28,7 +28,9 @@ jobs:
         platform: [x64, arm64]
 
     env:
-      SOLUTION_NAME: EnergyStarX
+      SOLUTION_NAME: EnergyStarX.sln
+      PACKAGE_PROJECT_NAME: EnergyStarX
+      TEST_PROJECT_NAME: EnergyStarX.Test
       CERT_FILE_NAME: GitHubActionsWorkflow.pfx
 
     defaults:
@@ -47,6 +49,28 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.1
 
+    - name: Add VSTest to PATH
+      uses: darenm/Setup-VSTest@v1.2
+
+    - name: Restore dependencies
+      run: dotnet restore $env:SOLUTION_NAME
+
+    - name: Build solution
+      run: |
+        msbuild $env:SOLUTION_NAME `
+          /p:Configuration=${{ matrix.configuration }} `
+          /p:Platform=${{ matrix.platform }} `
+          /p:PublishReadyToRun=false
+
+    - name: 🧪 Unit testing
+      if: matrix.platform == 'x64'  # GitHub Action only provides x64 Windows machines, which cannot run cross-compiled ARM64 tests
+      run: vstest.console.exe ${env:TEST_PROJECT_NAME}\bin\${{ matrix.platform }}\${{ matrix.configuration }}\**\${env:TEST_PROJECT_NAME}.dll
+
+    - name: Get MSIX package output directory
+      run: |
+        $msixPackageDir = "${{ github.workspace }}\Packages\${{ matrix.platform }}\"
+        "MSIX_PACKAGE_DIR=$msixPackageDir" >> $env:GITHUB_ENV
+
     # Replace secrets in code, like Visual Studio App Center secret
     - name: Replace secrets in code
       run: |
@@ -64,11 +88,6 @@ jobs:
 
         Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{AppCenterSecret}}" "${{ secrets.APP_CENTER_SECRET }}"
 
-    - name: Get MSIX package output directory
-      run: |
-        $msixPackageDir = "${{ github.workspace }}\Packages\${{ matrix.platform }}\"
-        "MSIX_PACKAGE_DIR=$msixPackageDir" >> $env:GITHUB_ENV
-
     # Decode the Base64 encoded pfx certificate from GitHub secrets and save it to file
     - name: Decode the certificate and save it to file
       run: |
@@ -76,14 +95,11 @@ jobs:
         $certificatePath = $env:CERT_FILE_NAME
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
-    - name: Restore Nuget packages
-      run: msbuild $env:SOLUTION_NAME /t:Restore /p:Configuration=${{ matrix.configuration }}
-
-    - name: Build and sign the MSIX package
+    - name: 📦 Build and sign MSIX package
       run: |
         $certificateAbsolutePath = (Get-Item $env:CERT_FILE_NAME).FullName
 
-        msbuild $env:SOLUTION_NAME `
+        msbuild $env:PACKAGE_PROJECT_NAME `
           /p:Configuration=${{ matrix.configuration }} `
           /p:Platform=${{ matrix.platform }} `
           /p:RuntimeIdentifier=win10-${{ matrix.platform }} `
@@ -111,7 +127,7 @@ jobs:
         $artifactName = "$folderName-$shortHash"
         "ARTIFACT_NAME=$artifactName" >> $env:GITHUB_ENV
 
-    - name: Upload MSIX package to GitHub action artifact
+    - name: 🚀 Upload MSIX package to GitHub action artifact
       uses: actions/upload-artifact@v3
       with:
         name:  ${{ env.ARTIFACT_NAME }}
