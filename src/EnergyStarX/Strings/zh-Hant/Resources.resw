@@ -239,25 +239,25 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>插電時限制所有背景進程</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-    
-// Not ourselves
+    <value>// 每行一個進程名
+// 每行中雙斜槓以及之後的内容會被忽略
+// 支援「?」和「*」萬用字元
+
+// 排除我們自己
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge 會自己管理好資源
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Frame 有特别處理, 不應該被限制
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// 工作管理員，滅火器不可以著火
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// 小工具
 Widgets.exe
-// System shell
+// 系統 shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -265,17 +265,17 @@ StartMenuExperienceHost.exe
 SearchHost.exe
 sihost.exe
 fontdrvhost.exe
-// IME
+// 輸入法
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// 系統服務 - 它们會自己管理好資源
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 已支援效率模式
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -365,10 +365,10 @@ firefox.exe</value>
     <value>協助翻譯此應用程式 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// 每行一個進程名稱
+// 每行中雙斜槓以及之後的内容會被忽略
+// 支援「?」和「*」萬用字元
+// 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
