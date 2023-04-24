@@ -240,6 +240,7 @@
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// 每行一个进程名
 // 每行中双斜杠以及之后的内容会被忽略
+// 支持 "?" 和 "*" 通配符
 
 // 排除我们自己
 EnergyStar.exe
@@ -365,6 +366,7 @@ firefox.exe</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一个进程名
 // 每行中双斜杠以及之后的内容会被忽略
+// 支持 "?" 和 "*" 通配符
 // 你需要和你想要限制的进程在同一个 Windows Session 中，且拥有相同或更高的权限
 </value>
   </data>

@@ -241,6 +241,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// 每行一個進程名
 // 每行中雙斜槓以及之後的内容會被忽略
+// 支援「?」和「*」萬用字元
 
 // 排除我們自己
 EnergyStar.exe
@@ -367,6 +368,7 @@ firefox.exe</value>
     <value>// 每行一個進程名稱
 // 每行中雙斜槓以及之後的内容會被忽略
 // 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
+// 支援「?」和「*」萬用字元
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">

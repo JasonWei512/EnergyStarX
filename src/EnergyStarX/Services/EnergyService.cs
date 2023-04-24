@@ -8,6 +8,7 @@ using EnergyStarX.Core.Interop;
 using Microsoft.Windows.System.Power;
 using NLog;
 using System.Diagnostics;
+using System.IO.Enumeration;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -97,9 +98,19 @@ public class EnergyService
     public IReadOnlySet<string> ProcessWhitelist { get; private set; } = new HashSet<string>();
 
     /// <summary>
+    /// A subset of <see cref="ProcessWhitelist" />, where the process name contains "?" or "*".
+    /// </summary>
+    private IReadOnlySet<string> WildcardProcessWhitelist { get; set; } = new HashSet<string>();
+
+    /// <summary>
     /// Processes in blacklist will be throttled even when device is plugged in
     /// </summary>
     public IReadOnlySet<string> ProcessBlacklist { get; private set; } = new HashSet<string>();
+
+    /// <summary>
+    /// A subset of <see cref="ProcessBlacklist" />, where the process name contains "?" or "*".
+    /// </summary>
+    private IReadOnlySet<string> WildcardProcessBlacklist { get; set; } = new HashSet<string>();
 
     public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
 
@@ -181,11 +192,12 @@ public class EnergyService
                 StopThrottling(previousThrottleStatus);
             }
 
-            HashSet<string> processWhitelist = ParseProcessList(processWhitelistString);
+            (HashSet<string> processWhitelist, HashSet<string> wildcardProcessWhitelist) = ParseProcessList(processWhitelistString);
 #if DEBUG
             processWhitelist.Add("devenv.exe");    // Visual Studio
 #endif
             ProcessWhitelist = processWhitelist;
+            WildcardProcessWhitelist = wildcardProcessWhitelist;
 
             logger.Info("Apply ProcessWhitelist:\n{0}", string.Join(Environment.NewLine, processWhitelist));
 
@@ -217,8 +229,9 @@ public class EnergyService
                 StopThrottling(previousThrottleStatus);
             }
 
-            HashSet<string> processBlacklist = ParseProcessList(processBlacklistString);
+            (HashSet<string> processBlacklist, HashSet<string> wildcardProcessBlacklist) = ParseProcessList(processBlacklistString);
             ProcessBlacklist = processBlacklist;
+            WildcardProcessBlacklist = wildcardProcessBlacklist;
 
             logger.Info("Apply ProcessBlacklist:\n{0}", string.Join(Environment.NewLine, processBlacklist));
 
@@ -235,9 +248,14 @@ public class EnergyService
     /// Each line of <paramref name="processListString"/> contains one process name;
     /// Double slash and content after it in each line will be ignored.
     /// </summary>
-    private HashSet<string> ParseProcessList(string processListString)
+    /// <returns>
+    /// In the returned tuple, "wildcardProcessList" is a subset of "fullProcessList", where the process name contains "?" or "*".
+    /// </returns>
+    private (HashSet<string> fullProcessList, HashSet<string> wildcardProcessList) ParseProcessList(string processListString)
     {
-        HashSet<string> result = new();
+        HashSet<string> fullProcessList = new();
+        HashSet<string> wildcardProcessList = new();
+
         Regex doubleSlashRegex = new("//");
 
         using StringReader stringReader = new(processListString);
@@ -247,11 +265,16 @@ public class EnergyService
             string processName = (doubleSlashMatch.Success ? line[..doubleSlashMatch.Index] : line).Trim().ToLowerInvariant();
             if (!string.IsNullOrEmpty(processName))
             {
-                result.Add(processName);
+                fullProcessList.Add(processName);
+
+                if (processName.Contains("?") || processName.Contains("*"))
+                {
+                    wildcardProcessList.Add(processName);
+                }
             }
         }
 
-        return result;
+        return (fullProcessList, wildcardProcessList);
     }
 
     /// <summary>
@@ -489,15 +512,42 @@ public class EnergyService
         }
     }
 
-    private bool ShouldBypassProcess(string processName, ThrottleStatus throttleStatus)
+    private bool ShouldBypassProcess(string processName, ThrottleStatus throttleStatus) => !ShouldThrottleProcess(processName, throttleStatus);
+
+    private bool ShouldThrottleProcess(string processName, ThrottleStatus throttleStatus)
     {
         return throttleStatus switch
         {
-            ThrottleStatus.Stopped => true,
-            ThrottleStatus.OnlyBlacklist => !ProcessBlacklist.Contains(processName.ToLowerInvariant()),
-            ThrottleStatus.BlacklistAndAllButWhitelist => !ProcessBlacklist.Contains(processName.ToLowerInvariant()) && ProcessWhitelist.Contains(processName.ToLowerInvariant()),
+            ThrottleStatus.Stopped => false,
+            ThrottleStatus.OnlyBlacklist => IsProcessInBlacklist(processName),
+            ThrottleStatus.BlacklistAndAllButWhitelist => IsProcessInBlacklist(processName) || !IsProcessInWhitelist(processName),
             _ => throw new ArgumentException("Unknown ThrottleStatus")
         };
+    }
+
+    private bool IsProcessInWhitelist(string processName)
+    {   
+        return IsProcesInList(processName, ProcessWhitelist, WildcardProcessWhitelist);
+    }
+
+    private bool IsProcessInBlacklist(string processName)
+    {
+        return IsProcesInList(processName, ProcessBlacklist, WildcardProcessBlacklist);
+    }
+
+    private bool IsProcesInList(string processName, IReadOnlySet<string> fullProcessList, IReadOnlySet<string> wildcardProcessList)
+    {
+        if (fullProcessList.Contains(processName.ToLowerInvariant()))
+        {
+            return true;
+        }
+
+        if (wildcardProcessList.Any(wildcardExpression => FileSystemName.MatchesSimpleExpression(wildcardExpression, processName, true)))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void ToggleEfficiencyMode(IntPtr hProcess, bool enable)

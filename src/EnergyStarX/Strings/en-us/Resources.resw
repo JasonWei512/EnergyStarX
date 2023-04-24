@@ -240,6 +240,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
 // Double slash and content after it in each line will be ignored
+// Supports "?" and "*" wildcards
     
 // Not ourselves
 EnergyStar.exe
@@ -365,6 +366,7 @@ Click the pause button again to resume.</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// One process name per line
 // Double slash and content after it in each line will be ignored
+// Supports "?" and "*" wildcards
 // You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
 </value>
   </data>

@@ -240,6 +240,7 @@ Tehtäväpalkissa pitäisi näkyä vihreä lehti.
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// Yksi prosessin nimi riviä kohden
 // Kaksoiskauttaviivarivit jätetään huomiotta
+// Supports "?" and "*" wildcards
 
 // Ei me
 EnergyStar.exe
@@ -366,6 +367,7 @@ Jatka painamalla taukonappulaa.</value>
     <value>// Yksi prosessi riviä kohden
 // Kaksoiskauttaviivarivit jätetään huomiotta
 // Sinun tulee olla samassa istunnossa kuin ohjelmassa, jota haluat tehostaa ja sinulla tulee olla väh. samat oikeudet
+// Supports "?" and "*" wildcards
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
