@@ -233,25 +233,25 @@ Leggete [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develo
     <value>Limitare tutti i processi in background quando collegato alla rete elettrica</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
+    <value>// Un nome di processo per riga
+// Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
 // Supports "?" and "*" wildcards
     
-// Not ourselves
+// Non noi stessi
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge ha consapevolezza energetica
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// Il frame UWP ha una gestione speciale, non dovrebbe essere limitato
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// L'estintore non dovrebbe prendere fuoco
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// Widget
 Widgets.exe
-// System shell
+// Shell di sistema
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -262,14 +262,14 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// Servizi di sistema - hanno la loro consapevolezza
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 ora supporta la modalità di efficienza
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -359,10 +359,10 @@ Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
     <value>Aiutaci a tradurre questa app 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
+    <value>// Un nome di processo per riga
+// Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
 // Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+// Devi essere nella stessa sessione di Windows come il processo che vuoi limitare, e hanno lo stesso privilegio o superiore
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
