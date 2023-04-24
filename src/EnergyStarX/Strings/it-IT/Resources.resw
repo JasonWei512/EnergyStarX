@@ -361,8 +361,8 @@ Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Un nome di processo per riga
 // Doppio slash e contenuto dopo di esso in ogni riga verranno ignorati
-// Devi essere nella stessa sessione di Windows come il processo che vuoi limitare, e hanno lo stesso privilegio o superiore
 // Supports "?" and "*" wildcards
+// Devi essere nella stessa sessione di Windows come il processo che vuoi limitare, e hanno lo stesso privilegio o superiore
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">

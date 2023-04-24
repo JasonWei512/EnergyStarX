@@ -366,8 +366,8 @@ firefox.exe</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// プロセス名は1行に1つ
 // 各行のダブルスラッシュとそれ以降の内容は無視されます。
-// 制限したいプロセスと同じ Windows セッションにおり、かつ同じかそれ以上の権限を持っている必要があります。
 // Supports "?" and "*" wildcards
+// 制限したいプロセスと同じ Windows セッションにおり、かつ同じかそれ以上の権限を持っている必要があります。
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">

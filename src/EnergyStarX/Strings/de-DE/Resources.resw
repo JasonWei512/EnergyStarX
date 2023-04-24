@@ -366,8 +366,8 @@ Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Prozessname pro Zeile
 // Zeile hinter einem doppelten Schrägstrich wird ignoriert
-// Sie müssen in der gleichen Windows-Sitzung sein wie der Prozess, den Sie drosseln möchten, und Sie müssen dieselben oder höhere Privilegien haben
 // Supports "?" and "*" wildcards
+// Sie müssen in der gleichen Windows-Sitzung sein wie der Prozess, den Sie drosseln möchten, und Sie müssen dieselben oder höhere Privilegien haben
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">

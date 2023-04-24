@@ -367,8 +367,8 @@ firefox.exe</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一個進程名稱
 // 每行中雙斜槓以及之後的内容會被忽略
-// 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
 // 支援「?」和「*」萬用字元
+// 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">

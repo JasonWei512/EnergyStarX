@@ -366,8 +366,8 @@ Jatka painamalla taukonappulaa.</value>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Yksi prosessi riviä kohden
 // Kaksoiskauttaviivarivit jätetään huomiotta
-// Sinun tulee olla samassa istunnossa kuin ohjelmassa, jota haluat tehostaa ja sinulla tulee olla väh. samat oikeudet
 // Supports "?" and "*" wildcards
+// Sinun tulee olla samassa istunnossa kuin ohjelmassa, jota haluat tehostaa ja sinulla tulee olla väh. samat oikeudet
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
