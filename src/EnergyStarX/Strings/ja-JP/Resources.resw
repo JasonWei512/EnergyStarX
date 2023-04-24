@@ -238,10 +238,10 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
     <value>電源接続時でも、すべてのバックグラウンドプロセスを制限する</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
+    <value>// プロセス名は1行に1つ
+// 各行のダブルスラッシュとそれ以降の内容は無視されます。
 // Supports "?" and "*" wildcards
-    
+
 // Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
@@ -364,10 +364,10 @@ firefox.exe</value>
     <value>このアプリの翻訳に協力する 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
+    <value>// プロセス名は1行に1つ
+// 各行のダブルスラッシュとそれ以降の内容は無視されます。
 // Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+// 制限したいプロセスと同じ Windows セッションにおり、かつ同じかそれ以上の権限を持っている必要があります。
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
