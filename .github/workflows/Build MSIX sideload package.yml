@@ -114,8 +114,12 @@ jobs:
           /p:AppxPackageSigningTimestampDigestAlgorithm=SHA256 `
           `
           /p:SelfContained=true `
-          /p:WindowsAppSDKSelfContained=true `
           /p:PublishReadyToRun=false
+
+        # Remove framework packages not of current platform to reduce artifact size
+        Get-ChildItem "$env:MSIX_PACKAGE_DIR\*\Dependencies\*" `
+          | Where-Object -Property Name -NE ${{ matrix.platform }} `
+          | ForEach-Object { Remove-Item -Recurse $_ }
 
     - name: Delete the certificate file
       run: Remove-Item -path $env:CERT_FILE_NAME
