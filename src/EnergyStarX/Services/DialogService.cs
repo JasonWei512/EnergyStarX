@@ -1,10 +1,11 @@
 ﻿using EnergyStarX.Helpers;
+using EnergyStarX.Interfaces.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace EnergyStarX.Services;
 
-public class DialogService
+public class DialogService : IDialogService
 {
     public async Task<bool> ShowConfirmationDialog(string title, string? content = null)
     {

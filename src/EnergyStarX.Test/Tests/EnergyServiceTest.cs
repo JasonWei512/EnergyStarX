@@ -173,21 +173,21 @@ public class EnergyServiceTest
         { "notepad.exe", ThrottleStatus.OnlyBlacklist, "", "", true },
         { "notepad.exe", ThrottleStatus.BlacklistAndAllButWhitelist, "", "", false },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("mspaint.exe", "powershell.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("mspaint.exe", "powershell.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("mspaint.exe", "powershell.exe"),
             Lines("cmd.exe", "pwsh.exe"),
@@ -195,21 +195,21 @@ public class EnergyServiceTest
         },
         // (Wildcards) Process not in blacklist or whitelist
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("mspa?nt.exe", "powe*shell.exe"),
             Lines("c?d.exe", "p*sh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("mspa?nt.exe", "powe*shell.exe"),
             Lines("c?d.exe", "p*sh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("mspa?nt.exe", "powe*shell.exe"),
             Lines("c?d.exe", "p*sh.exe"),
@@ -221,21 +221,21 @@ public class EnergyServiceTest
         { "notepad.exe", ThrottleStatus.OnlyBlacklist, "notepad.exe", "", false },
         { "notepad.exe", ThrottleStatus.BlacklistAndAllButWhitelist, "notepad.exe", "", false },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
@@ -243,63 +243,63 @@ public class EnergyServiceTest
         },
         // (Wildcards) Process only in blacklist
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
             Lines("cmd.exe", "pwsh.exe"),
@@ -311,21 +311,21 @@ public class EnergyServiceTest
         { "notepad.exe", ThrottleStatus.OnlyBlacklist, "", "notepad.exe", true },
         { "notepad.exe", ThrottleStatus.BlacklistAndAllButWhitelist, "", "notepad.exe", true },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notepad.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notepad.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "mspaint.exe"),
@@ -333,63 +333,63 @@ public class EnergyServiceTest
         },
         // (Wildcards) Process only in whitelist
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("note*.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("note*.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("note*.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("cmd.exe", "pwsh.exe"),
             Lines("notep?d.exe", "note*.exe", "mspaint.exe"),
@@ -401,21 +401,21 @@ public class EnergyServiceTest
         { "notepad.exe", ThrottleStatus.OnlyBlacklist, "notepad.exe", "notepad.exe", false },
         { "notepad.exe", ThrottleStatus.BlacklistAndAllButWhitelist, "notepad.exe", "notepad.exe", false },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("notepad.exe", "cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("notepad.exe", "cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notepad.exe", "mspaint.exe"),
             Lines("notepad.exe", "cmd.exe", "pwsh"),
@@ -423,84 +423,84 @@ public class EnergyServiceTest
         },
         // (Wildcards) Process in both blacklist and whitelist
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("notep?d.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("note*.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("notep?d.exe", "cmd.exe", "pwsh"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.Stopped,
             Lines("note*.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh.exe"),
             true
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.OnlyBlacklist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh.exe"),
             false
         },
         {
-            "notepad.exe", 
+            "notepad.exe",
             ThrottleStatus.BlacklistAndAllButWhitelist,
             Lines("note*.exe", "mspaint.exe"),
             Lines("note*.exe", "cmd.exe", "pwsh"),

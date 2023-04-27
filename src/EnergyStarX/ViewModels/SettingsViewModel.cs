@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Interfaces.Services;
-using EnergyStarX.Services;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
@@ -12,9 +11,9 @@ namespace EnergyStarX.ViewModels;
 
 public partial class SettingsViewModel : ObservableRecipient
 {
-    private readonly EnergyService energyService;
-    private readonly DialogService dialogService;
-    private readonly StartupService startupService;
+    private readonly IEnergyService energyService;
+    private readonly IDialogService dialogService;
+    private readonly IStartupService startupService;
     private readonly ISettingsService settingsService;
 
     public string VersionDescription { get; } = $"{"AppDisplayName".ToLocalized()} ({Package.Current.Id.Architecture}) - {PackageInfo.VersionString}";
@@ -106,7 +105,7 @@ public partial class SettingsViewModel : ObservableRecipient
 
     public event EventHandler? ProcessBlacklistEditorDialogShowRequested;
 
-    public SettingsViewModel(EnergyService energyService, DialogService dialogService, StartupService startupService, ISettingsService settingsService)
+    public SettingsViewModel(IEnergyService energyService, IDialogService dialogService, IStartupService startupService, ISettingsService settingsService)
     {
         this.energyService = energyService;
         this.dialogService = dialogService;
@@ -118,13 +117,13 @@ public partial class SettingsViewModel : ObservableRecipient
 
     private async Task Initialize()
     {
-        StartupService.StartupType startupType = await startupService.GetStartupType();
+        StartupType startupType = await startupService.GetStartupType();
         (RunAtStartup, RunAtStartupAsAdmin) = startupType switch
         {
-            StartupService.StartupType.None => (false, false),
-            StartupService.StartupType.User => (true, false),
-            StartupService.StartupType.Admin => (true, true),
-            _ => throw new ArgumentException("Unknown StartupService.StartupType")
+            StartupType.None => (false, false),
+            StartupType.User => (true, false),
+            StartupType.Admin => (true, true),
+            _ => throw new ArgumentException("Unknown StartupType")
         };
 
         Initializing = false;
@@ -248,11 +247,11 @@ public partial class SettingsViewModel : ObservableRecipient
         try
         {
             IsTogglingRunAtStartup = true;
-            StartupService.StartupType startupType = (newRunAtStartup, newRunAtStartupAsAdmin) switch
+            StartupType startupType = (newRunAtStartup, newRunAtStartupAsAdmin) switch
             {
-                (false, _) => StartupService.StartupType.None,
-                (true, false) => StartupService.StartupType.User,
-                (true, true) => StartupService.StartupType.Admin
+                (false, _) => StartupType.None,
+                (true, false) => StartupType.User,
+                (true, true) => StartupType.Admin
             };
 
             bool startupTypeSetSuccessfully = await startupService.SetStartupType(startupType);

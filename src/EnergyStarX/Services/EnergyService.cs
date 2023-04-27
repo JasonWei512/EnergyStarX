@@ -16,29 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace EnergyStarX.Services;
 
-public enum ThrottleStatus
-{
-    /// <summary>
-    /// Possible situations: <br/>
-    /// - Throttling paused by user <br/>
-    /// - <see cref="EnergyService"/> is not initialized
-    /// </summary>
-    Stopped = 0,
-
-    /// <summary>
-    /// Device is plugged in, and <see cref="ISettingsService.ThrottleWhenPluggedIn"/> is disabled
-    /// </summary>
-    OnlyBlacklist = 1,
-
-    /// <summary>
-    /// Possible situations: <br/>
-    /// - Device is on battery <br/>
-    /// - Device is plugged in, and <see cref="ISettingsService.ThrottleWhenPluggedIn"/> is enabled
-    /// </summary>
-    BlacklistAndAllButWhitelist = 2
-};
-
-public class EnergyService
+public class EnergyService : IEnergyService
 {
     private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly object lockObject = new();
@@ -93,9 +71,9 @@ public class EnergyService
         }
     }
 
-    /// <summary>
-    /// Processes in whitelist will not be throttled
-    /// </summary>
+    public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
+
+    /// <inheritdoc />
     public IReadOnlySet<string> ProcessWhitelist { get; private set; } = new HashSet<string>();
 
     /// <summary>
@@ -103,17 +81,13 @@ public class EnergyService
     /// </summary>
     private IReadOnlySet<string> WildcardProcessWhitelist { get; set; } = new HashSet<string>();
 
-    /// <summary>
-    /// Processes in blacklist will be throttled even when device is plugged in
-    /// </summary>
+    /// <inheritdoc />
     public IReadOnlySet<string> ProcessBlacklist { get; private set; } = new HashSet<string>();
 
     /// <summary>
     /// A subset of <see cref="ProcessBlacklist" />, where the process name contains "?" or "*".
     /// </summary>
     private IReadOnlySet<string> WildcardProcessBlacklist { get; set; } = new HashSet<string>();
-
-    public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
 
     public event EventHandler<ThrottleStatus>? ThrottleStatusChanged;
 

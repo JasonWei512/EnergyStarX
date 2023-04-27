@@ -8,7 +8,7 @@ using Windows.ApplicationModel;
 
 namespace EnergyStarX.Services;
 
-public class SystemTrayIconService
+public class SystemTrayIconService : ISystemTrayIconService
 {
     private readonly System.Drawing.Icon ThrottlingIcon = new(Path.Combine(Package.Current.InstalledPath, "Assets/WindowIcon.ico"));
     private readonly string ThrottlingToolTip = "AppDisplayName".ToLocalized();
@@ -22,9 +22,9 @@ public class SystemTrayIconService
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly IWindowService windowService;
-    private readonly EnergyService energyService;
+    private readonly IEnergyService energyService;
 
-    public SystemTrayIconService(IWindowService windowService, EnergyService energyService)
+    public SystemTrayIconService(IWindowService windowService, IEnergyService energyService)
     {
         this.windowService = windowService;
         this.energyService = energyService;
