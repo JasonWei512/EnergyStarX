@@ -121,121 +121,121 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Cihazınızın pil ömrünü artırın!
+Energy Star X, pil ömrünü ve sistem ısısını iyileştirmek için arka plan uygulamalarını kısmak üzere Windows 11'in EcoQoS API'sinden ("Verimlilik Modu" olarak da bilinir) yararlanır.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+En iyi sonuç için ihtiyacınız olan:
+- Windows 11 22H2 (Derleme 22621) veya üzeri
+- Intel 10. nesil veya daha yeni mobil işlemciler
+- AMD Ryzen 5000 veya daha yeni mobil işlemciler
+- Qualcomm mobil işlemciler
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Kaynak kodu: https://github.com/JasonWei512/EnergyStarX
+🌏 Bu uygulamayı çevirin: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X, açık kaynaklı EnergyStar yazılımının bir GUI sürümüdür.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Yardım</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Uygulama hakkında</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Intel sıktı</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X zaten çalışıyor!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Başlangıçta çalıştır</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ayarlar</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Çıkış</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Aç</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value>#Giriş
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X, pil ömrünü ve sistem ısısını iyileştirmek için arka plan uygulamalarını kısmak üzere Windows 11'in [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) ("Verimlilik Modu" olarak da bilinir) özelliğini kullanır. Kullanıcı deneyimini sağlamak için ön plan uygulamasını kısıtlamaz.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
-
-
-# Requirements
-
-For the best result, you need:
-
-## Software
-
-- Windows 11 22H2 (Build 22621) or above
-
-## Hardware
-
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
-
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+Bu uygulama, Windows Uygulama SDK'sı (WinUI 3) ile geliştirilmiş açık kaynak yazılımın [EnergyStar](https://github.com/imbushuo/EnergyStar/) GUI sürümüdür.
 
 
-# Usage
+# Gereksinimler
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+En iyi sonuç için ihtiyacınız olan:
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+## Yazılım
 
-![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
+- Windows 11 22H2 (Derleme 22621) veya üzeri
+
+## Donanım
+
+- Intel 10. nesil veya daha yeni mobil işlemciler
+- AMD Ryzen 5000 veya daha yeni mobil işlemciler
+- Qualcomm mobil işlemciler
+
+Bu uygulama, Windows 11 21H2 (Derleme 22000) ve daha eski donanımlarda çalışabilir ancak en iyi sonucu alamayabilir.
 
 
-# Known Limitations
+# Kullanım
 
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+Sistem ikonunda arka planda çalışmasına izin verin. Ayarlar sayfasında başlangıçta otomatik olarak çalıştırmayı seçebilirsiniz.
+
+Görev Yöneticisi'nin "Durum" sütununda kısıtlanmış arka plan işleminin yanında yeşil bir yaprak simgesi görebilirsiniz.
+
+![Görev Yöneticisi Yaprağı]
+(/Assets/InApp/Task_Manager_Leaf.jpg).
+
+# Bilinen Sınırlamalar
+
+- [StartAllBack](https://www.startallback.com/) gibi bazı görev çubuğu geliştirme yazılımları kullanıyorsanız, sistem tepsisi simgesinin üzerine geldiğinizde bu uygulama çökebilir.
+- Ana süreç girdi odağını aldığında alt süreçler desteklenmez.
+- Sistem işlemleri (Oturum 0'dır) kısıtlanmaz. Şu anda, kullanıcı olmayan süreçlerin ne yaptıklarını bildiklerine dair bazı varsayımlar var.
 
 
-# Acknowledgements
+# Teşekkürler
 
 - imbushuo: https://github.com/imbushuo/
-- App Icon: 
+- Uygulama Simgesi:
   - https://www.flaticon.com/free-icon/star_3103390/
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# How to contribute
+# Nasıl katkıda bulunulur?
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Bakınız [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Uyarı: İşletim sistemi sürümünüz ({0}) 22621'in altında, en iyi sonuçları almayacak</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>Kayıt</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Başlangıçta çalıştırmayı etkinleştirin!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Geliştirici ile iletişime geç</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Uygulamayı değerlendir</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Geri Bildirim</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Kopyala</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Şarjda iken tüm arka plan işlemlerini kısıtlayın</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
@@ -278,100 +278,100 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Hayır</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Varsayılan işlem beyaz listesine geri yüklensin mi?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Varsayılanlara sıfırla</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Temizle</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>En alta Kaydır</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Tamamdır!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>İşlem beyaz listesini düzenle</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Düzenle</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>İşlem beyaz listesini düzenle</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Değiştirilmiş</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Kaydet</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Ana sayfa</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Cihazınız prize takılı olduğu için kısıtlama duraklatıldı (kara listedeki işlemler hariç).
+Bunu ayarlardan değiştirebilirsiniz.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Arka plan programları kısıtlanıyor...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Kısıtlama, kullanıcı tarafından duraklatıldı.
+Devam etmek için duraklat düğmesine tekrar tıklayın.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Duraklatıldı</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Kaynak kodu (Github)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Geri Bildirim</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Yönetici Yetkisi</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Kayıt Klasörünü Aç</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Dosyaya yalnızca hatalar kaydedilecek</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>Sürüm Notları</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Duraklat</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Deneysel) Başlangıçta yönetici olarak çalıştır</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>Bu uygulamayı çevirmemize yardım edin 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// Satır başına bir işlem adı
+// Her satırda çift eğik çizgi ve ondan sonraki içerik yoksayılacak
+// "?" ve "*" karakterleri destekleniyor
+// Kısıtlamak istediğiniz işlemle aynı Windows Oturumunda olmanız ve aynı veya daha yüksek ayrıcalığa sahip olmanız gerekir
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Beyaz listedeki işlemler kısıtlanmayacak</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
     <value>Restore to default process blacklist?</value>
