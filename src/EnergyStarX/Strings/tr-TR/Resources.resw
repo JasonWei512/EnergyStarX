@@ -238,25 +238,25 @@ Bakınız [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/deve
     <value>Şarjda iken tüm arka plan işlemlerini kısıtlayın</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
+    <value>// Satır başına bir işlem adı
+// Her satırda çift eğik çizgi ve ondan sonraki içerik yoksayılacak
+// "?" ve "*" karakterleri desteklenir
     
-// Not ourselves
+// kendimiz değil
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge'in enerji farkındalığı var
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Çerçevesinin özel bir işlemesi vardır, kısıtlanmamalıdır
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// Yangın söndürücü alev almamalı
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// Widget'lar
 Widgets.exe
-// System shell
+// Sistem kabuğu
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -267,14 +267,14 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// Sistem Hizmeti - farkındalıkları var
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 artık verimlilik modunu destekliyor
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -374,41 +374,41 @@ Devam etmek için duraklat düğmesine tekrar tıklayın.</value>
     <value>Beyaz listedeki işlemler kısıtlanmayacak</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Varsayılan işlem kara listesine geri yüklensin mi?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Varsayılanlara sıfırla</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>İşlem kara listesini düzenle</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Düzenle</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>İşlem kara listesini düzenle</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Kaydet</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Kara listedeki işlemler, cihaz fişe takılı olsa bile kısıtlanacak</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Bağış yap</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## [Bir Fincan Kahve Alın](https://www.buymeacoffee.com/nickjohn) üzerinden bağış yapın:
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Apple Pay veya Google Pay ile ödeme yapmak için telefonunuzda açın)
 
-[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Bana bir kahve ısmarla](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Çinli kullanıcılar için WeChat ile tarayın:
 
-![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
+![WeChat Bağış QR Kodu](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
 </root>
