@@ -192,6 +192,7 @@ Görev Yöneticisi'nin "Durum" sütununda kısıtlanmış arka plan işleminin y
 
 ![Görev Yöneticisi Yaprağı](/Assets/InApp/Task_Manager_Leaf.jpg).
 
+
 # Bilinen Sınırlamalar
 
 - [StartAllBack](https://www.startallback.com/) gibi bazı görev çubuğu geliştirme yazılımları kullanıyorsanız, sistem tepsisi simgesinin üzerine geldiğinizde bu uygulama çökebilir.
