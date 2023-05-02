@@ -160,7 +160,7 @@ Energy Star X, açık kaynaklı EnergyStar yazılımının bir GUI sürümüdür
     <value>Aç</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value>#Giriş
+    <value># Giriş
 
 Energy Star X, pil ömrünü ve sistem ısısını iyileştirmek için arka plan uygulamalarını kısmak üzere Windows 11'in [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) ("Verimlilik Modu" olarak da bilinir) özelliğini kullanır. Kullanıcı deneyimini sağlamak için ön plan uygulamasını kısıtlamaz.
 
