@@ -35,7 +35,7 @@
   </a>
 </p>
 
-![Screenshot](.github/images/Screenshot.png)
+![Screenshot](.msstore/images/2_Screenshot.png)
 
 
 # Donate
