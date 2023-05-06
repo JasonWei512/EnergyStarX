@@ -136,28 +136,28 @@ For the best result, you need:
 Energy Star X is a GUI version of the open source software EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Trợ giúp</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Về ứng dụng này</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Intel sucks</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X đang chạy!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Khởi động cùng hệ thống</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Cài đặt</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Thoát</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Mở</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
@@ -220,19 +220,19 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Log</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Bật khởi động cùng hệ thống!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Liên hệ với nhà phát triển</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Đánh giá ứng dụng</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Phản hồi</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Sao Chép</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
     <value>Throttle all background processes when plugged in</value>
@@ -278,34 +278,34 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Hủy</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Không</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Đồng ý</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
     <value>Restore to default process whitelist?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Khôi phục về mặc định</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Xóa</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>Cuộn xuống cuối</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Đã hiểu!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
     <value>Edit process whitelist</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Sửa</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
     <value>Edit process whitelist</value>
@@ -314,13 +314,13 @@ firefox.exe</value>
     <value>Modified</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Hủy</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Lưu</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Trang chủ</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>Throttling paused (except processes in blacklist) because your device is plugged in.
@@ -334,19 +334,19 @@ You can change this behavior in settings.</value>
 Click the pause button again to resume.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Đã tạm dừng</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Mã nguồn (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Phản hồi</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Quyền quản trị viên</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Mở thư mục log</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Only errors will be logged to file</value>
@@ -355,13 +355,13 @@ Click the pause button again to resume.</value>
     <value>Changelog</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Tạm dừng</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
     <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app 🌏</value>
+    <value>Giúp chúng tôi dịch ứng dụng này 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// One process name per line
@@ -383,22 +383,22 @@ Click the pause button again to resume.</value>
     <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Sửa</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
     <value>Edit process blacklist</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Hủy</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Lưu</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Ủng hộ</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
     <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
