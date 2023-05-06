@@ -311,7 +311,7 @@ firefox.exe</value>
     <value>Edit process whitelist</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Chỉnh sửa</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>Hủy</value>
@@ -349,16 +349,16 @@ Click the pause button again to resume.</value>
     <value>Mở thư mục log</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Chỉ có lỗi sẽ ghi vào tệp log</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>Các thay đổi</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
     <value>Tạm dừng</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Thử nghiệm) Chạy cùng hệ thống dưới quyền quản trị</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>Giúp chúng tôi dịch ứng dụng này 🌏</value>
@@ -377,7 +377,7 @@ Click the pause button again to resume.</value>
     <value>Restore to default process blacklist?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Khôi phục về mặc định</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
     <value>Edit process blacklist</value>
