@@ -199,6 +199,7 @@ Bạn có thể thấy biểu tượng chiếc lá màu xanh lá cây bên cạn
 - Các quy trình con không được tăng tốc khi quy trình mẹ nhận được tiêu điểm đầu vào.
 - Các quy trình hệ thống (quy trình 0) không bị điều chỉnh. Hiện tại có một số giả định rằng các quy trình không phải người dùng biết họ đang làm gì.
 
+
 # Credit
 
 - imbushuo: https://github.com/imbushuo/
