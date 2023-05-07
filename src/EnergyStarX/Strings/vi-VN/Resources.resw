@@ -287,7 +287,7 @@ firefox.exe</value>
     <value>Đồng ý</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Khôi phục danh sách trắng về mặc định?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>Khôi phục về mặc định</value>
@@ -302,13 +302,13 @@ firefox.exe</value>
     <value>Đã hiểu!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Chỉnh sửa danh sách trắng</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>Sửa</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Chỉnh sửa danh sách trắng</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>Chỉnh sửa</value>
@@ -323,15 +323,15 @@ firefox.exe</value>
     <value>Trang chủ</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Tạm dừng xung nhịp (Ngoại trừ các quá trình trong danh sách đen) bởi vì thiết bj của bạn đang cắm sạc.
+Bạn có thể thay đổi điều này trong cài đặt.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Xung nhịp chương trình chạy nền...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Xung nhịp tạm dừng bởi người dùng.
+Nhấn nút tạm dừng để tiếp tục.</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>Đã tạm dừng</value>
@@ -364,14 +364,14 @@ Click the pause button again to resume.</value>
     <value>Giúp chúng tôi dịch ứng dụng này 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// Một tên quá trình cho mỗi dòng
+// Dấu gạch chéo kép và nội dung sau nó trong mỗi dòng sẽ bị bỏ qua
+// Hỗ trợ kí tự "?" và "*"
+// Bạn cần ở trong cùng quá trình cửa sổ với quy trình bạn muốn tăng tốc và có đặc quyền tương tự hoặc cao hơn
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Quá trình ở trong danh sách trắng sẽ không bị giảm xung nhịp</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
     <value>Restore to default process blacklist?</value>
