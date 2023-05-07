@@ -121,19 +121,19 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Tăng cường thời lượng pin trên máy của bạn!
+Energy Star X tận dụng API EcoQoS của Windows 11 (còn gọi là "Efficiency Mode") để điều tiết các ứng dụng nền nhằm cải thiện thời lượng pin và nhiệt độ của hệ thống.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Để đạt kết quả tốt nhất, bạn cần:
+- Windows 11 22H2 (Build 22621) hoặc mới hơn
+- Intel thế hệ 10 hoặc mới hơn
+- AMD Ryzen 5000 hoặc mới hơn
+- Qualcomm mobile
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Mã nguồn: https://github.com/JasonWei512/EnergyStarX
+🌏 Dịch ứng dụng này: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X là phiên bản GUI của phần mềm mã nguồn mở Energy Star.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
     <value>Trợ giúp</value>
@@ -142,7 +142,7 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
     <value>Về ứng dụng này</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Cái tệ của Intel</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
     <value>Energy Star X đang chạy!</value>
@@ -162,45 +162,44 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X tận dụng Windows 11 [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") để tăng tốc các ứng dụng nền nhằm cải thiện tuổi thọ pin và nhiệt hệ thống. Nó sẽ không điều tiết ứng dụng tiền cảnh để đảm bảo trải nghiệm người dùng.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
+Đây là phiên bản GUI của mã nguồn mở [EnergyStar](https://github.com/imbushuo/EnergyStar/), được phát triển với Windows App SDK (WinUI 3).
 
 
-# Requirements
+# Yêu cầu
 
-For the best result, you need:
+Để được kết quả tốt nhất, bạn cần:
 
-## Software
+## Phần mềm
 
 - Windows 11 22H2 (Build 22621) or above
 
-## Hardware
+## Phần cứng
 
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+- Intel thế hệ 10 hoặc mới hơn
+- AMD Ryzen 5000 hoặc mới hơn
+- Qualcomm CPU
 
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+Ứng dụng này có thể hoạt động trên Windows 11 21H2 (Build 22000) và phần cứng cũ hơn, nhưng có thể không đạt được kết quả tốt nhất.
 
 
-# Usage
+# Sử dụng
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+Để nó chạy ngầm trên khay hệ thống. Bạn có thể chọn chạy nó tự động khi khởi động trong trang cài đặt.
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+Bạn có thể thấy biểu tượng chiếc lá màu xanh lá cây bên cạnh quy trình nền được điều chỉnh trong cột "Trạng thái" của Trình quản lý tác vụ.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Known Limitations
+# Hạn chế
 
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+- Nếu bạn đang sử dụng một số phần mềm tuỳ biến thanh tác vụ như [StartAllBack](https://www.startallback.com/), ứng dụng này có thể crash khi bạn di chuột qua biểu tượng trên khay hệ thống.
+- Các quy trình con không được tăng tốc khi quy trình mẹ nhận được tiêu điểm đầu vào.
+- Các quy trình hệ thống (quy trình 0) không bị điều chỉnh. Hiện tại có một số giả định rằng các quy trình không phải người dùng biết họ đang làm gì.
 
-
-# Acknowledgements
+# Credit
 
 - imbushuo: https://github.com/imbushuo/
 - App Icon: 
@@ -209,12 +208,12 @@ You can see a green leaf icon next to throttled background process in Task Manag
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# How to contribute
+# Đóng góp
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Xem [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Cảnh báo: Phiên bản của bạn ({0}) thấp hơn 22621, sẽ không có được kết quả tốt nhất</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>Log</value>
@@ -235,28 +234,28 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Sao Chép</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Hạ xung các ứng dụng chạy nền khi được cắm điện</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
 // Double slash and content after it in each line will be ignored
 // Supports "?" and "*" wildcards
-    
-// Not ourselves
+
+// Không phải của chúng tôi
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Frame có cách giữ xung, sẽ không bị hạ xung
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// Fire extinguisher sẽ không ảnh hưởng
 taskmgr.exe
 procmon.exe
 procmon64.exe
 // Widgets
 Widgets.exe
-// System shell
+// Shell hệ thống
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -267,14 +266,14 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// Dịch vụ hệ thống - có thể tự điều chỉnh
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 hỗ trợ chế độ tối ưu
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -374,19 +373,19 @@ Nhấn nút tạm dừng để tiếp tục.</value>
     <value>Quá trình ở trong danh sách trắng sẽ không bị giảm xung nhịp</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Khôi phục quá trình trong danh sách đen về mặc định?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>Khôi phục về mặc định</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Chỉnh sửa quá trình danh sách đen</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
     <value>Sửa</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Chỉnh sửa quá trình danh sách đen</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>Hủy</value>
@@ -395,19 +394,19 @@ Nhấn nút tạm dừng để tiếp tục.</value>
     <value>Lưu</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Quá trình trong danh sách đen sẽ bị hạ xung kể cả khi thiết bị được cắm vào nguồn điện</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>Ủng hộ</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Ủng hộ tôi [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Mở trên điện thoại của bạn với Apple Pay hoặc Google Pay)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Với người dùng Trung Quốc, quét WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
