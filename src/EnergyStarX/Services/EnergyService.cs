@@ -528,15 +528,15 @@ public class EnergyService
 
     private bool IsProcessInWhitelist(string processName)
     {
-        return IsProcesInList(processName, ProcessWhitelist, WildcardProcessWhitelist);
+        return IsProcessInList(processName, ProcessWhitelist, WildcardProcessWhitelist);
     }
 
     private bool IsProcessInBlacklist(string processName)
     {
-        return IsProcesInList(processName, ProcessBlacklist, WildcardProcessBlacklist);
+        return IsProcessInList(processName, ProcessBlacklist, WildcardProcessBlacklist);
     }
 
-    private bool IsProcesInList(string processName, IReadOnlySet<string> fullProcessList, IReadOnlySet<string> wildcardProcessList)
+    private bool IsProcessInList(string processName, IReadOnlySet<string> fullProcessList, IReadOnlySet<string> wildcardProcessList)
     {
         if (fullProcessList.Contains(processName.ToLowerInvariant()))
         {
