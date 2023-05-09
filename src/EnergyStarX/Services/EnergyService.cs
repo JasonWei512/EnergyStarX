@@ -73,7 +73,7 @@ public class EnergyService : IEnergyService
 
     public bool IsOnBattery => PowerManager.PowerSourceKind == PowerSourceKind.DC;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     public IReadOnlySet<string> ProcessWhitelist { get; private set; } = new HashSet<string>();
 
     /// <summary>
@@ -81,7 +81,7 @@ public class EnergyService : IEnergyService
     /// </summary>
     private IReadOnlySet<string> WildcardProcessWhitelist { get; set; } = new HashSet<string>();
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     public IReadOnlySet<string> ProcessBlacklist { get; private set; } = new HashSet<string>();
 
     /// <summary>
