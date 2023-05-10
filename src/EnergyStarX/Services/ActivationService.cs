@@ -5,7 +5,6 @@ using EnergyStarX.Views;
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.AppLifecycle;
 
 namespace EnergyStarX.Services;
@@ -50,11 +49,6 @@ public class ActivationService : IActivationService
         {
             shell = App.GetService<ShellPage>();
             App.MainWindow.Content = shell ?? new Frame();
-
-            // Windows App SDK 1.3's new SystemBackdrop API requires the window to have content.
-            // If I set MainWindow.SystemBackdrop when MainWindow.Content is null, the app may crash on launch.
-            // https://github.com/microsoft/WindowsAppSDK/discussions/3406#discussioncomment-4955796
-            App.MainWindow.SystemBackdrop = new MicaBackdrop();
         }
 
         // Handle activation via ActivationHandlers.
