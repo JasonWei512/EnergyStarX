@@ -57,9 +57,10 @@ public class StartupService : IStartupService
     /// <summary>
     /// Returns whether StartupType set successfully.
     /// </summary>
-    public async Task<bool> SetStartupType(StartupType newStartupType)
+    public async Task<bool> SetStartupType(StartupType startupType)
     {
         StartupType oldStartupType = await GetStartupType();
+        StartupType newStartupType = startupType;
 
         bool success = (oldStartupType, newStartupType) switch
         {
