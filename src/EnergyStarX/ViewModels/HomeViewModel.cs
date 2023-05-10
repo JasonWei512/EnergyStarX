@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.WinUI;
 using EnergyStarX.Helpers;
-using EnergyStarX.Services;
+using EnergyStarX.Interfaces.Services;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
@@ -21,7 +21,7 @@ public partial class HomeViewModel : ObservableRecipient
 
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
-    private readonly EnergyService energyService;
+    private readonly IEnergyService energyService;
 
     [ObservableProperty]
     private ImageSource? statusIcon;
@@ -35,7 +35,7 @@ public partial class HomeViewModel : ObservableRecipient
         set => SetProperty(PauseThrottling, value, x => energyService.PauseThrottling = x);
     }
 
-    public HomeViewModel(EnergyService energyService)
+    public HomeViewModel(IEnergyService energyService)
     {
         this.energyService = energyService;
         UpdateStatusOnUI(this.energyService.ThrottleStatus);

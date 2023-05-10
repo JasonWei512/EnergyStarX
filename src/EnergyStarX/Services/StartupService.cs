@@ -1,12 +1,3 @@
-using NLog;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Security.Principal;
-using Windows.ApplicationModel;
-using Windows.Storage;
-
-namespace EnergyStarX.Services;
-
 /* Note:
 MSIX's StartupTask does not let you run an app at startup *as admin*.
 So I have to use a Windows schedule task for this. Snipaste (the Microsoft Store version) also takes this approach.
@@ -18,16 +9,20 @@ Maybe I should use an MSIX packaged service: https://learn.microsoft.com/uwp/sch
 It will be uninstalled automatically when the app is uninstalled. It can also throttle system services in session 0.
 But that requires a double-process and communication app model, which is more complex to implement. 
 */
-public class StartupService
+
+using EnergyStarX.Interfaces.Services;
+using NLog;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Security.Principal;
+using Windows.ApplicationModel;
+using Windows.Storage;
+
+namespace EnergyStarX.Services;
+
+public class StartupService : IStartupService
 {
     private readonly static Logger logger = LogManager.GetCurrentClassLogger();
-
-    public enum StartupType
-    {
-        None = 0,
-        User = 1,
-        Admin = 2
-    }
 
     public async Task Initialize()
     {
@@ -62,9 +57,10 @@ public class StartupService
     /// <summary>
     /// Returns whether StartupType set successfully.
     /// </summary>
-    public async Task<bool> SetStartupType(StartupType newStartupType)
+    public async Task<bool> SetStartupType(StartupType startupType)
     {
         StartupType oldStartupType = await GetStartupType();
+        StartupType newStartupType = startupType;
 
         bool success = (oldStartupType, newStartupType) switch
         {

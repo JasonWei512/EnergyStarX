@@ -68,10 +68,10 @@ public partial class App : Application
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IWindowService, WindowService>();
-            services.AddSingleton<EnergyService>();
-            services.AddSingleton<DialogService>();
-            services.AddSingleton<SystemTrayIconService>();
-            services.AddSingleton<StartupService>();
+            services.AddSingleton<IEnergyService, EnergyService>();
+            services.AddSingleton<IDialogService, DialogService>();
+            services.AddSingleton<ISystemTrayIconService, SystemTrayIconService>();
+            services.AddSingleton<IStartupService, StartupService>();
             services.AddSingleton<ISettingsService, SettingsService>();
 
             // Core Services

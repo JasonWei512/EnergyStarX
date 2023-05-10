@@ -16,19 +16,19 @@ public class ActivationService : IActivationService
     private UIElement? shell = null;
     private readonly AppInstance currentAppInstance = AppInstance.GetCurrent();
 
-    private readonly SystemTrayIconService systemTrayIconService;
+    private readonly ISystemTrayIconService systemTrayIconService;
     private readonly IWindowService windowService;
-    private readonly EnergyService energyService;
-    private readonly StartupService startupService;
+    private readonly IEnergyService energyService;
+    private readonly IStartupService startupService;
 
     public ActivationService(
         ActivationHandler<LaunchActivatedEventArgs> defaultHandler,
         IEnumerable<IActivationHandler> activationHandlers,
         IWindowService windowService,
-        EnergyService energyService,
+        IEnergyService energyService,
         LogViewModel logViewModel,
-        SystemTrayIconService systemTrayIconService,
-        StartupService startupService
+        ISystemTrayIconService systemTrayIconService,
+        IStartupService startupService
         )
     {
         this.defaultHandler = defaultHandler;
