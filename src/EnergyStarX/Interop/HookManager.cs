@@ -7,7 +7,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace EnergyStarX.Core.Interop;
+namespace EnergyStarX.Interop;
 
 public static class HookManager
 {

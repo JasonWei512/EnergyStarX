@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 
-namespace EnergyStarX.Core.Interop;
+namespace EnergyStarX.Interop;
 
 public static class Win32Api
 {
