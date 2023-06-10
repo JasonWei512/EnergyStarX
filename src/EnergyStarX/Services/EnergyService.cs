@@ -253,7 +253,7 @@ public class EnergyService : IEnergyService
     }
 
     /// <summary>
-    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// Returns true if <see cref="ThrottleStatus"/> changes after this method executes. Otherwise false.
     /// </summary>
     private bool UpdateThrottleStatusAndNotify()
     {
@@ -295,8 +295,13 @@ public class EnergyService : IEnergyService
     }
 
     /// <summary>
-    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// Start throttling to <paramref name="toThrottleStatus"/>.
     /// </summary>
+    ///
+    /// <returns>
+    /// Returns true if <paramref name="toThrottleStatus"/> is not <see cref="ThrottleStatus.Stopped"/> and throttling has started.
+    /// Otherwise false.
+    /// </returns>
     private bool StartThrottling(ThrottleStatus toThrottleStatus)
     {
         lock (lockObject)
@@ -316,8 +321,13 @@ public class EnergyService : IEnergyService
     }
 
     /// <summary>
-    /// Returns true if "ThrottleStatus" changes after this method executes. Otherwise false.
+    /// Stop throttling from <paramref name="fromThrottleStatus"/>.
     /// </summary>
+    ///
+    /// <returns>
+    /// Returns true if <paramref name="fromThrottleStatus"/> is not <see cref="ThrottleStatus.Stopped"/> and throttling has stopped.
+    /// Otherwise false.
+    /// </returns>
     private bool StopThrottling(ThrottleStatus fromThrottleStatus)
     {
         lock (lockObject)
@@ -335,6 +345,14 @@ public class EnergyService : IEnergyService
         }
     }
 
+    /// <summary>
+    /// Throttle background processes according to <paramref name="toThrottleStatus"/>.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Returns true if <paramref name="toThrottleStatus"/> is not <see cref="ThrottleStatus.Stopped"/> and user background processes got throttled.
+    /// Otherwise false.
+    /// </returns>
     private bool ThrottleUserBackgroundProcesses(ThrottleStatus toThrottleStatus)
     {
         lock (lockObject)
@@ -361,6 +379,14 @@ public class EnergyService : IEnergyService
         }
     }
 
+    /// <summary>
+    /// Recover throttled user processes from <paramref name="fromThrottleStatus"/>.
+    /// </summary>
+    ///
+    /// <returns>
+    /// Returns true if <paramref name="fromThrottleStatus"/> is not <see cref="ThrottleStatus.Stopped"/> and user processes got recovered from being throttled.
+    /// Otherwise false.
+    /// </returns>
     private bool RecoverUserProcesses(ThrottleStatus fromThrottleStatus)
     {
         lock (lockObject)

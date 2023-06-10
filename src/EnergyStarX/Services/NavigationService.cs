@@ -88,9 +88,11 @@ public class NavigationService : INavigationService
         {
             frame.Tag = clearNavigation;
             object? vmBeforeNavigation = frame.GetPageViewModel();
+
             bool navigated = transitionInfo is null ?
                 frame.Navigate(pageType, parameter) :
                 frame.Navigate(pageType, parameter, transitionInfo);
+
             if (navigated)
             {
                 lastParameterUsed = parameter;

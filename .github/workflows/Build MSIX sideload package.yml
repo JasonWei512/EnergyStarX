@@ -59,8 +59,7 @@ jobs:
       run: |
         msbuild $env:SOLUTION_NAME `
           /p:Configuration=${{ matrix.configuration }} `
-          /p:Platform=${{ matrix.platform }} `
-          /p:PublishReadyToRun=false
+          /p:Platform=${{ matrix.platform }}
 
     - name: 🧪 Unit testing
       if: matrix.platform == 'x64'  # GitHub Action only provides x64 Windows machines, which cannot run cross-compiled ARM64 tests
