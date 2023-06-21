@@ -196,8 +196,8 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 # 已知問題
 
 - 如果您使用了 [StartAllBack](https://www.startallback.com/) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
-- 當父進程獲得輸入焦點時，子進程不會被解除資源限制。
-- 系統進程（Session 0）將不會被限制資源。目前我們假設非使用者進程會自己管理好資源。
+- 當父處理程序獲得輸入焦點時，子進程不會被解除資源限制。
+- 系統處理程序（Session 0）將不會被限制資源。目前我們假設非使用者處理程序會自己管理好資源。
 
 
 # 致謝
@@ -236,10 +236,10 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>複製</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>插電時限制所有背景進程</value>
+    <value>插電時限制所有背景處理程序</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// 每行一個進程名
+    <value>// 每行一個處理程序名稱
 // 每行中雙斜槓以及之後的内容會被忽略
 // 支援「?」和「*」萬用字元
 
@@ -249,7 +249,7 @@ EnergyStarX.exe
 // Edge 會自己管理好資源
 msedge.exe
 WebViewHost.exe
-// UWP Frame 有特别處理, 不應該被限制
+// UWP Frame 有特别處理，不應該被限制
 ApplicationFrameHost.exe
 // 工作管理員，滅火器不可以著火
 taskmgr.exe
@@ -268,7 +268,7 @@ fontdrvhost.exe
 // 輸入法
 ChsIME.exe
 ctfmon.exe
-// 系統服務 - 它们會自己管理好資源
+// 系統服務 - 它們會自己管理好資源
 csrss.exe
 smss.exe
 svchost.exe
@@ -288,7 +288,7 @@ firefox.exe</value>
     <value>是</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>還原為預設進程白名單？</value>
+    <value>還原為預設處理程序白名單？</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>還原為預設</value>
@@ -303,13 +303,13 @@ firefox.exe</value>
     <value>瞭解了！</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>編輯進程白名單</value>
+    <value>編輯處理程序白名單</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
     <value>編輯</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>編輯進程白名單</value>
+    <value>編輯處理程序白名單</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>已編輯</value>
@@ -324,7 +324,7 @@ firefox.exe</value>
     <value>首頁</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>因為您的裝置已接上電源，所以已暫停限制背景程序（除了黑名單中的進程）。
+    <value>因為您的裝置已接上電源，所以已暫停限制背景程序（除了黑名單中的處理程序）。
 您可以在設定中修改此行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
@@ -368,26 +368,26 @@ firefox.exe</value>
     <value>// 每行一個進程名稱
 // 每行中雙斜槓以及之後的内容會被忽略
 // 支援「?」和「*」萬用字元
-// 您需要和您想要限制的進程在同一個 Windows 會話中，且擁有相同或更高的權限
+// 您需要和您想要限制的處理程序在同一個 Windows 會話中，且擁有相同或更高的權限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>白名單中的進程將不會被限制</value>
+    <value>白名單中的處理程序將不會被限制</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>還原為預設進程黑名單？</value>
+    <value>還原為預設處理程序黑名單？</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>還原為預設</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>編輯進程黑名單</value>
+    <value>編輯處理程序黑名單</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
     <value>編輯</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>編輯進程黑名單</value>
+    <value>編輯處理程序黑名單</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
     <value>取消</value>
@@ -396,7 +396,7 @@ firefox.exe</value>
     <value>儲存</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>黑名單中的進程即使在插電時也會被限制</value>
+    <value>黑名單中的處理程序即使在插電時也會被限制</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>捐贈</value>
