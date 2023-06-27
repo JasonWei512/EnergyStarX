@@ -133,6 +133,9 @@ public partial class SettingsViewModel : ObservableRecipient
     private void ShowProcessWhitelistEditorDialog()
     {
         ProcessWhitelistString = settingsService.ProcessWhitelistString;
+        OnPropertyChanged(nameof(ProcessWhitelistModified));
+        OnPropertyChanged(nameof(ProcessWhitelistEditorDialogTitle));
+
         ProcessWhitelistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
     }
 
@@ -155,6 +158,9 @@ public partial class SettingsViewModel : ObservableRecipient
     private void ShowProcessBlacklistEditorDialog()
     {
         ProcessBlacklistString = settingsService.ProcessBlacklistString;
+        OnPropertyChanged(nameof(ProcessBlacklistModified));
+        OnPropertyChanged(nameof(ProcessBlacklistEditorDialogTitle));
+
         ProcessBlacklistEditorDialogShowRequested?.Invoke(this, EventArgs.Empty);
     }
 
