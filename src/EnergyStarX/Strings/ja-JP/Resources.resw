@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># はじめに
 
-Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (別名「効率モード」) を利用して、バックグラウンドアプリケーションを制限し、バッテリー寿命とシステム熱を改善します。ユーザーエクスペリエンスを確保するために、フォアグラウンドアプリケーションを制限することはありません。
+Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (別名「効率モード」) を利用して、バックグラウンドアプリケーションを制限し、バッテリー寿命とシステム熱を改善します。ユーザーエクスペリエンスを確保するために、フォアグラウンドアプリケーションを制限することはありません。
 
-このアプリは、Windows App SDK (WinUI 3) で開発されたオープンソースソフトウェア [EnergyStar](https://github.com/imbushuo/EnergyStar/) のGUIバージョンです。
+このアプリは、Windows App SDK (WinUI 3) で開発されたオープンソースソフトウェア [EnergyStar](https://github.com/imbushuo/EnergyStar) のGUIバージョンです。
 
 
 # 必要要件
@@ -196,16 +196,16 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 # 既知の制限事項
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- [StartAllBack](https://www.startallback.com/)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
+- [StartAllBack](https://www.startallback.com)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
 - 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
 - システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。
 
 
 # 謝辞
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - アプリのアイコン。
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

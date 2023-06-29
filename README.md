@@ -53,9 +53,9 @@
 
 # Introduction
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar/), developed with Windows App SDK (WinUI 3).
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
 
 
 # Requirements
@@ -87,16 +87,16 @@ You can see a green leaf icon next to throttled background process in Task Manag
 # Known Limitations
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com/), this app may crash when you hover over system tray icon.
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
 - Child processes do not get boosted when the parent process receives input focus.
 - System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 
 
 # Acknowledgements
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - App Icon: 
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

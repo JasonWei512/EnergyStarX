@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># 簡介
 
-能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
+能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
 
-此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
+此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
 
 
 # 要求
@@ -196,19 +196,19 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 # 已知問題
 
 - 如果你使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼你的滑鼠游標移動時可能會卡頓。請將這些軟體添加至白名單中。
-- 如果您使用了 [StartAllBack](https://www.startallback.com/) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
+- 如果您使用了 [StartAllBack](https://www.startallback.com) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
 - 當父處理程序獲得輸入焦點時，子進程不會被解除資源限制。
 - 系統處理程序（Session 0）將不會被限制資源。目前我們假設非使用者處理程序會自己管理好資源。
 
 
 # 致謝
 
-- imbushuo：https://github.com/imbushuo/ （作者）
-- flandretw：https://github.com/flandretw/ （繁體中文翻譯校正）
+- imbushuo：https://github.com/imbushuo （作者）
+- flandretw：https://github.com/flandretw （繁體中文翻譯校正）
 - 應用程式圖示：
-  - https://www.flaticon.com/free-icon/star_3103390/
-  - https://www.flaticon.com/free-icon/accept_4303945/
-  - https://www.flaticon.com/free-icon/pause-button_561920/
+  - https://www.flaticon.com/free-icon/star_3103390
+  - https://www.flaticon.com/free-icon/accept_4303945
+  - https://www.flaticon.com/free-icon/pause-button_561920
 
 
 # 如何貢獻

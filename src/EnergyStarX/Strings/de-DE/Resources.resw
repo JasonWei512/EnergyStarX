@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X ist eine graphische Version des quelloffenen Programms EnergyStar.
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Einführung
 
-Energy Star X nutzt Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (auch "Effizienzmodus") zur Drosselung von Hintergrundanwendungen zur Verbesserung der Batterielebensdauer und des Energieverbrauchs. Es drosselt nicht die Vordergrund-Anwendung, um die Benutzererfahrung zu gewährleisten.
+Energy Star X nutzt Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (auch "Effizienzmodus") zur Drosselung von Hintergrundanwendungen zur Verbesserung der Batterielebensdauer und des Energieverbrauchs. Es drosselt nicht die Vordergrund-Anwendung, um die Benutzererfahrung zu gewährleisten.
 
-Diese App ist eine GUI-Version der Open-Source-Software [EnergyStar](https://github.com/imbushuo/EnergyStar/), entwickelt mit Windows App SDK (WinUI 3).
+Diese App ist eine GUI-Version der Open-Source-Software [EnergyStar](https://github.com/imbushuo/EnergyStar), entwickelt mit Windows App SDK (WinUI 3).
 
 
 # Anforderungen
@@ -196,16 +196,16 @@ Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess i
 # Bekannte Einschränkungen
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com/) verwenden, könnte diese App abstürzen, wenn die Maus über das Symbol im Infobereich bewegen.
+- Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com) verwenden, könnte diese App abstürzen, wenn die Maus über das Symbol im Infobereich bewegen.
 - untergeordnete Prozesse werden nicht geboostet, wenn der übergeordnete Prozess den Eingabefokus erhält.
 - Systemprozesse werden nicht gedrosselt. Derzeit gibt es die Annahme, dass Prozesse ohne Benutzer wissen, was sie tun.
 
 
 # Danksagungen
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - Anwendungs-Icon: 
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

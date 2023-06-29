@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X è una versione GUI del software open source EnergyStar.</value>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduzione
 
-Energy Star X sfrutta le [API EcoQoS](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) di Windows 11 (anche come "Modalità Efficienza") per rallentare le applicazioni in background per migliorare la durata della batteria e la dissipazione di calore.
+Energy Star X sfrutta le [API EcoQoS](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) di Windows 11 (anche come "Modalità Efficienza") per rallentare le applicazioni in background per migliorare la durata della batteria e la dissipazione di calore.
 
-Energy Star X è una versione GUI del software open source [EnergyStar](https://github.com/imbushuo/EnergyStar/), sviluppato con Windows App SDK (WinUI 3).
+Energy Star X è una versione GUI del software open source [EnergyStar](https://github.com/imbushuo/EnergyStar), sviluppato con Windows App SDK (WinUI 3).
 
 # Requisiti
 
@@ -192,15 +192,15 @@ Potete vedere una foglia verde a fianco dei processi limitati in background nell
 # Limitazioni
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- Se usate software per migliorare la taskbar come [StartAllBack](https://www.startallback.com/), questa app potrebbe chiudersi quando indicate con il puntatore del mouse l'icona dell'app nella barra delle applicazioni.
+- Se usate software per migliorare la taskbar come [StartAllBack](https://www.startallback.com), questa app potrebbe chiudersi quando indicate con il puntatore del mouse l'icona dell'app nella barra delle applicazioni.
 - I processi figli non vengono accellerati quando il processo padre riceve focus.
 - I processi di sistema (PID 0) non vengono limitati. L'ipotesi è che questi processi sappiano cosa stiano facendo.
 
 # Riconoscimenti
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - App Icon: 
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

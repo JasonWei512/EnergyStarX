@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X on graafinen versio EnergyStarista, avoimen lähdekoodin sovelluks
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Johdanto
 
-Energy Star X toimii Windows 11:n [EcoQoS API:n](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) eli tehokkuustilan kanssa, jotta taustasovellukset ja järjestelmä veisivät vähemmän akkua. Hyvän käyttäjäkokemuksen varmistamiseksi akunkäyttöä ei tehosteta käytössä olevista sovelluksista.
+Energy Star X toimii Windows 11:n [EcoQoS API:n](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) eli tehokkuustilan kanssa, jotta taustasovellukset ja järjestelmä veisivät vähemmän akkua. Hyvän käyttäjäkokemuksen varmistamiseksi akunkäyttöä ei tehosteta käytössä olevista sovelluksista.
 
-Sovellus on [EnergyStar](https://github.com/imbushuo/EnergyStar/):n graafinen versio, joka on ohjelmoitu Windows App SDK:lla (WinUI 3).
+Sovellus on [EnergyStar](https://github.com/imbushuo/EnergyStar):n graafinen versio, joka on ohjelmoitu Windows App SDK:lla (WinUI 3).
 
 
 # Vaatimukset
@@ -203,9 +203,9 @@ Tehtäväpalkissa pitäisi näkyä vihreä lehti.
 
 # Tunnustuksia
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - Kuvake: 
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

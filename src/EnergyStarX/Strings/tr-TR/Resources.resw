@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X, açık kaynaklı EnergyStar yazılımının bir GUI sürümüdür
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Giriş
 
-Energy Star X, pil ömrünü ve sistem ısısını iyileştirmek için arka plan uygulamalarını kısmak üzere Windows 11'in [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) ("Verimlilik Modu" olarak da bilinir) özelliğini kullanır. Kullanıcı deneyimini sağlamak için ön plan uygulamasını kısıtlamaz.
+Energy Star X, pil ömrünü ve sistem ısısını iyileştirmek için arka plan uygulamalarını kısmak üzere Windows 11'in [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) ("Verimlilik Modu" olarak da bilinir) özelliğini kullanır. Kullanıcı deneyimini sağlamak için ön plan uygulamasını kısıtlamaz.
 
-Bu uygulama, Windows Uygulama SDK'sı (WinUI 3) ile geliştirilmiş açık kaynak yazılımın [EnergyStar](https://github.com/imbushuo/EnergyStar/) GUI sürümüdür.
+Bu uygulama, Windows Uygulama SDK'sı (WinUI 3) ile geliştirilmiş açık kaynak yazılımın [EnergyStar](https://github.com/imbushuo/EnergyStar) GUI sürümüdür.
 
 
 # Gereksinimler
@@ -196,16 +196,16 @@ Görev Yöneticisi'nin "Durum" sütununda kısıtlanmış arka plan işleminin y
 # Bilinen Sınırlamalar
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- [StartAllBack](https://www.startallback.com/) gibi bazı görev çubuğu geliştirme yazılımları kullanıyorsanız, sistem tepsisi simgesinin üzerine geldiğinizde bu uygulama çökebilir.
+- [StartAllBack](https://www.startallback.com) gibi bazı görev çubuğu geliştirme yazılımları kullanıyorsanız, sistem tepsisi simgesinin üzerine geldiğinizde bu uygulama çökebilir.
 - Ana süreç girdi odağını aldığında alt süreçler desteklenmez.
 - Sistem işlemleri (Oturum 0'dır) kısıtlanmaz. Şu anda, kullanıcı olmayan süreçlerin ne yaptıklarını bildiklerine dair bazı varsayımlar var.
 
 
 # Teşekkürler
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - Uygulama Simgesi:
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

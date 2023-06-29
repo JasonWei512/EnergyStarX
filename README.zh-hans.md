@@ -50,9 +50,9 @@
 
 # 简介
 
-能源之星X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/)（即“效率模式”）来限制后台应用的资源占用，从而提高电池续航和散热表现。它不会限制前台应用，以确保用户体验。
+能源之星X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos)（即“效率模式”）来限制后台应用的资源占用，从而提高电池续航和散热表现。它不会限制前台应用，以确保用户体验。
 
-此应用是开源程序 [EnergyStar](https://github.com/imbushuo/EnergyStar/) 的图形界面版本，使用 Windows App SDK (WinUI 3) 开发。
+此应用是开源程序 [EnergyStar](https://github.com/imbushuo/EnergyStar) 的图形界面版本，使用 Windows App SDK (WinUI 3) 开发。
 
 
 # 要求
@@ -84,16 +84,16 @@
 # 已知问题
 
 - 如果你使用了 [Logi Options+](https://www.logitech.com.cn/zh-cn/software/logi-options-plus.html) 等与鼠标相关的软件，那么你的鼠标光标移动时可能会卡顿。请将这些软件添加到白名单。
-- 如果你使用了 [StartAllBack](https://www.startallback.com/) 等任务栏增强软件，那么当你把鼠标悬停在任务栏右下角图标上时，应用可能会崩溃。
+- 如果你使用了 [StartAllBack](https://www.startallback.com) 等任务栏增强软件，那么当你把鼠标悬停在任务栏右下角图标上时，应用可能会崩溃。
 - 当父进程获得输入焦点时，子进程不会被解除资源限制。
 - 系统进程（Session 0）将不会被限制资源。目前我们假设非用户进程会自己管理好资源。
 
 
 # 致谢
 
-- imbushuo：https://github.com/imbushuo/
+- imbushuo：https://github.com/imbushuo
 - 应用图标：
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 

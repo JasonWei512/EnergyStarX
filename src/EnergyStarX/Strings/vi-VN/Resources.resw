@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -162,9 +162,9 @@ Energy Star X là phiên bản GUI của phần mềm mã nguồn mở Energy St
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
 
-Energy Star X tận dụng Windows 11 [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/) (aka "Efficiency Mode") để tăng tốc các ứng dụng nền nhằm cải thiện tuổi thọ pin và nhiệt hệ thống. Nó sẽ không điều tiết ứng dụng tiền cảnh để đảm bảo trải nghiệm người dùng.
+Energy Star X tận dụng Windows 11 [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") để tăng tốc các ứng dụng nền nhằm cải thiện tuổi thọ pin và nhiệt hệ thống. Nó sẽ không điều tiết ứng dụng tiền cảnh để đảm bảo trải nghiệm người dùng.
 
-Đây là phiên bản GUI của mã nguồn mở [EnergyStar](https://github.com/imbushuo/EnergyStar/), được phát triển với Windows App SDK (WinUI 3).
+Đây là phiên bản GUI của mã nguồn mở [EnergyStar](https://github.com/imbushuo/EnergyStar), được phát triển với Windows App SDK (WinUI 3).
 
 
 # Yêu cầu
@@ -196,16 +196,16 @@ Bạn có thể thấy biểu tượng chiếc lá màu xanh lá cây bên cạn
 # Hạn chế
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- Nếu bạn đang sử dụng một số phần mềm tuỳ biến thanh tác vụ như [StartAllBack](https://www.startallback.com/), ứng dụng này có thể crash khi bạn di chuột qua biểu tượng trên khay hệ thống.
+- Nếu bạn đang sử dụng một số phần mềm tuỳ biến thanh tác vụ như [StartAllBack](https://www.startallback.com), ứng dụng này có thể crash khi bạn di chuột qua biểu tượng trên khay hệ thống.
 - Các quy trình con không được tăng tốc khi quy trình mẹ nhận được tiêu điểm đầu vào.
 - Các quy trình hệ thống (quy trình 0) không bị điều chỉnh. Hiện tại có một số giả định rằng các quy trình không phải người dùng biết họ đang làm gì.
 
 
 # Credit
 
-- imbushuo: https://github.com/imbushuo/
+- imbushuo: https://github.com/imbushuo
 - App Icon: 
-  - https://www.flaticon.com/free-icon/star_3103390/
+  - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
