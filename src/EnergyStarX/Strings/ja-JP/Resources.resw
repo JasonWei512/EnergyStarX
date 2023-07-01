@@ -160,59 +160,59 @@ Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI
     <value>開く</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># はじめに
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (別名「効率モード」) を利用して、バックグラウンドアプリケーションを制限し、バッテリー寿命とシステム熱を改善します。ユーザーエクスペリエンスを確保するために、フォアグラウンドアプリケーションを制限することはありません。
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
-
-
-# Requirements
-
-For the best result, you need:
-
-## Software
-
-- Windows 11 22H2 (Build 22621) or above
-
-## Hardware
-
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
-
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+このアプリは、Windows App SDK (WinUI 3) で開発されたオープンソースソフトウェア [EnergyStar](https://github.com/imbushuo/EnergyStar) のGUIバージョンです。
 
 
-# Usage
+# 必要要件
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+最良の結果を得るためには、以下のものが必要です。
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+## ソフトウェア
+
+- Windows 11 22H2 (Build 22621) またはそれ以上
+
+## ハードウェア
+
+- インテル 10 世代以降のモバイル プロセッサー
+- AMD Ryzen 5000またはそれ以降のモバイルプロセッサ
+- クアルコムのモバイルプロセッサー
+
+このアプリは、Windows 11 21H2 (Build 22000) およびそれ以前のハードウェアでも動作しますが、最良の結果を得られない場合があります。
+
+
+# 使用方法
+
+システムトレイでバックグラウンドで実行させます。設定ページで起動時に自動的に実行するかどうかを選択することができます。
+
+タスクマネージャの「状態」欄で、制限されたバックグラウンドプロセスの横に緑の葉っぱのアイコンが表示されます。
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Known Limitations
+# 既知の制限事項
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+- [StartAllBack](https://www.startallback.com)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
+- 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
+- システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。
 
 
-# Acknowledgements
+# 謝辞
 
 - imbushuo: https://github.com/imbushuo
-- App Icon: 
+- アプリのアイコン。
   - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# How to contribute
+# 貢献の仕方
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+[Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md) を参照してください。</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>警告：お使いのOSのバージョン ({0}) は22621以下で、最良の結果を得ることはできません</value>
