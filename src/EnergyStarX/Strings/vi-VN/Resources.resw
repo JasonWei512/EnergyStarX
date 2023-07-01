@@ -162,46 +162,46 @@ Energy Star X là phiên bản GUI của phần mềm mã nguồn mở Energy St
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X tận dụng Windows 11 [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") để tăng tốc các ứng dụng nền nhằm cải thiện tuổi thọ pin và nhiệt hệ thống. Nó sẽ không điều tiết ứng dụng tiền cảnh để đảm bảo trải nghiệm người dùng.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
+Đây là phiên bản GUI của mã nguồn mở [EnergyStar](https://github.com/imbushuo/EnergyStar), được phát triển với Windows App SDK (WinUI 3).
 
 
-# Requirements
+# Yêu cầu
 
-For the best result, you need:
+Để được kết quả tốt nhất, bạn cần:
 
-## Software
+## Phần mềm
 
 - Windows 11 22H2 (Build 22621) or above
 
-## Hardware
+## Phần cứng
 
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+- Intel thế hệ 10 hoặc mới hơn
+- AMD Ryzen 5000 hoặc mới hơn
+- Qualcomm CPU
 
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+Ứng dụng này có thể hoạt động trên Windows 11 21H2 (Build 22000) và phần cứng cũ hơn, nhưng có thể không đạt được kết quả tốt nhất.
 
 
-# Usage
+# Sử dụng
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+Để nó chạy ngầm trên khay hệ thống. Bạn có thể chọn chạy nó tự động khi khởi động trong trang cài đặt.
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+Bạn có thể thấy biểu tượng chiếc lá màu xanh lá cây bên cạnh quy trình nền được điều chỉnh trong cột "Trạng thái" của Trình quản lý tác vụ.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Known Limitations
+# Hạn chế
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+- Nếu bạn đang sử dụng một số phần mềm tuỳ biến thanh tác vụ như [StartAllBack](https://www.startallback.com), ứng dụng này có thể crash khi bạn di chuột qua biểu tượng trên khay hệ thống.
+- Các quy trình con không được tăng tốc khi quy trình mẹ nhận được tiêu điểm đầu vào.
+- Các quy trình hệ thống (quy trình 0) không bị điều chỉnh. Hiện tại có một số giả định rằng các quy trình không phải người dùng biết họ đang làm gì.
 
 
-# Acknowledgements
+# Credit
 
 - imbushuo: https://github.com/imbushuo
 - App Icon: 
@@ -210,9 +210,9 @@ You can see a green leaf icon next to throttled background process in Task Manag
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# How to contribute
+# Đóng góp
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Xem [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Cảnh báo: Phiên bản của bạn ({0}) thấp hơn 22621, sẽ không có được kết quả tốt nhất</value>
