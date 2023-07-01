@@ -160,60 +160,59 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
     <value>開啟</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># 簡介
+    <value># Introduction
 
-能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
-
-
-# 要求
-
-為了獲得最好的效果，您需要：
-
-## 應用程式
-
-- Windows 11 22H2 (Build 22621) 及以上
-
-## 硬體
-
-- Intel Core 10 系列及以上移動處理器
-- AMD Ryzen 5000 系列及以上移動處理器
-- Qualcomm 移動處理器
-
-此應用程式可以在 Windows 11 21H2 (Build 22000) 和舊硬體上工作，但是可能不會有最佳效果。
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
 
 
-# 使用方法
+# Requirements
 
-讓它在工作列右下角背景執行即可。您可以在設定頁面中選擇開機啟動。
+For the best result, you need:
 
-您可以在工作管理員的「狀態」列中看到被限制資源的背景應用程式旁會顯示一個綠葉圖示。
+## Software
 
-![工作管理員綠葉](/Assets/InApp/Task_Manager_Leaf.jpg)
+- Windows 11 22H2 (Build 22621) or above
+
+## Hardware
+
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
+
+This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
 
 
-# 已知問題
+# Usage
 
-- 如果你使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼你的滑鼠游標移動時可能會卡頓。請將這些軟體添加至白名單中。
-- 如果您使用了 [StartAllBack](https://www.startallback.com) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
-- 當父處理程序獲得輸入焦點時，子進程不會被解除資源限制。
-- 系統處理程序（Session 0）將不會被限制資源。目前我們假設非使用者處理程序會自己管理好資源。
+Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+
+You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+
+![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# 致謝
+# Known Limitations
 
-- imbushuo：https://github.com/imbushuo （作者）
-- flandretw：https://github.com/flandretw （繁體中文翻譯校正）
-- 應用程式圖示：
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
+- Child processes do not get boosted when the parent process receives input focus.
+- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+
+
+# Acknowledgements
+
+- imbushuo: https://github.com/imbushuo
+- App Icon: 
   - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# 如何貢獻
+# How to contribute
 
-請看 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.zh-hans.md)。</value>
+See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>警告：您的作業系統版本為 {0}，低於 22621，將不會獲得最佳節能效果</value>
