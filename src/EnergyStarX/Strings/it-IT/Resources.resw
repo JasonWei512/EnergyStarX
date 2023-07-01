@@ -191,6 +191,7 @@ Potete vedere una foglia verde a fianco dei processi limitati in background nell
 
 # Limitazioni
 
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
 - Se usate software per migliorare la taskbar come [StartAllBack](https://www.startallback.com/), questa app potrebbe chiudersi quando indicate con il puntatore del mouse l'icona dell'app nella barra delle applicazioni.
 - I processi figli non vengono accellerati quando il processo padre riceve focus.
 - I processi di sistema (PID 0) non vengono limitati. L'ipotesi è che questi processi sappiano cosa stiano facendo.

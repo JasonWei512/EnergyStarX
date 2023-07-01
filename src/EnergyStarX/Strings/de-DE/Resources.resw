@@ -195,6 +195,7 @@ Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess i
 
 # Bekannte Einschränkungen
 
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
 - Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com/) verwenden, könnte diese App abstürzen, wenn die Maus über das Symbol im Infobereich bewegen.
 - untergeordnete Prozesse werden nicht geboostet, wenn der übergeordnete Prozess den Eingabefokus erhält.
 - Systemprozesse werden nicht gedrosselt. Derzeit gibt es die Annahme, dass Prozesse ohne Benutzer wissen, was sie tun.

@@ -195,6 +195,7 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 
 # 既知の制限事項
 
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
 - [StartAllBack](https://www.startallback.com/)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
 - 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
 - システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。

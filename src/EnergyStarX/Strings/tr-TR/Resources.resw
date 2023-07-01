@@ -195,6 +195,7 @@ Görev Yöneticisi'nin "Durum" sütununda kısıtlanmış arka plan işleminin y
 
 # Bilinen Sınırlamalar
 
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
 - [StartAllBack](https://www.startallback.com/) gibi bazı görev çubuğu geliştirme yazılımları kullanıyorsanız, sistem tepsisi simgesinin üzerine geldiğinizde bu uygulama çökebilir.
 - Ana süreç girdi odağını aldığında alt süreçler desteklenmez.
 - Sistem işlemleri (Oturum 0'dır) kısıtlanmaz. Şu anda, kullanıcı olmayan süreçlerin ne yaptıklarını bildiklerine dair bazı varsayımlar var.

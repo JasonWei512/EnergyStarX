@@ -195,6 +195,7 @@ Bạn có thể thấy biểu tượng chiếc lá màu xanh lá cây bên cạn
 
 # Hạn chế
 
+- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
 - Nếu bạn đang sử dụng một số phần mềm tuỳ biến thanh tác vụ như [StartAllBack](https://www.startallback.com/), ứng dụng này có thể crash khi bạn di chuột qua biểu tượng trên khay hệ thống.
 - Các quy trình con không được tăng tốc khi quy trình mẹ nhận được tiêu điểm đầu vào.
 - Các quy trình hệ thống (quy trình 0) không bị điều chỉnh. Hiện tại có một số giả định rằng các quy trình không phải người dùng biết họ đang làm gì.
