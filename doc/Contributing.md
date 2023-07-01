@@ -65,7 +65,7 @@ Before contributing, you need to install the toolchain:
 
 Documents:
 
--  [Windows App SDK (WinUI 3)](https://learn.microsoft.com/windows/apps/winui/winui3/)
+-  [Windows App SDK (WinUI 3)](https://learn.microsoft.com/windows/apps/winui/winui3)
 
 -  [WinUI 3 Template Studio](https://learn.microsoft.com/windows/apps/winui/winui3/winui-project-templates-in-visual-studio)
 
