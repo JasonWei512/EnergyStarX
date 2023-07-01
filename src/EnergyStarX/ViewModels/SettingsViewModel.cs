@@ -213,7 +213,7 @@ public partial class SettingsViewModel : ObservableRecipient
         {
             using WmiConnection wmiConnection = new();
 
-            string JoinItems<T>(IEnumerable<T> items) => items.Any() ? string.Join(" + ", items) : "N/A";
+            static string JoinItems<T>(IEnumerable<T> items) => items.Any() ? string.Join(" + ", items) : "N/A";
 
             string cpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_Processor").Select(cpu => cpu["Name"]));
             string gpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_VideoController").Select(gpu => gpu["Name"]));

@@ -18,7 +18,7 @@ public class SystemTrayIconService : ISystemTrayIconService
 
     private readonly TrayIconWithContextMenu trayIcon = new();
 
-    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly IWindowService windowService;

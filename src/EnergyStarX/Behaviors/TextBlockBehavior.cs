@@ -23,9 +23,9 @@ public partial class TextBlockBehavior : DependencyObject, IBehavior
 
     public TextBlockBehavior()
     {
-        this.windowService = App.GetService<IWindowService>();
-        this.windowService.WindowShowing += WindowService_MainWindowShowing;
-        this.windowService.WindowHiding += WindowService_MainWindowHiding;
+        windowService = App.GetService<IWindowService>();
+        windowService.WindowShowing += WindowService_MainWindowShowing;
+        windowService.WindowHiding += WindowService_MainWindowHiding;
     }
 
     // Called when AssociatedObject is added to xaml tree

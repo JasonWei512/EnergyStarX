@@ -21,7 +21,7 @@ public static class HookManager
     private static IntPtr windowEventHook;
     // Explicitly declare it to prevent GC
     // See: https://stackoverflow.com/questions/6193711/call-has-been-made-on-garbage-collected-delegate-in-c
-    private static WinEventProc hookProcDelegate = WindowEventCallback;
+    private static readonly WinEventProc hookProcDelegate = WindowEventCallback;
 
     /// <summary>
     /// The event arg is the handle to the window that is in the foreground.

@@ -18,7 +18,7 @@ namespace EnergyStarX.Services;
 
 public class EnergyService : IEnergyService
 {
-    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private readonly object lockObject = new();
     private CancellationTokenSource houseKeepingCancellationTokenSource = new();
 

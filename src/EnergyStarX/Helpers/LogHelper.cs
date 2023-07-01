@@ -85,7 +85,7 @@ public static class LogHelper
         await Launcher.LaunchFolderAsync(logFolder, folderLauncherOptions);
     }
 
-    public async static Task<string> GetErrorLogContent()
+    public static async Task<string> GetErrorLogContent()
     {
         try
         {

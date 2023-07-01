@@ -35,7 +35,9 @@ public abstract class DynamicDataSource : IReadOnlyCollection<object?[]>
         ArgumentNullException.ThrowIfNull(rows);
 
         foreach (object?[] row in rows)
+        {
             AddRow(row);
+        }
     }
 
     /// <inheritdoc/>
@@ -67,8 +69,10 @@ public class DynamicDataSource<T> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params T[] values) =>
+    public DynamicDataSource(params T[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -108,8 +112,10 @@ public class DynamicDataSource<T1, T2> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2)[] values) =>
+    public DynamicDataSource(params (T1, T2)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -155,8 +161,10 @@ public class DynamicDataSource<T1, T2, T3> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -204,8 +212,10 @@ public class DynamicDataSource<T1, T2, T3, T4> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -255,8 +265,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -308,8 +320,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5, T6> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5, T6}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -363,8 +377,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5, T6, T7> : DynamicDataSource
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5, T6, T7}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -420,8 +436,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5, T6, T7, T8> : DynamicDataSour
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5, T6, T7, T8}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -479,8 +497,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5, T6, T7, T8, T9> : DynamicData
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5, T6, T7, T8, T9}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8, T9)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8, T9)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.
@@ -540,8 +560,10 @@ public class DynamicDataSource<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> : Dynami
     /// Initializes a new isntance of the <see cref="DynamicDataSource{T1, T2, T3, T4, T5, T6, T7, T8, T9, T10}"/> class.
     /// </summary>
     /// <param name="values">The initial set of values</param>
-    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)[] values) =>
+    public DynamicDataSource(params (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)[] values)
+    {
         AddRange(values);
+    }
 
     /// <summary>
     /// Adds data to the test data set.

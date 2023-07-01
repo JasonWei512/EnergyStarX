@@ -22,7 +22,7 @@ namespace EnergyStarX.Services;
 
 public class StartupService : IStartupService
 {
-    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
     public async Task Initialize()
     {
