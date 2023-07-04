@@ -215,10 +215,10 @@ Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess i
 Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warnung: Deine OS Version ({0}) ist kleiner als 22621, es werden nicht die besten Ergebnisse erzielt</value>
+    <value>Warnung: Deine Betriebssystemversion ({0}) ist älter als 22621, es werden nicht die besten Ergebnisse erzielt</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>Protokoll</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
     <value>Beim Systemstart aktivieren!</value>
@@ -236,7 +236,7 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
     <value>Kopieren</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Alle Hintergrundprozesse beim Einstecken drosseln</value>
+    <value>Alle Hintergrundprozesse beim Laden drosseln</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// Ein Prozessname pro Zeile
@@ -300,7 +300,7 @@ firefox.exe</value>
     <value>Nach unten scrollen</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Verstanden!</value>
+    <value>Alles klar!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
     <value>Prozesswhitelist bearbeiten</value>
@@ -356,7 +356,7 @@ Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
     <value>Änderungsverlauf</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Pausieren</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
     <value>(Experimentell) Beim Systemstart als Administrator ausführen</value>
@@ -365,9 +365,9 @@ Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
     <value>Hilf uns die App zu übersetzen 🌏</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// Prozessname pro Zeile
+    <value>// Ein Prozessname pro Zeile
 // Zeile hinter einem doppelten Schrägstrich wird ignoriert
-// Supports "?" and "*" wildcards
+// Unterstützt "?" und "*" Platzhalter
 // Sie müssen in der gleichen Windows-Sitzung sein wie der Prozess, den Sie drosseln möchten, und Sie müssen dieselben oder höhere Privilegien haben
 </value>
   </data>
