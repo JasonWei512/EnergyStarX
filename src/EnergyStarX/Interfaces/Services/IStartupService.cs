@@ -13,5 +13,8 @@ public interface IStartupService
 
     Task<StartupType> GetStartupType();
 
+    /// <summary>
+    /// Returns whether StartupType set successfully.
+    /// </summary>
     Task<bool> SetStartupType(StartupType startupType);
 }

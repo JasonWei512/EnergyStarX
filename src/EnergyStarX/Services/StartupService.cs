@@ -54,9 +54,7 @@ public class StartupService : IStartupService
         return startupType;
     }
 
-    /// <summary>
-    /// Returns whether StartupType set successfully.
-    /// </summary>
+    /// <inheritdoc/>
     public async Task<bool> SetStartupType(StartupType startupType)
     {
         StartupType oldStartupType = await GetStartupType();
