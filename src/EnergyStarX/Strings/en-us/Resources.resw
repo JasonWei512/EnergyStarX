@@ -412,4 +412,10 @@ Click the pause button again to resume.</value>
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
+  <data name="NewVersionWelcomeMessage" xml:space="preserve">
+    <value>Energy Star X has been updated to {0}</value>
+  </data>
+  <data name="Shell_ChangelogLink.Content" xml:space="preserve">
+    <value>Changelog</value>
+  </data>
 </root>

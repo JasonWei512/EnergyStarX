@@ -28,6 +28,8 @@ public partial class ShellViewModel : ObservableRecipient
     public string TitlebarText { get; }
     public bool IsOsVersionNotRecommended { get; } = Environment.OSVersion.Version.Build < 22621;
     public string OsVersionNotRecommendedWarningMessage { get; } = string.Format("OsVersionNotRecommendedWarningMessage".ToLocalized(), Environment.OSVersion.Version.Build);
+    public bool ShouldShowNewVersionWelcomeMessage { get; }
+    public string NewVersionWelcomeMessage { get; } = string.Format("NewVersionWelcomeMessage".ToLocalized(), PackageInfo.VersionString);
 
     public ShellViewModel(INavigationService navigationService, INavigationViewService navigationViewService, ISettingsService settingsService)
     {
@@ -40,6 +42,11 @@ public partial class ShellViewModel : ObservableRecipient
         TitlebarText =
             "AppDisplayName".ToLocalized()
             + (HaveAdminPrivilege() ? $"  ({"Admin Privilege".ToLocalized()})" : string.Empty);
+
+        if (PackageInfo.Version > settingsService.LastRunVersion)
+        {
+            ShouldShowNewVersionWelcomeMessage = true;
+        }
     }
 
     public async Task Initialize()
@@ -60,6 +67,12 @@ public partial class ShellViewModel : ObservableRecipient
             ShowTeachingTip = false;
             settingsService.FirstRun = false;
         }
+    }
+
+    [RelayCommand]
+    private void UpdateLastRunVersion()
+    {
+        settingsService.LastRunVersion = PackageInfo.Version;
     }
 
     private void OnNavigated(object sender, NavigationEventArgs e)

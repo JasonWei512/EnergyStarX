@@ -29,4 +29,23 @@ public class SettingsService : ISettingsService
         get => GetSetting("ProcessBlacklistString", "DefaultProcessBlacklist".ToLocalized());
         set => SetSetting("ProcessBlacklistString", value);
     }
+
+    public Version LastRunVersion
+    {
+        get
+        {
+            if (Version.TryParse(GetSetting("LastRunVersion", string.Empty), out Version? version))
+            {
+                if (version is not null)
+                {
+                    return version;
+                }
+            }
+            return new Version();
+        }
+        set
+        {
+            SetSetting("LastRunVersion", value.ToString());
+        }
+    }
 }

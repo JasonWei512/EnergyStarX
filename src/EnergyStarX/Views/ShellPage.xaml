@@ -121,6 +121,16 @@
 
         <StackPanel Grid.Row="2">
             <InfoBar
+                CloseButtonCommand="{x:Bind ViewModel.UpdateLastRunVersionCommand}"
+                IsOpen="{x:Bind ViewModel.ShouldShowNewVersionWelcomeMessage}"
+                Message="{x:Bind ViewModel.NewVersionWelcomeMessage}"
+                Severity="Success">
+                <InfoBar.ActionButton>
+                    <HyperlinkButton x:Uid="Shell_ChangelogLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/releases" />
+                </InfoBar.ActionButton>
+            </InfoBar>
+
+            <InfoBar
                 IsOpen="{x:Bind ViewModel.IsOsVersionNotRecommended}"
                 Message="{x:Bind ViewModel.OsVersionNotRecommendedWarningMessage}"
                 Severity="Warning" />
