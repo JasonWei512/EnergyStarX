@@ -195,7 +195,7 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 
 # 既知の制限事項
 
-- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
+- [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html)などのマウス関連ソフトを使用している場合、マウスカーソルの移動時にラグが発生する場合があります。これらのソフトをホワイトリストに追加してください。
 - [StartAllBack](https://www.startallback.com)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
 - 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
 - システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。
@@ -246,18 +246,18 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 // Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// エッジはエネルギーを自身で機能を持っている
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWPフレームには特別な処理があり、スロットルされるべきではない
 ApplicationFrameHost.exe
 // Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// ウィジェット
 Widgets.exe
-// System shell
+// システムシェル
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -268,14 +268,14 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// システム・サービス - これらは自身で機能を持っている
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108が効率モードをサポートしている
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -331,7 +331,7 @@ firefox.exe</value>
     <value>バックグラウンドプログラムを制限しています…</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>ユーザーが一時停止しました。
+    <value>ユーザーの操作により一時停止しました。
 再開するには、もう一度一時停止ボタンをクリックしてください。</value>
   </data>
   <data name="Paused" xml:space="preserve">
