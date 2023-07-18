@@ -240,18 +240,18 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// Ein Prozessname pro Zeile
-// Doppelter Schrägstrich und Inhalt danach in jeder Zeile werden ignoriert
-// Supports "?" and "*" wildcards
+// Doppelter Schrägstrich und in der Zeile folgender Inhalt werden ignoriert
+// Unterstützt "?" und "*" Wildcards
     
-// Nicht wir selber
+// Nicht wir selbst
 EnergyStar.exe
 EnergyStarX.exe
-// Edge hat selbst ein Energiebewusstsein
+// Edge hat eigene Handhabung
 msedge.exe
 WebViewHost.exe
-// UWP Frame hat spezielle Behandlung, sollte nicht gedrosselt werden
+// UWP Frame hat spezielle Handhabung, sollte nicht gedrosselt werden
 ApplicationFrameHost.exe
-// Feuerlöscher sollte nicht Feuer auffangen
+// Feuerlöscher sollte nicht Feuer fangen
 taskmgr.exe
 procmon.exe
 procmon64.exe
@@ -268,7 +268,7 @@ fontdrvhost.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Systemdienst - sie haben ihr Bewusstsein
+// Systemdienst - haben eigene Handhabung
 csrss.exe
 smss.exe
 svchost.exe
@@ -332,7 +332,7 @@ Sie können dieses Verhalten in den Einstellungen ändern.</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>Drosseln durch Benutzer pausiert.
-Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
+Klicke erneut auf die Pausieren-Taste, um fortzufahren.</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>Pausiert</value>
@@ -341,7 +341,7 @@ Klicke erneut auf die Pause-Taste, um fortzufahren.</value>
     <value>Quellcode (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Rückmeldung</value>
+    <value>Feedback</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
     <value>Administrator-Berechtigung</value>
