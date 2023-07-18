@@ -162,7 +162,7 @@ Energy Star X ist eine graphische Version des quelloffenen Programms EnergyStar.
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Einführung
 
-Energy Star X nutzt Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (auch "Effizienzmodus") zur Drosselung von Hintergrundanwendungen zur Verbesserung der Batterielebensdauer und des Energieverbrauchs. Es drosselt nicht die Vordergrund-Anwendung, um die Benutzererfahrung zu gewährleisten.
+Energy Star X nutzt Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (auch "Effizienzmodus") zur Drosselung von Hintergrundanwendungen und zur Verbesserung der Batterielaufzeit und des Energieverbrauchs. Es drosselt keine Vordergrund-Anwendungen, um die Benutzererfahrung zu gewährleisten.
 
 Diese App ist eine GUI-Version der Open-Source-Software [EnergyStar](https://github.com/imbushuo/EnergyStar), entwickelt mit Windows App SDK (WinUI 3).
 
@@ -177,28 +177,28 @@ Für das beste Ergebnis brauchen Sie:
 
 ## Hardware
 
-- Intel 10th gen or neuer mobile Prozessoren
-- AMD Ryzen 5000 oder neuer mobile Prozessoren
-- Qualcomm mobile Prozessoren
+- mobiler Intel Prozessor der 10ten Generation oder höher
+- mobiler AMD Ryzen 5000 Prozessor oder höher
+- mobiler Qualcomm Prozessor
 
-Diese App kann auf Windows 11 21H2 (Build 22000) und älterer Hardware funktionnieren, liefert aber vielleicht nicht das beste Ergebnis.
+Diese App kann auf Windows 11 21H2 (Build 22000) und älterer Hardware funktionieren, liefert aber vielleicht nicht das beste Ergebnis.
 
 
 # Nutzung
 
-Lassen Sie das Programm im Hintergrund im Infobereichlaufen. Sie können ihn beim Start in den Einstellungen automatisch ausführen.
+Lassen Sie das Programm im Hintergrund im Infobereich laufen. Sie können es beim Start in den Einstellungen automatisch starten lassen.
 
-Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess in der Spalte "Status" des Task-Managers sehen.
+Neben gedrosselten Hintergrundprozessen kannst du in der Spalte "Status" des Task-Managers ein grünes Blatt-Symbol sehen.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
 # Bekannte Einschränkungen
 
-- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com) verwenden, könnte diese App abstürzen, wenn die Maus über das Symbol im Infobereich bewegen.
+- Wenn Sie zu Mäusen gehörende Programme wie [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html) verwenden, kann es sein, dass ihre Maus  sich nicht ruckelfrei bewegt. Bitte fügen sie diese Programme der Whitelist hinzu.
+- Wenn Sie einige Taskbar-Software wie [StartAllBack](https://www.startallback.com) verwenden, könnte diese App abstürzen, wenn Sie die Maus über das Symbol im Infobereich bewegen.
 - untergeordnete Prozesse werden nicht geboostet, wenn der übergeordnete Prozess den Eingabefokus erhält.
-- Systemprozesse werden nicht gedrosselt. Derzeit gibt es die Annahme, dass Prozesse ohne Benutzer wissen, was sie tun.
+- Systemprozesse werden nicht gedrosselt. Man nimmt momentan an, dass Nicht-Benutzer-Prozesse wissen, was sie tun.
 
 
 # Danksagungen
@@ -210,7 +210,7 @@ Du kannst ein grünes Blatt-Symbol neben dem abgedrosselten Hintergrundprozess i
   - https://www.flaticon.com/free-icon/pause-button_561920
 
 
-# Wie man beiträgt
+# Wie man mitwirkt
 
 Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
@@ -236,12 +236,12 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
     <value>Kopieren</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Alle Hintergrundprozesse beim Laden drosseln</value>
+    <value>Alle Hintergrundprozesse während Netzbetrieb drosseln</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// Ein Prozessname pro Zeile
-// Doppelter Schrägstrich und in der Zeile folgender Inhalt werden ignoriert
-// Unterstützt "?" und "*" Wildcards
+// Zeile hinter einem doppelten Schrägstrich wird ignoriert
+// Unterstützt "?" und "*" Platzhalter
     
 // Nicht wir selbst
 EnergyStar.exe
@@ -274,7 +274,6 @@ smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
-
 // Firefox 108 unterstützt jetzt den Effizienzmodus
 firefox.exe</value>
   </data>
@@ -328,7 +327,7 @@ firefox.exe</value>
 Sie können dieses Verhalten in den Einstellungen ändern.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Hintergrundprogramme drosseln...</value>
+    <value>Hintergrundprogramme werden gedrosselt.</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>Drosseln durch Benutzer pausiert.
