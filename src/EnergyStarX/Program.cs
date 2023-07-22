@@ -1,9 +1,6 @@
-﻿using EnergyStarX.Helpers;
-using Microsoft.UI.Dispatching;
+﻿using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
-using Microsoft.Windows.AppNotifications;
-using Microsoft.Windows.AppNotifications.Builder;
 
 namespace EnergyStarX;
 
@@ -19,14 +16,9 @@ public static class Program
         AppInstance mainAppInstance = AppInstance.FindOrRegisterForKey(App.Guid);
         if (!mainAppInstance.IsCurrent)
         {
-            AppNotification alreadyRunningNotification = new AppNotificationBuilder().AddText("AlreadyRunningMessage".ToLocalized()).BuildNotification();
-            AppNotificationManager.Default.Show(alreadyRunningNotification);
-
             Task.Run(async () =>
             {
-                // Clear the toast notification after several seconds
-                await Task.Delay(TimeSpan.FromSeconds(4));
-                await AppNotificationManager.Default.RemoveAllAsync();
+                await mainAppInstance.RedirectActivationToAsync(AppInstance.GetCurrent().GetActivatedEventArgs());
             }).GetAwaiter().GetResult();
 
             return;

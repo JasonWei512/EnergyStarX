@@ -1,8 +1,9 @@
-﻿using EnergyStarX.Activation;
+﻿using CommunityToolkit.WinUI;
+using EnergyStarX.Activation;
 using EnergyStarX.Interfaces.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
-
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.AppLifecycle;
@@ -15,6 +16,7 @@ public class ActivationService : IActivationService
     private readonly IEnumerable<IActivationHandler> activationHandlers;
     private UIElement? shell = null;
     private readonly AppInstance currentAppInstance = AppInstance.GetCurrent();
+    private readonly DispatcherQueue dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
     private readonly ISystemTrayIconService systemTrayIconService;
     private readonly IWindowService windowService;
@@ -95,6 +97,15 @@ public class ActivationService : IActivationService
         windowService.Initialize();
         energyService.Initialize();
         await systemTrayIconService.Initialize();
+
+        currentAppInstance.Activated += CurrentAppInstance_Activated;
+    }
+
+    private async void CurrentAppInstance_Activated(object? sender, AppActivationArguments e)
+    {
+        // Mimic UWP's single instance app mode
+        // When launching a second app instance, redirect activation to the main app instance (see Program.cs), and show main instance's app window
+        await dispatcherQueue.EnqueueAsync(windowService.ShowAppWindow);
     }
 
     private bool ShouldShowAppWindow()
