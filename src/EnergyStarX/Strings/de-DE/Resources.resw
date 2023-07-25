@@ -274,6 +274,7 @@ smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
+
 // Firefox 108 unterstützt jetzt den Effizienzmodus
 firefox.exe</value>
   </data>
