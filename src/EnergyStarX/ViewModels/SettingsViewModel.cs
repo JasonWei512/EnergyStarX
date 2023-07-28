@@ -218,9 +218,9 @@ public partial class SettingsViewModel : ObservableRecipient
             string cpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_Processor").Select(cpu => cpu["Name"]));
             string gpuName = JoinItems(wmiConnection.CreateQuery("SELECT Name FROM Win32_VideoController").Select(gpu => gpu["Name"]));
             bool batteryExists = wmiConnection.CreateQuery("SELECT Name FROM Win32_Battery").Any();
-            long ramCapacity = wmiConnection.CreateQuery("SELECT Capacity FROM Win32_PhysicalMemory")
-                .Select(ram => long.TryParse(ram["Capacity"] as string, out long capacity) ? capacity : 0)
-                .Sum();
+            ulong ramCapacity = wmiConnection.CreateQuery("SELECT Capacity FROM Win32_PhysicalMemory")
+                .Select(ram => ram["Capacity"] as ulong? ?? 0)
+                .Aggregate((a, b) => a + b);
 
             hardwareInfo = $"""
                 CPU: {cpuName}
