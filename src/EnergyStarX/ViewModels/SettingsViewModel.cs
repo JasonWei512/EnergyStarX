@@ -4,6 +4,7 @@ using EnergyStarX.Helpers;
 using EnergyStarX.Interfaces.Services;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using NLog;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
@@ -13,6 +14,8 @@ namespace EnergyStarX.ViewModels;
 
 public partial class SettingsViewModel : ObservableRecipient
 {
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
     private readonly IEnergyService energyService;
     private readonly IDialogService dialogService;
     private readonly IStartupService startupService;
@@ -105,14 +108,14 @@ public partial class SettingsViewModel : ObservableRecipient
         "ProcessBlacklistEditorDialogTitle".ToLocalized()
         + (ProcessBlacklistModified ? $" ({"Modified".ToLocalized()})" : string.Empty);
 
-    private bool EnableTelemetry
+    public bool EnableTelemetry
     {
         get => settingsService.EnableTelemetry;
         set
         {
             if (SetProperty(EnableTelemetry, value, x => settingsService.EnableTelemetry = x))
             {
-                ToggleTelemetryCommand.Execute(value);
+                ToggleEnableTelemetryCommand.Execute(value);
             }
         }
     }
@@ -194,10 +197,11 @@ public partial class SettingsViewModel : ObservableRecipient
     }
 
     [RelayCommand]
-    private async Task ToggleTelemetry(bool enable)
+    private async Task ToggleEnableTelemetry(bool enable)
     {
         await Analytics.SetEnabledAsync(enable);
         await Crashes.SetEnabledAsync(enable);
+        logger.Info($"Telemetry {(enable ? "enabled" : "disabled")}");
     }
 
     [RelayCommand]

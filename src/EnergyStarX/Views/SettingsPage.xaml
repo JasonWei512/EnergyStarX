@@ -153,6 +153,14 @@
                                 <Button x:Uid="Settings_ProcessBlacklist_RestoreToDefaultButton" Command="{x:Bind ViewModel.RestoreToDefaultProcessBlacklistCommand}" />
                             </StackPanel>
                         </lab:SettingsCard>
+
+                        <lab:SettingsCard x:Uid="Settings_EnableTelemetry">
+                            <lab:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF16D;" />
+                            </lab:SettingsCard.HeaderIcon>
+
+                            <ToggleSwitch IsEnabled="{x:Bind ViewModel.ToggleEnableTelemetryCommand.IsRunning, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}" IsOn="{x:Bind ViewModel.EnableTelemetry, Mode=TwoWay}" />
+                        </lab:SettingsCard>
                     </StackPanel>
 
                     <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubTitleStyle}" />
