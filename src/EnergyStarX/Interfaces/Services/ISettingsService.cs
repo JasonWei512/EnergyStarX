@@ -6,4 +6,5 @@ public interface ISettingsService
     bool ThrottleWhenPluggedIn { get; set; }
     string ProcessWhitelistString { get; set; }
     string ProcessBlacklistString { get; set; }
+    bool EnableTelemetry { get; set; }
 }

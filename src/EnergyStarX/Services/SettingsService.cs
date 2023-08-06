@@ -29,4 +29,10 @@ public class SettingsService : ISettingsService
         get => GetSetting("ProcessBlacklistString", "DefaultProcessBlacklist".ToLocalized());
         set => SetSetting("ProcessBlacklistString", value);
     }
+
+    public bool EnableTelemetry
+    {
+        get => GetSetting("EnableTelemetry", true);
+        set => SetSetting("EnableTelemetry", value);
+    }
 }

@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using EnergyStarX.Helpers;
 using EnergyStarX.Interfaces.Services;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
@@ -103,6 +105,18 @@ public partial class SettingsViewModel : ObservableRecipient
         "ProcessBlacklistEditorDialogTitle".ToLocalized()
         + (ProcessBlacklistModified ? $" ({"Modified".ToLocalized()})" : string.Empty);
 
+    private bool EnableTelemetry
+    {
+        get => settingsService.EnableTelemetry;
+        set
+        {
+            if (SetProperty(EnableTelemetry, value, x => settingsService.EnableTelemetry = x))
+            {
+                ToggleTelemetryCommand.Execute(value);
+            }
+        }
+    }
+
     public event EventHandler? ProcessBlacklistEditorDialogShowRequested;
 
     public SettingsViewModel(IEnergyService energyService, IDialogService dialogService, IStartupService startupService, ISettingsService settingsService)
@@ -177,6 +191,13 @@ public partial class SettingsViewModel : ObservableRecipient
         {
             energyService.ApplyAndSaveProcessBlacklist("DefaultProcessBlacklist".ToLocalized());
         }
+    }
+
+    [RelayCommand]
+    private async Task ToggleTelemetry(bool enable)
+    {
+        await Analytics.SetEnabledAsync(enable);
+        await Crashes.SetEnabledAsync(enable);
     }
 
     [RelayCommand]
