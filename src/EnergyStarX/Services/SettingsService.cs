@@ -1,32 +1,20 @@
 ﻿using EnergyStarX.Helpers;
 using EnergyStarX.Interfaces.Services;
-using static EnergyStarX.Helpers.SettingsHelper;
+using NickJohn.WinUI.ObservableSettings;
 
 namespace EnergyStarX.Services;
 
-public class SettingsService : ISettingsService
+public partial class SettingsService : ISettingsService
 {
-    public bool FirstRun
-    {
-        get => GetSetting("FirstRun", true);
-        set => SetSetting("FirstRun", value);
-    }
+    [ObservableSetting("FirstRun")]
+    private readonly bool firstRun = true;
 
-    public bool ThrottleWhenPluggedIn
-    {
-        get => GetSetting("ThrottleWhenPluggedIn", false);
-        set => SetSetting("ThrottleWhenPluggedIn", value);
-    }
+    [ObservableSetting("ThrottleWhenPluggedIn")]
+    private readonly bool throttleWhenPluggedIn = false;
 
-    public string ProcessWhitelistString
-    {
-        get => GetSetting("BypassProcessListString", "DefaultProcessWhitelist".ToLocalized());
-        set => SetSetting("BypassProcessListString", value);
-    }
+    [ObservableSetting("BypassProcessListString")]
+    private readonly string processWhitelistString = "DefaultProcessWhitelist".ToLocalized();
 
-    public string ProcessBlacklistString
-    {
-        get => GetSetting("ProcessBlacklistString", "DefaultProcessBlacklist".ToLocalized());
-        set => SetSetting("ProcessBlacklistString", value);
-    }
+    [ObservableSetting("ProcessBlacklistString")]
+    private readonly string processBlacklistString = "DefaultProcessBlacklist".ToLocalized();
 }
