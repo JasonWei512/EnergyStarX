@@ -38,8 +38,13 @@ public class SystemTrayIconService : ISystemTrayIconService
         {
             Items =
             {
-                new PopupMenuItem("Open".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow())),
-                new PopupMenuItem("Exit".ToLocalized(), async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ExitApp()))
+                new PopupMenuItem(
+                    "Open".ToLocalized(),
+                    async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ShowAppWindow())),
+
+                new PopupMenuItem(
+                    "Exit".ToLocalized(),
+                    async (s, e) => await dispatcherQueue.EnqueueAsync(() => windowService.ExitApp()))
             }
         };
 
