@@ -43,6 +43,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230822000" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+    <PackageReference Include="NickJohn.WinUI.ObservableSettings" Version="1.0.0" />
     <PackageReference Include="NLog" Version="5.2.4" />
     <PackageReference Include="WinUIEx" Version="2.2.0" />
     <PackageReference Include="DependencyPropertyGenerator" Version="1.3.0" PrivateAssets="all" ExcludeAssets="runtime">
@@ -85,26 +86,6 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Helpers\SettingsHelper.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SettingsHelper.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Helpers\SettingsHelper.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SettingsHelper.tt</DependentUpon>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Helpers\SettingsHelper.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SettingsHelper.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
