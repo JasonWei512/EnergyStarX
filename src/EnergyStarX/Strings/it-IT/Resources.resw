@@ -357,7 +357,7 @@ Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
     <value>(Sperimentale) Esegui all'avvio come amministratore</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Aiutaci a tradurre questa app</value>
+    <value>Help us translate this app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Un nome di processo per riga
