@@ -362,7 +362,7 @@ firefox.exe</value>
     <value>（実験的）起動時に管理者として実行</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>このアプリの翻訳に協力する</value>
+    <value>Help us translate this app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// プロセス名は1行に1つ
