@@ -362,7 +362,7 @@ Jatka painamalla taukonappulaa.</value>
     <value>(Kokeellinen) Suorita käynnistyksessä ylläpitäjänä</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Auta kääntämisessä</value>
+    <value>Help us translate this app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Yksi prosessi riviä kohden
