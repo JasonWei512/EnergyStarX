@@ -362,7 +362,7 @@ Klicke erneut auf die Pausieren-Taste, um fortzufahren.</value>
     <value>(Experimentell) Beim Systemstart als Administrator ausführen</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Hilf uns die App zu übersetzen</value>
+    <value>Help us translate this app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Ein Prozessname pro Zeile
