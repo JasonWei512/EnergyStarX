@@ -362,7 +362,7 @@ Devam etmek için duraklat düğmesine tekrar tıklayın.</value>
     <value>(Deneysel) Başlangıçta yönetici olarak çalıştır</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app</value>
+    <value>Bu uygulamayı çevirmemize yardım edin</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Satır başına bir işlem adı
