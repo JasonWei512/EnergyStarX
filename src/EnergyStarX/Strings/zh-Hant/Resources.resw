@@ -363,7 +363,7 @@ firefox.exe</value>
     <value>（實驗性）以系統管理員身份開機啟動</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>協助翻譯此應用程式</value>
+    <value>Help us translate this app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一個進程名稱
