@@ -362,7 +362,7 @@ firefox.exe</value>
     <value>（实验性）以管理员身份开机启动</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>帮助翻译此应用 🌏</value>
+    <value>帮助翻译此应用</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一个进程名

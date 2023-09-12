@@ -36,8 +36,6 @@
         </Style>
 
         <Thickness x:Key="SettingsExpanderContentMargin">0,0,28,0</Thickness>
-
-        <Style TargetType="HyperlinkButton" />
     </Page.Resources>
 
     <Grid x:Name="ContentArea" SizeChanged="ContentArea_SizeChanged">
@@ -165,11 +163,40 @@
                     <TextBlock x:Uid="Settings_Feedback" Style="{ThemeResource SubTitleStyle}" />
 
                     <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                        <HyperlinkButton x:Uid="Settings_RateLink" Command="{x:Bind ViewModel.RateThisAppCommand}" />
-                        <HyperlinkButton x:Uid="Settings_ContactLink" Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
-                        <HyperlinkButton x:Uid="Settings_SourceCodeLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX" />
-                        <HyperlinkButton x:Uid="Settings_TranslateLink" NavigateUri="https://crowdin.com/project/EnergyStarX" />
-                        <HyperlinkButton x:Uid="Settings_ChangelogLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/releases" />
+                        <StackPanel.Resources>
+                            <Style TargetType="FontIcon">
+                                <Setter Property="Margin" Value="0,0,8,0" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+
+                            <!--  Disable the default margin around HyperlinkButton  -->
+                            <Style TargetType="HyperlinkButton" />
+                        </StackPanel.Resources>
+
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE734;" />
+                            <HyperlinkButton x:Uid="Settings_RateLink" Command="{x:Bind ViewModel.RateThisAppCommand}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE715;" />
+                            <HyperlinkButton x:Uid="Settings_ContactLink" Command="{x:Bind ViewModel.ContactTheDeveloperCommand}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE943;" />
+                            <HyperlinkButton x:Uid="Settings_SourceCodeLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xF2B7;" />
+                            <HyperlinkButton x:Uid="Settings_TranslateLink" NavigateUri="https://crowdin.com/project/EnergyStarX" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE81C;" />
+                            <HyperlinkButton x:Uid="Settings_ChangelogLink" NavigateUri="https://github.com/JasonWei512/EnergyStarX/releases" />
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </Grid>

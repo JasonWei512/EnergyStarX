@@ -362,7 +362,7 @@ Nhấn nút tạm dừng để tiếp tục.</value>
     <value>(Thử nghiệm) Chạy cùng hệ thống dưới quyền quản trị</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Giúp chúng tôi dịch ứng dụng này 🌏</value>
+    <value>Giúp chúng tôi dịch ứng dụng này</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// Một tên quá trình cho mỗi dòng
