@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.WinUI;
+using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Interfaces.Services;
 using Microsoft.UI.Dispatching;
 using System.Collections.ObjectModel;
 using Windows.ApplicationModel.DataTransfer;

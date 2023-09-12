@@ -1,9 +1,9 @@
 ﻿using EnergyStarX.Activation;
 using EnergyStarX.Constants;
-using EnergyStarX.Core.Interfaces.Services;
+using EnergyStarX.Contracts.Services;
+using EnergyStarX.Core.Contracts.Services;
 using EnergyStarX.Core.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Interfaces.Services;
 using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;

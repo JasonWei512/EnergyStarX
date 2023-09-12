@@ -1,4 +1,4 @@
-﻿namespace EnergyStarX.Interfaces.ViewModels;
+﻿namespace EnergyStarX.Contracts.ViewModels;
 
 public interface INavigationAware
 {

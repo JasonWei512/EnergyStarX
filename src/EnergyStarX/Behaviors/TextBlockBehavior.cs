@@ -1,5 +1,5 @@
 ﻿using DependencyPropertyGenerator;
-using EnergyStarX.Interfaces.Services;
+using EnergyStarX.Contracts.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;

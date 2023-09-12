@@ -1,4 +1,4 @@
-﻿using EnergyStarX.Interfaces.Services;
+﻿using EnergyStarX.Contracts.Services;
 using EnergyStarX.ViewModels;
 using Microsoft.UI.Xaml;
 

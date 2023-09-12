@@ -1,5 +1,5 @@
 ﻿using EnergyStarX.Activation;
-using EnergyStarX.Interfaces.Services;
+using EnergyStarX.Contracts.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
 

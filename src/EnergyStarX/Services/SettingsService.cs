@@ -1,5 +1,5 @@
-﻿using EnergyStarX.Helpers;
-using EnergyStarX.Interfaces.Services;
+﻿using EnergyStarX.Contracts.Services;
+using EnergyStarX.Helpers;
 using NickJohn.WinUI.ObservableSettings;
 
 namespace EnergyStarX.Services;

@@ -1,4 +1,4 @@
-namespace EnergyStarX.Interfaces.Services;
+namespace EnergyStarX.Contracts.Services;
 
 public interface ISystemTrayIconService
 {

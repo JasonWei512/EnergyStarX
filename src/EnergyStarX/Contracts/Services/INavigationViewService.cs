@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 
-namespace EnergyStarX.Interfaces.Services;
+namespace EnergyStarX.Contracts.Services;
 
 public interface INavigationViewService
 {

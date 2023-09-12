@@ -1,4 +1,4 @@
-﻿using EnergyStarX.Interfaces.Services;
+﻿using EnergyStarX.Contracts.Services;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.UI.Xaml;
 

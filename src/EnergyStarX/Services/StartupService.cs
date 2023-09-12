@@ -10,7 +10,7 @@ It will be uninstalled automatically when the app is uninstalled. It can also th
 But that requires a double-process and communication app model, which is more complex to implement. 
 */
 
-using EnergyStarX.Interfaces.Services;
+using EnergyStarX.Contracts.Services;
 using NLog;
 using System.ComponentModel;
 using System.Diagnostics;

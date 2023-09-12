@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.WinUI;
+using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Interfaces.Services;
 using H.NotifyIcon.Core;
 using Microsoft.UI.Dispatching;
 using NLog;

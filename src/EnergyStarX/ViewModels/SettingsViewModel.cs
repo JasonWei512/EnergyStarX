@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using EnergyStarX.Contracts.Services;
 using EnergyStarX.Helpers;
-using EnergyStarX.Interfaces.Services;
 using Windows.ApplicationModel;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Windows.System;
