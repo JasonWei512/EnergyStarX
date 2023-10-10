@@ -394,16 +394,16 @@ Fare nuovamente clic sul pulsante di pausa per ripristinare.</value>
     <value>I processi nella blacklist saranno limitati anche quando il dispositivo è collegato alla rete elettrica</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Dona</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Dona su [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Apri sul tuo telefono per pagare con Apple Pay o Google Pay)
 
-[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Comprami un caffè](/Assets/InApp/Buy_me_a_coffee. ng)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Per gli utenti cinesi, scansiona con WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
