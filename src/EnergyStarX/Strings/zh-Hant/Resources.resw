@@ -195,9 +195,9 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 
 # 已知問題
 
-- 如果你使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼你的滑鼠游標移動時可能會卡頓。請將這些軟體添加至白名單中。
+- 如果你使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼你的滑鼠游標移動時可能會卡頓。請將這些軟體新增至白名單中。
 - 如果您使用了 [StartAllBack](https://www.startallback.com) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
-- 當父處理程序獲得輸入焦點時，子進程不會被解除資源限制。
+- 當父處理程序獲得輸入焦點時，子處理程序不會被解除資源限制。
 - 系統處理程序（Session 0）將不會被限制資源。目前我們假設非使用者處理程序會自己管理好資源。
 
 
@@ -366,7 +366,7 @@ firefox.exe</value>
     <value>協助翻譯此應用程式</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// 每行一個進程名稱
+    <value>// 每行一個處理程序名稱
 // 每行中雙斜槓以及之後的内容會被忽略
 // 支援「?」和「*」萬用字元
 // 您需要和您想要限制的處理程序在同一個 Windows 會話中，且擁有相同或更高的權限
