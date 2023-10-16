@@ -10,7 +10,7 @@
 </h1>
 
 <p align="center">
-  <a title="Get it from Microsoft" href="https://apps.microsoft.com/store/detail/9NF7JTB3B17P?launch=true&mode=full" target="_blank">
+  <a title="Get it from Microsoft" href="https://apps.microsoft.com/detail/9NF7JTB3B17P?launch=true&mode=full" target="_blank">
     <picture>
       <source srcset="https://get.microsoft.com/images/en-US%20light.svg" media="(prefers-color-scheme: dark)" />
       <source srcset="https://get.microsoft.com/images/en-US%20dark.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
