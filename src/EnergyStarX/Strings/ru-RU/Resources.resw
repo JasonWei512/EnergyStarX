@@ -121,43 +121,43 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Улучшите жизнь батареи вашего устройства!
+Energy Star X использует Windows 11 EcoQoS API (он же "Режим эффективности") для регулирования фоновых приложений, чтобы увеличить время автономной работы и температуру системы.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Для лучшего результата, вам нужно:
+- Windows 11 22H2 (Build 22621) или выше
+- Intel 10th gen или мобильные процессоры новее
+- AMD Ryzen 5000 или мобильные процессоры новее
+- Мобильные процессоры Qualcomm
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Исходный код: https://github.com/JasonWei512/EnergyStarX
+🌏 Переводите это приложение: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X это графическая версия программного обеспечения Energy Star с открытым исходным кодом.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Помощь</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Информация</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Intel отстой</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X уже запущен!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Автозапуск</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Настройки</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Выйти</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Открыть</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
