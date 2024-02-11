@@ -44,7 +44,7 @@ jobs:
     - name: Install .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.0.x
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.1
@@ -101,7 +101,7 @@ jobs:
         msbuild $env:PACKAGE_PROJECT_NAME `
           /p:Configuration=${{ matrix.configuration }} `
           /p:Platform=${{ matrix.platform }} `
-          /p:RuntimeIdentifier=win10-${{ matrix.platform }} `
+          /p:RuntimeIdentifier=win-${{ matrix.platform }} `
           `
           /p:GenerateAppxPackageOnBuild=true `
           /p:AppxPackageDir="$env:MSIX_PACKAGE_DIR" `
