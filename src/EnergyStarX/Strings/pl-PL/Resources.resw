@@ -148,7 +148,7 @@ Energy Star X to wersja GUI oprogramowania o otwartym źródle EnergyStar.</valu
     <value>Energy Star X już działa!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Uruchom przy starcie urządzenia</value>
+    <value>Uruchom przy starcie</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Ustawienia</value>
@@ -215,7 +215,7 @@ Możesz zobaczyć zieloną ikonę liścia obok dławionego procesu w tle w kolum
 Zobacz [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Ostrzeżenie: Wersja systemu operacyjnego ({0}) jest starsza niż 22621, więc nie zapewni najlepszych wyników</value>
+    <value>Uwaga: Wersja systemu ({0}) jest starsza niż 22621, co nie zapewni najlepszych wyników</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>Logi</value>
@@ -236,10 +236,10 @@ Zobacz [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop
     <value>Kopiuj</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Dław wszystkie procesy w tle po podłączeniu do sieci</value>
+    <value>Dław wszystkie procesy w tle po podłączeniu do zasilania</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// Pedna nazwa procesu na wiersz
+    <value>// Jedna nazwa procesu na wiersz
 // Podwójny ukośnik i zawartość po nim w każdej linii będą ignorowane.
 // Obsługuje symbole wieloznaczne "?" i "*"
     
@@ -321,7 +321,7 @@ firefox.exe</value>
     <value>Zapisz</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Start</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>Dławienie wstrzymane (z wyjątkiem procesów na czarnej liście), ponieważ urządzenie jest podłączone. 
@@ -375,40 +375,40 @@ Kliknij ponownie przycisk pauzy, aby wznowić.</value>
     <value>Procesy na białej liście nie będą dławione</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Przywrócić domyślną czarną listę procesów?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Przywróć domyślne</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Edytuj czarną listę procesów</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Edytuj czarną listę procesów</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Anuluj</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Zapisz</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Procesy na czarnej liście będą dławione nawet po podłączeniu urządzenia</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Wesprzyj nas</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Przekaż darowiznę na [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Otwórz na telefonie, aby zapłacić za pomocą Apple Pay lub Google Pay)
 
-[![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
+[![Buy Me a Coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Dla użytkowników z Chin; zeskanuj za pomocą WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
