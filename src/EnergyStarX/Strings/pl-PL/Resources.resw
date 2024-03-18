@@ -162,7 +162,7 @@ Energy Star X to wersja GUI oprogramowania o otwartym źródle EnergyStar.</valu
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Wprowadzenie
 
-Energy Star X wykorzystuje [EcoQoS API] systemu Windows 11 (https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (znany również jako "Tryb wydajności") do ograniczania aplikacji działających w tle w celu poprawy żywotności baterii i temperatury komputera. Nie będzie ograniczać aplikacji na pierwszym planie, aby zapewnić komfort użytkowania.
+Energy Star X wykorzystuje [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) systemu Windows 11 (znany również jako "Tryb wydajności") do ograniczania aplikacji działających w tle w celu poprawy żywotności baterii i temperatury komputera. Nie będzie ograniczać aplikacji na pierwszym planie, aby zapewnić komfort użytkowania.
 
 Ta aplikacja jest wersją GUI oprogramowania o otwartym źródle [EnergyStar](https://github.com/imbushuo/EnergyStar), i jest opracowana przy użyciu Windows App SDK (WinUI 3).
 
