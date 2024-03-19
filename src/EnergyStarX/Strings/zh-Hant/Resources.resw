@@ -122,7 +122,7 @@
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>🔋 延長裝置電池續航力！
-Energy Star X（能源之星 X）使用 Windows 11 的 EcoQos API（「效率模式」）來限制背景應用程式的資源使用，藉以提高電池壽命和降溫表現。
+Energy Star X（能源之星 X）使用 Windows 11 的 EcoQos API（即「效能模式」）來限制背景應用程式的資源使用，藉以提高電池壽命和降低系統溫度。
 
 達到以下條件獲得最佳效果：
 - Windows 11 22H2 (Build 22621) 及更高版本
@@ -162,14 +162,14 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># 簡介
 
-能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) （即「效率模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
+能源之星 X 利用 Windows 11 的 [EcoQos API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) （即「效能模式｣）來限制背景應用程式的資源佔用，從而提高電池續航和散熱表現。它不會限制前景應用程式，以確保使用者體驗。
 
 此應用程式是開源應用程式 [EnergyStar](https://github.com/imbushuo/EnergyStar) 的圖形介面版本，使用 Windows App SDK(WinUI 3) 開發。
 
 
 # 要求
 
-為了獲得最好的效果，您需要：
+為了獲得最佳效果，您需要：
 
 ## 應用程式
 
@@ -181,7 +181,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 - AMD Ryzen 5000 系列及以上移動處理器
 - Qualcomm 移動處理器
 
-此應用程式可以在 Windows 11 21H2 (Build 22000) 和舊硬體上工作，但是可能不會有最佳效果。
+此應用程式可以在 Windows 11 21H2 (Build 22000) 和舊硬體上運作，但是可能不會有最佳效果。
 
 
 # 使用方法
@@ -195,7 +195,7 @@ Energy Star X （能源之星 X）是開源的 EnergyStar 圖形化應用程式�
 
 # 已知問題
 
-- 如果你使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼你的滑鼠游標移動時可能會卡頓。請將這些軟體新增至白名單中。
+- 如果您使用了 [Logi Options+](https://www.logitech.com/zh-tw/software/logi-options-plus.html) 等與滑鼠相關的軟體，那麼您的滑鼠游標移動時可能會不順暢。請將這些軟體新增至白名單中。
 - 如果您使用了 [StartAllBack](https://www.startallback.com) 等工作列增强應用程式，那麼當您把滑鼠暫停在工作列右下角圖示上時，應用程式可能會崩潰。
 - 當父處理程序獲得輸入焦點時，子處理程序不會被解除資源限制。
 - 系統處理程序（Session 0）將不會被限制資源。目前我們假設非使用者處理程序會自己管理好資源。
@@ -276,7 +276,7 @@ svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 已支援效率模式
+// Firefox 108 已支援效能模式
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -326,7 +326,7 @@ firefox.exe</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>因為您的裝置已接上電源，所以已暫停限制背景程序（除了黑名單中的處理程序）。
-您可以在設定中修改此行為。</value>
+您可以在設定中變更此行為。</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
     <value>正在限制背景程序……</value>
