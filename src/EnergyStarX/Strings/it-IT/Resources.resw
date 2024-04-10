@@ -160,54 +160,59 @@ Energy Star X è una versione GUI del software open source EnergyStar.</value>
     <value>Apri</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduzione
+    <value># Introduction
 
-Energy Star X sfrutta le [API EcoQoS](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) di Windows 11 (anche come "Modalità Efficienza") per rallentare le applicazioni in background per migliorare la durata della batteria e la dissipazione di calore.
+Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
 
-Energy Star X è una versione GUI del software open source [EnergyStar](https://github.com/imbushuo/EnergyStar), sviluppato con Windows App SDK (WinUI 3).
+This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
 
-# Requisiti
 
-Per il miglior risultato, hai bisogno di:
+# Requirements
 
-## Software 
-- Windows 11 22H2 (Build 22621) o superiore
+For the best result, you need:
+
+## Software
+
+- Windows 11 22H2 (Build 22621) or above
 
 ## Hardware
 
-- Intel 10° gen o nuovi processori mobile
-- AMD Ryzen 5000 o nuovi processori mobile
-- Qualcomm processori mobili
+- Intel 10th gen or newer mobile processors
+- AMD Ryzen 5000 or newer mobile processors
+- Qualcomm mobile processors
 
-Questa app può funzionare su Windows 11 21H2 (Build 22000) e vecchio hardware, ma i risultati non sono garantiti.
+This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
 
-# Utilizzo
 
-Lasciatela attiva in background nella barra delle applicazioni. Puoi scegliere di avviarla all'accensione del PC dalla pagina delle impostazioni.
+# Usage
 
-Potete vedere una foglia verde a fianco dei processi limitati in background nella colonna "Stato" di Gestione Attività.
+Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+
+You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
-# Limitazioni
+
+# Known Limitations
 
 - If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- Se usate software per migliorare la taskbar come [StartAllBack](https://www.startallback.com), questa app potrebbe chiudersi quando indicate con il puntatore del mouse l'icona dell'app nella barra delle applicazioni.
-- I processi figli non vengono accellerati quando il processo padre riceve focus.
-- I processi di sistema (PID 0) non vengono limitati. L'ipotesi è che questi processi sappiano cosa stiano facendo.
+- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
+- Child processes do not get boosted when the parent process receives input focus.
+- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
 
-# Riconoscimenti
+
+# Acknowledgements
 
 - imbushuo: https://github.com/imbushuo
 - App Icon: 
   - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_561920
+  - https://www.flaticon.com/free-icon/pause-button_2285134
 
 
-# Come contribuire
+# How to contribute
 
-Leggete [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Attenzione: la tua versione del sistema operativo ({0}) è inferiore a 22621, non otterrà i migliori risultati</value>
