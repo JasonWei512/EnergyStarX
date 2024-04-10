@@ -160,59 +160,59 @@ Energy Star X to wersja GUI oprogramowania o otwartym źródle EnergyStar.</valu
     <value>Otwórz</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># Wprowadzenie
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X wykorzystuje [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) systemu Windows 11 (znany również jako "Tryb wydajności") do ograniczania aplikacji działających w tle w celu poprawy żywotności baterii i temperatury komputera. Nie będzie ograniczać aplikacji na pierwszym planie, aby zapewnić komfort użytkowania.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
-
-
-# Requirements
-
-For the best result, you need:
-
-## Software
-
-- Windows 11 22H2 (Build 22621) or above
-
-## Hardware
-
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
-
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+Ta aplikacja jest wersją GUI oprogramowania o otwartym źródle [EnergyStar](https://github.com/imbushuo/EnergyStar), i jest opracowana przy użyciu Windows App SDK (WinUI 3).
 
 
-# Usage
+# Wymagania
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+Aby uzyskać najlepszy wynik, potrzebujesz:
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+## Oprogramowanie
+
+- Windows 11 22H2 (kompilacja 22621) lub nowszy
+
+## Sprzęt
+
+- Procesor Intel Core 10. generacji lub nowszy
+- Procesor AMD Ryzen 5000 lub nowszy
+- Procesor mobilny Qualcomm
+
+Ta aplikacja może działać na systemie Windows 11 21H2 (kompilacja 22000) i starszym sprzęcie, ale może nie zapewniać najlepszych wyników.
+
+
+# Użycie
+
+Aplikacja działa w tle w zasobniku systemowym. Możesz wybrać automatyczne uruchamianie przy starcie na stronie ustawień.
+
+Możesz zobaczyć zieloną ikonę liścia obok dławionego procesu w tle w kolumnie "Stan" Menedżera zadań.
 
 ![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
 
 
-# Known Limitations
+# Znane ograniczenia
 
-- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
+- W przypadku korzystania z oprogramowania związanego z myszą, takiego jak [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), kursor myszy może żabkować podczas przesuwania. Dodaj ten program do białej listy.
+- Jeśli korzystasz z oprogramowania do ulepszania paska zadań, takiego jak [StartAllBack](https://www.startallback.com), aplikacja może ulec awarii po najechaniu kursorem na ikonę zasobnika systemowego.
+- Priorytet procesów podrzędnych nie jest zwiększany, gdy proces nadrzędny otrzymuje fokus wejściowy.
+- Procesy systemowe (czyli Sesja 0) nie są dławione. Obecnie istnieje pewne założenie, że procesy nienależące do użytkownika wiedzą, co robią.
 
 
-# Acknowledgements
+# Podziękowania
 
 - imbushuo: https://github.com/imbushuo
-- App Icon: 
+- Ikona aplikacji: 
   - https://www.flaticon.com/free-icon/star_3103390
   - https://www.flaticon.com/free-icon/accept_4303945
   - https://www.flaticon.com/free-icon/pause-button_2285134
 
 
-# How to contribute
+# Jak wnieść swój wkład
 
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Zobacz [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Uwaga: Wersja systemu ({0}) jest starsza niż 22621, co nie zapewni najlepszych wyników</value>
