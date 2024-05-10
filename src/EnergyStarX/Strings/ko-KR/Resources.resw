@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Energy Star X</value>
+    <value>에너지 스타 X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>디바이스 배터리 수명을 향상하세요!
+Energy Star X는 Windows 11의 EcoQoS API(효율성 모드라고도 함)를 활용하여 배터리 수명 및 시스템 열을 개선하기 위해 백그라운드 응용 프로그램을 제어합니다.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+최상의 결과를 얻으려면 다음이 필요합니다:
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+Windows 11 22H2 (빌드 22621) 이상
+인텔 10세대 이상의 모바일 프로세서
+AMD Ryzen 5000 이상의 모바일 프로세서
+퀄컴 모바일 프로세서
+❤https://github.com/JasonWei512/EnergyStarX
+🌏https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X는 오픈 소스 소프트웨어 EnergyStar의 GUI 버전입니다.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>도움말</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>이 애플리케이션에 대하여</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Intel sucks</value>
