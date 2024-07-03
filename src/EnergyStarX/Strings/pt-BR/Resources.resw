@@ -121,43 +121,43 @@
     <value>Energia Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Melhore a vida útil da bateria do seu dispositivo!
+Energy Star X aproveita a API EcoQoS do Windows 11 (também conhecida como "Modo de Eficiência") para limitar aplicativos em segundo plano para melhorar a vida útil da bateria e a térmica do sistema.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Para o melhor resultado, você precisa:
+- Windows 11 22H2 (Build 22621) ou acima
+- Processador Intel de 10ª geração ou mais recente
+- ProcessadorAMD Ryzen 5000 ou mais recente
+- Processadores Qualcomm ARM
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤️ Código fonte: https://github.com/JasonWei512/EnergyStarX
+🌏 Traduza este aplicativo: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X é uma versão GUI do software aberto EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Ajuda</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Sobre este aplicativo</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Chupa, Intel</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>O Energy Star X já está em execução!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Executar ao iniciar</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Configurações</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Sair</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Abrir</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
@@ -215,28 +215,28 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Aviso: Sua versão de SO ({0}) está abaixo de 22621, não obterá os melhores resultados</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>Registro</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Ativar execução na inicialização!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Contatar o desenvolvedor</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Avalie este aplicativo</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Comentários</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Copiar</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Reduzir todos os processos em segundo plano quando conectado</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
