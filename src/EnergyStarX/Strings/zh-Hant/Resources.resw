@@ -294,7 +294,7 @@ firefox.exe</value>
     <value>還原為預設處理程序白名單？</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>還原為預設</value>
+    <value>還原為預設值</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
     <value>清空</value>
@@ -381,7 +381,7 @@ firefox.exe</value>
     <value>還原為預設處理程序黑名單？</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>還原為預設</value>
+    <value>還原為預設值</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
     <value>編輯處理程序黑名單</value>
