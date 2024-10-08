@@ -130,8 +130,8 @@ Energy Star Xはバッテリー駆動時間とシステム温度を改善する�
 - AMD Ryzen 5000 以上のプロセッサー
 - Qualcomm モバイルプロセッサー
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 このアプリを翻訳する: https://crowdin.com/project/EnergyStarX
+❤ ソースコード: https://github.com/JasonWei512/EnergyStarX
+🌏 このアプリの翻訳に貢献する: https://crowdin.com/project/EnergyStarX
 
 Energy Star XはオープンソースソフトウェアであるEnergyStarのGUI版です。</value>
   </data>
@@ -171,7 +171,7 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 
 最良の結果を得るためには、以下のものが必要です。
 
-## ソフトウェア
+## OS
 
 - Windows 11 22H2 (Build 22621) またはそれ以上
 
@@ -197,7 +197,7 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 
 - [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html)などのマウス関連ソフトを使用している場合、マウスカーソルの移動時にラグが発生する場合があります。これらのソフトをホワイトリストに追加してください。
 - [StartAllBack](https://www.startallback.com)などのタスクバー拡張ソフトを使用している場合、 システムトレイアイコンにカーソルを合わせると本アプリがクラッシュする場合があります。
-- 親プロセスが入力フォーカスを得た場合、子プロセスはブーストされません。
+- 親プロセスが入力フォーカスを受け取っても、子プロセスはブーストされません。
 - システムプロセス(セッション0)は制限されません。現在、非ユーザープロセスが何をしているかを知っているという前提がいくつかあります。
 
 
@@ -215,16 +215,16 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
 [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md) を参照してください。</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>警告：お使いのOSのバージョン ({0}) は22621以下で、最良の結果を得ることはできません</value>
+    <value>警告：お使いのOSのバージョン ({0}) は22621以下のため、最良の結果を得ることはできません</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>ログ</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>起動時の実行を有効にします！</value>
+    <value>システム起動時に実行しましょう！</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>開発者に連絡する</value>
+    <value>開発者に問い合わせる</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
     <value>このアプリを評価する</value>
@@ -241,17 +241,17 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// プロセス名は1行に1つ
 // 各行のダブルスラッシュとそれ以降の内容は無視されます。
-// Supports "?" and "*" wildcards
+// "?" と "*" のワイルドカードをサポートしています
 
 // Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// エッジはエネルギーを自身で機能を持っている
+// Edgeにはエネルギーに関する認識機能がある
 msedge.exe
 WebViewHost.exe
 // UWPフレームには特別な処理があり、スロットルされるべきではない
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// 「消火器」は火がつくべきではない
 taskmgr.exe
 procmon.exe
 procmon64.exe
@@ -361,7 +361,7 @@ firefox.exe</value>
     <value>一時停止</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>（実験的）起動時に管理者として実行</value>
+    <value>（試験的）起動時に管理者として実行</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>このアプリの翻訳に協力する</value>
