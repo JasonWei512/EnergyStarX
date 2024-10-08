@@ -340,7 +340,7 @@ firefox.exe</value>
     <value>一時停止中</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>ソースコード（GitHub）</value>
+    <value>ソースコード (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>フィードバック</value>
