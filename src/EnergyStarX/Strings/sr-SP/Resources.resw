@@ -121,22 +121,23 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Побољшајте трајање батерије вашег уређаја!
+Energy Star X користи EcoQoS API (познат као "Мод ефикасности") у Windows 11 за ограничавање позадинских апликација, чиме се побољшава трајање батерије и термалне особине система.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+За најбоље резултате потребно је:
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+- Windows 11 22H2 (Build 22621) или новији
+- Intel 10. генерације или новији мобилни процесори
+- AMD Ryzen 5000 или новији мобилни процесори
+- Qualcomm мобилни процесори
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+❤ Изворни код: https://github.com/JasonWei512/EnergyStarX
+🌏 Преведите ову апликацију: https://crowdin.com/project/EnergyStarX
+
+Energy Star X је GUI верзија отвореног софтвера EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Помоћ</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
     <value>About this application</value>
