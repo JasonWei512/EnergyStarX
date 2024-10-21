@@ -122,13 +122,13 @@
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>🔋 Побољшајте трајање батерије вашег уређаја!
-Energy Star X користи EcoQoS API (познат као "Мод ефикасности") у Windows 11 за ограничавање позадинских апликација, чиме се побољшава трајање батерије и термалне особине система.
+Energy Star X користи EcoQoS API (познат као "Мод ефикасности") у Виндовс 11 за ограничавање позадинских апликација, чиме се побољшава трајање батерије и термалне особине система.
 
 За најбоље резултате потребно је:
 
-- Windows 11 22H2 (Build 22621) или новији
-- Intel 10. генерације или новији мобилни процесори
-- AMD Ryzen 5000 или новији мобилни процесори
+- Виндовс 11 22H2 (22621) или новији
+- Интел 10. генерације или новији мобилни процесори
+- АМД Ризен 5000 или новији мобилни процесори
 - Qualcomm мобилни процесори
 
 ❤ Изворни код: https://github.com/JasonWei512/EnergyStarX
@@ -225,7 +225,7 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Enable running at startup!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Контактирајте програмера</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
     <value>Rate this app</value>
@@ -303,13 +303,13 @@ firefox.exe</value>
     <value>Scroll to Bottom</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Разумем!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
     <value>Edit process whitelist</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Уреди</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
     <value>Edit process whitelist</value>
@@ -318,7 +318,7 @@ firefox.exe</value>
     <value>Modified</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Откажи</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
     <value>Save</value>
