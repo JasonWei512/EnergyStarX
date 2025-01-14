@@ -130,7 +130,7 @@ Energy Star X（能源之星 X）使用 Windows 11 的 EcoQos API（即「效能
 - AMD Ryzen 5000 系列及以上移動處理器
 - Qualcomm 移動處理器
 
-❤ 開源代碼：https://github.com/JasonWei512/EnergyStarX
+❤ 原始碼：https://github.com/JasonWei512/EnergyStarX
 🌏 協助翻譯這個應用程式：https://crowdin.com/project/EnergyStarX
 
 Energy Star X（能源之星 X）是開源的 EnergyStar 圖形化應用程式。</value>
@@ -341,10 +341,10 @@ firefox.exe</value>
     <value>已暫停</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>開源代碼（GitHub）</value>
+    <value>原始碼（GitHub）</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>回饋</value>
+    <value>意見回饋</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
     <value>系統管理員權限</value>
@@ -353,32 +353,32 @@ firefox.exe</value>
     <value>開啟記錄檔資料夾</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>只有錯誤會被記錄到記錄檔檔案</value>
+    <value>只有錯誤會被記錄到記錄檔中</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>更新紀錄</value>
+    <value>更新日誌</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
     <value>暫停</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>（實驗性）以系統管理員身份開機啟動</value>
+    <value>（實驗性）以系統管理員身分開機啟動</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>協助翻譯此應用程式</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// 每行一個處理程式名稱
-// 每行中雙斜槓以及之後的內容會被忽略
+// 每行中雙斜線以及之後的內容會被忽略
 // 支援「?」和「*」萬用字元
-// 您需要和您想要限制的處理程式在同一個 Windows 工作階段中，且擁有相同或更高的權限
+// 您需要和您想要限制的處理程序在同一個 Windows 工作階段中，且擁有相同或更高的權限
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>白名單中的處理程式將不會被限制</value>
+    <value>白名單中的處理程序將不會被限制</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>還原為預設處理程式黑名單？</value>
+    <value>是否將預設處理程序還原為黑名單？</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
     <value>還原為預設值</value>
@@ -399,7 +399,7 @@ firefox.exe</value>
     <value>儲存</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>黑名單中的處理程式即使在插電時也會被限制</value>
+    <value>黑名單中的處理程序即使在插電時也會被限制</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>捐贈</value>
@@ -411,7 +411,7 @@ firefox.exe</value>
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## 對於中國地區使用者，請掃描微信支付：
+## 對於中國大陸使用者，請掃描微信支付：
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
