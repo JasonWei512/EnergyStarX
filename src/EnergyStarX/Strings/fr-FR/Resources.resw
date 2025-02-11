@@ -215,7 +215,7 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Avertissement : Votre version du système d'exploitation ({0}) est inférieure à 22621, vous ne bénéficierez pas des meilleurs résultats</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
     <value>Log</value>
