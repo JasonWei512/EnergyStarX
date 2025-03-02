@@ -356,7 +356,7 @@ firefox.exe</value>
     <value>只有錯誤會被記錄到記錄檔中</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>更新日誌</value>
+    <value>更新紀錄</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
     <value>暫停</value>
