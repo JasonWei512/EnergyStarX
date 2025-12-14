@@ -266,6 +266,8 @@ StartMenuExperienceHost.exe
 SearchHost.exe
 sihost.exe
 fontdrvhost.exe
+LockApp.exe
+TabTip.exe
 // 輸入法
 ChsIME.exe
 ctfmon.exe

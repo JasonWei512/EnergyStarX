@@ -265,6 +265,8 @@ StartMenuExperienceHost.exe
 SearchHost.exe
 sihost.exe
 fontdrvhost.exe
+LockApp.exe
+TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
