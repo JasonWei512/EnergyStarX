@@ -242,22 +242,22 @@ Xem [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>// One process name per line
 // Double slash and content after it in each line will be ignored
 // Supports "?" and "*" wildcards
-
-// Không phải của chúng tôi
+    
+// Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// UWP Frame có cách giữ xung, sẽ không bị hạ xung
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// Fire extinguisher sẽ không ảnh hưởng
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
 // Widgets
 Widgets.exe
-// Shell hệ thống
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +270,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Dịch vụ hệ thống - có thể tự điều chỉnh
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 hỗ trợ chế độ tối ưu
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
