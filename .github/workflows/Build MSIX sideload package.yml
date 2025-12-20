@@ -90,7 +90,8 @@ jobs:
             Write-Host "Replaced `"$oldString`" in `"$filePath`" for $matchCount times"
         }
 
-        Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{AppCenterSecret}}" "${{ secrets.APP_CENTER_SECRET }}"
+        # Replace secrets here, for example:
+        # Replace-StringInFile ".\EnergyStarX\Constants\Secrets.cs" "{{DummyApiKey}}" "${{ secrets.DUMMY_API_KEY }}"
 
     # Decode the Base64 encoded pfx certificate from GitHub secrets and save it to file
     - name: Decode the certificate and save it to file

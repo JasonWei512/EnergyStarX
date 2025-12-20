@@ -1,5 +1,4 @@
 ﻿using EnergyStarX.Activation;
-using EnergyStarX.Constants;
 using EnergyStarX.Contracts.Services;
 using EnergyStarX.Core.Contracts.Services;
 using EnergyStarX.Core.Services;
@@ -8,9 +7,6 @@ using EnergyStarX.Models;
 using EnergyStarX.Services;
 using EnergyStarX.ViewModels;
 using EnergyStarX.Views;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -47,7 +43,6 @@ public partial class App : Application
 
     public App()
     {
-        AppCenter.Start(Secrets.AppCenterSecret, typeof(Analytics), typeof(Crashes));
         LogHelper.ConfigureNLog();
 
         InitializeComponent();

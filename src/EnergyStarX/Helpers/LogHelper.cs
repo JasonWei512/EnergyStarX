@@ -1,6 +1,4 @@
-﻿using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using NLog;
+﻿using NLog;
 using NLog.Layouts;
 using Windows.Storage;
 using Windows.System;
@@ -45,34 +43,7 @@ public static class LogHelper
 
             builder.ForLogger()
                 .FilterMinLevel(LogLevel.Error)
-                .WriteToFile(ErrorLogFilePath)
-                .WriteToMethodCall((logEventInfo, layouts) =>
-                {
-                    // Send error info to App Center
-                    string time = logEventInfo.TimeStamp.ToString();
-                    string message = logEventInfo.FormattedMessage;
-
-                    Dictionary<string, string> eventProperties = new()
-                    {
-                        { "Version", PackageInfo.VersionString }
-                    };
-
-                    if (logEventInfo.Exception is Exception e)
-                    {
-                        Crashes.TrackError(e, new Dictionary<string, string>()
-                        {
-                            { "Message", message }
-                        });
-
-                        eventProperties.Add("Exception Message", e.Message);
-                        if (e.StackTrace is string stackTrace)
-                        {
-                            eventProperties.Add("Exception StackTrace", stackTrace);
-                        }
-                    }
-
-                    Analytics.TrackEvent($"Error: {message}", eventProperties);
-                });
+                .WriteToFile(ErrorLogFilePath);
         });
     }
 

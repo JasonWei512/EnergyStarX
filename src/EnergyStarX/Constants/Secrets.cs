@@ -2,5 +2,6 @@ namespace EnergyStarX.Constants;
 
 public static class Secrets
 {
-    public const string AppCenterSecret = "{{AppCenterSecret}}";    // Replace with your own App Center secret
+    // Put secrets here, like API keys
+    // public const string DummyApiKey = "{{DummyApiKey}}";
 }
