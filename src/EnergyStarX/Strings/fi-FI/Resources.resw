@@ -239,25 +239,25 @@ Tehtäväpalkissa pitäisi näkyä vihreä lehti.
     <value>Tehosta kaikki taustasovellukset ladatessa</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// Yksi prosessin nimi riviä kohden
-// Kaksoiskauttaviivarivit jätetään huomiotta
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
 // Supports "?" and "*" wildcards
-
-// Ei me
+    
+// Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge säästää tehokkaasti akkua
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// UWP Framella on erityiskäsittelyä, ei tehostusta
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// Ei tulipaloa palosammuttimeen
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Pienoisohjelmat
+// Widgets
 Widgets.exe
-// Komentorivi
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +270,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Järjestelmä käyttää tehokkaasti akkua
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 tukee energiatehokkuustilaa
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
