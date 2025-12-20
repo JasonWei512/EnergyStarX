@@ -239,25 +239,25 @@ Bakınız [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/deve
     <value>Şarjda iken tüm arka plan işlemlerini kısıtlayın</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// Satır başına bir işlem adı
-// Her satırda çift eğik çizgi ve ondan sonraki içerik yoksayılacak
-// "?" ve "*" karakterleri desteklenir
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// Supports "?" and "*" wildcards
     
-// kendimiz değil
+// Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge'in enerji farkındalığı var
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// UWP Çerçevesinin özel bir işlemesi vardır, kısıtlanmamalıdır
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// Yangın söndürücü alev almamalı
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widget'lar
+// Widgets
 Widgets.exe
-// Sistem kabuğu
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +270,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Sistem Hizmeti - farkındalıkları var
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 artık verimlilik modunu destekliyor
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
