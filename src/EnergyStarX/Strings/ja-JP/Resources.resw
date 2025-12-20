@@ -239,25 +239,25 @@ Energy Star X は、Windows 11 の [EcoQoS API](https://devblogs.microsoft.com/p
     <value>電源接続時でも、すべてのバックグラウンドプロセスを制限する</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// プロセス名は1行に1つ
-// 各行のダブルスラッシュとそれ以降の内容は無視されます。
-// "?" と "*" のワイルドカードをサポートしています
-
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// Supports "?" and "*" wildcards
+    
 // Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edgeにはエネルギーに関する認識機能がある
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// UWPフレームには特別な処理があり、スロットルされるべきではない
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// 「消火器」は火がつくべきではない
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// ウィジェット
+// Widgets
 Widgets.exe
-// システムシェル
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +270,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// システム・サービス - これらは自身で機能を持っている
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108が効率モードをサポートしている
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
