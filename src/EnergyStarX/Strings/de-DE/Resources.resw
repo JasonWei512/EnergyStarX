@@ -239,25 +239,25 @@ Siehe [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/
     <value>Alle Hintergrundprozesse während Netzbetrieb drosseln</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// Ein Prozessname pro Zeile
-// Zeile hinter einem doppelten Schrägstrich wird ignoriert
-// Unterstützt "?" und "*" Platzhalter
+    <value>// One process name per line
+// Double slash and content after it in each line will be ignored
+// Supports "?" and "*" wildcards
     
-// Nicht wir selbst
+// Not ourselves
 EnergyStar.exe
 EnergyStarX.exe
-// Edge hat eigene Handhabung
+// Edge has energy awareness
 msedge.exe
 WebViewHost.exe
-// UWP Frame hat spezielle Handhabung, sollte nicht gedrosselt werden
+// UWP Frame has special handling, should not be throttled
 ApplicationFrameHost.exe
-// Feuerlöscher sollte nicht Feuer fangen
+// Fire extinguisher should not catch fire
 taskmgr.exe
 procmon.exe
 procmon64.exe
 // Widgets
 Widgets.exe
-// System Shell
+// System shell
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +270,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// Systemdienst - haben eigene Handhabung
+// System Service - they have their awareness
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 unterstützt jetzt den Effizienzmodus
+// Firefox 108 now supports efficiency mode
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
