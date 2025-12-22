@@ -330,7 +330,7 @@ firefox.exe</value>
 Sie können dieses Verhalten in den Einstellungen ändern.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Hintergrundprogramme werden gedrosselt.</value>
+    <value>Hintergrundprogramme werden gedrosselt...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
     <value>Drosseln durch Benutzer pausiert.
