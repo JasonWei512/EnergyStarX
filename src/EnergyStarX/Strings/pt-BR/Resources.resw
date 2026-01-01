@@ -281,49 +281,49 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Não</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Sim</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Restaurar para o processo padrão lista de permissões?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Restaurar padrões</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Limpar</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>Rolar para Baixo</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Entendi!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Editar whitelist de processos</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Editar</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Editar whitelist de processos</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Modificado</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Salvar</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Início</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
     <value>Throttling paused (except processes in blacklist) because your device is plugged in.
@@ -337,34 +337,34 @@ You can change this behavior in settings.</value>
 Click the pause button again to resume.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Pausado</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Código fonte (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Dê sua opinião</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Privilégios de Administrador</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Abrir Pasta de Registros</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Somente erros serão registrados para o arquivo</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>O que mudou</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Pausar</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
     <value>(Experimental) Run at startup as admin</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app</value>
+    <value>Ajude-nos a traduzir o app</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
     <value>// One process name per line
@@ -377,31 +377,31 @@ Click the pause button again to resume.</value>
     <value>Processes in whitelist will not be throttled</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Restaurar a lista negra de processos padrão?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Restaurar padrões</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Editar lista negra de processos</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Editar</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Editar lista negra de processos</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Salvar</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
     <value>Processes in blacklist will be throttled even when device is plugged in</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Faça uma doação</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
     <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
