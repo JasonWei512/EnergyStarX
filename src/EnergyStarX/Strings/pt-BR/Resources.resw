@@ -326,15 +326,15 @@ firefox.exe</value>
     <value>Início</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Restrição pausada (exceto para processos na lista negra) porque seu dispositivo está conectado.
+Você pode mudar isto nas configurações.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Restringindo programas em segundo plano...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Restrição pausada pelo usuário.
+Clique no botão de pausa novamente para continuar.</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>Pausado</value>
@@ -361,7 +361,7 @@ Click the pause button again to resume.</value>
     <value>Pausar</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Experimental) Executar na inicialização como administrador</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
     <value>Ajude-nos a traduzir o app</value>
@@ -374,7 +374,7 @@ Click the pause button again to resume.</value>
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Processos na whitelist não serão restringidos </value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
     <value>Restaurar a lista negra de processos padrão?</value>
@@ -398,19 +398,19 @@ Click the pause button again to resume.</value>
     <value>Salvar</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Processos na lista negra serão restringidos mesmo quando o dispositivo estiver conectado</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
     <value>Faça uma doação</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Doe em [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Abra pelo seu celular para pagar usando Apple Pay ou Google Play)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Para usuários chineses, escanear com WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
