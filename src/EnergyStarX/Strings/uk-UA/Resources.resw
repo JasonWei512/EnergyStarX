@@ -136,28 +136,28 @@ For the best result, you need:
 Energy Star X is a GUI version of the open source software EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
-    <value>Help</value>
+    <value>Довідка</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>Про цей додаток</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>Intel sucks</value>
+    <value>Intel смокче</value>
   </data>
   <data name="AlreadyRunningMessage" xml:space="preserve">
-    <value>Energy Star X is aleady running!</value>
+    <value>Energy Star X вже працює!</value>
   </data>
   <data name="Settings_RunAtStartupSetting.Header" xml:space="preserve">
-    <value>Run at startup</value>
+    <value>Запускати автоматично</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Налаштування</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Вийти</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Відкрити</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
     <value># Introduction
@@ -215,28 +215,28 @@ You can see a green leaf icon next to throttled background process in Task Manag
 See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
-    <value>Warning: Your OS version ({0}) is below 22621, will not get the best results</value>
+    <value>Увага: Ваша версія ОС ({0}) менша за 22621 та не буде отримувати найкращі результати</value>
   </data>
   <data name="Shell_Log.Content" xml:space="preserve">
-    <value>Log</value>
+    <value>Журнал подій</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.Title" xml:space="preserve">
-    <value>Enable running at startup!</value>
+    <value>Увімкніть автозапуск!</value>
   </data>
   <data name="Settings_ContactLink.Content" xml:space="preserve">
-    <value>Contact the developer</value>
+    <value>Зв'язатися з розробником</value>
   </data>
   <data name="Settings_RateLink.Content" xml:space="preserve">
-    <value>Rate this app</value>
+    <value>Оцінити програму</value>
   </data>
   <data name="Settings_Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Зворотній зв’язок</value>
   </data>
   <data name="Log_CopyButton.Label" xml:space="preserve">
-    <value>Copy</value>
+    <value>Копіювати</value>
   </data>
   <data name="Settings_ThrottleWhenPluggedIn.Header" xml:space="preserve">
-    <value>Throttle all background processes when plugged in</value>
+    <value>Обмежувати всі фонові процеси під час підключеної зарядки</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
     <value>// One process name per line
@@ -281,46 +281,46 @@ WUDFRd.exe
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Відміна</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Ні</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Так</value>
   </data>
   <data name="Restore_to_default_process_whitelist" xml:space="preserve">
-    <value>Restore to default process whitelist?</value>
+    <value>Відновити до стандартних налаштувань білий список?</value>
   </data>
   <data name="Settings_ProcessWhitelist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Відновити стандартні</value>
   </data>
   <data name="Log_ClearButton.Label" xml:space="preserve">
-    <value>Clear</value>
+    <value>Очистити</value>
   </data>
   <data name="Log_ScrollToBottomButton.Label" xml:space="preserve">
-    <value>Scroll to Bottom</value>
+    <value>Прокрутити вниз</value>
   </data>
   <data name="Shell_FirstRunTeachingTip.CloseButtonContent" xml:space="preserve">
-    <value>Got it!</value>
+    <value>Готово!</value>
   </data>
   <data name="Settings_ProcessWhitelist.Header" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Редагувати процеси білого списку</value>
   </data>
   <data name="Settings_ProcessWhitelist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Редагувати</value>
   </data>
   <data name="ProcessWhitelistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process whitelist</value>
+    <value>Редагувати процеси білого списку</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Змінено</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Скасувати</value>
   </data>
   <data name="Settings_ProcessWhitelistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Зберегти</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
     <value>Home</value>
