@@ -121,19 +121,19 @@
     <value>Energy Star X</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>🔋 Improve your device's battery life!
-Energy Star X leverages Windows 11's EcoQoS API (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal.
+    <value>🔋 Покращ час роботи акумулятора вашого пристрою!
+Energy Star X використовує EcoQoS API Windows 11 (також відомий як «Режим ефективності») для обмеження роботи фонових програм, що покращує час роботи акумулятора та знижує температуру системи.
 
-For the best result, you need:
-- Windows 11 22H2 (Build 22621) or above
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Для найкращого результату вам потрібно:
+- Windows 11 22H2 (збірка 22621) або вище
+- Мобільні процесори Intel 10-го покоління або новіші
+- Мобільні процесори AMD Ryzen 5000 або новіші
+- Мобільні процесори Qualcomm
 
-❤ Source code: https://github.com/JasonWei512/EnergyStarX
-🌏 Translate this app: https://crowdin.com/project/EnergyStarX
+❤ Вихідний код: https://github.com/JasonWei512/EnergyStarX
+🌏 Переклад цієї програми: https://crowdin.com/project/EnergyStarX
 
-Energy Star X is a GUI version of the open source software EnergyStar.</value>
+Energy Star X — це версія з графічним інтерфейсом програмного забезпечення з відкритим вихідним кодом EnergyStar.</value>
   </data>
   <data name="Shell_Help.Content" xml:space="preserve">
     <value>Довідка</value>
@@ -160,59 +160,54 @@ Energy Star X is a GUI version of the open source software EnergyStar.</value>
     <value>Відкрити</value>
   </data>
   <data name="Help_Markdown.Text" xml:space="preserve">
-    <value># Introduction
+    <value># Вступ
 
-Energy Star X leverages Windows 11's [EcoQoS API](https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) (aka "Efficiency Mode") to throttle background applications to improve battery life and system thermal. It will not throttle foreground application to ensure user experience.
+Energy Star X використовує [EcoQoS API] (https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos) від Windows 11 (також відомий як «Режим ефективності») для обмеження роботи фонових процесів, що покращує час роботи від акумулятора та нагрівання системи. Він не обмежуватиме роботу програм переднього плану для забезпечення зручності користувача.
 
-This app is a GUI version of the open source software [EnergyStar](https://github.com/imbushuo/EnergyStar), developed with Windows App SDK (WinUI 3).
+Цей додаток є версією з графічним інтерфейсом, програмного забезпечення з відкритим кодом [EnergyStar] (https://github.com/imbushuo/EnergyStar), розробленого за допомогою Windows App SDK (WinUI 3).
 
+# Вимоги
 
-# Requirements
+Для найкращого результату вам знадобиться:
 
-For the best result, you need:
+## Програмне забезпечення
 
-## Software
+- Windows 11 22H2 (збірка 22621) або вище
 
-- Windows 11 22H2 (Build 22621) or above
+## Апаратне забезпечення
 
-## Hardware
+- Мобільні процесори Intel 10-го покоління або новіші
+- Мобільні процесори AMD Ryzen 5000 або новіші
+- Мобільні процесори Qualcomm
 
-- Intel 10th gen or newer mobile processors
-- AMD Ryzen 5000 or newer mobile processors
-- Qualcomm mobile processors
+Цей додаток може працювати на Windows 11 21H2 (збірка 22000) та старішому обладнанні, але може не забезпечити найкращий результат.
 
-This app can work on Windows 11 21H2 (Build 22000) and older hardware, but may not get the best result.
+# Використання
 
+Запустіть його у фоновому режимі в системному треї. Ви можете вибрати автоматичний запуск на сторінці налаштувань.
 
-# Usage
+Ви можете побачити значок зеленого листка поруч із обмеженим фоновим процесом у стовпці «Стан» диспетчера завдань.
 
-Let it run in background in the system tray. You can choose to run it automatically at startup in settings page.
+![Список диспетчера завдань](/Assets/InApp/Task_Manager_Leaf.jpg)
 
-You can see a green leaf icon next to throttled background process in Task Manager's "Status" column.
+# Відомі обмеження
 
-![Task Manager Leaf](/Assets/InApp/Task_Manager_Leaf.jpg)
+- Якщо ви використовуєте програмне забезпечення, пов'язане з мишею, таке як [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), курсор миші може затримуватися під час руху. Додайте це програмне забезпечення до білого списку.
+- Якщо ви використовуєте програмне забезпечення для покращення роботи панелі завдань, таке як [StartAllBack](https://www.startallback.com), ця програма може аварійно завершити роботу, якщо навести курсор на значок у системному треї.
+- Дочірні процеси не прискорюються, коли батьківський процес отримує фокус введення.
+- Системні процеси (тобто Сеанс 0) не обмежуються. Наразі існують певні припущення, що не користувацькі процеси, самі знають, що вони роблять.
 
-
-# Known Limitations
-
-- If you are using mouse-related software such as [Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html), your mouse cursor may lag while moving. Please add these softwares to the whitelist.
-- If you are using some taskbar enhancement software such as [StartAllBack](https://www.startallback.com), this app may crash when you hover over system tray icon.
-- Child processes do not get boosted when the parent process receives input focus.
-- System processes (which is Session 0) do not get throttled. Currently there are some assumption that non-user processes know what they are doing.
-
-
-# Acknowledgements
+# Подяки
 
 - imbushuo: https://github.com/imbushuo
-- App Icon: 
-  - https://www.flaticon.com/free-icon/star_3103390
-  - https://www.flaticon.com/free-icon/accept_4303945
-  - https://www.flaticon.com/free-icon/pause-button_2285134
+- Іконка програми:
+- https://www.flaticon.com/free-icon/star_3103390
+- https://www.flaticon.com/free-icon/accept_4303945
+- https://www.flaticon.com/free-icon/pause-button_2285134
 
+# Як зробити внесок
 
-# How to contribute
-
-See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
+Див. [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/doc/Contributing.md).</value>
   </data>
   <data name="OsVersionNotRecommendedWarningMessage" xml:space="preserve">
     <value>Увага: Ваша версія ОС ({0}) менша за 22621 та не буде отримувати найкращі результати</value>
@@ -239,25 +234,25 @@ See [Contributing.md](https://github.com/JasonWei512/EnergyStarX/blob/develop/do
     <value>Обмежувати всі фонові процеси під час підключеної зарядки</value>
   </data>
   <data name="DefaultProcessWhitelist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-    
-// Not ourselves
+    <value>// Одне ім'я процесу на рядок
+// Подвійна коса риска та вміст після неї в кожному рядку будуть ігноруватися
+// Підтримуються символи підстановки "?" та "*"
+
+// Не ми самі
 EnergyStar.exe
 EnergyStarX.exe
-// Edge has energy awareness
+// Edge має режим ефективності
 msedge.exe
 WebViewHost.exe
-// UWP Frame has special handling, should not be throttled
+// UWP Frame має спеціальну обробку, не повинен обмежуватися
 ApplicationFrameHost.exe
-// Fire extinguisher should not catch fire
+// Вогнегасник не повинен спалахнути
 taskmgr.exe
 procmon.exe
 procmon64.exe
-// Widgets
+// Віджети
 Widgets.exe
-// System shell
+// Системна оболонка
 dwm.exe
 explorer.exe
 ShellExperienceHost.exe
@@ -270,14 +265,14 @@ TabTip.exe
 // IME
 ChsIME.exe
 ctfmon.exe
-// System Service - they have their awareness
+// Системна служба - у них є власна обізнаність
 csrss.exe
 smss.exe
 svchost.exe
 // WUDF
 WUDFRd.exe
 
-// Firefox 108 now supports efficiency mode
+// Firefox 108 тепер підтримується режим ефективності
 firefox.exe</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -323,94 +318,94 @@ firefox.exe</value>
     <value>Зберегти</value>
   </data>
   <data name="Shell_Home.Content" xml:space="preserve">
-    <value>Home</value>
+    <value>Головна</value>
   </data>
   <data name="Home_NotThrottlingAC_Description" xml:space="preserve">
-    <value>Throttling paused (except processes in blacklist) because your device is plugged in.
-You can change this behavior in settings.</value>
+    <value>Обмеження призупинено (окрім процесів з чорного списку), оскільки ваш пристрій підключено до зарядки.
+Ви можете змінити цю поведінку в налаштуваннях.</value>
   </data>
   <data name="Home_Throttling_Description" xml:space="preserve">
-    <value>Throttling background programs...</value>
+    <value>Обмеження фонових програм...</value>
   </data>
   <data name="Home_ThrottlingPaused_Description" xml:space="preserve">
-    <value>Throttling paused by user.
-Click the pause button again to resume.</value>
+    <value>Обмежування призупинене користувачем.
+Натисніть на кнопку ПАУЗА для відновлення роботи.</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Paused</value>
+    <value>Призупинено</value>
   </data>
   <data name="Settings_SourceCodeLink.Content" xml:space="preserve">
-    <value>Source code (GitHub)</value>
+    <value>Вихідний код (GitHub)</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Зворотній зв’язок</value>
   </data>
   <data name="Admin Privilege" xml:space="preserve">
-    <value>Admin Privilege</value>
+    <value>Права адміністратора</value>
   </data>
   <data name="Log_OpenLogFolderButton.Label" xml:space="preserve">
-    <value>Open Log Folder</value>
+    <value>Відкрити папку журналу змін</value>
   </data>
   <data name="Log_OpenLogFolderButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Only errors will be logged to file</value>
+    <value>Тільки помилки будуть записуватись в файл</value>
   </data>
   <data name="Settings_ChangelogLink.Content" xml:space="preserve">
-    <value>Changelog</value>
+    <value>Журнал змін</value>
   </data>
   <data name="Home_PauseThrottlingButton.Label" xml:space="preserve">
-    <value>Pause</value>
+    <value>Пауза</value>
   </data>
   <data name="Settings_RunAtStartupAsAdminCheckBox.Content" xml:space="preserve">
-    <value>(Experimental) Run at startup as admin</value>
+    <value>(Експериментально) Автозапуск з правами адміністратора</value>
   </data>
   <data name="Settings_TranslateLink.Content" xml:space="preserve">
-    <value>Help us translate this app</value>
+    <value>Допоможіть перекласти цю програму</value>
   </data>
   <data name="DefaultProcessBlacklist" xml:space="preserve">
-    <value>// One process name per line
-// Double slash and content after it in each line will be ignored
-// Supports "?" and "*" wildcards
-// You need to be in the same Windows Session as the process you want to throttle, and have the same or higher privilege
+    <value>// Одне ім'я процесу на рядок
+// Подвійна коса риска та вміст після неї в кожному рядку будуть ігноруватися
+// Підтримуються символи підстановки "?" та "*"
+// Ви повинні бути в тому ж сеансі Windows, що й процес, який потрібно регулювати, та мати такі ж або вищі привілеї
 </value>
   </data>
   <data name="Settings_ProcessWhitelist.Description" xml:space="preserve">
-    <value>Processes in whitelist will not be throttled</value>
+    <value>Процеси з білого списку не будуть обмежені</value>
   </data>
   <data name="Restore_to_default_process_blacklist" xml:space="preserve">
-    <value>Restore to default process blacklist?</value>
+    <value>Відновити до стандартних налаштувань чорний список?</value>
   </data>
   <data name="Settings_ProcessBlacklist_RestoreToDefaultButton.Content" xml:space="preserve">
-    <value>Restore to default</value>
+    <value>Відновити стандартні</value>
   </data>
   <data name="Settings_ProcessBlacklist.Header" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Редагувати процеси чорного списку</value>
   </data>
   <data name="Settings_ProcessBlacklist_EditButton.Content" xml:space="preserve">
-    <value>Edit</value>
+    <value>Редагувати</value>
   </data>
   <data name="ProcessBlacklistEditorDialogTitle" xml:space="preserve">
-    <value>Edit process blacklist</value>
+    <value>Редагувати процеси чорного списку</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Скасувати</value>
   </data>
   <data name="Settings_ProcessBlacklistEditorDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>Зберегти</value>
   </data>
   <data name="Settings_ProcessBlacklist.Description" xml:space="preserve">
-    <value>Processes in blacklist will be throttled even when device is plugged in</value>
+    <value>Процеси з чорного списку будуть обмежені, навіть якщо пристрій підключено до зарядки</value>
   </data>
   <data name="Shell_DonateTextBlock.Text" xml:space="preserve">
-    <value>Donate</value>
+    <value>Підтримати</value>
   </data>
   <data name="Shell_DonateMarkdown.Text" xml:space="preserve">
-    <value>## Donate on [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
+    <value>## Зробіть пожертву на [Buy Me a Coffee](https://www.buymeacoffee.com/nickjohn):
 
-(Open on your phone to pay with Apple Pay or Google Pay)
+(Відкрийте на телефоні, щоб оплатити за допомогою Apple Pay або Google Pay)
 
 [![Buy me a coffee](/Assets/InApp/Buy_me_a_coffee.png)](https://www.buymeacoffee.com/nickjohn)
 
-## For Chinese users, scan with WeChat:
+## Для китайських користувачів, відскануйте за допомогою WeChat:
 
 ![WeChat Donation QR Code](/Assets/InApp/WeChat_Donation_QR_Code.png)</value>
   </data>
